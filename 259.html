@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - encode()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>encode()</h1>
+
+    <p><strong>encode(</strong>&lt;OFFSET de los datos&gt;<strong>,</strong>
+    &lt;longitud&gt;<strong>,</strong> &lt;clave&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Encripta o desencripta un bloque de datos en memoria con una clave determinada. Los
+    par&aacute;metros necesarios son los siguientes:</p>
+
+    <p><strong>&lt;OFFSET de los datos&gt;</strong> - Direcci&oacute;n de memoria en la que
+    comienza el bloque que debe comprimirse, para obtener la esta direcci&oacute;n se debe utilizar
+    el operador <a href="1085.html">OFFSET</a>.</p>
+
+    <p><strong>&lt;longitud&gt;</strong> - Longitud de los datos a comprimir, es decir, el
+    n&uacute;mero de posiciones de memoria ocupadas por los mismos, la longitud de cualquier dato
+    se puede obtener con <a href="1094.html">SIZEOF()</a>.</p>
+
+    <p><strong>&lt;clave&gt;</strong> - Un literal (texto entre comillas) con la clave de
+    encriptaci&oacute;n o desencriptaci&oacute;n de los datos.</p>
+
+    <p>El algoritmo es reversible por lo que, para desencriptar los datos, simplemente se tienen
+    que volver a encriptar con la misma clave.</p>
+
+    <p>El algoritmo de encriptaci&oacute;n es muy complejo, por lo que cualquier dato encriptado
+    con una clave &uacute;nicamente se podr&aacute; recuperar aplic&aacute;ndole la misma clave de
+    nuevo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_encode<span class="syntax3">;</span>
+
+<span class="syntax1">CONST</span>
+    clave<span class="syntax3">=</span><span class="syntax4">"miclave"</span><span
+class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    tabla_original<span class="syntax3">[</span><span class="syntax2">14</span><span
+class="syntax3">]</span>  <span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">,</span><span
+class="syntax2">2</span><span class="syntax3">,</span><span class="syntax2">3</span><span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span><span
+class="syntax2">5</span><span class="syntax3">,</span><span class="syntax2">6</span><span
+class="syntax3">,</span><span class="syntax2">7</span><span class="syntax3">,</span><span
+class="syntax2">8</span><span class="syntax3">,</span><span class="syntax2">9</span><span
+class="syntax3">,</span><span class="syntax2">10</span><span class="syntax3">,</span><span
+class="syntax2">11</span><span class="syntax3">,</span><span class="syntax2">12</span><span
+class="syntax3">,</span><span class="syntax2">13</span><span class="syntax3">,</span><span
+class="syntax2">14</span><span class="syntax3">;</span>
+    tabla_encriptada<span class="syntax3">[</span><span class="syntax2">14</span><span
+class="syntax3">]=</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">1</span><span class="syntax3">,</span><span class="syntax2">2</span><span
+class="syntax3">,</span><span class="syntax2">3</span><span class="syntax3">,</span><span
+class="syntax2">4</span><span class="syntax3">,</span><span class="syntax2">5</span><span
+class="syntax3">,</span><span class="syntax2">6</span><span class="syntax3">,</span><span
+class="syntax2">7</span><span class="syntax3">,</span><span class="syntax2">8</span><span
+class="syntax3">,</span><span class="syntax2">9</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">11</span><span
+class="syntax3">,</span><span class="syntax2">12</span><span class="syntax3">,</span><span
+class="syntax2">13</span><span class="syntax3">,</span><span class="syntax2">14</span><span
+class="syntax3">;</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span>  <span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Valores originales"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">160</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Valores encriptados"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">190</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span
+class="syntax4">"[ESPACIO] para encriptar/desencriptar los valores"</span><span
+class="syntax3">);</span>
+
+    <span class="syntax5">// Encripta los valores de la segunda tabla</span>
+
+    encode<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla_encriptada<span
+class="syntax3">,</span><span class="syntax1">sizeof</span><span
+class="syntax3">(</span>tabla_encriptada<span class="syntax3">),</span>clave<span
+class="syntax3">);</span>
+
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span>contador<span
+class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>contador<span
+class="syntax3">&lt;</span><span class="syntax2">15</span><span
+class="syntax3">;</span>contador<span class="syntax3">++)</span>
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span>  <span
+class="syntax2">20</span><span class="syntax3">+</span>contador<span class="syntax3">*</span><span
+class="syntax2">8</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> tabla_original<span
+class="syntax3">[</span>contador<span class="syntax3">]);</span>
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">160</span><span class="syntax3">,</span><span
+class="syntax2">20</span><span class="syntax3">+</span>contador<span class="syntax3">*</span><span
+class="syntax2">8</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> tabla_encriptada<span
+class="syntax3">[</span>contador<span class="syntax3">]);</span>
+    <span class="syntax1">END</span>
+
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            <span class="syntax5">// Encripta y desencripta los valores de la segunda tabla</span>
+
+            encode<span class="syntax3">(</span><span
+class="syntax1">OFFSET</span> tabla_encriptada<span class="syntax3">,</span><span
+class="syntax1">sizeof</span><span class="syntax3">(</span>tabla_encriptada<span
+class="syntax3">),</span>clave<span class="syntax3">);</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa tiene definidas dos tablas de datos globales, ambas con los mismos valores y
+    permite, pulsando la <strong>barra espaciadora</strong>, encriptar y desencriptar una de las
+    dos tablas (la denominada <strong>tabla_encriptada[]</strong>).</p>
+
+    <p>Se puede observar como, al encriptar por segunda vez los datos, se recuperan en su estado
+    original. Si se utiliza una clave distinta, el resultado ser&aacute; totalmente diferente.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Existen otras dos funciones que permiten encriptar y desencriptar
+    archivos de cualquier tipo, en este caso se debe utilizar una funci&oacute;n para cada
+    operaci&oacute;n: <a href="260.html">encode_file()</a> para encriptar y <a
+    href="261.html">decode_file()</a> para desencriptar.</p>
+    <hr />
+    Ver: <a href="260.html">encode_file()</a> - <a href="261.html">decode_file()</a>
+  </body>
+</html>
+

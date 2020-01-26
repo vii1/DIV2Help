@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - net_join_game()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>net_join_game()</h1>
+
+    <p><strong>net_join_game(</strong>&lt;nombre de la partida&gt;<strong>,</strong> &lt;OFFSET
+    estructura&gt;<strong>,</strong> &lt;SIZEOF(estructura)&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>N&uacute;mero de jugador dentro de la partida (0, 1, 2, ...). Si se produce un error, se
+    devuelve un n&uacute;mero negativo, siendo estos los c&oacute;digos de error existentes:</p>
+
+    <p>&nbsp; <strong>-1</strong> : Conexi&oacute;n abortada por el usuario.<br />
+    &nbsp; <strong>-2</strong> : No se pudo inicializar la conexi&oacute;n.<br />
+    &nbsp; <strong>-3</strong> : El n&uacute;mero de jugadores no coincide.<br />
+    &nbsp; <strong>-4</strong> : Se produjeron errores de sincronismo.<br />
+    </p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Las funciones de red son de un nivel extremadamente avanzado, por lo que pueden resultar muy
+    complejas de entender para usuarios que no tengan bastante experiencia en
+    programaci&oacute;n.</p>
+
+    <p>En primer lugar debe inicializarse la estructura global predefinida <a
+    href="1410.html">net</a> con los par&aacute;metros que definen el tipo de conexi&oacute;n que
+    debe establecerse.</p>
+
+    <p>Entonces, una llamada a la funci&oacute;n <strong>net_join_game()</strong> bastar&aacute;
+    para crear una nueva partida o para unirse a la misma (si esta ya estuviera creada).</p>
+
+    <p>El nombre de la partida (un literal, como <strong>"MiPartida"</strong>), sirve
+    &uacute;nicamente para que un s&oacute;lo juego pueda ejecutar varias partidas
+    simult&aacute;neamente en una sola red local. Diferenciando a cada una de las mismas de esta
+    forma.</p>
+
+    <p>A partir de ese momento todos los equipos que se hayan conectado a la partida
+    enviar&aacute;n y recibir&aacute;n datos de los dem&aacute;s de forma autom&aacute;tica, a
+    trav&eacute;s de la estructura indicada como par&aacute;metro.</p>
+
+    <p><strong>La estructura de datos.</strong></p>
+
+    <p>Esta debe ser una estructura global del programa con tantos registros como jugadores deban
+    conectarse simult&aacute;neamente.</p>
+
+    <p>En los campos de esta estructura se podr&aacute;n leer y escribir los datos enviados; cada
+    jugador debe introducir sus valores en su registro. El n&uacute;mero de registro que le
+    corresponde a cada jugador es el devuelto por esta funci&oacute;n.</p>
+
+    <p>El sistema enviar&aacute; autom&aacute;ticamente su registro a los dem&aacute;s jugadores, y
+    los registros de los dem&aacute;s jugadores a este.</p>
+
+    <p><a href="1410.html">La estructura predefinida net</a></p>
+
+    <p>En esta estructura se establecen los par&aacute;metros que definen el tipo de
+    conexi&oacute;n. Los campos de esta estructura se resumen a continuaci&oacute;n.</p>
+
+    <p><strong>net.device</strong> - Dispositivo de conexi&oacute;n (1-IPX, 2-Cable serie o
+    3-M&oacute;dem).</p>
+
+    <p><strong>net.com</strong> - N&ordm; de dispositivo COM, de 1 a 4 (s&oacute;lo para serie y
+    m&oacute;dem).</p>
+
+    <p><strong>net.speed</strong> - Velocidad (en baudios), hasta 115000 (s&oacute;lo para serie y
+    m&oacute;dem).</p>
+
+    <p><strong>net.number</strong> - N&uacute;mero de tel&eacute;fono (s&oacute;lo m&oacute;dem),
+    por ejemplo <strong>net.number="913040622";</strong>.</p>
+
+    <p><strong>net.init</strong> - Cadena de inicio del m&oacute;dem, por ejemplo
+    <strong>net.init="ATZ";</strong>.</p>
+
+    <p><strong>net.mode</strong> - 0 o 1 seg&uacute;n sea pulsos o tonos (tambi&eacute;n
+    s&oacute;lo para el m&oacute;dem).</p>
+
+    <p><strong>net.server</strong> - Indica si es el servidor (s&oacute;lo lectura, no se debe
+    modificar).</p>
+
+    <p><strong>net.max_players</strong> - Numero m&aacute;ximo de jugadores, de 2 a 16 (debe
+    coincidir con el n&uacute;mero de registros de la estructura global).</p>
+
+    <p><strong>net.num_players</strong> - Numero actual de jugadores, de 1 a 16 (se pueden ir
+    conectando y desconectando jugadores en cualquier momento).</p>
+
+    <p>Cuando la conexi&oacute;n se realiza por cable serie o por m&oacute;dem &uacute;nicamente
+    podr&aacute;n conectarse <strong>2 jugadores</strong>.</p>
+    <hr />
+
+    <p>Es muy importante que el n&uacute;mero de registros de la estructura utilizada para el
+    traspaso de datos tenga tantos registros como los indicados en
+    <strong>net.max_players</strong>.</p>
+
+    <p>Por ejemplo, si se crea un juego en el que el n&uacute;mero m&aacute;ximo de jugadores sean
+    8, y la informaci&oacute;n que deben pasarse los jugadores es &uacute;nicamente sus coordenadas
+    (x,y), entonces se podr&iacute;a hacer como se indica en el siguiente programa (suponiendo una
+    conexi&oacute;n IPX para una red local).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_net_join_game<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+  <span class="syntax1">STRUCT</span> jugador<span class="syntax3">[</span><span
+class="syntax2">7</span><span class="syntax3">]</span> <span
+class="syntax5">// 8 jugadores como m&aacute;ximo (de 0 a 7).</span>
+    x<span class="syntax3">,</span><span class="syntax1">y</span><span class="syntax3">;</span>
+  <span class="syntax1">END</span>
+
+  id_red<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+  net<span class="syntax3">.</span>device<span class="syntax3">=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+  net<span class="syntax3">.</span>max_players<span class="syntax3">=</span><span
+class="syntax2">8</span><span class="syntax3">;</span> <span
+class="syntax5">// Se indica aqu&iacute; el n&uacute;mero de registros.</span>
+
+  <span class="syntax5">// ...</span>
+
+  id_red<span class="syntax3">=</span>net_join_game<span class="syntax3">(</span><span
+class="syntax4">"xxx"</span><span class="syntax3">,</span><span
+class="syntax1">OFFSET</span> jugador<span class="syntax3">,</span> <span
+class="syntax1">sizeof</span><span class="syntax3">(</span>jugador<span class="syntax3">));</span>
+
+  <span class="syntax1">IF</span> <span class="syntax3">(</span>id_red<span
+class="syntax3">&lt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+
+    <span class="syntax5">// Se ha producido un error ...</span>
+
+  <span class="syntax1">END</span>
+
+  <span class="syntax5">// El registro de este jugador es "jugador[id_red]"</span>
+
+  jugador<span class="syntax3">[</span>id_red<span class="syntax3">].</span>x<span
+class="syntax3">=</span>x<span class="syntax3">;</span> <span
+class="syntax5">// Defino mis campos</span>
+  jugador<span class="syntax3">[</span>id_red<span class="syntax3">].</span><span
+class="syntax1">y</span><span class="syntax3">=</span><span class="syntax1">y</span><span
+class="syntax3">;</span>
+
+  <span class="syntax1">FRAME</span><span class="syntax3">;</span> <span
+class="syntax5">// Envio / Recepci&oacute;n de datos</span>
+
+  <span
+class="syntax5">// Ahora hay conectados "net.num_players", y sus datos est&aacute;n en</span>
+  <span class="syntax5">// los dem&aacute;s registros de la estructura jugador[].</span>
+
+  <span class="syntax5">// ...</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p><strong>Nota:</strong> Se puede encontrar m&aacute;s informaci&oacute;n sobre como
+    estructurar un juego por red en el manual de usuario de DIV Games Studio.</p>
+    <hr />
+    Ver: <a href="181.html">net_get_games()</a> - <a href="1410.html">STRUCT net</a>
+  </body>
+</html>
+

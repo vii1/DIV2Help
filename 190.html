@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - start_mode8()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>start_mode8()</h1>
+
+    <p><strong>start_mode8(</strong>&lt;identificador de la c&aacute;mara&gt;<strong>,</strong>
+    &lt;n&uacute;mero de m8&gt;<strong>,</strong> &lt;n&uacute;mero de
+    regi&oacute;n&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>&Eacute;sta es una funci&oacute;n avanzada que requiere que el usuario tenga cierta
+    experiencia para poder utilizarla.</p>
+
+    <p>Crea una ventana de visualizaci&oacute;n de un modo 8, es decir, visualiza un mapa de
+    sectores tridimensional; <strong>en primer lugar se debe cargar el mapa con la
+    funci&oacute;n</strong> <a href="189.html">load_wld()</a>, y entonces a esta funci&oacute;n con
+    los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;identificador de la c&aacute;mara&gt;</strong> - <a
+    href="1039.html">C&oacute;digo identificador</a> del proceso en cuya posici&oacute;n debe
+    situarse la c&aacute;mara del modo 8, la c&aacute;mara se situar&aacute; en las coordenadas
+    <strong>(x,y)</strong>, a la altura <strong>(z)</strong> y mirando en la direcci&oacute;n
+    indicada por <strong>(angle)</strong> (todos son <a href="1201.html">datos locales
+    predefinidos</a> del proceso).</p>
+
+    <p><strong>&lt;n&uacute;mero de m8&gt;</strong> - Se pueden crear hasta 10 ventanas de modo 8
+    en pantalla, con los n&uacute;mero del <strong>0</strong> al <strong>9</strong>; si
+    &uacute;nicamente se quiere crear una, lo mejor es definir la n&uacute;mero <strong>0</strong>.
+    Este n&uacute;mero ser&aacute; necesario posteriormente para modificar los par&aacute;metros de
+    la ventana, pues el sistema necesitar&aacute; saber cu&aacute;l de las <strong>10</strong>
+    posibles ventanas de modo 8 se quiere alterar.</p>
+
+    <p><strong>&lt;n&uacute;mero de regi&oacute;n&gt;</strong> - Aqu&iacute; se indicar&aacute; la
+    regi&oacute;n rectangular de pantalla en la que se va a mostrar el modo 8. Si se indica
+    <strong>0</strong> como n&uacute;mero de regi&oacute;n, se mostrar&aacute; en toda la pantalla.
+    El resto de regiones se deben definir previamente con la funci&oacute;n <a
+    href="106.html">define_regi&oacute;n()</a> (una <strong>regi&oacute;n</strong> no es m&aacute;s
+    que una zona rectangular de la pantalla).</p>
+
+    <p><strong>Nota:</strong> El funcionamiento es muy similar a los modos 7 que muestran un plano
+    abatido (ver <a href="162.html">start_mode7()</a>).</p>
+    <hr />
+
+    <p><strong>Adem&aacute;s de la llamada a la funci&oacute;n se deben inicializar algunos valores
+    de la</strong> <a href="1411.html">estructura global m8</a> <strong>para el correcto
+    funcionamiento de la ventana</strong>. &Eacute;sta es una estructura de 10 registros (uno para
+    cada posible ventana de modo 8) y cada registro tiene los siguientes campos:</p>
+
+    <p>&nbsp;&nbsp;<strong>camera</strong> - <a href="1039.html">C&oacute;digo identificador</a> de
+    la c&aacute;mara<br />
+    &nbsp;&nbsp;<strong>height</strong> - Altura de la c&aacute;mara respecto al proceso<br />
+    &nbsp;&nbsp;<strong>angle</strong> - Angulo vertical de la c&aacute;mara (-128,128)<br />
+    &nbsp;&nbsp;<strong>z</strong> - Plano de profundidad (prioridad de impresi&oacute;n de la
+    regi&oacute;n)<br />
+    </p>
+
+    <p>El campo <strong>camera</strong> es <strong>imprescindible</strong>, por ello se solicita
+    como uno de los par&aacute;metros de llamada de la funci&oacute;n
+    <strong>start_mode8()</strong> ya que, sin este campo, la ventana no puede determinar desde
+    d&oacute;nde se debe <strong>ver</strong> el mapa.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_start_mode8<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    fichero<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+  set_mode<span class="syntax3">(</span>m640x480<span class="syntax3">);</span>
+  set_fps<span class="syntax3">(</span><span class="syntax2">70</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>
+  fichero <span class="syntax3">=</span> load_fpg<span class="syntax3">(</span><span
+class="syntax4">"HELP\WLD_VIEW.FPG"</span><span class="syntax3">);</span>
+  load_wld<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.WLD"</span><span
+class="syntax3">,</span>fichero<span class="syntax3">);</span>
+
+  start_mode8<span class="syntax3">(</span><span class="syntax1">id</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">);</span> <span
+class="syntax5">// Inicializa una regi&oacute;n de modo 8</span>
+
+  ctype<span class="syntax3">=</span>c_m8<span class="syntax3">;</span>
+  height<span class="syntax3">=</span><span class="syntax2">64</span><span class="syntax3">;</span>
+  radius<span class="syntax3">=</span><span class="syntax2">64</span><span class="syntax3">;</span>
+  m8<span class="syntax3">.</span>height<span class="syntax3">=</span><span
+class="syntax2">32</span><span class="syntax3">;</span>
+  go_to_flag<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">);</span>
+  <span class="syntax1">LOOP</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span> angle<span
+class="syntax3">-=</span><span class="syntax2">5000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span>  angle<span
+class="syntax3">+=</span><span class="syntax2">5000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">))</span>    advance<span
+class="syntax3">(</span><span class="syntax2">24</span><span class="syntax3">);</span> <span
+class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_down<span class="syntax3">))</span>  advance<span
+class="syntax3">(-</span><span class="syntax2">9</span><span class="syntax3">);</span> <span
+class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_q<span class="syntax3">))</span>     <span class="syntax1">z</span><span
+class="syntax3">+=</span><span class="syntax2">16</span><span class="syntax3">;</span>       <span
+class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_a<span class="syntax3">))</span>     <span class="syntax1">z</span><span
+class="syntax3">-=</span><span class="syntax2">16</span><span class="syntax3">;</span>       <span
+class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_w<span class="syntax3">))</span>     m8<span
+class="syntax3">.</span>angle<span class="syntax3">+=</span><span class="syntax2">8</span><span
+class="syntax3">;</span> <span class="syntax1">END</span>
+      <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_s<span class="syntax3">))</span>     m8<span
+class="syntax3">.</span>angle<span class="syntax3">-=</span><span class="syntax2">8</span><span
+class="syntax3">;</span> <span class="syntax1">END</span>
+      <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+  <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa muestra un ejemplo de inicializaci&oacute;n de una regi&oacute;n de modo 8,
+    cargando el mapa contenido en el archivo <strong>wld_view.prg</strong>, y cuyas texturas se
+    encuentran en el fichero <strong>wld_view.fpg</strong>.</p>
+    <hr />
+
+    <p>Para crear un proceso cuyo gr&aacute;fico se visualice en el modo 8, se debe definir su
+    variable local <a href="1122.html">ctype</a> como <a href="1412.html">c_m8</a> (<strong>tipo de
+    coordenada</strong> como <strong>coordenada de modo 8</strong>).</p>
+
+    <p>Cuando un proceso pertenezca al modo 8 sus variables <a href="1123.html">x</a> e <a
+    href="1124.html">y</a> estar&aacute;n referidas al punto dentro del mapa de sectores (WLD), y
+    su variable <a href="1125.html">z</a> indicar&aacute; la altura.</p>
+
+    <p>Si hubiera varias ventanas de <strong>modo 8</strong> el proceso se visualizar&iacute;a por
+    defecto en todas, si &uacute;nicamente se tuviera que visualizar el algunas de ellas, se
+    deber&iacute;a definir su variable local <a href="1134.html">cnumber</a>.</p>
+
+    <p>Para que un proceso tenga varios gr&aacute;ficos (varias vistas), dependiendo del
+    &aacute;ngulo desde el que se le mire, se debe definir su gr&aacute;fico con la variable local
+    <a href="1132.html">xgraph</a> (en lugar de la variable <a href="1126.html">graph</a>).</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Para eliminar una regi&oacute;n de modo 8 se debe utilizar la
+    funci&oacute;n <a href="182.html">stop_mode8()</a>, a la que se le debe indicar el
+    <strong>n&uacute;mero de m8</strong>.</p>
+    <hr />
+    Ver: <a href="1411.html">STRUCT m8</a> - <a href="189.html">load_wld()</a> - <a
+    href="191.html">go_to_flag()</a> - <a href="182.html">stop_mode8()</a>
+  </body>
+</html>
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - stop_sound()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>stop_sound()</h1>
+
+    <p><strong>stop_sound(</strong>&lt;n&uacute;mero de canal&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Para el sonido que est&eacute; sonando por el canal pasado como par&aacute;metro.</p>
+
+    <p>El &lt;n&uacute;mero de canal&gt; requerido es el valor que retorna la funci&oacute;n <a
+    href="159.html">sound()</a> cuando se inicia la reproducci&oacute;n de un efecto de sonido.</p>
+
+    <p>Existen un total de 16 canales de sonido, pudiendo sonar hasta 16 sonidos
+    simult&aacute;neamente.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_stop_sound<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    id_sonido<span class="syntax3">;</span>
+    canal<span class="syntax3">;</span>
+    sonando<span class="syntax3">=</span>FALSE<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para iniciar la reproducci&oacute;n."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para detener el canal de sonido."</span><span
+class="syntax3">);</span>
+    id_sonido <span class="syntax3">=</span> load_pcm<span class="syntax3">(</span><span
+class="syntax4">"help\help.pcm"</span><span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space <span class="syntax1">AND</span> <span
+class="syntax1">NOT</span> sonando<span class="syntax3">)</span>
+            canal <span class="syntax3">=</span> sound<span class="syntax3">(</span>id_sonido<span
+class="syntax3">,</span> <span class="syntax2">128</span><span class="syntax3">,</span> <span
+class="syntax2">256</span><span class="syntax3">);</span>
+            sonando<span class="syntax3">=</span>TRUE<span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_enter<span class="syntax3">)</span>
+
+            stop_sound<span class="syntax3">(</span>canal<span class="syntax3">);</span> <span
+class="syntax5">// Se para el sonido</span>
+
+            sonando<span class="syntax3">=</span>FALSE<span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone un gr&aacute;fico de fondo y los mensajes necesarios, a la vez que se
+    carga el efecto de sonido contenido en el archivo <strong>help.pcm</strong> con la
+    funci&oacute;n <a href="134.html">load_pcm()</a>, que devuelve el identificador del sonido que
+    se guarda en la variable <strong>id_sonido</strong>. Se puede ver que en este ejemplo se pasa a
+    esta funci&oacute;n un <strong>1</strong> como segundo par&aacute;metro; esto es para indicar
+    que el efecto de sonido cargado debe repetirse indefinidamente cada vez que sea iniciado (esto
+    se hace para resaltar el efecto de la funci&oacute;n <strong>stop_sound()</strong>.</p>
+
+    <p>En cada paso del bucle se comprueba si se pulsa la barra espaciadora, en cuyo caso se
+    iniciar&aacute; la reproducci&oacute;n del efecto de sonido con <a href="159.html">sound()</a>,
+    que devolver&aacute; el n&uacute;mero de canal que se guardar&aacute; en la variable
+    <strong>canal</strong>.</p>
+
+    <p>Si se pulsa la tecla ENTER el sonido ser&aacute; parado con la funci&oacute;n
+    <strong>stop_sound()</strong>.</p>
+    <hr />
+
+    <p>Para parar gradualmente un sonido, bajando su volumen poco a poco, se deben realizar varias
+    llamadas a la funci&oacute;n <a href="102.html">change_sound()</a> para ir decrementando
+    ligeramente el volumen del canal hasta que &eacute;ste llegue a 0; entonces se puede llamar a
+    la funci&oacute;n <strong>stop_sound()</strong> para detener definitivamente el efecto de
+    sonido.</p>
+    <hr />
+    Ver: <a href="159.html">sound()</a> - <a href="102.html">change_sound()</a> - <a
+    href="134.html">load_pcm/wav()</a> - <a href="170.html">unload_pcm/wav()</a>
+  </body>
+</html>
+

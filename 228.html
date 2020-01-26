@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - ftell()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>ftell()</h1>
+
+    <p><strong>ftell(</strong>&lt;handle&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La posici&oacute;n actual del puntero de lectura/escritura de un archivo.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Retorna la posici&oacute;n del <strong>puntero de lectura/escritura</strong> de un archivo,
+    para ello requiere &uacute;nicamente el <strong>&lt;handle&gt;</strong> o <strong>identificador
+    de archivo</strong> devuelto por la funci&oacute;n <a href="223.html">fopen()</a> al
+    abrirlo.</p>
+
+    <p>Para establecer una nueva posici&oacute;n del puntero de un archivo, se debe utilizar la
+    funci&oacute;n <a href="227.html">fseek()</a>. A diferencia de esta &uacute;ltima
+    funci&oacute;n, <strong>ftell()</strong> siempre retorna la posici&oacute;n del puntero
+    respecto al inicio del archivo.</p>
+
+    <p>Todas las operaciones de lectura o escritura sobre un archivo avanzan autom&aacute;ticamente
+    el puntero del mismo, de forma que todos estos accesos se realicen de forma secuencial (leyendo
+    o escribiendo los datos unos a continuaci&oacute;n de otros).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_ftell<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    mitabla<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">11</span><span class="syntax3">,</span><span
+class="syntax2">22</span><span class="syntax3">,</span><span class="syntax2">33</span><span
+class="syntax3">,</span><span class="syntax2">44</span><span class="syntax3">;</span>
+    midato1<span class="syntax3">;</span>
+    midato2<span class="syntax3">;</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span>
+
+    midato1<span class="syntax3">=</span>ftell<span class="syntax3">(</span>mihandle<span
+class="syntax3">);</span> <span
+class="syntax5">// Posici&oacute;n del puntero antes de escribir</span>
+
+    fwrite<span class="syntax3">(</span><span class="syntax1">OFFSET</span> mitabla<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+
+    midato2<span class="syntax3">=</span>ftell<span class="syntax3">(</span>mihandle<span
+class="syntax3">);</span> <span
+class="syntax5">// Posici&oacute;n del puntero tras escribir los datos</span>
+
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo escribe los cuatro datos contenidos en <strong>mitabla</strong> (11,22,33 y 44)
+    en el archivo <strong>help.dat</strong>.</p>
+
+    <p>Tras abrir el archivo con <a href="223.html">fopen()</a>, se obtiene la posici&oacute;n del
+    puntero y se guarda en <strong>midato1</strong> (esta ser&aacute; 0, al inicio del
+    archivo).</p>
+
+    <p>Entonces se escriben en el archivo los cuatro valores contenidos en la tabla y se vuelve a
+    obtener la posici&oacute;n del puntero, que ahora se guarda en <strong>midato2</strong>
+    (ser&aacute; 4, al final del archivo, tras los cuatro valores escritos).</p>
+
+    <p>Finalmente, se cierra el archivo con <a href="224.html">fclose()</a> antes de finalizar.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Por defecto, la <strong>&lt;posici&oacute;n del puntero&gt;</strong>
+    se especifica como un n&uacute;mero de datos simples, teniendo en cuenta que un dato simple
+    (una variable) ocupa <strong>4 bytes</strong>. Es decir, que si por ejemplo, el puntero se
+    encuentra en la posici&oacute;n diez (siempre a partir del inicio del fichero), se podr&aacute;
+    entonces acceder a los datos contenidos en el archivo a partir del byte cuarenta.</p>
+
+    <p>Se puede cambiar esta relaci&oacute;n modificando la variable global <a
+    href="1420.html">unit_size</a>, que por defecto vale <strong>4</strong> en todos los
+    programas.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La funci&oacute;n <a href="229.html">filelength()</a> permite
+    averiguar la longitud de un archivo, para ello se debe abrir previamente el mismo.</p>
+    <hr />
+    Ver: <a href="227.html">fseek()</a> - <a href="225.html">fread()</a> - <a
+    href="226.html">fwrite()</a> - <a href="1420.html">unit_size</a>
+  </body>
+</html>
+

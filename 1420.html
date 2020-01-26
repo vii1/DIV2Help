@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL unit_size</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL unit_size</h1>
+
+    <p><strong>unit_size=4;</strong> // Unidad m&iacute;nima de lectura/escritura</p>
+    <hr />
+
+    <p>La variable global predefinida <strong>unit_size</strong> indica cual es el tama&ntilde;o de
+    la unidad m&iacute;nima de lectura y escritura de las funciones de archivos basadas en
+    <strong>handles</strong>.</p>
+
+    <p>Por defecto valdr&aacute; siempre <strong>4</strong>, ya que 4 bytes es el tama&ntilde;o de
+    los datos est&aacute;ndar <a href="1402.html">INT</a> (enteros de 32 bit), y todos los datos se
+    alinean en memoria cada 4 bytes (ver la <a href="1407.html">alineaci&oacute;n de datos en
+    memoria</a>).</p>
+
+    <p>Las funciones que tienen en cuenta el tama&ntilde;o de unidad indicado en
+    <strong>unit_size</strong> son las siguientes:</p>
+
+    <p>&nbsp;&nbsp;<a href="225.html">fread()</a><br />
+    &nbsp;&nbsp;<a href="226.html">fwrite()</a><br />
+    &nbsp;&nbsp;<a href="227.html">fseek()</a><br />
+    &nbsp;&nbsp;<a href="228.html">ftell()</a><br />
+    &nbsp;&nbsp;<a href="229.html">filelength()</a><br />
+    </p>
+
+    <p>Y adem&aacute;s el campo <strong>size</strong> de la estructura global <a
+    href="1414.html">fileinfo</a>.</p>
+    <hr />
+
+    <p>Que el tama&ntilde;o m&iacute;nimo sea 4 implica que no se pueden leer ni escribir archivos
+    cuya longitud no sea m&uacute;ltiplo de dicho n&uacute;mero.</p>
+
+    <p>Se puede cambiar este tama&ntilde;o; por ejemplo asignando <strong>1</strong> a
+    <strong>unit_size</strong> (con la sentencia <strong>unit_size=1;</strong>). De este modo,
+    todas las <strong>longitudes</strong> de las funciones anteriores se indicar&aacute;n ahora en
+    bytes (y no en datos).</p>
+
+    <p>No obstante, al cambiar el tama&ntilde;o de la unidad, se debe tener en cuenta lo
+    siguiente:</p>
+
+    <p>- <a href="1094.html">SIZEOF()</a> continuar&aacute; devolviendo la longitud en datos (de 4
+    bytes). Por ejemplo, para grabar una tabla en disco no bastar&aacute; con indicar
+    <strong>sizeof(</strong>&lt;tabla&gt;<strong>)</strong> como longitud, sino que se
+    deber&aacute; multiplicar la misma por 4 (en caso de haber definido <strong>unit_size</strong>
+    como <strong>1</strong>).</p>
+
+    <p>- Las funciones de archivos <a href="155.html">save()</a> y <a href="130.html">load()</a>
+    (que no son funciones basadas en <strong>handles</strong>) continuar&aacute;n indicando la
+    longitud en datos.</p>
+
+    <p>- Las funciones de memoria din&aacute;mica <a href="257.html">malloc()</a> y <a
+    href="258.html">free()</a> tambi&eacute;n continuar&aacute;n trabajando con longitudes en
+    datos, por lo que se deber&aacute;n hacer los ajustes oportunos en caso de trabajar con ambos
+    conjutos de funciones.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1407.html">Alineaci&oacute;n de datos en
+    memoria</a>
+  </body>
+</html>
+

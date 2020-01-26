@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Demasiados valores para la tabla</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Demasiados valores para la tabla</h1>
+
+    <p>Se ha inicializado una tabla con m&aacute;s valores de los que puede contener.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">,</span><span class="syntax2">2</span> <span
+class="syntax3">,</span> <span class="syntax2">3</span><span class="syntax3">,</span> <span
+class="syntax2">4</span><span class="syntax3">;</span> <span
+class="syntax5">// Error: Demasiados valores para la tabla.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Para inicializar una tabla se debe tener en cuenta que, como m&aacute;ximo, puede tener
+    tantos valores como indique el n&uacute;mero que va entre los corchetes m&aacute;s 1.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">2</span><span class="syntax3">,</span> <span
+class="syntax2">4</span><span class="syntax3">,</span> <span class="syntax2">6</span><span
+class="syntax3">,</span> <span class="syntax2">8</span><span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este caso la tabla <strong>tabla1</strong> puede contener cuatro valores (tabla1[0]=2,
+    tabla1[1]=4, tabla1[2]=6 y tabla1[3]=8).</p>
+
+    <p>Otra opci&oacute;n es <strong>no indicar el tama&ntilde;o de la tabla</strong>, por lo que
+    el compilador lo deducir&aacute; a partir de su inicializaci&oacute;n.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[]=</span><span class="syntax2">2</span><span
+class="syntax3">,</span> <span class="syntax2">4</span><span class="syntax3">,</span> <span
+class="syntax2">6</span><span class="syntax3">,</span> <span class="syntax2">8</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este caso, si dentro del programa se necesitase hacer referencia a la longitud de la
+    tabla, se deber&iacute;a utilizar la expresi&oacute;n <strong>sizeof(tabla1)</strong> que, en
+    este ejemplo, valdr&iacute;a <strong>4</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1011.html">Declaraci&oacute;n de tabla</a> -
+    <a href="1094.html">sizeof()</a>
+  </body>
+</html>
+

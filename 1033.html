@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Llamada a un proceso</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Llamada a un proceso</h1>
+
+    <p>&lt;nombre_del_proceso&gt;<strong>(</strong>&lt;lista de
+    par&aacute;metros&gt;<strong>)</strong></p>
+
+    <p>Una llamada a un proceso se hace poniendo el <a href="1001.html">nombre</a> del proceso (su
+    nombre), seguido de una lista con tantas expresiones separadas por <a href="1059.html">comas
+    (,)</a>, como <a href="1018.html">par&aacute;metros</a> tenga el proceso, entre <a
+    href="1053.html">par&eacute;ntesis (())</a>. Los par&eacute;ntesis son obligatorios aun cuando
+    el proceso no tenga <a href="1018.html">par&aacute;metros</a> de llamada.</p>
+
+    <p>Una llamada a un proceso siempre devolver&aacute; un valor, que depende de cual de las
+    siguientes acciones realice primero el proceso llamado.</p>
+
+    <p>- Si ejecuta la sentencia <a href="1029.html">FRAME</a> el proceso retornar&aacute; su <a
+    href="1039.html">c&oacute;digo identificador</a>.</p>
+
+    <p>- Si el proceso ejecuta la sentencia <a href="1028.html">RETURN</a><a
+    href="1053.html">(</a>&lt;expresi&oacute;n&gt;<a href="1053.html">)</a> retornar&aacute; el
+    resultado de dicha expresi&oacute;n.</p>
+
+    <p>- Si el proceso termina, bien porque llegue el <a href="1091.html">END</a> de su <a
+    href="1086.html">BEGIN</a> o porque ejecute una sentencia <a href="1028.html">RETURN</a> sin
+    expresi&oacute;n, el proceso retornar&aacute; el <a href="1039.html">c&oacute;digo
+    identificador</a> que tuvo, pero como el proceso ha finalizado (muerto), se debe tener en
+    cuenta que dicho <a href="1039.html">c&oacute;digo identificador</a> puede ser ahora utilizado
+    por cualquier otro proceso que se cree a partir de ahora.</p>
+
+    <p>El valor de retorno puede ignorarse, asignarse a una variable o bien utilizarse dentro de
+    una expresi&oacute;n.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">PRIVATE</span>
+  id2<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mi_proceso<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">);</span>
+    id2<span class="syntax3">=</span>mi_proceso<span class="syntax3">(</span><span
+class="syntax2">320</span><span class="syntax3">,</span> <span class="syntax2">200</span><span
+class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">)</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo el proceso principal <strong>mi_juego</strong> realiza dos llamadas al
+    proceso <strong>mi_proceso</strong>, que recibe dos par&aacute;metros en sus variables locales
+    <strong>x</strong> e <strong>y</strong>.</p>
+
+    <p>Como el proceso ejecuta la sentencia <a href="1029.html">FRAME</a> devolver&aacute; su <a
+    href="1039.html">c&oacute;digo identificador</a>.</p>
+
+    <p>Se puede observar c&oacute;mo el valor devuelto en la primera llamada al proceso es
+    despreciado (no se utiliza para nada), y c&oacute;mo en la segunda se asigna el <a
+    href="1039.html">c&oacute;digo identificador</a> de <strong>mi_proceso(320, 200)</strong> a la
+    variable privada del proceso principal <strong>id2</strong>.</p>
+
+    <p>Cuando se realiza una llamada a un proceso se detiene moment&aacute;neamente la
+    ejecuci&oacute;n del proceso actual y se pasa a ejecutar el c&oacute;digo del proceso llamado,
+    hasta que este retorne por uno de los tres casos enumerados (hasta que termine o ejecute una
+    sentencia <a href="1029.html">FRAME</a> o <a href="1028.html">RETURN</a>).</p>
+
+    <p>Si el proceso ha terminado con una sentencia <a href="1029.html">FRAME</a> se
+    visualizar&aacute; en la siguiente imagen seg&uacute;n los valores establecidos en sus
+    variables locales (<a href="1023.html">x</a>, <a href="1024.html">y</a>, <a
+    href="1026.html">graph</a>, ...) y, en la preparaci&oacute;n de la siguiente imagen, dicho
+    proceso continuar&aacute; ejecut&aacute;ndose a partir de la sentencia <a
+    href="1029.html">FRAME</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1018.html">Par&aacute;metros de un proceso</a>
+  </body>
+</html>
+

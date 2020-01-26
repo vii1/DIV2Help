@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL fps</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL fps</h1>
+
+    <p><strong>fps;</strong> // N&uacute;mero de im&aacute;genes por segundo</p>
+    <hr />
+
+    <p>La variable global predefinida <strong>fps</strong> (frames per second) mantiene el
+    n&uacute;mero de im&aacute;genes por segundo que est&aacute; mostrando un programa.</p>
+
+    <p>Esta variable es actualizada por el gestor de procesos de DIV Games Studio
+    autom&aacute;ticamente. No se mantiene el valor instant&aacute;neo, sino una media de los
+    &uacute;ltimos segundos, por ello se necesita cierto tiempo de ejecuci&oacute;n para que el
+    valor de <strong>fps</strong> se estabilice.</p>
+
+    <p>La funci&oacute;n <a href="156.html">set_fps()</a> permite establecer el n&uacute;mero de
+    im&aacute;genes por segundo del programa, pero de esta forma se establece el n&uacute;mero de
+    im&aacute;genes ideal, y no el real (que es el que contabiliza <strong>fps</strong>).</p>
+
+    <p>Es decir, que esta variable sirve de cuenta para saber cuantas im&aacute;genes se
+    est&aacute;n volcando a v&iacute;deo por cada segundo, como media.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La variable <strong>fps</strong> mantiene un dato de s&oacute;lo
+    lectura, no se conseguir&aacute; ning&uacute;n efecto modificando su contenido desde un
+    programa.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="156.html">set_fps()</a>
+  </body>
+</html>
+

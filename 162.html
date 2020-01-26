@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - start_mode7()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>start_mode7()</h1>
+
+    <p><strong>start_mode7(</strong>&lt;n&uacute;mero de m7&gt;<strong>,</strong>
+    &lt;fichero&gt;<strong>,</strong> &lt;gr&aacute;fico&gt;<strong>,</strong> &lt;gr&aacute;fico
+    exterior&gt;<strong>,</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;n&uacute;mero
+    de regi&oacute;n&gt;<strong>,</strong> &lt;altura del horizonte&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>&Eacute;sta es una funci&oacute;n avanzada que requiere que el usuario tenga cierta soltura
+    para poder utilizarla.</p>
+
+    <p>Crea una ventana de visualizaci&oacute;n de un modo 7, es decir, visualiza un gr&aacute;fico
+    <strong>tridimensionalmente</strong> en un plano abatido; para conseguir este efecto se
+    llamar&aacute; a esta funci&oacute;n con los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;n&uacute;mero de m7&gt;</strong> - Se pueden crear hasta 10 ventanas de modo 7
+    en pantalla, con los n&uacute;mero del <strong>0</strong> al <strong>9</strong>; si
+    &uacute;nicamente se quiere crear una, lo mejor es definir la n&uacute;mero <strong>0</strong>.
+    Este n&uacute;mero ser&aacute; necesario posteriormente para modificar los par&aacute;metros de
+    la ventana, pues el sistema necesitar&aacute; saber cu&aacute;l de las <strong>10</strong>
+    posibles ventanas de modo 7 se quiere alterar.</p>
+
+    <p><strong>&lt;fichero&gt;</strong> - Los gr&aacute;ficos que se pretendan abatir en la ventana
+    deben estar en un fichero cuyo <strong>c&oacute;digo de fichero</strong> se debe especificar
+    aqu&iacute;, como segundo par&aacute;metro de la funci&oacute;n. Los gr&aacute;ficos cargados
+    con las funciones <a href="174.html">load_map()</a> o <a href="174.html">load_pcx()</a> (o
+    creados con <a href="188.html">new_map()</a>) se utilizar&aacute;n como si pertenecieran al
+    primer fichero (el fichero con el c&oacute;digo 0).</p>
+
+    <p><strong>&lt;gr&aacute;fico&gt;</strong> - El tercer par&aacute;metro debe ser el
+    <strong>c&oacute;digo del gr&aacute;fico</strong> principal que se va a abatir en la ventana y
+    debe pertenecer al fichero anteriormente indicado.</p>
+
+    <p><strong>&lt;gr&aacute;fico exterior&gt;</strong> - Aqu&iacute; se puede indicar un
+    <strong>0</strong> si no se quiere que se vea ning&uacute;n gr&aacute;fico m&aacute;s
+    all&aacute; del gr&aacute;fico abatido en la perspectiva, o bien un <strong>c&oacute;digo de
+    gr&aacute;fico</strong> del mismo fichero que se mostrar&aacute; en la perspectiva m&aacute;s
+    all&aacute; del <strong>gr&aacute;fico principal</strong>, hasta alcanzar el horizonte. Este
+    gr&aacute;fico debe ser de un ancho y alto potencia de dos, no mayor de <strong>8192</strong>
+    (estas potencias de dos son: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096 y 8192),
+    por ejemplo, podr&iacute;a ser un gr&aacute;fico de 64 puntos de ancho por 32 de alto; este
+    gr&aacute;fico se mostrar&aacute; tambi&eacute;n abatido.</p>
+
+    <p><strong>&lt;n&uacute;mero de regi&oacute;n&gt;</strong> - Aqu&iacute; se indicar&aacute; la
+    regi&oacute;n rectangular de pantalla en la que se va a mostrar el modo 7. Si se indica
+    <strong>0</strong> como n&uacute;mero de regi&oacute;n, se mostrar&aacute; en toda la pantalla.
+    El resto de regiones se deben definir previamente con la funci&oacute;n <a
+    href="106.html">define_regi&oacute;n()</a> (una <strong>regi&oacute;n</strong> no es m&aacute;s
+    que una zona rectangular de la pantalla).</p>
+
+    <p><strong>&lt;altura del horizonte&gt;</strong> - Como &uacute;ltimo par&aacute;metro se
+    indicar&aacute; a cu&aacute;ntos puntos desde la parte superior de la ventana se quiere situar
+    la l&iacute;nea del horizonte. Si la c&aacute;mara se sit&uacute;a por encima del plano
+    abatido, entonces no se mostrar&aacute; nada por encima de la l&iacute;nea del horizonte (ese
+    hueco se suele rellenar con otra ventana de scroll o de modo 7); en cambio si la camara se
+    sit&uacute;a por debajo del plano, entonces no se mostrar&aacute; nada por debajo de la
+    l&iacute;nea del horizonte.</p>
+    <hr />
+
+    <p><strong>Adem&aacute;s de la llamada a la funci&oacute;n se deben inicializar algunos valores
+    de la</strong> <a href="1102.html">estructura global m7</a> <strong>para el correcto
+    funcionamiento de la ventana</strong>. &Eacute;sta es una estructura de 10 registros (uno para
+    cada posible ventana de modo 7) y cada registro tiene los siguientes campos:</p>
+
+    <p>&nbsp;&nbsp;<strong>camera</strong> - <a href="1039.html">C&oacute;digo identificador</a> de
+    la c&aacute;mara<br />
+    &nbsp;&nbsp;<strong>height</strong> - Altura de la c&aacute;mara<br />
+    &nbsp;&nbsp;<strong>distance</strong> - Distancia de la c&aacute;mara<br />
+    &nbsp;&nbsp;<strong>horizon</strong> - Altura del horizonte<br />
+    &nbsp;&nbsp;<strong>focus</strong> - Focal de visi&oacute;n<br />
+    &nbsp;&nbsp;<strong>z</strong> - Plano de profundidad<br />
+    &nbsp;&nbsp;<strong>color</strong> - Color del exterior<br />
+    </p>
+
+    <p><strong>Importante:</strong> El campo <strong>camera</strong> es
+    <strong>imprescindible</strong> inicializarlo para que se active la ventana de modo 7 ya que,
+    sin este campo, la ventana no puede determinar desde d&oacute;nde se debe <strong>ver</strong>
+    el plano abatido.</p>
+
+    <p>La c&aacute;mara se situar&aacute; en el plano abatido a la distancia
+    (<strong>distance</strong>) indicada del proceso cuyo <a href="1039.html">c&oacute;digo
+    identificador</a> se haya puesto en <strong>camera</strong>, y mirando en su mismo
+    &aacute;ngulo (el que indique su variable local <a href="1129.html">angle</a>). La altura a la
+    que se sit&uacute;a la c&aacute;mara respecto al suelo ser&aacute; la indicada en el campo
+    <strong>height</strong>.</p>
+
+    <p>Ver la ayuda sobre la <a href="1102.html">estructura m7</a> para m&aacute;s
+    informaci&oacute;n sobre estos campos, o para saber c&oacute;mo acceder a ellos.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_start_mode7<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    fichero1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+
+    start_mode7<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> fichero1<span class="syntax3">,</span> <span class="syntax2">4</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">64</span><span
+class="syntax3">);</span>
+
+    m7<span class="syntax3">.</span>height <span class="syntax3">=</span> <span
+class="syntax2">64</span><span class="syntax3">;</span>
+    m7<span class="syntax3">.</span>distance <span class="syntax3">=</span> <span
+class="syntax2">32</span><span class="syntax3">;</span>
+    m7<span class="syntax3">.</span>color <span class="syntax3">=</span> <span
+class="syntax2">162</span><span class="syntax3">;</span>
+    m7<span class="syntax3">.</span>camera <span class="syntax3">=</span> <span
+class="syntax1">id</span><span class="syntax3">;</span>
+
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax4">"Utilice los cursores para moverse"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span> angle<span
+class="syntax3">-=</span><span class="syntax2">8000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span> angle<span
+class="syntax3">+=</span><span class="syntax2">8000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">))</span> advance<span
+class="syntax3">(</span><span class="syntax2">6</span><span class="syntax3">);</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga el fichero de gr&aacute;ficos y entonces se crea un modo 7
+    tridimensional con la funci&oacute;n <strong>start_mode7()</strong>. A esta &uacute;ltima se le
+    pasan los siguientes par&aacute;metros:</p>
+
+    <p><strong>0</strong> - N&uacute;mero de ventana de modo 7 (la primera, puesto que s&oacute;lo
+    se crear&aacute; una ventana de esta clase).</p>
+
+    <p><strong>fichero1</strong> - C&oacute;digo del fichero del que se deben tomar los
+    gr&aacute;ficos; este es el c&oacute;digo del archivo <strong>help.fpg</strong> que se
+    carg&oacute; con la funci&oacute;n <a href="132.html">load_fpg()</a>.</p>
+
+    <p><strong>4</strong> - C&oacute;digo del gr&aacute;fico principal a abatir dentro del modo 7;
+    para ver este gr&aacute;fico se debe cargar el fichero con el <strong>Men&uacute; de
+    ficheros</strong> y as&iacute; poder observar cu&aacute;l es el gr&aacute;fico con
+    <strong>c&oacute;digo 4</strong>.</p>
+
+    <p><strong>0</strong> - C&oacute;digo de gr&aacute;fico secundario, con un 0 se indica que no
+    habr&aacute; gr&aacute;fico secundario (exterior) en el modo 7, luego el exterior se
+    visualizar&aacute; del color que indique la variable <strong>m7[0].color</strong>. Para
+    observar el efecto de poner un <strong>gr&aacute;fico exterior</strong> se puede cambiar este
+    par&aacute;metro, por ejemplo, por un <strong>100</strong> (que es el c&oacute;digo de una bola
+    marr&oacute;n de 32 por 32 puntos en el fichero <strong>help.fpg</strong>).</p>
+
+    <p><strong>0</strong> - N&uacute;mero de regi&oacute;n de la pantalla en la que se debe
+    <strong>colocar</strong> el modo 7; con 0 se indica que se debe colocar en la pantalla
+    entera.</p>
+
+    <p><strong>64</strong> - Altura del horizonte, con este &uacute;ltimo par&aacute;metro se
+    indica que la l&iacute;nea del horizonte se situar&aacute; a 64 puntos del inicio superior de
+    la ventana.</p>
+
+    <p>Tras llamar a la funci&oacute;n <strong>start_mode7()</strong> el programa define los
+    siguientes valores de la <a href="1102.html">estructura global m7</a>:</p>
+
+    <p><strong>m7.height=64;</strong> - Para indicar que la c&aacute;mara se debe situar a 64
+    puntos sobre el suelo.</p>
+
+    <p><strong>m7.distance=32;</strong> - Para indicar que la c&aacute;mara se debe situar 32
+    puntos por detr&aacute;s del proceso c&aacute;mara.</p>
+
+    <p><strong>m7.color=162;</strong> - Para indicar que el exterior se debe visualizar del color
+    n&uacute;mero 162 de la paleta.</p>
+
+    <p><strong>m7.camera=</strong><a href="1092.html">id</a><strong>;</strong> - Para indicar que
+    el proceso c&aacute;mara ser&aacute; el proceso actual.</p>
+
+    <p>La c&aacute;mara se situar&aacute; 32 puntos por detr&aacute;s del proceso principal, a 64
+    puntos de altura y mirando en el &aacute;ngulo que indique la variable <a
+    href="1129.html">angle</a> del mismo.</p>
+
+    <p>Tras estas inicializaciones el programa ejemplo se quedar&aacute; en un bucle que
+    simplemente controla con los cursores el &aacute;ngulo (<a href="1129.html">angle</a>) del
+    proceso principal, que ser&aacute; el &aacute;ngulo de la c&aacute;mara y, cuando se pulse la
+    tecla <strong>cursor arriba</strong>, se llamar&aacute; a la funci&oacute;n <a
+    href="101.html">advance()</a> para que el proceso principal avance 6 puntos (y por consiguiente
+    la c&aacute;mara del modo 7).</p>
+    <hr />
+    <strong>C&oacute;mo visualizar gr&aacute;ficos de procesos sobre el modo 7</strong>
+    <hr />
+
+    <p>Para crear un proceso cuyo gr&aacute;fico se visualice en el modo 7, se debe definir su
+    variable local <a href="1122.html">ctype</a> como <a href="1169.html">c_m7</a> (<strong>tipo de
+    coordenada</strong> como <strong>coordenada de modo 7</strong>), lo que se har&aacute; con la
+    siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>ctype=c_m7;</strong></p>
+
+    <p>Una vez hecho esto el proceso se visualizar&aacute; en el modo 7 con su gr&aacute;fico (<a
+    href="1126.html">graph</a>) escalado acorde a la distancia a la que est&eacute;. El proceso
+    &uacute;nicamente debe modificar sus variables <a href="1123.html">x</a> e <a
+    href="1124.html">y</a> para moverse por el plano abatido.</p>
+    <hr />
+
+    <p><strong>Cuando un proceso pertenezca al modo 7 (se haya asignado el valor c_m7 a su variable
+    local</strong> <a href="1122.html">ctype</a><strong>):</strong></p>
+
+    <p>&nbsp;&nbsp;- Sus variables <a href="1123.html">x</a> e <a href="1124.html">y</a>
+    estar&aacute;n referidas al punto del gr&aacute;fico principal abatido sobre el cual se
+    situar&aacute; el gr&aacute;fico del proceso.</p>
+
+    <p>&nbsp;&nbsp;- Su variable <a href="1125.html">z</a> perder&aacute; su efecto, ya que los
+    gr&aacute;ficos aparecer&aacute;n ordenados por estricto orden de profundidad. Esta variable
+    valdr&aacute; &uacute;nicamente para indicar prioridades de impresi&oacute;n en gr&aacute;ficos
+    que se sit&uacute;en, exactamente, en la misma profundidad del plano.</p>
+
+    <p>&nbsp;&nbsp;- El proceso ser&aacute; eliminado autom&aacute;ticamente cuando se elimine la
+    ventana de modo 7 a la que pertenece el proceso, con la funci&oacute;n <a
+    href="165.html">stop_mode7()</a>, o cuando se cambie el modo de v&iacute;deo con la
+    funci&oacute;n <a href="157.html">set_mode()</a>, ya que al hacerlo se eliminar&aacute;n
+    tambi&eacute;n las ventanas de modo 7.</p>
+    <hr />
+
+    <p>Si hubiera varias ventanas de <strong>modo 7</strong> el proceso se visualizar&iacute;a por
+    defecto en todas, si &uacute;nicamente se tuviera que visualizar el algunas de ellas, se
+    deber&iacute;a definir su variable local <a href="1134.html">cnumber</a>. Por ejemplo, si
+    hubiera 6 ventanas de modo 7 (de la n&uacute;mero 0 a la 5) y se quisiera que un proceso se
+    visualizara &uacute;nicamente en las ventanas 0 y 2, se deber&iacute;a incluir en el mismo la
+    siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>cnumber=c_0+c_2;</strong></p>
+    <hr />
+
+    <p>Para que un proceso tenga varios gr&aacute;ficos (varias vistas), dependiendo del
+    &aacute;ngulo desde el que se le mire, se debe definir su gr&aacute;fico con la variable local
+    <a href="1132.html">xgraph</a> (en lugar de la variable <a href="1126.html">graph</a>). Para
+    definir esta variable primero se debe crear una tabla (de cualquier nombre) indicando en primer
+    lugar el <strong>n&uacute;mero de vistas</strong> del gr&aacute;fico y despu&eacute;s los
+    <strong>c&oacute;digos de los gr&aacute;ficos</strong> para estas vistas, comenzando por el
+    <strong>&aacute;ngulo 0</strong> y en sentido contrario a las agujas del reloj. Por
+    ejemplo:</p>
+
+    <p>&nbsp;&nbsp;<strong>GLOBAL</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>vistas_coche[]=4, 100, 101, 102, 103;</strong><br />
+    </p>
+
+    <p>La tabla <strong>vistas_coche</strong> definir&iacute;a 4 vistas: el gr&aacute;fico 100 para
+    &aacute;ngulos pr&oacute;ximos a 0 grados, el gr&aacute;fico 101 para &aacute;ngulos
+    pr&oacute;ximos a 90 grados, el 102 para &aacute;ngulos pr&oacute;ximos a 180 grados, etc.</p>
+
+    <p>Y despu&eacute;s en el c&oacute;digo del proceso se deber&iacute;a inicializar la variable
+    <a href="1132.html">xgraph</a> con la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>xgraph=OFFSET vistas_coche;</strong></p>
+
+    <p>Para poder observar un ejemplo de lo aqu&iacute; expuesto, lo mejor es examinar alguno de
+    los juegos ejemplo de DIV Games Studio que utilizan esta t&eacute;cnica, por lo que se remite
+    al lector directamente a los comentarios de estos programas (por ejemplo v&eacute;ase el
+    ejemplo <strong>Speed for dummies</strong>).</p>
+    <hr />
+    Ver: <a href="165.html">stop_mode7()</a> - <a href="1102.html">Estructura m7</a>
+  </body>
+</html>
+

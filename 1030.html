@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia CLONE</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia CLONE</h1>
+
+    <p><strong>CLONE</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>Esta sentencia crea un nuevo proceso id&eacute;ntico al actual, con la salvedad de que las
+    sentencias entre las palabras reservadas <strong>CLONE</strong> y <a href="1091.html">END</a>
+    se ejecutar&aacute;n &uacute;nicamente en el nuevo proceso y no en el actual.</p>
+
+    <p>Por ejemplo, si cualquier proceso del programa, con unas coordenadas (<a
+    href="1123.html">x</a>, <a href="1124.html">y</a>) determinadas y un gr&aacute;fico (<a
+    href="1126.html">graph</a>) concreto, ejecuta la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>CLONE</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=x+100;<br />
+    &nbsp;&nbsp;<a href="1091.html">END</a></p>
+
+    <p>Se crear&aacute; un nuevo proceso identico a &eacute;l, con el mismo gr&aacute;fico y los
+    mismos valores en todas sus variables, a excepci&oacute;n de la coordenada <a
+    href="1123.html">x</a>, que el nuevo proceso tendr&aacute; <strong>100</strong> puntos
+    m&aacute;s a la derecha.</p>
+
+    <p>Esta sentencia se utiliza para crear r&eacute;plicas de un proceso, dividirlo en dos
+    procesos (casi) iguales.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+    x<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+    <span class="syntax1">CLONE</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">10</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+    <span class="syntax1">CLONE</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax1">y</span><span class="syntax3">+</span><span class="syntax2">10</span><span
+class="syntax3">;</span>
+    <span class="syntax1">END</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo, las <strong>2</strong> sentencias <strong>CLONE</strong> crear&aacute;n
+    <strong>3</strong> copias del proceso principal (y no 2, como podr&iacute;a haberse
+    esperado).</p>
+
+    <p>Al ejecutarse la primera sentencia <strong>CLONE</strong> se crear&aacute; un nuevo proceso,
+    con lo que habr&aacute; <strong>2</strong>: uno en (x=0, y=0) y otro en (x=10, y=0). Y estos
+    dos procesos ejecutar&aacute;n la segunda sentencia <strong>CLONE</strong>, el primero (el
+    original) creando con ello un nuevo proceso en (x=0, y=10), y el segundo crear&aacute; el nuevo
+    proceso en (x=10, y=10).</p>
+
+    <p>Para crearse &uacute;nicamente <strong>2</strong> copias del proceso original se
+    podr&iacute;a haber construido el programa, por ejemplo, de la siguiente forma:</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+    x<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+    <span class="syntax1">CLONE</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">10</span><span class="syntax3">;</span>
+        <span class="syntax1">CLONE</span>
+            <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax1">y</span><span class="syntax3">+</span><span class="syntax2">10</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El proceso original (x=0, y=0) crear&aacute; uno en (x=10, y=0) y &eacute;ste, a su vez,
+    otro en (x=10, y=10), creandose &uacute;nicamente dos copias del original.</p>
+
+    <p>Se debe, por tanto, tener mucho cuidado con el uso de la sentencia <strong>CLONE</strong> de
+    forma secuencial o dentro de un <strong>bucle</strong>, pues se debe contar con que los
+    primeros '<strong>clones</strong>' pueden crear, a su vez, a nuevos
+    '<strong>clones</strong>'.</p>
+
+    <p>Esta sentencia permite usarse sin poner sentencias entre las palabras <strong>CLONE</strong>
+    y <a href="1091.html">END</a>. Pero, al menos en un principio, no parece tener mucho sentido el
+    querer tener dos procesos id&eacute;nticos, con las mismas coordenadas, el mismo gr&aacute;fico
+    y ejecutando el mismo c&oacute;digo.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

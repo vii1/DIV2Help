@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - end_fli()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>end_fli()</h1>
+
+    <p><strong>end_fli()</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Finaliza una animaci&oacute;n <strong>FLI/FLC</strong> visualizada en pantalla y libera la
+    memoria del ordenador que estaba ocupando.</p>
+
+    <p>Las animaciones <strong>FLI/FLC</strong> se inician con la funci&oacute;n <a
+    href="161.html">start_fli()</a>.</p>
+
+    <p>S&oacute;lamente es posible tener una animaci&oacute;n cargada en la memoria del
+    ordenador.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_end_fli<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        start_fli<span class="syntax3">(</span><span class="syntax4">"help\help.fli"</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">);</span>
+        <span class="syntax1">WHILE</span> <span class="syntax3">(</span>frame_fli<span
+class="syntax3">()&lt;&gt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+            <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+
+        end_fli<span class="syntax3">();</span> <span
+class="syntax5">// Descargamos la animacion de la memoria</span>
+
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En primer lugar, en el ejemplo, se carga la animaci&oacute;n con la funci&oacute;n <a
+    href="161.html">start_fli()</a> y entonces se muestra la misma con <a
+    href="115.html">frame_fli()</a> hasta que acaba (cuando esta &uacute;ltima funci&oacute;n
+    devuelve un 0). En ese momento se descarga de memoria utilizando
+    <strong>end_fli()</strong>.</p>
+
+    <p>El programa contin&uacute;a repitiendo esta operaci&oacute;n (de carga y descarga de la
+    animaci&oacute;n <strong>FLI/FLC</strong>) indefinidamente.</p>
+
+    <p>No es necesario que la animaci&oacute;n haya finalizado para poder descargarla de
+    memoria.</p>
+    <hr />
+    Ver: <a href="161.html">start_fli()</a> - <a href="115.html">frame_fli()</a> - <a
+    href="153.html">reset_fli()</a>
+  </body>
+</html>
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Declaraci&oacute;n de una tabla</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Declaraci&oacute;n de una tabla</h1>
+
+    <p><a href="1401.html">&lt;tipo&gt;</a> <a href="1001.html">&lt;nombre&gt;</a> <a
+    href="1079.html">[</a> <a href="1005.html">&lt;constante&gt;</a> <a href="1079.html">]</a></p>
+
+    <p>(o bien, si se quiere inicializar la tabla)</p>
+
+    <p><a href="1401.html">&lt;tipo&gt;</a> <a href="1001.html">&lt;nombre&gt;</a> <a
+    href="1079.html">[</a> <a href="1005.html">&lt;constante&gt;</a> <a href="1079.html">]</a> <a
+    href="1073.html">=</a> <a href="1013.html">&lt;lista de constantes&gt;</a></p>
+
+    <p>(o bien, si se inicializar sin definir su longitud)</p>
+
+    <p><a href="1401.html">&lt;tipo&gt;</a> <a href="1001.html">&lt;nombre&gt;</a> <a
+    href="1079.html">[</a> <a href="1079.html">]</a> <a href="1073.html">=</a> <a
+    href="1013.html">&lt;lista de constantes&gt;</a></p>
+
+    <p>Tambi&eacute;n se pueden declarar tablas de varios tipos y en cualquier secci&oacute;n (<a
+    href="1006.html">GLOBAL</a>, <a href="1007.html">LOCAL</a> o <a href="1008.html">PRIVATE</a>).
+    Para declarar una tabla debe indicarse el tipo (<a href="1402.html">INT</a>, <a
+    href="1403.html">WORD</a>, <a href="1404.html">BYTE</a> o <a href="1406.html">STRING</a>) el
+    nombre, la longitud entre corchetes ((s&iacute;mbolos <a href="1079.html">[</a> <a
+    href="1079.html">]</a>)) y, en caso de quererse inicializar, un s&iacute;mbolo de
+    asignaci&oacute;n (<a href="1073.html">=</a>) precediendo a la <a href="1013.html">lista de
+    constantes</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La longitud de la tabla se expresa como el valor m&aacute;ximo de su
+    &iacute;ndice, es decir, todas las tablas van de la <strong>posici&oacute;n 0</strong> a la
+    <strong>posici&oacute;n indicada entre los corchetes</strong>. Por ejemplo, una tabla declarada
+    como <strong>mi_tabla[9]</strong>, ser&aacute; una tabla de <strong>longitud 10</strong> (de 10
+    posiciones, desde mi_tabla[0] hasta mi_tabla[9]).</p>
+    <hr />
+
+    <p><strong>Varios ejemplos de declaraci&oacute;n de tablas:</strong></p>
+
+    <p><strong>Mitabla[3];</strong> - Tabla INT de 4 elementos (de Mitabla[0] a Mitabla[3]).</p>
+
+    <p><strong>INT tab[]=1,2,3,4,5;</strong> - Tabla INT de 5 elementos (de tab[0] a tab[4]).</p>
+
+    <p><strong>WORD tword[1];</strong> - Tabla WORD de 2 elementos.</p>
+
+    <p><strong>BYTE tbyte[3]=11,22;</strong> - Tabla BYTE de 4 elementos (inicializada a
+    11,22,0,0).</p>
+
+    <p><strong>STRING p;</strong> - Cadena de texto de hasta 256 caracteres (inicializada a
+    "").</p>
+
+    <p><strong>STRING q[32]= "hola";</strong> - Cadena de texto de hasta 33 caracteres
+    (inicializada a "hola").</p>
+    <hr />
+
+    <p><strong>Consideraciones sobre las tablas:</strong></p>
+
+    <p><strong>1.</strong> Si no se indica el tipo de la tabla, esta ser&aacute; de tipo <a
+    href="1402.html">INT</a>.<br />
+    <strong>2.</strong> Si se inicializa la tabla (con una <a href="1013.html">lista de
+    constantes</a>), puede omitirse la longitud entre corchetes.<br />
+    <strong>3.</strong> Se debe poner un punto y coma tras cada declaraci&oacute;n.<br />
+    <strong>4.</strong> Si no se define la longitud de la tablas tipo <a
+    href="1406.html">STRING</a>, estas ser&aacute;n de <strong>256 elementos</strong> (del
+    <strong>[0]</strong> al <strong>[255]</strong>).<br />
+    <strong>5.</strong> Si no se define la lista de constantes, los elementos estar&aacute;n
+    <strong>inicializados a 0</strong>.<br />
+    </p>
+
+    <p>Se permite acceder al <strong>elemento 0</strong> simplemente con el nombre de la tabla,
+    como si fuera una variable; es decir, para el compilador <strong>mi_tabla[0]</strong>
+    ser&aacute; lo mismo que <strong>mi_tabla</strong>.</p>
+
+    <p><strong>Nota:</strong> No ser&aacute; posible obtener el <a href="1085.html">OFFSET</a> de
+    un elemento de una tabla <a href="1404.html">BYTE</a>, <a href="1403.html">WORD</a> o <a
+    href="1406.html">STRING</a> (como <strong>OFFSET tbyte[1]</strong>), para acceder a este
+    elemento externamente se deber&aacute; utilizar, en todo caso, los datos de tipo <a
+    href="1405.html">POINTER</a>.</p>
+    <hr />
+
+    <p><strong>Las tablas multidimensionales.</strong></p>
+
+    <p>Se pueden declarar tablas <a href="1402.html">INT</a>, <a href="1403.html">WORD</a> o <a
+    href="1404.html">BYTE</a> de <strong>1, 2 o 3 dimensiones</strong>. Tanto la declaraci&oacute;n
+    de estas como el acceso a las mismas se debe hacer <strong>separando las dimensiones con
+    comas</strong>. Por ejemplo, la siguiente declaraci&oacute;n:</p>
+
+    <p>&nbsp;<strong>BYTE tabla[255,255];</strong></p>
+
+    <p>Definir&iacute;a tabla de tipo <a href="1404.html">BYTE</a> (para todos sus elementos) de
+    <strong>2 dimensiones</strong>, con un total de 65536 elementos (256*256).</p>
+
+    <p><strong>Nota:</strong> Las tablas de tipo <a href="1403.html">WORD</a> y <a
+    href="1404.html">BYTE</a> pueden significar un importante ahorro de memoria, respecto a las
+    tablas de tipo <a href="1402.html">INT</a> (ocupan 2 y 4 veces menos, respectivamente). Pero
+    <strong>ser&aacute;n m&aacute;s r&aacute;pidas las operaciones con datos de tipo</strong> <a
+    href="1402.html">INT</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1009.html">Declaraci&oacute;n de un dato</a>
+  </body>
+</html>
+

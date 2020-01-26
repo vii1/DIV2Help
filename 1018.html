@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Par&aacute;metros de un proceso</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Par&aacute;metros de un proceso</h1>
+
+    <p>Los par&aacute;metros de un proceso son, b&aacute;sicamente, una lista de datos en los
+    cuales el proceso recibir&aacute; distinta informaci&oacute;n cada vez que sea invocado
+    (llamado o utilizado) desde otro proceso.</p>
+
+    <p>Los procesos pueden recibir par&aacute;metros en los siguientes tipos de datos:</p>
+
+    <p>- Un dato local predefinido (como <a href="1123.html">x</a>, <a href="1128.html">size</a>,
+    <a href="1127.html">flags</a>, ...).</p>
+
+    <p>- Un dato local definido dentro de la secci&oacute;n <a href="1007.html">LOCAL</a>.</p>
+
+    <p>- Un dato global definido dentro de la secci&oacute;n <a href="1006.html">GLOBAL</a>.</p>
+
+    <p>- Un dato privado del proceso declarado dentro de la secci&oacute;n <a
+    href="1008.html">PRIVATE</a> del propio proceso.</p>
+
+    <p>- Un dato privado que <strong>no est&eacute; declarado</strong> dentro de la secci&oacute;n
+    <a href="1008.html">PRIVATE</a>.</p>
+
+    <p>Entendi&eacute;ndose, en todos estos casos, que un dato puede referirse a una variable, a
+    una posici&oacute;n concreta de una tabla o a un elemento dentro de una estructura.</p>
+
+    <p>Para ejemplificar los diferentes tipos de par&aacute;metros se muestra, a
+    continuaci&oacute;n, un programa con un proceso que recibe cinco par&aacute;metros diferentes
+    de los tipos indicados en la lista anterior, respectivamente.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    puntos<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+<span class="syntax1">LOCAL</span>
+    energia<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mi_proceso<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax2">2</span><span class="syntax3">,</span> <span
+class="syntax2">3</span><span class="syntax3">,</span> <span class="syntax2">4</span><span
+class="syntax3">,</span> <span class="syntax2">5</span><span class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">(</span>x<span
+class="syntax3">,</span> energ&iacute;a<span class="syntax3">,</span> puntos<span
+class="syntax3">,</span> n<span class="syntax3">,</span> m<span class="syntax3">)</span>
+<span class="syntax1">PRIVATE</span>
+    n<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El proceso <strong>mi_proceso</strong> recibe cinco par&aacute;metros en cinco variables:
+    local predefinida, local, global, <a href="1008.html">private</a> declarada y <a
+    href="1008.html">private</a> sin declarar.</p>
+
+    <p>Recibir en un dato global un par&aacute;metro (como la variable <a
+    href="1006.html">GLOBAL</a> <strong>puntos</strong>) equivale a realizar la asignaci&oacute;n
+    (<strong>puntos=3;</strong>) y, despu&eacute;s, llamar al proceso.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

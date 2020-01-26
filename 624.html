@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Se esperaba una sentencia</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Se esperaba una sentencia</h1>
+
+    <p>La posici&oacute;n indicada en el programa est&aacute; dentro del contexto de un bloque de
+    sentencias, por lo que se esperaba que comenzara una sentencia en la posici&oacute;n indicada.
+    &Eacute;stos son los posibles tipos de sentencias:</p>
+
+    <p>sentencias de asignaci&oacute;n<br />
+    &lt;expresi&oacute;n&gt;<a href="1035.html">=</a>&lt;expresi&oacute;n&gt;;</p>
+
+    <p>sentencias de control<br />
+    <a href="1020.html">IF</a> y <a href="1021.html">SWITCH</a>.</p>
+
+    <p>sentencias de bucles<br />
+    <a href="1043.html">FROM</a>, <a href="1022.html">WHILE</a>, <a href="1023.html">REPEAT</a>, <a
+    href="1024.html">LOOP</a> y <a href="1025.html">FOR</a>.</p>
+
+    <p>sentencias de ruptura<br />
+    <a href="1026.html">BREAK</a>, <a href="1027.html">CONTINUE</a> y <a
+    href="1028.html">RETURN</a>.</p>
+
+    <p>sentencias especiales<br />
+    <a href="1029.html">FRAME</a>, <a href="1030.html">CLONE</a> y <a
+    href="1031.html">DEBUG</a>.</p>
+
+    <p>Siendo posible que en esta posici&oacute;n apareciera una de las palabras reservadas que
+    pueden marcar el final de un bloque de sentencias, como son:</p>
+
+    <p><a href="1091.html">END</a>, <a href="1090.html">ELSE</a> y <a
+    href="1097.html">UNTIL</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">CASE</span> <span class="syntax2">0</span><span
+class="syntax3">:</span> <span class="syntax5">// Error: Se esperaba una sentencia.</span>
+        <span class="syntax5">//...</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo provocar&aacute; el error, dado que la palabra reservada <a
+    href="1087.html">CASE</a> no es v&aacute;lida para comenzar una sentencia; s&oacute;lo es
+    v&aacute;lida dentro de una sentencia <a href="1021.html">SWITCH</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1017.html">Declaraci&oacute;n de sentencia</a>
+  </body>
+</html>
+

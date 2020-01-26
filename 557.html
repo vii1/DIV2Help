@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Una estructura debe contener, al menos, un elemento</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Una estructura debe contener, al menos, un elemento</h1>
+
+    <p>En la posici&oacute;n resaltada del programa se pretende cerrar con <a
+    href="1091.html">END</a> la declaraci&oacute;n de una estructura sin ning&uacute;n elemento
+    (campo) definido en la misma.</p>
+
+    <p>Una estructura (<a href="1012.html">STRUCT</a>) es como una lista de fichas (registros) con
+    varias informaciones (campos) en cada ficha.</p>
+
+    <p><strong>STRUCT nombre_estructura[10]</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>x, y;</strong><br />
+    <strong>END</strong></p>
+
+    <p>En este ejemplo la estructura (conjunto de fichas) se llama
+    <strong>nombre_estructura</strong> y tiene <strong>10 registros</strong> (diez fichas) con
+    <strong>2 campos</strong> cada una (con dos informaciones; <strong>x</strong> e
+    <strong>y</strong>).</p>
+
+    <p>Por lo tanto, no tiene ning&uacute;n sentido definir una estructura sin campos (ya que es
+    como definir un conjunto de fichas sin ninguna informaci&oacute;n).</p>
+
+    <p>Para acceder despu&eacute;s a la informaci&oacute;n de las fichas se utiliza la estructura
+    como sigue (sup&oacute;ngase que se quiere poner en la variable global <strong>n</strong> el
+    valor <strong>y</strong> de la ficha n&uacute;mero <strong>5</strong>).</p>
+
+    <p><strong>n=nombre_estructura[5].y;</strong></p>
+
+    <p>A continuaci&oacute;n se muestra un programa err&oacute;neo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRUCT</span> mi_estructura<span class="syntax3">[</span><span
+class="syntax2">10</span><span class="syntax3">]</span>
+
+    <span class="syntax1">END</span> <span
+class="syntax5">// Error: Una estructura debe contener, al menos, un elemento.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1012.html">Declaraci&oacute;n de
+    Estructura</a>
+  </body>
+</html>
+

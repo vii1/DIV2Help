@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia IF</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia IF</h1>
+
+    <p><strong>IF</strong> <a href="1053.html">(</a> <a
+    href="1037.html">&lt;condici&oacute;n&gt;</a> <a href="1053.html">)</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>(o bien)</p>
+
+    <p><strong>IF</strong> <a href="1053.html">(</a> <a
+    href="1037.html">&lt;condici&oacute;n&gt;</a> <a href="1053.html">)</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1090.html">ELSE</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>La sentencia <strong>IF</strong> sirve para ejecutar un bloque de sentencias opcionalmente,
+    cuando se cumpla una condici&oacute;n. En la segunda variante que aparece arriba, se
+    ejecutar&aacute; adem&aacute;s otro bloque de sentencias (dentro de la secci&oacute;n <a
+    href="1090.html">ELSE</a>) cuando la condici&oacute;n <strong>no</strong> se cumpla.</p>
+
+    <p>Se muestra, a continuaci&oacute;n, un programa con varias sentencias
+    <strong>IF</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+
+    <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">))</span>
+        exit<span class="syntax3">(</span><span class="syntax4">"Adios!"</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">);</span>
+    <span class="syntax1">END</span>
+
+    <span class="syntax1">IF</span> <span class="syntax3">(</span>x<span
+class="syntax3">&gt;</span><span class="syntax2">100</span> <span class="syntax1">AND</span> x<span
+class="syntax3">&lt;</span><span class="syntax2">220</span><span class="syntax3">)</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax1">y</span><span class="syntax3">+</span><span class="syntax2">4</span><span
+class="syntax3">;</span>
+    <span class="syntax1">ELSE</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax1">y</span><span class="syntax3">-</span><span class="syntax2">8</span><span
+class="syntax3">;</span>
+    <span class="syntax1">END</span>
+
+    <span class="syntax1">IF</span> <span class="syntax3">(</span>size<span
+class="syntax3">&gt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+        size<span class="syntax3">=</span>size<span class="syntax3">-</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+
+    <span class="syntax1">IF</span> <span class="syntax3">(</span>timer<span
+class="syntax3">[</span><span class="syntax2">5</span><span class="syntax3">]&gt;</span><span
+class="syntax2">1000</span><span class="syntax3">)</span>
+        <span class="syntax1">z</span><span class="syntax3">=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">ELSE</span>
+        <span class="syntax1">z</span><span class="syntax3">=-</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Es posible anidar sentencias <strong>IF</strong> sin ning&uacute;n l&iacute;mite, es decir,
+    se pueden poner m&aacute;s sentencias <strong>IF</strong> dentro de la parte que se ejecuta
+    cuando se cumple la condici&oacute;n (parte <strong>IF</strong>) o dentro de la que se ejecuta
+    cuando la condici&oacute;n no se cumple (parte <a href="1090.html">ELSE</a>).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

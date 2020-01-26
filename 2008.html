@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Conflicto con el dispositivo de sonido</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Conflicto con el dispositivo de sonido</h1>
+
+    <p>El sistema de audio de DIV Games Studio no pudo ser inicializado debido a un conflicto con
+    su tarjeta de sonido. Este problema suele producirse por uno de estos motivos:</p>
+
+    <p>- Que su tarjeta est&eacute; siendo utilizada por <strong>otro programa</strong>
+    simult&aacute;neamente. No se podr&aacute; inicializar el dispositivo si existe alg&uacute;n
+    otro programa leyendo o escribiendo datos en la tarjeta (como un reproductor de MP3 o un
+    capturador de sonido).</p>
+
+    <p>- Puede haberse producido un problema con la <strong>autodetecci&oacute;n</strong> de los
+    par&aacute;metros de su tarjeta. Debe ejecutar el programa de configuraci&oacute;n de sonido o
+    bien definir estos valores en la variable BLASTER o ULTRASND del entorno de su sistema (puede
+    encontrar m&aacute;s informaci&oacute;n en el manual de usuario de DIV Games Studio 2).</p>
+
+    <p>- Debido a una <strong>incompatibilidad</strong> de su tarjeta. Si esta no es una tarjeta de
+    las marcas GRAVIS (tm) o SOUND BLASTER (tm), puede que sea incompatible con DIV Games Studio.
+    La mayor&iacute;a de tarjetas cl&oacute;nicas suelen ser compatibles con las tarjetas SOUND
+    BLASTER, pero pueden no ser compatibles al 100% y presentar alg&uacute;n problema.</p>
+    <hr />
+
+    <p><strong>Soluci&oacute;n gen&eacute;rica a los problemas de audio.</strong></p>
+
+    <p>Si no reconoce en ninguno de estos tres casos su problema particular debe, en primer lugar,
+    ejecutar el programa de configuraci&oacute;n del sonido. Esto puede hacerlo desde DIV pulsando
+    <strong>F4</strong>, cargando el programa <strong>SETUP.PRG</strong> del directorio
+    <strong>SETUP</strong>, y ejecut&aacute;ndolo con <strong>F10</strong>.</p>
+
+    <p>En el primer cap&iacute;tulo del <strong>manual de usuario</strong> encontrar&aacute;
+    informaci&oacute;n sobre como obtener los par&aacute;metros de su tarjeta de sonido.</p>
+
+    <p>Tambi&eacute;n puede probar a configurar el sistema de sonido indicando en el programa de
+    configuraci&oacute;n una tarjeta menor (anterior a la suya). Por ejemplo, si vd. tuviera una
+    tarjeta compatible con una <strong>Sound Blaster AWE 64</strong> o <strong>128</strong> y no
+    pudiera inicializar el sistema de sonido; pruebe a configurar el sistema como si tuviera una
+    <strong>Sound Blaster 16</strong>, o una <strong>Sound Blaster Pro</strong>.</p>
+
+    <p>Como &uacute;ltimo recurso, si no fuese posible configurar el sonido en su sistema,
+    deber&aacute; desactivarlo. Para ello deber&aacute; ejecutar igualmente el programa de
+    configuraci&oacute;n y seleccionar <strong>&lt;Sin Sonido&gt;</strong> en el campo que define
+    el tipo de tarjeta. Entonces pulse el bot&oacute;n <strong>&lt;Guardar&gt;</strong> para
+    establecer esta configuraci&oacute;n y desactivar el sonido en DIV Games Studio 2.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La reproducci&oacute;n de CD-Audio es independiente al sistema de
+    sonido digital cuya configuraci&oacute;n se ha descrito aqu&iacute;; por ello podr&aacute;
+    seguir reproduciendo m&uacute;sica de CD aunque el sistema de sonido no se encuentre
+    debidamente inicializado.</p>
+  </body>
+</html>
+

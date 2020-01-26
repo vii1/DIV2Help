@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - start_fli()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>start_fli()</h1>
+
+    <p><strong>start_fli(</strong>&lt;nombre de archivo&gt;<strong>,</strong>
+    &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>N&uacute;mero de im&aacute;genes de la animaci&oacute;n.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Inicia una animaci&oacute;n <strong>FLI/FLC</strong> contenida en el
+    <strong>archivo</strong> especificado, en las coordenadas (<strong>x</strong>,
+    <strong>y</strong>) (se debe especificar la coordenada superior izquierda de la ventana de
+    visualizaci&oacute;n).</p>
+
+    <p>En el &lt;nombre de archivo&gt; se puede especificar la ruta de acceso, no siendo
+    &eacute;sta necesaria si el archivo se encuentra en el directorio de DIV Games Studio o en un
+    subdirectorio cuyo nombre coincida con la extensi&oacute;n del archivo (por ejemplo,
+    "fli\anima.fli").</p>
+
+    <p>La animaci&oacute;n debe coger por completo en pantalla, es decir, si la animaci&oacute;n
+    ocupa toda la pantalla, se debe fijar primero el modo de v&iacute;deo con la funci&oacute;n <a
+    href="157.html">set_mode()</a> y despu&eacute;s iniciar con <strong>start_fli()</strong> la
+    animaci&oacute;n en las coordenadas (0, 0).</p>
+
+    <p>La funci&oacute;n devuelve, a t&iacute;tulo informativo, el n&uacute;mero de fotogramas de
+    los que consta la animaci&oacute;n completa.</p>
+
+    <p>El sistema activar&aacute; autom&aacute;ticamente las paletas de color que pudiera tener la
+    animaci&oacute;n <strong>FLI/FLC</strong>, lo que puede presentar problemas en la
+    representanci&oacute;n de otros gr&aacute;ficos o fuentes del programa, si &eacute;stos
+    hubieran sido dibujados con una paleta diferente.</p>
+
+    <p>Si se pretenden combinar otros gr&aacute;ficos con la animaci&oacute;n en pantalla,
+    &eacute;sta debe tener una &uacute;nica paleta de color (lo que se suele denominar
+    "<strong>palette low FLI/FLC</strong>") y los gr&aacute;ficos se deben haber dibujado con esa
+    misma paleta.</p>
+
+    <p>Una vez iniciada la animaci&oacute;n se ir&aacute;n mostrando los fotogramas de la misma con
+    respectivas llamadas a <a href="115.html">frame_fli()</a>.</p>
+
+    <p><strong>S&oacute;lo es posible tener una animaci&oacute;n activa en cada momento</strong>,
+    por lo que despu&eacute;s de haberse iniciado una animaci&oacute;n con
+    <strong>start_fli()</strong> y haberse visualizado con <a href="115.html">frame_fli()</a>, se
+    debe finalizar &eacute;sta con la funci&oacute;n <a href="108.html">end_fli()</a> antes de
+    iniciar otra animaci&oacute;n diferente.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_start_fli<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+
+    start_fli<span class="syntax3">(</span><span class="syntax4">"help\help.fli"</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">);</span> <span
+class="syntax5">// Se inicia una animaci&oacute;n.</span>
+
+    <span class="syntax1">LOOP</span>
+        frame_fli<span class="syntax3">();</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se inicia la animaci&oacute;n contenida en el archivo
+    <strong>help\help.fli</strong> con la funci&oacute;n <strong>start_fli()</strong> en las
+    coordenadas (0, 0) y se ejecuta esta animaci&oacute;n indefinidamente.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="115.html">frame_fli()</a> utilizada para mostrar cada fotograma
+    devolver&aacute; 0 cuando la animaci&oacute;n haya finalizado, por lo que para mostrar la
+    animaci&oacute;n una sola vez se deber&iacute;a haber hecho:</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_start_fli<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    valor<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    start_fli<span class="syntax3">(</span><span class="syntax4">"help\help.fli"</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        valor<span class="syntax3">=</span>frame_fli<span class="syntax3">();</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>valor<span
+class="syntax3">==</span><span class="syntax2">0</span><span class="syntax3">);</span>
+    end_fli<span class="syntax3">();</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>La funci&oacute;n <a href="153.html">reset_fli()</a> permite <strong>rebobinar</strong> la
+    animaci&oacute;n, para que la funci&oacute;n <a href="115.html">frame_fli()</a> contin&uacute;e
+    ejecut&aacute;ndola desde el principio.</p>
+    <hr />
+    Ver: <a href="108.html">end_fli()</a> - <a href="153.html">reset_fli()</a> - <a
+    href="115.html">frame_fli()</a>
+  </body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - set_color()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>set_color()</h1>
+
+    <p><strong>set_volume(</strong>&lt;color&gt;<strong>,</strong> &lt;red&gt;<strong>,</strong>
+    &lt;green&gt;<strong>,</strong> &lt;blue&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Redefine un color de la paleta. Esta funci&oacute;n sirve para modificar las componentes de
+    un color concreto de la paleta del juego.</p>
+
+    <p>Se debe tener cuidado con ella, pues todos los gr&aacute;ficos de pantalla que utilicen
+    dicho color se ver&aacute;n afectados, para modificar los colores de un s&oacute;lo
+    gr&aacute;fico se debe utilizar la funci&oacute;n <a href="105.html">convert_palette()</a>.</p>
+
+    <p>El &lt;color&gt; debe ser un n&uacute;mero entre <strong>0</strong> y <strong>255</strong>.
+    Las <strong>componentes del color</strong> se especificar&aacute;n como n&uacute;meros entre
+    <strong>0</strong> (m&iacute;nimo) y <strong>63</strong> (m&aacute;ximo).</p>
+
+    <p>&nbsp;&nbsp;<strong>&lt;red&gt;</strong> - Componente roja del color.<br />
+    &nbsp;&nbsp;<strong>&lt;green&gt;</strong> - Componente verde del color.<br />
+    &nbsp;&nbsp;<strong>&lt;blue&gt;</strong> - Componente azul del color.<br />
+    </p>
+
+    <p>A continuaci&oacute;n se muestra un programa que modifica de forma aleatoria los colores de
+    la paleta.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_set_color<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span> color<span class="syntax3">,</span>r<span
+class="syntax3">,</span>g<span class="syntax3">,</span>b<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">2</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        color<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">1</span><span class="syntax3">,</span><span class="syntax2">255</span><span
+class="syntax3">);</span>
+        r<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">63</span><span
+class="syntax3">);</span>
+        g<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">63</span><span
+class="syntax3">);</span>
+        b<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">63</span><span
+class="syntax3">);</span>
+
+        set_color<span class="syntax3">(</span>color<span class="syntax3">,</span> r<span
+class="syntax3">,</span> g<span class="syntax3">,</span> b<span class="syntax3">);</span> <span
+class="syntax5">// Se redefine un color de la paleta</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone como fondo una pantalla multicolor y dentro del bucle principal del
+    programa se modifican al azar las componentes de un color cualquiera de la paleta cuando
+    est&eacute; pulsada la barra espaciadora. Para obtener n&uacute;meros al azar se utiliza la
+    funci&oacute;n <a href="149.html">rand()</a>.</p>
+    <hr />
+
+    <p>Para modificar toda la paleta, es preferible cargar &eacute;sta de un archivo con la
+    funci&oacute;n <a href="133.html">load_pal()</a>.</p>
+    <hr />
+
+    <p>Para realizar otros efectos de paleta, se puede utilizar la funci&oacute;n <a
+    href="154.html">roll_palette()</a> que permite realizar ciclos de color, o la funci&oacute;n <a
+    href="110.html">fade()</a> que permite realizar m&uacute;ltiples fundidos y saturaciones de
+    color a diferentes velocidades.</p>
+    <hr />
+    Ver: <a href="154.html">roll_palette()</a> - <a href="133.html">load_pal()</a> - <a
+    href="110.html">fade()</a> - <a href="111.html">fade_off()</a> - <a
+    href="112.html">fade_on()</a>
+  </body>
+</html>
+

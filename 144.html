@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - play_cd()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>play_cd()</h1>
+
+    <p><strong>play_cd(</strong>&lt;n&uacute;mero de pista&gt;<strong>,</strong>
+    &lt;modo&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Comienza a tocar una pista de cd-audio. Se debe indicar el n&uacute;mero de pista (de 1 al
+    n&uacute;mero de canciones que tenga el cd) y el modo es como sigue:</p>
+
+    <p><strong>Modo:</strong></p>
+
+    <p>&nbsp;<strong>0</strong> - Tocar la canci&oacute;n y pararse despu&eacute;s.<br />
+    &nbsp;<strong>1</strong> - Tocar esa canci&oacute;n y despu&eacute;s las siguientes.<br />
+    </p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_play_cd<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para poner el CD en marcha."</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            play_cd<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span> <span
+class="syntax5">// Se pone la 1&ordf; canci&oacute;n y despu&eacute;s las dem&aacute;s.</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El ejemplo anterior (para el cual se necesita tener un <strong>Compact disc</strong> de
+    m&uacute;sica en el cargador de <strong>CD-ROM</strong>) se pone un mensaje informativo y en
+    cada iteraci&oacute;n del bucle se comprueba si se puls&oacute; la barra espaciadora para poner
+    la primera canci&oacute;n con la funci&oacute;n <strong>play_cd()</strong></p>
+    <hr />
+
+    <p>Para conseguir que una canci&oacute;n suene indefinidamente, se debe implementar un bucle
+    utilizando la funci&oacute;n <a href="127.html">is_playing_cd()</a> para determinar
+    cu&aacute;ndo ha acabado la canci&oacute;n.</p>
+
+    <p>El volumen de reproducci&oacute;n del cd-audio se puede controlar con la estructura <a
+    href="1104.html">setup</a> y la funci&oacute;n <a href="178.html">set_volume()</a>.</p>
+    <hr />
+    Ver: <a href="127.html">is_playing_cd()</a> - <a href="164.html">stop_cd()</a> - <a
+    href="178.html">set_volume()</a> - <a href="1104.html">Estructura setup</a>
+  </body>
+</html>
+

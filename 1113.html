@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL restore_type</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL restore_type</h1>
+
+    <p><strong>restore_type=complete_restore;</strong> // Tipo de restauraci&oacute;n</p>
+    <hr />
+
+    <p>Esta variable global indica el tipo de restauraci&oacute;n que se debe realizar tras cada
+    imagen en la pantalla.</p>
+
+    <p>Se llama <strong>restauraci&oacute;n del fondo</strong> a recuperar las zonas de pantalla en
+    las que se han pintado gr&aacute;ficos o escrito textos en la imagen anterior, es decir,
+    "<strong>despintar</strong>" los gr&aacute;ficos y "<strong>desescribir</strong>" los textos
+    (borrarlos).</p>
+
+    <p>Hay tres tipos de restauraci&oacute;n aplicables que se corresponden, directamente, con tres
+    constantes que pueden ser asignadas a la variable <strong>restore_type</strong>.</p>
+
+    <p><a href="1172.html">no_restore</a> - El m&aacute;s r&aacute;pido, no se restaura el fondo
+    (-1)<br />
+    <a href="1173.html">partial_restore</a> - Medio, restauraciones parciales (0)<br />
+    <a href="1174.html">complete_restore</a> - El m&aacute;s lento, restauraci&oacute;n completa
+    (1)<br />
+    </p>
+
+    <p>Por defecto, el valor de <strong>restore_type</strong> es <strong>complete_restore</strong>,
+    es decir, que si no se indica otro valor en esta variable se realizar&aacute; una
+    restauraci&oacute;n completa de pantalla tras cada imagen del juego.</p>
+
+    <p>Esta modalidad de restauraci&oacute;n (completa) es la m&aacute;s lenta de las tres, por lo
+    que seguramente se podr&aacute; ganar velocidad de ejecuci&oacute;n en el juego (para que vaya
+    m&aacute;s fluido en los ordenadores lentos), si se le asigna otro valor a esta variable. Por
+    ejemplo, para indicar una restauraci&oacute;n parcial, se debe utilizar la siguiente
+    sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>restore_type=partial_restore;</strong></p>
+
+    <p>Con ella se indicar&iacute;a al gestor de procesos de DIV Games Studio que, tras las
+    siguientes im&aacute;genes del juego, se debe restaurar parcialmente el fondo de la pantalla
+    (&uacute;nicamente las zonas de pantalla sobre las que se hayan puesto gr&aacute;ficos o
+    textos).</p>
+
+    <p>La modalidad m&aacute;s r&aacute;pida es <strong>no_restore</strong> (no restaurar el fondo
+    de la pantalla); sin embargo, &eacute;sta es aplicable solamente cuando el juego se desarrolle
+    dentro de una ventana de scroll o de modo 7 que ocupe toda la pantalla. En caso contrario los
+    gr&aacute;ficos dejar&aacute;n rastros (de las im&aacute;genes anteriores) al moverse por
+    pantalla.</p>
+
+    <p>Se puede cambiar la modalidad de restauraci&oacute;n durante la ejecuci&oacute;n de un
+    programa tantas veces como sea necesario, seg&uacute;n los requerimientos de las fases (o
+    secciones) que se ejecuten en cada momento.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Existe otra variable global relacionada tambi&eacute;n con la
+    gesti&oacute;n que DIV Games Studio realiza de la pantalla; &eacute;sta es <a
+    href="1114.html">dump_type</a> que define el tipo de <strong>volcado</strong> de
+    im&aacute;genes que debe realizarse (qu&eacute; informaci&oacute;n debe enviarse al monitor
+    tras cada imagen del juego).</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1114.html">dump_type</a>
+  </body>
+</html>
+

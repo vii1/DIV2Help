@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - memory_free()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>memory_free()</h1>
+
+    <p><strong>memory_free(</strong><strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La memoria libre disponible para el programa.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite determinar la cantidad de memoria RAM del ordenador que queda
+    disponible para uso del programa.</p>
+
+    <p>No se requiere ning&uacute;n par&aacute;metro, y el total de memoria se retorna en Kbs (en
+    kilobytes, siendo cada uno un total de 1024 bytes).</p>
+
+    <p>Esta cantidad de memoria ser&aacute; la que el programa dispone para cargar todos sus
+    recursos (gr&aacute;ficos, sonidos, etc.), por ello es conveniente comprobar con esta
+    funci&oacute;n, al inicio de los programas, que el ordenador dispone de memoria suficiente para
+    cargar todos los recursos necesarios.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_memory_free<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    memoria_libre<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+
+    memoria_libre<span class="syntax3">=</span>memory_free<span class="syntax3">();</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo utiliza la funci&oacute;n <strong>memory_free()</strong> para
+    guardar en la variable global denominada <strong>memoria_libre</strong> la cantidad de RAM que
+    queda disponible para el programa.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La funci&oacute;n <a href="238.html">disk_free()</a> permite
+    determinar el espacio libre de una de las unidades de disco del ordenador.</p>
+    <hr />
+    Ver: <a href="238.html">disk_free()</a>
+  </body>
+</html>
+

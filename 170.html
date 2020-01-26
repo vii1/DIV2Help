@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - unload_pcm() / unload_wav()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>unload_pcm() / unload_wav()</h1>
+
+    <p><strong>unload_pcm(</strong>&lt;c&oacute;digo del sonido&gt;<strong>)</strong></p>
+
+    <p><strong>unload_wav(</strong>&lt;c&oacute;digo del sonido&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Descarga de memoria el sonido cuyo c&oacute;digo se pasa como par&aacute;metro. Este
+    &lt;c&oacute;digo de sonido&gt; es el valor que retornan las funciones <a
+    href="132.html">load_pcm()</a> y <a href="132.html">load_wav()</a> cuando se carga un nuevo
+    efecto de sonido en la memoria.</p>
+
+    <p>Tras descargarse un efecto de sonido <strong>se deben extremar las precauciones</strong>
+    para no continuar utilizando en el programa dicho efecto (su c&oacute;digo), en cuyo caso el
+    programa correr&iacute;a el riesgo de bloquearse.</p>
+
+    <p><strong>No es necesario descargar el sonido de memoria</strong> antes de finalizar el
+    programa, ya que el sistema lo har&aacute; de forma autom&aacute;tica.</p>
+
+    <p>Por lo tanto, un sonido se debe descargar de memoria &uacute;nicamente cuando ya no se vaya
+    a utilizar durante un tiempo determinado y se quiera liberar el espacio ocupado en la memoria
+    del ordenador para cargar otros recursos (otros ficheros de gr&aacute;ficos, sonidos, fuentes,
+    etc.), lo que tendr&aacute; sentido &uacute;nicamente con efectos de sonido de cierta longitud,
+    es decir, que sean lo suficientemente grandes como para que merezca la pena liberar el espacio
+    que ocupan.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_unload_pcm<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    sonido1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    sonido1<span class="syntax3">=</span>load_pcm<span class="syntax3">(</span><span
+class="syntax4">"help\help.pcm"</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para descargar el sonido y terminar"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_enter<span class="syntax3">));</span>
+
+    unload_pcm<span class="syntax3">(</span>sonido1<span class="syntax3">);</span> <span
+class="syntax5">// Se descarga el fichero.</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El ejemplo carga el efecto de sonido contenido en el archivo <strong>help.pcm</strong> con
+    la funci&oacute;n <a href="134.html">load_pcm()</a>, guardando el <strong>c&oacute;digo del
+    sonido</strong> en la variable privada <strong>sonido1</strong>.</p>
+
+    <p>El programa permanecer&aacute; en un bucle hasta que se pulse la tecla ENTER, momento en el
+    cual se descargar&aacute; el fichero de memoria con <strong>unload_pcm()</strong> y
+    terminar&aacute; el programa.</p>
+    <hr />
+
+    <p>Para parar un efecto de sonido, pero seguir manteni&eacute;ndolo en memoria para cuando se
+    quiera hacer sonar de nuevo, se debe utilizar la funci&oacute;n <a
+    href="167.html">stop_sound()</a>.</p>
+    <hr />
+    Ver: <a href="134.html">load_pcm/wav()</a> - <a href="159.html">sound()</a> - <a
+    href="102.html">change_sound()</a> - <a href="167.html">stop_sound()</a>
+  </body>
+</html>
+

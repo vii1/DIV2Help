@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - map_put_pixel()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>map_put_pixel()</h1>
+
+    <p><strong>map_put_pixel(</strong>&lt;fichero&gt;<strong>,</strong>
+    &lt;gr&aacute;fico&gt;<strong>,</strong> &lt;x&gt;<strong>,</strong>
+    &lt;y&gt;<strong>,</strong> &lt;color&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Permite modificar el color de un punto determinado de un gr&aacute;fico. Para ello requiere
+    el &lt;c&oacute;digo del fichero&gt; en el que se encuentra el gr&aacute;fico, el
+    &lt;c&oacute;digo del gr&aacute;fico&gt; dentro del fichero y las coordenadas
+    (<strong>x</strong>, <strong>y</strong>) del punto cuyo &lt;color&gt; se quiere establecer.</p>
+
+    <p>Los gr&aacute;ficos cargados con las funciones <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a> (o creados con <a href="188.html">new_map()</a>) se
+    utilizar&aacute;n como si pertenecieran al primer fichero (el fichero con el c&oacute;digo
+    0).</p>
+
+    <p>Esta funci&oacute;n modificar&aacute; el gr&aacute;fico indicado, pero s&oacute;lo la copia
+    del mismo que se ha cargado en la memoria del ordenador. El gr&aacute;fico original, que
+    est&aacute; en el archivo <strong>FPG</strong>, <strong>MAP</strong> o <strong>PCX</strong> del
+    disco, <strong>permanecer&aacute; inalterado</strong>. Por ello si se quiere en un momento del
+    juego recuperar el estado original del gr&aacute;fico se tiene que descargar de memoria (con <a
+    href="169.html">unload_fpg()</a>, <a href="176.html">unload_map()</a> o <a
+    href="176.html">unload_pcx()</a>) y despu&eacute;s volverlo a cargar.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_map_put_pixel<span class="syntax3">;</span>
+<span class="syntax1">PRIVATE</span>
+    fichero1<span class="syntax3">;</span>
+    coord_x<span class="syntax3">;</span>
+    coord_y<span class="syntax3">;</span>
+    color<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">5</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    size<span class="syntax3">=</span><span class="syntax2">180</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        coord_x<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">199</span><span
+class="syntax3">);</span>
+        coord_y<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">199</span><span
+class="syntax3">);</span>
+        color<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">15</span><span
+class="syntax3">);</span>
+
+        <span
+class="syntax5">// Se ponen puntos en el gr&aacute;fico n&uacute;mero 5 del fichero1</span>
+        map_put_pixel<span class="syntax3">(</span>fichero1<span class="syntax3">,</span> <span
+class="syntax2">5</span><span class="syntax3">,</span> coord_x<span
+class="syntax3">,</span> coord_y<span class="syntax3">,</span> color<span class="syntax3">);</span>
+
+        angle<span class="syntax3">+=</span><span class="syntax2">2000</span><span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, se pone el gr&aacute;fico n&uacute;mero 5 en el centro de la pantalla rotando
+    cont&iacute;nuamente; este gr&aacute;fico es un fondo completamente negro, por ello
+    inicialmente no se ver&aacute; nada en pantalla.</p>
+
+    <p>Pero despu&eacute;s, en cada paso del bucle se ponen en &eacute;l puntos de un color elegido
+    al azar entre el 0 y el 15 (grises) en unas coordenadas tambi&eacute;n elegidas al azar.</p>
+
+    <p>Estos puntos se ponen usando la funci&oacute;n <strong>map_put_pixel()</strong>.</p>
+
+    <p>Se puede observar c&oacute;mo parece que hay cada vez m&aacute;s puntos girando en pantalla
+    cuando, en realidad, lo &uacute;nico que gira es el gr&aacute;fico n&uacute;mero 5.</p>
+    <hr />
+
+    <p>Para poner un gr&aacute;fico completo en otro, y no s&oacute;lo en un punto, se pueden
+    utilizar las funciones <a href="137.html">map_put()</a> o <a href="139.html">map_xput()</a>, y
+    para poner s&oacute;lo una parte de un gr&aacute;fico en otro se puede utilizar la
+    funci&oacute;n <a href="135.html">map_block_copy()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Cuando se utilice la funci&oacute;n <strong>map_put_pixel()</strong>
+    para poner un punto en un gr&aacute;fico que se est&aacute; utilizando como fondo de una
+    ventana de <strong>scroll</strong>, puede que el punto puesto no aparezca de forma inmediata en
+    pantalla; para solventar este problema se debe utilizar la funci&oacute;n <a
+    href="152.html">refresh_scroll()</a>.</p>
+    <hr />
+    Ver: <a href="137.html">map_put()</a> - <a href="139.html">map_xput()</a> - <a
+    href="152.html">refresh_scroll()</a> - <a href="135.html">map_block_copy()</a>
+  </body>
+</html>
+

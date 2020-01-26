@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - path_line()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>path_line()</h1>
+
+    <p><strong>path_line(</strong>&lt;fichero&gt;<strong>,</strong>
+    &lt;gr&aacute;fico&gt;<strong>,</strong> &lt;tama&ntilde;o casilla&gt;<strong>,</strong>
+    &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><a href="1151.html">True (1)</a>, si se puede ir hasta un punto sin atravesar ning&uacute;n
+    obst&aacute;culo, o <a href="1152.html">false (0)</a> en caso contrario.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Determina si, dentro de un mapa de b&uacute;squeda, se puede ir en linea recta hasta un
+    punto (partiendo de las coordenadas actuales del proceso), sin atravesar ning&uacute;n
+    obst&aacute;culo del mapa de b&uacute;squeda (en el manual de usuario se puede encontrar
+    informaci&oacute;n sobre estos mapas).</p>
+
+    <p>En caso de querer obtener una ruta para sortear los obst&aacute;culos entre dos puntos, se
+    debe utilizar la funci&oacute;n <a href="185.html">path_find()</a>, y para ver si el punto
+    destino est&aacute; dentro de un obst&aacute;culo la funci&oacute;n <a
+    href="187.html">path_free()</a>.</p>
+
+    <p><strong>El mapa de b&uacute;squeda.</strong></p>
+
+    <p>Los c&oacute;digos de <strong>&lt;fichero&gt;</strong> y
+    <strong>&lt;gr&aacute;fico&gt;</strong> se refieren al mapa de b&uacute;squeda. Este es una
+    versi&oacute;n reducida del decorado real, donde se aparecen en <strong>color negro</strong>
+    (el n&uacute;mero 0 de la paleta) las zonas libres y con <strong>color blanco</strong> los
+    obst&aacute;culos del mismo.</p>
+
+    <p>Como <strong>&lt;tama&ntilde;o casilla&gt;</strong> se indica el factor de reducci&oacute;n
+    del mapa de b&uacute;squeda, es decir, por cuanto se tendr&iacute;an que multiplicar el ancho y
+    alto del mismo para mostrarse a tama&ntilde;o real. Por ejemplo, si para una pantalla de
+    320x200 se genera un mapa de b&uacute;squeda de 160x100, entonces el tama&ntilde;o de casilla
+    ser&aacute; 2.</p>
+
+    <p>A continuaci&oacute;n se deben indicar las coordenadas <strong>&lt;x&gt;</strong> e
+    <strong>&lt;y&gt;</strong> hacia las que debe dirigirse el proceso (se toma como origen de la
+    ruta las coordenadas actuales del proceso que ejecute la funci&oacute;n
+    <strong>path_find()</strong>).</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_path_line<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">7</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">200</span><span
+class="syntax3">;</span>
+    mouse<span class="syntax3">.</span>graph<span class="syntax3">=</span><span
+class="syntax2">200</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+
+        <span
+class="syntax5">// Mira si puede ir en l&iacute;nea recta hacia el rat&oacute;n</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>path_line<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">201</span><span class="syntax3">,</span><span class="syntax2">2</span><span
+class="syntax3">,</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">,</span>mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">))</span>
+
+            <span class="syntax1">IF</span> <span class="syntax3">(</span>fget_dist<span
+class="syntax3">(</span>x<span class="syntax3">,</span><span class="syntax1">y</span><span
+class="syntax3">,</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">,</span>mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">)&gt;</span><span class="syntax2">4</span><span class="syntax3">)</span>
+                xadvance<span class="syntax3">(</span>fget_angle<span
+class="syntax3">(</span>x<span class="syntax3">,</span><span class="syntax1">y</span><span
+class="syntax3">,</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">,</span>mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">),</span><span class="syntax2">4</span><span class="syntax3">);</span>
+                draw<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span><span class="syntax2">24</span><span class="syntax3">,</span><span
+class="syntax2">15</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>x<span class="syntax3">,</span><span class="syntax1">y</span><span
+class="syntax3">,</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">,</span>mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">);</span>
+            <span class="syntax1">ELSE</span>
+                x<span class="syntax3">=</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">;</span>
+                <span class="syntax1">y</span><span class="syntax3">=</span>mouse<span
+class="syntax3">.</span><span class="syntax1">y</span><span class="syntax3">;</span>
+            <span class="syntax1">END</span>
+        <span class="syntax1">END</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        delete_draw<span class="syntax3">(</span>all_drawing<span class="syntax3">);</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se utiliza el <strong>gr&aacute;fico n&uacute;mero 7</strong> del fichero
+    <strong>help.fpg</strong> como decorado, y el <strong>gr&aacute;fico n&uacute;mero 201</strong>
+    del mismo como su <strong>mapa de b&uacute;squeda</strong>. El tama&ntilde;o de las casillas en
+    el mapa de b&uacute;squeda es <strong>2</strong></p>
+
+    <p>El proceso principal est&aacute; continuamente comprobando si se puede ir en l&iacute;nea
+    recta hsata las coordenadas del rat&oacute;n con la funci&oacute;n
+    <strong>path_line()</strong>. Cuando esto sea posible, se traza la l&iacute;nea con la
+    funci&oacute;n <a href="249.html">draw()</a>, y se avanzan las coordenadas del proceso con la
+    funci&oacute;n <a href="183.html">xadvance()</a>.</p>
+
+    <p>Para obtener la distancia y el &aacute;ngulo hacia el cursor del rat&oacute;n se utilizan
+    las funciones <a href="114.html">fget_dist()</a> y <a href="113.html">fget_angle()</a>.</p>
+    <hr />
+    Ver: <a href="185.html">path_find()</a> - <a href="187.html">path_free()</a>
+  </body>
+</html>
+

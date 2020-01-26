@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Esperando [END]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Esperando [END]</h1>
+
+    <p>Se esperaba un <a href="1091.html">END</a> del <a href="1087.html">CASE</a> o <a
+    href="1088.html">DEFAULT</a> dentro de la sentencia <a href="1021.html">SWITCH</a>.</p>
+
+    <p>Dentro de las palabras reservadas <a href="1021.html">SWITCH</a> y <a
+    href="1091.html">END</a> se espera una o m&aacute;s secciones del tipo:</p>
+
+    <p>&nbsp;&nbsp;<a href="1087.html">CASE</a> ... <a href="1091.html">END</a><br />
+    &nbsp;&nbsp;<a href="1088.html">DEFAULT</a> ... <a href="1091.html">END</a><br />
+    </p>
+
+    <p>En el programa hay una de estas secciones que se esperaba que acabe con la palabra reservada
+    <a href="1091.html">END</a> pero acaba con otra palabra; el caso m&aacute;s probable es:</p>
+
+    <p>- Que se haya perdido un <a href="1023.html">REPEAT</a> o un <a href="1020.html">IF</a>
+    acabando el bloque de sentencias con un <a href="1097.html">UNTIL</a> o un <a
+    href="1090.html">ELSE</a>; en este caso se debe buscar el <a href="1023.html">REPEAT</a> o <a
+    href="1020.html">IF</a> asociado.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">SWITCH</span> <span class="syntax3">(</span>x<span
+class="syntax3">)</span>
+        <span class="syntax1">CASE</span> <span class="syntax2">0</span><span
+class="syntax3">:</span>
+            <span class="syntax5">//REPEAT</span>
+            <span class="syntax5">//...</span>
+            <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span> <span
+class="syntax5">// Error: Esperando [END]</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo la secci&oacute;n que comenz&oacute; con el <a href="1087.html">CASE</a> ha
+    acabado con un <a href="1097.html">UNTIL</a> (puesto que se ha comentado accidentalmente el <a
+    href="1023.html">REPEAT</a>), y el compilador esperaba que esta secci&oacute;n acabara con un
+    <a href="1091.html">END</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

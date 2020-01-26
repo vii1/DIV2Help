@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_disty()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_disty()</h1>
+
+    <p><strong>get_disty(</strong>&lt;&aacute;ngulo&gt;<strong>,</strong>
+    &lt;distancia&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El desplazamiento vertical del vector (&aacute;ngulo, distancia).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Devuelve distancia vertical (eje de la coordenada <strong>y</strong>) a partir del
+    &aacute;ngulo y <strong>distancia</strong> (sobre ese &aacute;ngulo) pasados como
+    par&aacute;metros. Es decir, devuelve la distancia que recorre en vertical el vector formado
+    por el &aacute;ngulo y <strong>longitud</strong> (distancia) indicados.</p>
+
+    <p>Se recuerda que el &aacute;ngulo se especifica en mil&eacute;simas de grado y como distancia
+    se puede especificar cualquier expresi&oacute;n num&eacute;rica v&aacute;lida.</p>
+
+    <p>La funci&oacute;n utilizada para calcular la distancia horizontal, en lugar de la vertical,
+    es <a href="119.html">get_distx()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_disty<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    distancia<span class="syntax3">;</span>
+    distancia_horizontal<span class="syntax3">;</span>
+    distancia_vertical<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">3</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice los cursores para mover el tri&aacute;ngulo."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Distancia vertical:"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> distancia_vertical<span
+class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">101</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">))</span> distancia<span
+class="syntax3">+=</span><span class="syntax2">2</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_down<span class="syntax3">))</span> distancia<span
+class="syntax3">-=</span><span class="syntax2">2</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span> angle<span
+class="syntax3">-=</span><span class="syntax2">2000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span> angle<span
+class="syntax3">+=</span><span class="syntax2">2000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+
+        <span class="syntax5">// Calculamos la distancia vertical</span>
+        distancia_vertical <span class="syntax3">=</span> get_disty<span
+class="syntax3">(</span>angle<span class="syntax3">,</span> distancia<span
+class="syntax3">);</span>
+
+        distancia_horizontal <span class="syntax3">=</span> get_distx<span
+class="syntax3">(</span>angle<span class="syntax3">,</span> distancia<span
+class="syntax3">);</span>
+        x<span class="syntax3">=</span><span class="syntax2">160</span><span
+class="syntax3">+</span>distancia_horizontal<span class="syntax3">;</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">+</span>distancia_vertical<span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone como fondo de la pantalla una gr&aacute;fica circular, sobre la que se
+    manejar&aacute; con los cursores un tri&aacute;ngulo, modificando su distancia y &aacute;ngulo
+    al centro de la gr&aacute;fica.</p>
+
+    <p>El programa calcula la distancia horizontal y vertical para emplazar el tri&aacute;ngulo a
+    partir de las coordenadas del centro de pantalla (160, 100), mostr&aacute;ndose en todo momento
+    la distancia vertical en la esquina superior izquierda.</p>
+    <hr />
+
+    <p>Si se quiere avanzar las coordenadas del proceso una <strong>distancia</strong> en un
+    &aacute;ngulo determinado, se pueden utilizar las siguientes sentencias:</p>
+
+    <p>&nbsp;&nbsp;<strong>x+=get_distx(</strong>&lt;&aacute;ngulo&gt;<strong>,</strong>
+    &lt;distancia&gt;<strong>);</strong><br />
+    &nbsp;&nbsp;<strong>y+=get_disty(</strong>&lt;&aacute;ngulo&gt;<strong>,</strong>
+    &lt;distancia&gt;<strong>);</strong><br />
+    </p>
+
+    <p>Esto ser&iacute;a equivalente a la siguiente sentencia (utilizando la funci&oacute;n <a
+    href="183.html">xadvance()</a>).</p>
+
+    <p>&nbsp;&nbsp;<strong>xadvance(</strong>&lt;&aacute;ngulo&gt;<strong>,</strong>
+    &lt;distancia&gt;<strong>);</strong></p>
+
+    <p>Si el &aacute;ngulo en el que se quiere mover el proceso es el que tiene en su variable
+    local <a href="1129.html">angle</a>, entonces esta misma operaci&oacute;n se podr&iacute;a
+    realizar con la funci&oacute;n <a href="101.html">advance()</a> de la siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>advance(</strong>&lt;distancia&gt;<strong>);</strong></p>
+    <hr />
+
+    <p>La funci&oacute;n <strong>get_disty()</strong> equivale a calcular el <strong>seno</strong>
+    del &aacute;ngulo y multiplicarlo por la <strong>distancia</strong>, cambiando este resultado
+    de signo, debido a que el eje <strong>Y</strong> de pantalla avanza hacia abajo (de manera
+    contraria a la funci&oacute;n seno).</p>
+    <hr />
+    Ver: <a href="1044.html">Uso de &aacute;ngulos en el lenguaje</a> - <a
+    href="118.html">get_distx()</a> - <a href="183.html">xadvance()</a> - <a
+    href="101.html">advance()</a>
+  </body>
+</html>
+

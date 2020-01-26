@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL angle</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL angle</h1>
+
+    <p><strong>angle=0;</strong> // &aacute;ngulo del gr&aacute;fico del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>angle</strong>.</p>
+
+    <p>La variable local <strong>angle</strong> define el &aacute;ngulo en el que se debe ver el
+    gr&aacute;fico del proceso, indicando un &aacute;ngulo respecto al gr&aacute;fico original en
+    <strong>mil&eacute;simas de grado</strong> (ver <a href="1044.html">Uso de &aacute;ngulos en el
+    lenguaje</a>).</p>
+
+    <p>El valor por defecto de esta variable ser&aacute; <strong>0</strong> (0 grados) para todos
+    los procesos, pero cuando sea modificado el gr&aacute;fico se <strong>rotar&aacute;</strong>
+    para ajustarse al nuevo &aacute;ngulo.</p>
+
+    <p>El &aacute;ngulo puede definirse como cualquier n&uacute;mero entero dentro del rango (<a
+    href="1177.html">min_int</a> ... <a href="1178.html">max_int</a>).</p>
+
+    <p>Se muestran a continuaci&oacute;n algunos ejemplos de los &aacute;ngulos que definen ciertos
+    valores en la variable local <strong>angle</strong> (se recuerda que los &aacute;ngulos se
+    expresan en <strong>mil&eacute;simas</strong> de grado):</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    &nbsp; <strong>-180000</strong> - <a href="1044.html">Angulo</a> hacia la izquierda<br />
+    &nbsp; <strong>-90000</strong> - <a href="1044.html">Angulo</a> hacia abajo<br />
+    &nbsp; <strong>-45000</strong> - <a href="1044.html">Angulo</a> de la diagonal
+    abajo/derecha<br />
+    &nbsp; <strong>0</strong> - <a href="1044.html">Angulo</a> hacia la derecha<br />
+    &nbsp; <strong>+45000</strong> - <a href="1044.html">Angulo</a> de la diagonal
+    derecha/arriba<br />
+    &nbsp; <strong>+90000</strong> - <a href="1044.html">Angulo</a> hacia arriba<br />
+    &nbsp; <strong>+180000</strong> - <a href="1044.html">Angulo</a> hacia la izquierda<br />
+    &nbsp; <strong>+270000</strong> - <a href="1044.html">Angulo</a> hacia abajo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    </p>
+
+    <p><strong>Importante:</strong> Cuando se pretenda rotar el gr&aacute;fico de un proceso,
+    <strong>es conveniente dibujarlo orientado hacia la derecha</strong>, ya que as&iacute; es como
+    se mostrar&aacute; por defecto (con la variable local <strong>angle</strong> igual a
+    <strong>0</strong>).</p>
+
+    <p>De esta forma, cuando se especifique otro &aacute;ngulo, el gr&aacute;fico aparecer&aacute;
+    orientado exactamente hacia &eacute;l.</p>
+
+    <p>Por ejemplo, para que un gr&aacute;fico que ha sido dibujado hacia la derecha se vea
+    orientado hacia arriba (hacia el &aacute;ngulo de 90 grados), bastar&aacute; con indicar la
+    siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>angle=90000;</strong> // 90 mil&eacute;simas de grado (90 grados).</p>
+
+    <p>Es decir, si un gr&aacute;fico se dibujara orientado hacia otro &aacute;ngulo, por ejemplo
+    hacia abajo, quedar&iacute;a orientado hacia abajo por defecto, <strong>en el &aacute;ngulo
+    0</strong>, lo que puede provocar confusiones a la hora de orientar el gr&aacute;fico hacia
+    otro &aacute;ngulo.</p>
+    <hr />
+
+    <p>Para hacer que el gr&aacute;fico de un proceso avance sus coordenadas (<a
+    href="1123.html">x</a>, <a href="1124.html">y</a>) hacia su &aacute;ngulo (el especificado en
+    la variable local <strong>angle</strong> del proceso) una distancia determinada, se puede
+    utilizar la funci&oacute;n <a href="101.html">advance()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El gr&aacute;fico de un proceso se debe indicar asignando un
+    <strong>c&oacute;digo de gr&aacute;fico</strong> a la variable local <a
+    href="1126.html">graph</a>.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="1044.html">Uso de &aacute;ngulos en el
+    lenguaje</a>
+  </body>
+</html>
+

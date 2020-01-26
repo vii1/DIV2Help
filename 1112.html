@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL joy_status</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL joy_status</h1>
+
+    <p><strong>joy_status=0;</strong> // Estado del joystick</p>
+    <hr />
+
+    <p>En esta variable gobal se indica el estado del joystick (o gamepad) conectado al ordenador.
+    Los valores que toma esta variable por defecto son:</p>
+
+    <p><strong>0</strong> - Si el sistema de lectura del joystick est&aacute; desactivado. Este
+    valor quiere decir que no se ha encontrado un joystick conectado al ordenador al inicio de la
+    ejecuci&oacute;n del programa, o bien que &eacute;ste ha sido desconectado.</p>
+
+    <p><strong>1</strong> - Si el sistema de lectura del joystick est&aacute; activo. &Eacute;ste
+    es el valor inicial por defecto, pero si se desconecta el joystick (o no se encuentra ninguno
+    conectado), se desactivar&aacute; el sistema de lectura (indicando un <strong>0</strong> en la
+    variable joy_status).</p>
+
+    <p>Si el sistema est&aacute; desactivado, se puede volver a activar simplemente asignando de
+    nuevo un <strong>1</strong> a <strong>joy_status</strong> (con la sentencia
+    <strong>joy_status=1;</strong>), pero si pasado un tiempo l&iacute;mite no se detecta un
+    joystick, el sistema se volver&aacute; a desactivar.</p>
+    <hr />
+
+    <p>Existe un <strong>modo especial</strong> en el que el sistema de lectura del joystick
+    <strong>no se desactivar&aacute; nunca</strong>; este modo se define simplemente
+    <strong>asignando un 2 a joy_status</strong>.</p>
+
+    <p>&nbsp;&nbsp;<strong>joy_status=2;</strong> // Activa modo especial<br />
+    </p>
+
+    <p>No obstante, se debe tener cuidado ya que si el sistema de lectura del joystick est&aacute;
+    activado de este modo, sin haber un joystick conectado al ordenador, <strong>puede ralentizarse
+    la ejecuci&oacute;n del juego</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La lectura del joystick suele realizarse en los programas accediendo
+    a la <a href="1103.html">estructura global joy</a> que indica, siempre, la direcci&oacute;n del
+    mismo y el estado de sus botones (si est&aacute;n pulsados o no).</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1103.html">Estructura joy</a> - <a
+    href="1111.html">joy_filter</a>
+  </body>
+</html>
+

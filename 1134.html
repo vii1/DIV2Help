@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL cnumber</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL cnumber</h1>
+
+    <p><strong>cnumber=0;</strong> // N&uacute;meros de ventanas de scroll o modo 7</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>cnumber</strong>.</p>
+
+    <p>La variable local <strong>cnumber</strong> se utiliza <strong>exclusivamente</strong> cuando
+    en un juego aparezcan varias <strong>ventanas de scroll</strong> o varias <strong>ventanas de
+    modo 7</strong> simult&aacute;neamente en pantalla.</p>
+
+    <p>- Para m&aacute;s informaci&oacute;n sobre las <strong>ventanas de scroll</strong>, se debe
+    ver la ayuda sobre la funci&oacute;n <a href="163.html">start_scroll()</a>, que es la utilizada
+    para activarlas en el programa.</p>
+
+    <p>- Para m&aacute;s informaci&oacute;n sobre las <strong>ventanas de modo 7</strong>, se debe
+    ver la ayuda sobre la funci&oacute;n <a href="162.html">start_mode7()</a>, que es la utilizada
+    para activarlas en el programa.</p>
+    <hr />
+
+    <p>La utilidad de <strong>cnumber</strong> reside en indicar <strong>en cu&aacute;les de estas
+    ventanas debe verse el gr&aacute;fico del proceso</strong>. Evidentemente, esta variable se
+    debe definir s&oacute;lo en procesos visibles dentro de las <strong>ventanas de scroll</strong>
+    o de las <strong>ventanas de modo 7</strong>; para el resto de procesos (los procesos de
+    pantalla o los que no tengan gr&aacute;fico) esta variable carece de utilidad.</p>
+
+    <p><strong>Si el proceso debe verse en todas las ventanas</strong>, entonces no ser&aacute;
+    necesario modificar esta variable, ya que el valor por defecto de <strong>cnumber</strong> (que
+    es <strong>0</strong>) indica precisamente esto.</p>
+
+    <p>Puede activarse hasta <strong>10</strong> ventanas, tanto de un tipo como del otro, con los
+    n&uacute;meros del <strong>0</strong> al <strong>9</strong>. Existen diez constantes
+    predefinidas que se utilizan para definir el valor de <strong>cnumber</strong>; estas son <a
+    href="1175.html">c_0, c_1, c_2, ..., c_9</a> y se corresponden directamente con las
+    <strong>10</strong> posibles ventanas de estos tipos.</p>
+
+    <p>Se debe asignar a <strong>cnumber la suma de las constantes</strong> correspondientes a las
+    <strong>ventanas en las que el proceso debe ser visible</strong>.</p>
+
+    <p>Por ejemplo, si en un programa hay <strong>4 ventanas de scroll</strong> que son las
+    n&uacute;mero <strong>0</strong>, <strong>1</strong>, <strong>2</strong> y <strong>3</strong>,
+    y se quiere definir que un proceso determinado debe ser visible tan s&oacute;lo dentro de las
+    ventanas <strong>0</strong> y <strong>2</strong>, se debe utilizar para esto la siguiente
+    sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>cnumber=c_0+c_2;</strong></p>
+
+    <p>El valor de <strong>cnumber</strong> puede variarse durante la ejecuci&oacute;n del proceso
+    siempre que sea necesario.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se recuerda que para que el gr&aacute;fico del proceso se vea en
+    todas las ventanas no es necesario hacer nada, ya que &eacute;sta es la opci&oacute;n por
+    defecto.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="1175.html">c_0...c_9</a>
+  </body>
+</html>
+

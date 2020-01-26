@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - move_text()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>move_text()</h1>
+
+    <p><strong>move_text(</strong>&lt;identificador del texto&gt;<strong>,</strong>
+    &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Mueve un texto a otras coordenadas de pantalla. Se especifica como par&aacute;metro el
+    <strong>identificador del texto</strong> que es un c&oacute;digo num&eacute;rico que devuelve
+    las funciones <a href="171.html">write()</a> y <a href="172.html">write_int()</a> cuando se les
+    pide que escriban un texto, y las coordenadas (<strong>x</strong>, <strong>y</strong>) de
+    pantalla a las que se debe mover el texto.</p>
+
+    <p>El <strong>c&oacute;digo de centrado</strong> especificado en el <a
+    href="171.html">write()</a> o <a href="172.html">write_int()</a> se mantendr&aacute; cuando se
+    utilice esta funci&oacute;n.</p>
+
+    <p>Las coordenadas especificadas son siempre relativas a la pantalla y pueden estar dentro o
+    fuera de la misma. Para modificar la <strong>coordenada z de los textos</strong> (el plano de
+    profundidad en el que aparecen) se debe utilizar la variable global <a
+    href="1106.html">text_z</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_move_text<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    id_texto1<span class="syntax3">;</span>
+    id_texto2<span class="syntax3">;</span>
+    coord_x<span class="syntax3">;</span>
+    coord_y<span class="syntax3">;</span>
+    &aacute;ngulo1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    id_texto1<span class="syntax3">=</span>write<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">160</span><span
+class="syntax3">,</span> <span class="syntax2">100</span><span class="syntax3">,</span> <span
+class="syntax2">4</span><span class="syntax3">,</span> <span
+class="syntax4">"TEXTO EN MOVIMIENTO"</span><span class="syntax3">);</span>
+    id_texto2<span class="syntax3">=</span>write<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">160</span><span
+class="syntax3">,</span> <span class="syntax2">100</span><span class="syntax3">,</span> <span
+class="syntax2">4</span><span class="syntax3">,</span> <span
+class="syntax4">"MUEVA EL RATON"</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        coord_x<span class="syntax3">=</span><span class="syntax2">160</span><span
+class="syntax3">+</span>get_distx<span class="syntax3">(</span>&aacute;ngulo1<span
+class="syntax3">,</span> <span class="syntax2">100</span><span class="syntax3">);</span>
+        coord_y<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">+</span>get_disty<span class="syntax3">(</span>&aacute;ngulo1<span
+class="syntax3">,</span> <span class="syntax2">90</span><span class="syntax3">);</span>
+
+        <span class="syntax5">// Movemos los textos</span>
+        move_text<span class="syntax3">(</span>id_texto1<span class="syntax3">,</span> coord_x<span
+class="syntax3">,</span> coord_y<span class="syntax3">);</span>
+        move_text<span class="syntax3">(</span>id_texto2<span class="syntax3">,</span> mouse<span
+class="syntax3">.</span>x<span class="syntax3">,</span> mouse<span class="syntax3">.</span><span
+class="syntax1">y</span><span class="syntax3">);</span>
+
+        &aacute;ngulo1<span class="syntax3">+=</span><span class="syntax2">1000</span><span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se imprimen dos texto con la funci&oacute;n <a href="171.html">write()</a> en
+    el centro de la pantalla. Esta funci&oacute;n nos devuelve los identificadores de dichos
+    textos, que se guardan en las variables <strong>id_texto1</strong> e
+    <strong>id_texto2</strong>.</p>
+
+    <p>En cada paso de bucle, se mueve el primer el texto por una trayectoria circular que se
+    consigue incrementando un &aacute;ngulo (<strong>&aacute;ngulo1</strong>) y utilizando las
+    funciones <a href="118.html">get_distx()</a> y <a href="119.html">get_disty()</a>. El segundo
+    texto se situar&aacute; en las coordenadas del puntero del rat&oacute;n.</p>
+
+    <p>Ambos textos se mueven en cada imagen mediante la funci&oacute;n
+    <strong>move_text()</strong>.</p>
+    <hr />
+
+    <p>Para borrar un texto definitivamente tambi&eacute;n se requiere el <strong>identificador del
+    texto</strong>, y se debe utilizar para ello la funci&oacute;n <a
+    href="107.html">delete_text()</a>.</p>
+    <hr />
+    Ver: <a href="171.html">write()</a> - <a href="172.html">write_int()</a> - <a
+    href="107.html">delete_text()</a>
+  </body>
+</html>
+

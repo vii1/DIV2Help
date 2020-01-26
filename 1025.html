@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia FOR</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia FOR</h1>
+
+    <p><strong>FOR</strong> <a href="1053.html">(</a>&lt;inicializaci&oacute;n&gt;<a
+    href="1068.html">;</a> &lt;condici&oacute;n&gt;<a href="1068.html">;</a> &lt;incremento&gt;<a
+    href="1053.html">)</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>La sentencia <strong>FOR</strong> (r&eacute;plica del lenguaje C) es una sentencia que
+    implementa un <strong>bucle</strong>, es decir, que es capaz de <strong>repetir un grupo de
+    sentencias un n&uacute;mero determinado de veces</strong>.</p>
+
+    <p>Para implementar este bucle se deben especificar, entre par&eacute;ntesis, tres partes
+    diferentes, separadas por s&iacute;mbolos <a href="1068.html">;</a> (punto y coma) tras la
+    palabra reservada <strong>FOR</strong>. Estas tres partes son opcionales (pueden omitirse) y
+    son las siguientes:</p>
+
+    <p>- <strong>Inicializaci&oacute;n</strong>. En esta parte se suele codificar una sentencia de
+    asignaci&oacute;n que fija el valor inicial de la variable que va a utilizarse como contador de
+    <strong>iteraciones</strong> del bucle (a cada ejecuci&oacute;n del grupo interior de
+    sentencias se le denomina una <strong>iteraci&oacute;n</strong> del bucle). Un ejemplo puede
+    ser la sentencia de asignaci&oacute;n <strong>x=0</strong>, que fijar&iacute;a la variable
+    <strong>x</strong> a cero al inicio del bucle (valor para la primera iteraci&oacute;n).</p>
+
+    <p>- <a href="1037.html">Condici&oacute;n</a>. En esta parte se especifica una
+    condici&oacute;n; justo antes de cada iteraci&oacute;n se comprobar&aacute; que sea cierta para
+    pasar a ejecutar el grupo de sentencias. Si la condici&oacute;n se eval&uacute;a como falsa, se
+    finalizar&aacute; el bucle <strong>FOR</strong>, continuando el programa tras el <a
+    href="1091.html">END</a> del bucle <strong>FOR</strong>. Un ejemplo de condici&oacute;n puede
+    ser <strong>x&lt;10</strong>, que permitir&aacute; que se ejecute el grupo interior de
+    sentencias &uacute;nicamente cuando la variable <strong>x</strong> sea un n&uacute;mero menor
+    que <strong>10</strong>.</p>
+
+    <p>- <strong>Incremento</strong>. En la &uacute;ltima de las tres partes es donde se indica el
+    incremento de la variable usada como contador por cada iteraci&oacute;n del bucle; normalmente
+    &eacute;sto se expresa tambi&eacute;n con una sentencia de asignaci&oacute;n. Por ejemplo, la
+    sentencia <strong>x=x+1</strong> le sumar&iacute;a <strong>1</strong> a la variable
+    <strong>x</strong> tras cada iteraci&oacute;n del bucle.</p>
+
+    <p>Tras la definici&oacute;n del bucle <strong>FOR</strong> con sus tres partes es donde debe
+    aparecer el grupo de sentencias interiores al bucle que se van a repetir secuencialmente
+    mientras se cumpla la condici&oacute;n de permanencia (parte segunda). Tras este grupo de
+    sentencias la palabra reservada <a href="1091.html">END</a> determinar&aacute; el final del
+    bucle <strong>FOR</strong>.</p>
+
+    <p>Cuando en un programa llega una sentencia <strong>FOR</strong> se ejecuta primero la parte
+    de la inicializaci&oacute;n y se comprueba la condici&oacute;n; si &eacute;sta es cierta se
+    ejecutar&aacute; el grupo de sentencias interiores y, despu&eacute;s, la parte del incremento,
+    volvi&eacute;ndose a comprobar la condici&oacute;n, etc. Si antes de cualquier iteraci&oacute;n
+    la condici&oacute;n resulta falsa, finalizar&aacute; la sentencia <strong>FOR</strong>
+    inmediatamente.</p>
+
+    <p>A continuaci&oacute;n, se muestra un programa con un bucle <strong>FOR</strong> con las tres
+    partes sugeridas en las secciones anteriores.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span> x<span
+class="syntax3">=</span><span class="syntax2">0</span> <span class="syntax3">;</span> x<span
+class="syntax3">&lt;</span><span class="syntax2">10</span> <span class="syntax3">;</span> x<span
+class="syntax3">=</span>x<span class="syntax3">+</span><span class="syntax2">1</span> <span
+class="syntax3">)</span>
+        <span class="syntax5">// Aqu&iacute; vendr&iacute;an las sentencias interiores.</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este bucle se ejecutar&iacute;a la primera vez con la variable <strong>x</strong> valiendo
+    <strong>0</strong>, la segunda valiendo <strong>1</strong>, ..., y la &uacute;ltima valiendo
+    <strong>9</strong>; tras esta iteraci&oacute;n se ejecutar&iacute;a la parte del incremento,
+    pasando <strong>x</strong> a valer <strong>10</strong> y, entonces, al comprobarse la
+    condici&oacute;n de permanencia en el bucle (que <strong>x</strong> sea menor que
+    <strong>10</strong>) y resultar &eacute;sta falsa, se dar&iacute;a por finalizado el bucle.</p>
+
+    <p>Como se ha mencionado, las tres partes en la definici&oacute;n del bucle son opcionales; si
+    se omitieran las tres:</p>
+
+    <p>&nbsp;&nbsp;<strong>FOR ( ; ; )</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ...<br />
+    &nbsp;&nbsp;<strong>END</strong></p>
+
+    <p>Entonces, este bucle es equivalente a un bucle <a href="1024.html">LOOP</a> ... <a
+    href="1091.html">END</a>.</p>
+
+    <p>Adem&aacute;s en un bucle <strong>FOR</strong> pueden ponerse varias partes de
+    inicializaci&oacute;n, condici&oacute;n o incremento separadas por comas (<a
+    href="1059.html">,</a>), ejecut&aacute;ndose todas las inicializaciones al principio, luego
+    comprob&aacute;ndose todas las condiciones de permanencia (si cualquiera resulta falsa, el
+    bucle finalizar&aacute;), las asentencias interiores y, al final, tras cada iteraci&oacute;n,
+    todos los incrementos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span> x<span
+class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax1">y</span><span class="syntax3">=</span><span class="syntax2">1000</span> <span
+class="syntax3">;</span> x<span class="syntax3">&lt;</span><span class="syntax1">y</span> <span
+class="syntax3">;</span> x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">2</span><span class="syntax3">,</span> <span class="syntax1">y</span><span
+class="syntax3">=</span><span class="syntax1">y</span><span class="syntax3">+</span><span
+class="syntax2">1</span> <span class="syntax3">)</span>
+        <span class="syntax5">// Aqui vendr&iacute;an las sentencias interiores.</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Una sentencia <a href="1026.html">BREAK</a> dentro de un bucle <strong>FOR</strong> lo
+    finalizar&aacute; de forma inmediata, continuando el programa por la sentencia siguiente a
+    dicho bucle.</p>
+
+    <p>Una sentencia <a href="1027.html">CONTINUE</a> dentro de un bucle <strong>FOR</strong>
+    forzar&aacute; al programa a ejecutar directamente la parte del incremento y, despu&eacute;s,
+    realizar la comprobaci&oacute;n de permanencia y, si &eacute;sta es cierta, volver a ejecutar
+    las sentencias interiores desde el principio. Si la condici&oacute;n resulta cierta, la
+    sentencia <a href="1027.html">CONTINUE</a> finalizar&aacute; el bucle <strong>FOR</strong>.</p>
+
+    <p>Un bucle <strong>FOR</strong> es, pr&aacute;cticamente, equivalente a un bucle <a
+    href="1022.html">WHILE</a> implementado de la siguiente forma:</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    x<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+    <span class="syntax1">WHILE</span> <span class="syntax3">(</span>x<span
+class="syntax3">&lt;</span><span class="syntax2">10</span><span class="syntax3">)</span>
+        <span class="syntax5">// Aqui vendr&iacute;an las sentencias interiores.</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Con la &uacute;nica excepci&oacute;n de que una sentencia <a href="1027.html">CONTINUE</a>,
+    dentro de este bucle <a href="1022.html">WHILE</a>, no ejecutar&iacute;a la parte del
+    incremento, mientras que en un bucle <strong>FOR</strong> s&iacute; lo har&iacute;a.</p>
+
+    <p>Si en un bucle <strong>FOR</strong>, tras ejecutarse la inicializaci&oacute;n, la
+    condici&oacute;n resulta falsa directamente, no se ejecutar&aacute;n ninguna vez las sentencias
+    interiores.</p>
+
+    <p>Las sentencias interiores a un bucle <strong>FOR</strong> pueden ser tantas como se quieran
+    y de cualquier tipo incluyendo, por supuesto, nuevos bucles <strong>FOR</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

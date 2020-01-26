@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT scroll</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT scroll</h1>
+
+    <p><strong>STRUCT scroll[9];</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>x0, y0;</strong> // Coordenadas del primer plano<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>x1, y1;</strong> // Coordenadas del segundo plano<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>z;</strong> // Plano de profundidad<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>camera;</strong> // <a href="1039.html">C&oacute;digo
+    identificador</a> de la c&aacute;mara<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio;</strong> // Velocidad relativa del segundo plano<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>speed;</strong> // Velocidad m&aacute;xima del primer
+    plano<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>region1;</strong> // Primera regi&oacute;n de pantalla<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>region2;</strong> // Segunda regi&oacute;n de pantalla<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura de <strong>10</strong> registros contiene ciertos campos relacionados con
+    par&aacute;metros modificables de las <strong>ventanas de scroll</strong>. Los diez registros
+    tienen los mismos nombres de campos, pero cada uno de ellos modifica los par&aacute;metros de
+    una ventana de scroll diferente (ya que pueden activarse hasta 10 ventanas de este tipo).</p>
+
+    <p>Una <strong>ventana de scroll</strong> se podr&iacute;a definir como una regi&oacute;n de
+    pantalla que muestra s&oacute;lo una parte de un gr&aacute;fico m&aacute;s grande que dicha
+    ventana (este gr&aacute;fico suele ser el <strong>decorado</strong> o <strong>fondo</strong>
+    del juego). El <strong>scroll</strong> en s&iacute; es el movimiento de dicha ventana por el
+    gr&aacute;fico en cualquier direcci&oacute;n, visualiz&aacute;ndose poco a poco el
+    gr&aacute;fico completo, secci&oacute;n a secci&oacute;n del mismo.</p>
+
+    <p>Para que un registro (del <strong>0</strong> al <strong>9</strong>) de la <strong>estructura
+    scroll</strong> tenga sentido, primero debe activarse dicha <strong>ventana de scroll</strong>
+    (del <strong>0</strong> al <strong>9</strong>) con la funci&oacute;n <a
+    href="163.html">start_scroll</a> (ver esta funci&oacute;n para m&aacute;s informaci&oacute;n
+    sobre las ventanas de scroll}.</p>
+
+    <p>Se entiende que los campos de esta estructura son complementarios a los par&aacute;metros de
+    llamada de esta &uacute;ltima funci&oacute;n.</p>
+    <hr />
+
+    <p><strong>Forma de uso de la estructura scroll:</strong></p>
+
+    <p>Para acceder a estos campos se debe preceder el nombre del campo por la palabra
+    <strong>scroll</strong>, el n&uacute;mero de registro entre corchetes y el s&iacute;mbolo <a
+    href="1063.html">.</a> (punto).</p>
+
+    <p>Por ejemplo, si se inicializaran dos ventanas de scroll, la n&uacute;mero 0 y la
+    n&uacute;mero 1, se podr&iacute;a acceder al campo <strong>camera</strong> de ambas ventanas
+    como <strong>scroll[0].camera</strong> y <strong>scroll[1].camera</strong>, respectivamente.
+    Cuando se acceda a la ventana n&uacute;mero 0 de scroll se puede, adem&aacute;s, omitir el
+    n&uacute;mero de ventana entre corchetes, es decir, que la variable
+    <strong>scroll.camera</strong> y la variable <strong>scroll[0].camera</strong> son, a todos los
+    efectos, la misma para el lenguaje.</p>
+    <hr />
+
+    <p><strong>Se muestra a continuaci&oacute;n una descripci&oacute;n detallada de cada
+    campo</strong></p>
+
+    <p><strong>x0, y0</strong> - Coordenadas del primer plano de scroll, cuando es scroll
+    <strong>NO</strong> es autom&aacute;tico (no se ha definido el campo <strong>camera</strong>),
+    <strong>&eacute;stos son los campos que se deber&aacute;n modificar para mover el primer plano
+    de la ventana de scroll</strong>.</p>
+
+    <p>Estos dos campos almacenan las coordenadas horizontal y vertical de la esquina superior
+    izquierda de la ventana de scroll (el punto del gr&aacute;fico del primer plano que se
+    ver&aacute; en la esquina superior izquierda de la ventana).</p>
+
+    <p>Cuando se haya definido el campo <strong>camera</strong> de esta estructura, el movimiento
+    de la ventana de scroll ser&aacute; autom&aacute;tico, por lo que estos campos ser&aacute;n
+    s&oacute;lo de lectura; para poder comprobar donde est&aacute; situado el scroll en cada
+    momento (ver la funci&oacute;n <a href="140.html">move_scroll()</a>).</p>
+    <hr />
+
+    <p><strong>x1, y1</strong> - Coordenadas del segundo plano, cuando se haya definido un
+    gr&aacute;fico para el segundo plano. Cuando el scroll <strong>NO</strong> es autom&aacute;tico
+    (no se ha definido el campo <strong>camera</strong>), <strong>&eacute;stos son los campos que
+    se deber&aacute;n modificar para mover el plano de fondo de la ventana de scroll</strong>.</p>
+
+    <p>Cuando se haya definido el campo <strong>camera</strong> de esta estructura, el movimiento
+    de la ventana de scroll ser&aacute; autom&aacute;tico, por lo que estos campos ser&aacute;n
+    s&oacute;lo de lectura, determin&aacute;ndose la velocidad de movimento del segundo plano en
+    funci&oacute;n del campo <strong>ratio</strong> de esta misma estructura.</p>
+    <hr />
+
+    <p><strong>z</strong> - Prioridad de impresi&oacute;n del scroll, aqu&iacute; se indica en que
+    plano de profundidad se debe pintar esta ventana, respecto al resto de procesos. Por defecto,
+    esta variable valdr&aacute; <strong>512</strong>, lo cual quiere decir que como los procesos
+    por defecto tienen su variable <a href="1125.html">local z</a> a <strong>0</strong>, la ventana
+    de scroll se pintar&aacute; en un plano de profundidad mayor, m&aacute;s al fondo,
+    visualiz&aacute;ndose los gr&aacute;ficos de los procesos por encima de la ventana. Para variar
+    esta situaci&oacute;n se puede modificar la variable <strong>z</strong> de la ventana (por
+    ejemplo, ponerla a <strong>-1</strong>) o la variable <strong>z</strong> de los procesos (por
+    ejemplo, ponerla a <strong>600</strong>).</p>
+    <hr />
+
+    <p><strong>camera</strong> - Este campo no es necesario inicializarlo, se inicializar&aacute;
+    cuando se quiera que el scroll sea <strong>autom&aacute;tico</strong>, esto es, que el sistema
+    se encargue de que &eacute;ste siga siempre a un proceso (un gr&aacute;fico del juego). Para
+    ello, se debe poner en este campo el <a href="1039.html">c&oacute;digo identificador</a> del
+    proceso; s&oacute;lo con esto, el desplazamiento de la ventana de scroll pasar&aacute; a ser
+    controlado autom&aacute;ticamente por el sistema, intentando centrar el gr&aacute;fico de dicho
+    proceso siempre en la ventana. Este proceso debe tener la variable local <a
+    href="1122.html">ctype</a> con el valor <a href="1168.html">c_scroll</a>.</p>
+
+    <p>Por defecto este campo valdr&aacute; <strong>0</strong>, lo que implica que el scroll no
+    seguir&aacute; a ning&uacute;n proceso, a no ser que se asigne el <a
+    href="1039.html">c&oacute;digo identificador</a> de uno a <strong>camera</strong>. Cuando se
+    haga esto, se denominar&aacute; a este proceso como el <strong>proceso c&aacute;mara</strong>
+    del scroll.</p>
+
+    <p><strong>Nota:</strong> A continuaci&oacute;n se muestra una serie de campos
+    <strong>s&oacute;lo para ventanas de scroll autom&aacute;tico</strong>; esto quiere decir que
+    para que dichos campos tengan sentido (y, por consiguiente, efecto) se debe haber definido
+    previamente el campo <strong>camera</strong> de esta estructura con el <a
+    href="1039.html">c&oacute;digo identificador</a> del proceso que se va a centrar en el scroll.
+    Estos valores afectar&aacute;n a la forma en la que se va a hacer este seguimiento al proceso
+    denominado <strong>c&aacute;mara del scroll</strong>.</p>
+    <hr />
+
+    <p><strong>ratio</strong> - <strong>Ventanas de scroll autom&aacute;tico</strong>. Cuando se
+    hayan definido dos planos de scroll en la llamada a la funci&oacute;n <a
+    href="163.html">start_scroll()</a>, en este campo se puede definir la <strong>velocidad de
+    movimiento del plano del fondo</strong> respecto a la del primer plano. Por defecto, este valor
+    ser&aacute; <strong>200</strong> lo que implicar&aacute; que el plano de fondo se mover&aacute;
+    a la mitad de velocidad del primer plano; si se define como <strong>400</strong> se
+    mover&aacute; a la cuarta parte (cuatro veces m&aacute;s lento), <strong>100</strong> a la
+    misma velocidad, <strong>50</strong> al doble de velocidad que el primer plano, etc.</p>
+    <hr />
+
+    <p><strong>speed</strong> - <strong>Ventanas de scroll autom&aacute;tico</strong>. Velocidad
+    m&aacute;xima del primer plano de scroll, por defecto valdr&aacute; <strong>0</strong>, lo que
+    quiere decir que no se impone ning&uacute;n l&iacute;mite de velocidad. Si se impone un
+    l&iacute;mite, especificando el n&uacute;mero de puntos m&aacute;ximo que puede desplazarse el
+    primer plano por cada imagen del juego, se descentrar&aacute; el <strong>proceso
+    c&aacute;mara</strong> de la ventana de scroll cuando &eacute;ste se mueva a una velocidad
+    mayor.</p>
+    <hr />
+
+    <p><strong>region1</strong> - <strong>Ventanas de scroll autom&aacute;tico</strong>.
+    Regi&oacute;n de bloqueo del scroll, cuyo valor, por defecto, es <strong>-1</strong> lo que
+    implica que no hay ninguna regi&oacute;n de bloqueo. Si se define este campo con un
+    n&uacute;mero de regi&oacute;n (una zona rectangular de la pantalla definida previamente con la
+    funci&oacute;n <a href="106.html">define_region()</a>), entonces el sistema no mover&aacute; el
+    scroll mientras el <strong>proceso c&aacute;mara</strong> permanezca dentro de la misma.</p>
+    <hr />
+
+    <p><strong>region2</strong> - <strong>Ventanas de scroll autom&aacute;tico</strong>. Region
+    exterior del scroll; por defecto su valor es <strong>-1</strong>, lo que implica que no hay una
+    regi&oacute;n exterior. Si se define este campo con un n&uacute;mero de regi&oacute;n y se ha
+    definido una <strong>velocidad m&aacute;xima</strong> en el campo <strong>speed</strong>,
+    entonces el sistema ignorar&aacute; dicho l&iacute;mite de velocidad cuando el proceso
+    <strong>c&aacute;mara</strong> vaya a salirse de esta regi&oacute;n (&eacute;sto se hace para
+    no perder de vista al proceso (para que su gr&aacute;fico siempre sea visible dentro de la
+    ventana de scroll).</p>
+
+    <p><strong>Nota:</strong> Si se definen las dos regiones (<strong>region1</strong> y
+    <strong>region2</strong>), normalmente la regi&oacute;n 1 es menor que la regi&oacute;n 2
+    (est&aacute; contenida en ella), esto implicar&aacute; que:</p>
+
+    <p>- No se desplazar&aacute; el gr&aacute;fico de fondo (no se har&aacute; scroll) mientras el
+    gr&aacute;fico del proceso c&aacute;mara est&eacute; dentro de la regi&oacute;n 1.</p>
+
+    <p>- Si se ha definido una velocidad m&aacute;xima (<strong>speed</strong>), entonces se
+    har&aacute; scroll para intentar devolver el gr&aacute;fico del proceso c&aacute;mara a la
+    regi&oacute;n 1, pero sin sobrepasar el l&iacute;mite de velocidad impuesto.</p>
+
+    <p>- Si el gr&aacute;fico del proceso c&aacute;mara intentara salirse de la regi&oacute;n 2, se
+    ignorar&iacute;a el l&iacute;mite de velocidad impuesto, para no permitirlo.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="163.html">start_scroll()</a> - <a
+    href="166.html">stop_scroll()</a>
+  </body>
+</html>
+

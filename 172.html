@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - write_int()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>write_int()</h1>
+
+    <p><strong>write_int(</strong>&lt;fuente&gt;<strong>,</strong> &lt;x&gt;<strong>,</strong>
+    &lt;y&gt;<strong>,</strong> &lt;c&oacute;digo de centrado&gt;<strong>,</strong> &lt;OFFSET
+    variable&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El c&oacute;digo identificador del texto que se ha escrito.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n es la utilizada para visualizar el valor num&eacute;rico de una
+    variable; para ello requiere los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;fuente&gt;</strong> - El <strong>c&oacute;digo de la fuente</strong> o
+    <strong>tipo de letra</strong> que se va a utilizar. Aqu&iacute; se debe poner un 0 cuando se
+    quiera utilizar la fuente del sistema (fuente de color blanco, peque&ntilde;a, de 6 por 8
+    puntos), o bien el <strong>c&oacute;digo de fuente</strong> devuelto por la funci&oacute;n <a
+    href="131.html">load_fnt()</a> cuando se carga una nueva fuente en el programa.</p>
+
+    <p><strong>&lt;x&gt;</strong>, <strong>&lt;y&gt;</strong> - Las coordenadas relativas a
+    pantalla en las que se va a imprimir el valor num&eacute;rico, primero en el eje horizontal y
+    despu&eacute;s en el vertical.</p>
+
+    <p><strong>&lt;c&oacute;digo de centrado&gt;</strong> - Es un c&oacute;digo que determina la
+    posici&oacute;n del valor num&eacute;rico que se especifica en las coordenadas anteriores. Sus
+    valores son:</p>
+
+    <p>&nbsp;&nbsp;<strong>0</strong>-Arriba izquierda <strong>1</strong>-Arriba
+    <strong>2</strong>-Arriba derecha<br />
+    &nbsp;&nbsp;<strong>3</strong>-Izquierda <strong>4</strong>-Centro
+    <strong>5</strong>-Derecha<br />
+    &nbsp;&nbsp;<strong>6</strong>-Abajo izquierda <strong>7</strong>-Abajo
+    <strong>8</strong>-Abajo derecha<br />
+    </p>
+
+    <p>Por ejemplo, si se escribe un valor num&eacute;rico en las coordenadas 160, 0 y con el
+    c&oacute;digo de centrado 1 (Arriba), entonces se centrar&aacute; el valor num&eacute;rico en
+    la columna 160 y se imprimir&aacute; de la l&iacute;nea 0 hacia abajo. O si se quiere un valor
+    num&eacute;rico en la esquina superior izquierda, se debe imprimir en las coordenadas 0, 0 y
+    con c&oacute;digo de centrado 0 (Arriba izquierda).</p>
+
+    <p><strong>&lt;OFFSET variable&gt;</strong> - Como &uacute;ltimo par&aacute;metro se debe
+    especificar el desplazamiento dentro de la memoria del ordenador de la variable cuyo valor se
+    quiere visualizar (el desplazamiento del dato se obtiene con el operador <a
+    href="1085.html">OFFSET</a>).</p>
+    <hr />
+
+    <p>El valor num&eacute;rico impreso permanecer&aacute; en pantalla hasta que se borre con la
+    funci&oacute;n <a href="107.html">delete_text()</a>, que requiere como par&aacute;metro el
+    <strong>c&oacute;digo identificador</strong> que devuelve <strong>write_int()</strong>.</p>
+
+    <p><strong>Importante:</strong> Durante el tiempo que aparezca el valor de la variable en
+    pantalla, &eacute;ste se ir&aacute; actualizando autom&aacute;ticamente cada vez que se
+    modifique la variable, no siendo necesarias nuevas llamadas a <strong>write_int()</strong>.</p>
+
+    <p>Para imprimir un texto alfanum&eacute;rico de cualquier tipo (un texto fijo) se debe
+    utilizar la funci&oacute;n <a href="171.html">write()</a>.</p>
+
+    <p>Los textos permanecer&aacute;n inalterados en pantalla aunque se impriman gr&aacute;ficos en
+    la misma o pasen gr&aacute;ficos de procesos por delante o por detr&aacute;s de ellos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_write_int<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    variable<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">190</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para cambiar el valor de la variable."</span><span
+class="syntax3">);</span>
+
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">100</span><span class="syntax3">,</span> <span class="syntax2">4</span><span
+class="syntax3">,</span> <span class="syntax1">OFFSET</span> variable<span
+class="syntax3">);</span> <span class="syntax5">// Se imprime una variable.</span>
+
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span> variable<span
+class="syntax3">=</span>rand<span class="syntax3">(-</span><span class="syntax2">100</span><span
+class="syntax3">,</span> <span class="syntax2">100</span><span class="syntax3">);</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se imprime un texto usando <a href="171.html">write()</a> y el valor de una
+    variable con la funci&oacute;n <strong>write_int()</strong>. A esta &uacute;ltima
+    funci&oacute;n se le pasan los siguientes par&aacute;metros:</p>
+
+    <p>&nbsp;&nbsp;<strong>0</strong> - Como <strong>fuente</strong> (0 es la fuente del
+    sistema).<br />
+    &nbsp;&nbsp;<strong>0, 10</strong> - Como coordenadas de pantalla.<br />
+    &nbsp;&nbsp;<strong>0</strong> - Como c&oacute;digo de centrado (Arriba/Izquierda).<br />
+    &nbsp;&nbsp;<strong>OFFSET variable</strong> - Como el desplazamiento en memoria de la
+    variable.<br />
+    </p>
+
+    <p>A cada paso del bucle, si se pulsa la barra espaciadora, se cambia el valor de la variable
+    asign&aacute;ndole uno elegido aleatoriamente, al azar, con la funci&oacute;n <a
+    href="149.html">rand()</a>.</p>
+    <hr />
+
+    <p>El plano de profundidad en el que aparecen los textos escritos se controla mediante la
+    variable global <a href="1106.html">text_z</a>, que sirve para regular qu&eacute;
+    gr&aacute;ficos se deben ver por encima de los textos y cu&aacute;les por debajo.</p>
+
+    <p>Los textos podr&aacute;n luego moverse hasta otra posici&oacute;n si es necesario utilizando
+    la funci&oacute;n <a href="141.html">move_text()</a>, que tambi&eacute;n requiere como
+    par&aacute;metro el <strong>c&oacute;digo identificador</strong> que devuelve
+    <strong>write_int()</strong>.</p>
+    <hr />
+
+    <p>Cuando se utilicen fuentes cargadas de <strong>archivos FNT</strong> debe estar activada la
+    paleta de colores que se ha utilizado para generar dichas fuentes (ver <a
+    href="133.html">load_pal()</a>) pues, de lo contrario, los colores pueden aparecer cambiados,
+    visualiz&aacute;ndose el texto incorrectamente.</p>
+    <hr />
+
+    <p><strong>Advertencia:</strong></p>
+
+    <p>No es posible imprimir una expresi&oacute;n, como se muestra a continuaci&oacute;n:</p>
+
+    <p>&nbsp;&nbsp;<strong>write_int(0, 0, 0, 0, offset variable + 1);</strong></p>
+
+    <p>Para imprimir el valor de la variable m&aacute;s 1, es decir, si se quisiera imprimir este
+    valor, se deber&iacute;a sumar 1 a la variable o crear otra variable y asignarle a &eacute;sta
+    el valor de la variable original m&aacute;s 1, por ejemplo:</p>
+
+    <p>&nbsp;&nbsp;<strong>variable2 = variable + 1;</strong><br />
+    &nbsp;&nbsp;<strong>write_int(0, 0, 0, 0, offset variable2);</strong><br />
+    </p>
+
+    <p>En este caso se deber&iacute;a tener en cuenta que habr&iacute;a que actualizar el valor de
+    <strong>variable2</strong> al menos una vez por cada imagen (por cada <a
+    href="1029.html">FRAME</a>) del juego, ya que al cambiar <strong>variable</strong> no se
+    actualizar&iacute;a autom&aacute;ticamente el valor de <strong>variable2</strong> a no ser que
+    se ejecutara nuevamente la sentencia <strong>variable2 = variable + 1;</strong>.</p>
+    <hr />
+    Ver: <a href="171.html">write()</a> - <a href="141.html">move_text()</a> - <a
+    href="107.html">delete_text()</a> - <a href="131.html">load_fnt()</a> - <a
+    href="1106.html">text_z</a>
+  </body>
+</html>
+

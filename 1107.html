@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL fading</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL fading</h1>
+
+    <p><strong>fading=FALSE;</strong> // Indicador de fundido de pantalla</p>
+    <hr />
+
+    <p>Esta variable global indica si se est&aacute; realizando un fundido de pantalla (una
+    variaci&oacute;n gradual de la paleta de colores del juego) en un momento determinado, cuyo
+    valor ser&aacute;:</p>
+
+    <p><a href="1152.html">false (0)</a> - Si <strong>no</strong> se est&aacute; realizando un
+    fundido.</p>
+
+    <p><a href="1151.html">true (1)</a> - Si se est&aacute; realizando un fundido.</p>
+
+    <p>La finalidad de esta variable es poder determinar cu&aacute;ndo ha finalizado un fundido de
+    pantalla iniciado con las funciones <a href="110.html">fade()</a> o <a
+    href="112.html">fade_on()</a>.</p>
+
+    <p>Al utilizar estas funciones se iniciar&aacute; un fundido de los colores de la paleta que se
+    ir&aacute;n acercando gradualmente a los colores definitivos en las siguientes im&aacute;genes
+    del juego, es decir, cada sentencia <a href="1029.html">FRAME</a> se realizar&aacute; una parte
+    del fundido.</p>
+
+    <p>Cuando se inicie un fundido, la variable <strong>fading</strong> pasar&aacute;
+    autom&aacute;ticamente a valer <strong>cierto</strong> (1) y al finalizar &eacute;ste,
+    volver&aacute; de nuevo a su valor original, <strong>falso</strong> (0).</p>
+    <hr />
+
+    <p><strong>Nota 1:</strong> Generalmente, esta variable se utiliza para controlar a la
+    funci&oacute;n <a href="110.html">fade()</a>, y comprobar si ha terminado de ejecutarse (si ha
+    terminado de realizarse el fundido); cuando se quiera, por ejemplo, detener la ejecuci&oacute;n
+    del programa hasta que finalice el fundido, lo que se puede hacer con una sentencia como la
+    siguiente (justo a continuaci&oacute;n de la llamada a la funci&oacute;n <a
+    href="110.html">fade()</a>):</p>
+
+    <p>&nbsp;&nbsp;<strong>WHILE (fading)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>FRAME;</strong><br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>Literalmente esta sentencia define: "<strong>mientras contin&uacute;e realiz&aacute;ndose el
+    fundido, se debe visualizar otra nueva imagen</strong>".</p>
+
+    <p><strong>Nota 2:</strong> Todos los programas realizan un fundido (<a
+    href="112.html">fade_on()</a>) al inicio de su ejecuci&oacute;n (autom&aacute;ticamente), por
+    lo que esta variable se pondr&aacute; a <strong>cierto (1)</strong> al inicio de todos los
+    programas hasta que finalice este fundido inicial (mientras dure el
+    "<strong>encendido</strong>" de pantalla).</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="110.html">fade()</a> - <a
+    href="112.html">fade_on()</a>
+  </body>
+</html>
+

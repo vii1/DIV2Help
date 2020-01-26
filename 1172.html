@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - no_restore</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>no_restore</h1>
+
+    <p>Constante: <strong>no_restore</strong></p>
+    <hr />
+
+    <p>Esta constante se utiliza para asignarla a la variable global predefinida <a
+    href="1113.html">restore_type</a> que sirve para definir el tipo de restauraci&oacute;n que se
+    debe aplicar al fondo de la pantalla tras cada imagen del juego. Su valor es
+    <strong>-1</strong>.</p>
+
+    <p>Se denomina <strong>restauraci&oacute;n del fondo</strong> a recuperar las zonas de pantalla
+    en las que se han pintado gr&aacute;ficos o escrito textos en la imagen anterior, es decir,
+    "<strong>despintar</strong>" los gr&aacute;ficos y "<strong>desescribir</strong>" los textos
+    (borrarlos).</p>
+
+    <p>Para establecer este valor se debe utilizar la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>restore_type=no_restore;</strong></p>
+
+    <p>Con esta sentencia se indica al gestor de procesos de DIV Games Studio que tras las
+    siguientes im&aacute;genes del juego <strong>no es necesario que se restaure el fondo de
+    pantalla</strong>.</p>
+
+    <p>Si no se restaura el fondo, se <strong>ganar&aacute; velocidad</strong> de ejecuci&oacute;n
+    en el juego (ir&aacute; m&aacute;s fluido en los ordenadores lentos). Pero esta modalidad de
+    restauraci&oacute;n (<strong>no_restore</strong>) es aplicable &uacute;nicamente en juegos o
+    secciones de los mismos, en los que <strong>exista una ventana de scroll o de modo 7 que ocupe
+    la pantalla completa</strong>.</p>
+
+    <p>Los tres tipos de restauraci&oacute;n aplicables se corresponden con estas tres
+    constantes:</p>
+
+    <p><strong>no_restore</strong> - El m&aacute;s r&aacute;pido, no se restaura el fondo<br />
+    <a href="1173.html">partial_restore</a> - Medio, restauraciones parciales<br />
+    <a href="1174.html">complete_restore</a> - El m&aacute;s lento, restauraci&oacute;n
+    completa<br />
+    </p>
+    <hr />
+    Ver: <a href="1202.html">Constantes</a> - <a href="1113.html">restore_type</a>
+  </body>
+</html>
+

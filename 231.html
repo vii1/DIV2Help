@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_dirinfo()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_dirinfo()</h1>
+
+    <p><strong>get_dirinfo(</strong>&lt;m&aacute;scara de directorio&gt;<strong>,</strong>
+    &lt;tipos de archivo&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>N&uacute;mero de archivos del directorio que coinciden con la m&aacute;scara y el tipo
+    seleccionado.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite obtener la lista de archivos de un directorio (carpeta) del
+    disco.</p>
+
+    <p>Se requiere la <strong>&lt;m&aacute;scara del directorio&gt;</strong> para seleccionar los
+    archivos que deben listarse. Esta <strong>&lt;m&aacute;scara&gt;</strong> no es m&aacute;s que
+    un nombre de archivo parcial, utilizando comodines; por ejemplo, la m&aacute;scara
+    <strong>"*.*"</strong> (se debe indicar como un texto entre comillas) seleccionar&aacute; todos
+    los archivos del directorio.</p>
+
+    <p>Tambi&eacute;n se puede incluir en la m&aacute;scara la <strong>ruta de acceso</strong> del
+    directorio (en caso contrario se listar&aacute;n los archivos del directorio actual). Por
+    ejemplo, la m&aacute;scara <strong>"C:\WINDOWS\SYS*.??E"</strong> seleccionar&iacute;a todos
+    los archivos del directorio <strong>"C:\WINDOWS"</strong> cuyo nombre comenzara por
+    <strong>"SYS"</strong> y su extensi&oacute;n acabara en <strong>"E"</strong>.</p>
+
+    <p>Como segundo par&aacute;metro se debe indicar los <strong>&lt;tipos de archivos&gt;</strong>
+    que deben incluirse en la lista, estos son los siguientes:</p>
+
+    <p><strong>_normal</strong> - Listar s&oacute;lo los archivos normales.<br />
+     <strong>_hidden</strong> - Incluir tambi&eacute;n los archivos ocultos.<br />
+     <strong>_system</strong> - Incluir tambi&eacute;n los archivos del sistema.<br />
+     <strong>_subdir</strong> - Incluir tambi&eacute;n los subdirectorios.<br />
+     <strong>_volid</strong> - Listar s&oacute;lo la etiqueta del volumen.<br />
+    </p>
+
+    <p>Lo m&aacute;s usual es indicar <strong>_normal</strong> como <strong>&lt;tipo de
+    archivos&gt;</strong>, este tipo engloba a la gran mayor&iacute;a de archivos que aparecen en
+    un disco, tanto de lectura/escritura, como de s&oacute;lo lectura (&uacute;nicamente no se
+    incluyen algunos archivos especiales, que normalmente son archivos internos del sistema
+    operativo).</p>
+
+    <p>Si se indican <strong>_hidden</strong>, <strong>_system</strong> o <strong>_subdir</strong>,
+    se incluir&aacute;n estos tipos de archivos adem&aacute;s de los normales (no es necesario
+    especificar <strong>_normal</strong>). Adem&aacute;s pueden sumarse estos tipos; por ejemplo,
+    indicando <strong>_hidden+_system</strong> se listar&aacute;n todos los archivos normales, los
+    ocultos y los del sistema.</p>
+
+    <p>Cuando se indique <strong>_volid</strong>, &uacute;nicamente se listar&aacute; el nombre de
+    la etiqueta de volumen del disco, no se incluir&aacute; ning&uacute;n archivo ni subdirectorio
+    en la lista (no se pueden sumar otros tipos a este).</p>
+    <hr />
+
+    <p>La funci&oacute;n <strong>get_dirinfo()</strong> simplemente retorna el
+    <strong>n&uacute;mero total</strong> de archivos listados; los nombres de estos archivos se
+    guardan en la estructura global <a href="1413.html">dirinfo</a> (el primer nombre de archivo se
+    guarda en <strong>dirinfo.name[0]</strong>, el segundo en <strong>dirinfo.name[1]</strong>,
+    etc.).</p>
+
+    <p>El <strong>n&uacute;mero total</strong> de archivos listados que retorna esta funci&oacute;n
+    se guarda adem&aacute;s en <strong>dirinfo.files</strong>.</p>
+
+    <p>La lista de nombres de archivos se guarda siempre en orden alfab&eacute;tico, no obstante se
+    puede utilizar la funci&oacute;n <a href="213.html">qsort()</a> para ordenar la estructura
+    global <a href="1413.html">dirinfo</a> por cualquier otro criterio.</p>
+    <hr />
+
+    <p>Esta funci&oacute;n &uacute;nicamente permite obtener los <strong>nombres</strong> de los
+    archivos, para obtener m&aacute;s informaci&oacute;n de los mismos (los atributos, el
+    tama&ntilde;o, la fecha, etc.) se debe utilizar la funci&oacute;n <a
+    href="232.html">get_fileinfo()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_dirinfo<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span
+class="syntax4">"Listado de archivos - Pulse ESC para terminar"</span><span
+class="syntax3">);</span>
+
+    get_dirinfo<span class="syntax3">(</span><span class="syntax4">"C:\WINDOWS\*.EXE"</span><span
+class="syntax3">,</span>_normal<span class="syntax3">);</span> <span
+class="syntax5">// Obtiene el listado de archivos</span>
+
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span>contador<span
+class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>contador<span
+class="syntax3">&lt;</span>dirinfo<span class="syntax3">.</span>files<span
+class="syntax3">;</span>contador<span class="syntax3">++)</span>
+       x<span class="syntax3">=(</span>contador%<span class="syntax2">4</span><span
+class="syntax3">)*</span><span class="syntax2">80</span><span class="syntax3">;</span>
+       <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">16</span><span class="syntax3">+(</span>contador<span class="syntax3">/</span><span
+class="syntax2">4</span><span class="syntax3">)*</span><span class="syntax2">8</span><span
+class="syntax3">;</span>
+       write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span>x<span class="syntax3">,</span><span class="syntax1">y</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span>dirinfo<span
+class="syntax3">.</span>name<span class="syntax3">[</span>contador<span class="syntax3">]);</span>
+    <span class="syntax1">END</span>
+
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo lista todos los archivos <strong>EXE</strong> normales del directorio
+    C:\WINDOWS, y entonces los muestra en pantalla.</p>
+
+    <p>El bucle <a href="1025.html">FOR</a> es el encargado de mostrar en pantalla la lista de
+    archivos de la estructura <a href="1413.html">dirinfo</a> a cuatro columnas, ya que la
+    funci&oacute;n <strong>get_dirinfo()</strong> no muestra ninguna informaci&oacute;n en
+    pantalla, &uacute;nicamente rellena la estructura con los nombres de los archivos encontrados
+    en el directorio.</p>
+    <hr />
+
+    <p>Para abrir o crear un archivo se puede utilizar la funci&oacute;n <a
+    href="223.html">fopen()</a>.</p>
+
+    <p>Para cambiar de directorio se debe utilizar <a href="235.html">chdir()</a>, y <a
+    href="236.html">mkdir()</a> para crear uno nuevo.</p>
+
+    <p>La funci&oacute;n <a href="238.html">disk_free()</a> permite averiguar el espacio libre que
+    queda en una unidad de disco.</p>
+    <hr />
+    Ver: <a href="232.html">get_fileinfo()</a> - <a href="223.html">fopen()</a> - <a
+    href="235.html">chdir()</a> - <a href="236.html">mkdir()</a> - <a
+    href="238.html">disk_free()</a>
+  </body>
+</html>
+

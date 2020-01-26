@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Resoluci&oacute;n de problemas de configuraci&oacute;n</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Resoluci&oacute;n de problemas de configuraci&oacute;n</h1>
+
+    <p><strong>Soluci&oacute;n gen&eacute;rica a los problemas de audio.</strong></p>
+
+    <p>Si el sistema de audio de no pudo ser inicializado, es debido a un conflicto con su tarjeta
+    de sonido. Este problema suele producirse por uno de estos motivos:</p>
+
+    <p>- Que su tarjeta est&eacute; siendo utilizada por <strong>otro programa</strong>
+    simult&aacute;neamente. No se podr&aacute; inicializar el dispositivo si existe alg&uacute;n
+    otro programa leyendo o escribiendo datos en la tarjeta (como un reproductor de MP3 o un
+    capturador de sonido).</p>
+
+    <p>- Puede haberse producido un problema con la <strong>autodetecci&oacute;n</strong> de los
+    par&aacute;metros de su tarjeta. Debe ejecutar el programa de configuraci&oacute;n de sonido o
+    bien definir estos valores en la variable BLASTER o ULTRASND del entorno de su sistema (puede
+    encontrar m&aacute;s informaci&oacute;n en el manual de usuario de DIV Games Studio 2).</p>
+
+    <p>- Debido a una <strong>incompatibilidad</strong> de su tarjeta. Si esta no es una tarjeta de
+    las marcas GRAVIS (tm) o SOUND BLASTER (tm), puede que sea incompatible con DIV Games Studio.
+    La mayor&iacute;a de tarjetas cl&oacute;nicas suelen ser compatibles con las tarjetas SOUND
+    BLASTER, pero pueden no ser compatibles al 100% y presentar alg&uacute;n problema.</p>
+
+    <p>Si no reconoce en ninguno de estos tres casos su problema particular debe, en primer lugar,
+    ejecutar el programa de configuraci&oacute;n del sonido. Esto puede hacerlo desde DIV pulsando
+    <strong>F4</strong>, cargando el programa <strong>SETUP.PRG</strong> del directorio
+    <strong>SETUP</strong>, y ejecut&aacute;ndolo con <strong>F10</strong>.</p>
+
+    <p>En este programa deber&aacute; introducir los par&aacute;metros de su tarjeta de sonido.
+    Para obtener estos par&aacute;metros a trav&eacute;s de Windows es probable que deba consultar
+    el manual del mismo, aunque normalmente podr&aacute; acceder a ellos de la siguiente forma:
+    pulsando con el bot&oacute;n derecho en "Mi Pc", activando Propiedades \ Administrador de
+    dispositivos \ Dispositivos de sonido, video y juegos, seleccionando su tarjeta de de Audio
+    (normalmente una compatible con "Sound Blaster" o "SB") y pulsando en Propiedades. Entonces
+    aparecer&aacute; el di&aacute;logo con las caracteristicas de su tarjeta de sonido donde, en el
+    apartado Recursos podr&aacute; encontrar:</p>
+
+    <p><strong>1.</strong> El n&uacute;mero de IRQ de su tarjeta como "petici&oacute;n de
+    interrupci&oacute;n".</p>
+
+    <p><strong>2.</strong> El n&uacute;mero de DMA y el de DMA2 (tambi&eacute;n denominado como
+    HDMA o DMA16) como los dos "accesos directos a memoria".</p>
+
+    <p><strong>3.</strong> El n&uacute;mero de Puerto como el valor inicial del primer "intervalo
+    de entrada/salida".</p>
+
+    <p>Tambi&eacute;n puede probar a configurar el sistema de sonido indicando en el programa de
+    configuraci&oacute;n una tarjeta menor (anterior a la suya). Por ejemplo, si vd. tuviera una
+    tarjeta compatible con una <strong>Sound Blaster AWE 64</strong> o <strong>128</strong> y no
+    pudiera inicializar el sistema de sonido; pruebe a configurar el sistema como si tuviera una
+    <strong>Sound Blaster 16</strong>, o una <strong>Sound Blaster Pro</strong>.</p>
+
+    <p>Como &uacute;ltimo recurso, si no fuese posible configurar el sonido en su sistema,
+    deber&aacute; desactivarlo. Para ello deber&aacute; ejecutar igualmente el programa de
+    configuraci&oacute;n y seleccionar <strong>&lt;Sin Sonido&gt;</strong> en el campo que define
+    el tipo de tarjeta. Entonces pulse el bot&oacute;n <strong>&lt;Guardar&gt;</strong> para
+    establecer esta configuraci&oacute;n y desactivar el sonido en DIV Games Studio 2.</p>
+
+    <p>Si a&uacute;n as&iacute; no consigue que se escuchen en su ordenador los efectos de sonido
+    del programa, probablemente se deba a que no dispone de una tarjeta de sonido 100% compatible
+    con la familia Sound Blaster o Gravis Ultrasound. Consulte, para ello, al proveedor de su
+    equipo.</p>
+
+    <p><strong>Nota:</strong> La reproducci&oacute;n de CD-Audio es independiente al sistema de
+    sonido digital cuya configuraci&oacute;n se ha descrito aqu&iacute;; por ello podr&aacute;
+    seguir reproduciendo m&uacute;sica de CD aunque el sistema de sonido no se encuentre
+    debidamente inicializado.</p>
+    <hr />
+
+    <p><strong>Problemas de v&iacute;deo.</strong></p>
+
+    <p>Si en alg&uacute;n momento se entra en DIV en una resoluci&oacute;n no visible, lo primero
+    que debe hacerse es salir del entorno pulsando la combinaci&oacute;n
+    <strong>ESC+Control</strong> (o <strong>ALT+X</strong> y <strong>Enter</strong> a
+    continuaci&oacute;n) y, despu&eacute;s, volver a entrar en el modo a prueba de fallos. Para
+    ello se debe, desde la l&iacute;nea de comandos de <strong>MSDOS</strong> y en el directorio
+    (carpeta) en la que se haya instalado el programa, ejecutar el siguiente comando:</p>
+
+    <p><strong>D /SAFE</strong><br />
+    </p>
+
+    <p>De esta forma se entrar&aacute; en el entorno en baja resoluci&oacute;n (en 320x200, el modo
+    m&aacute;s compatible de todos), a partir de este modo podr&aacute; intentar poner otros que
+    sean compatibles tanto con su tarjeta como con su monitor.</p>
+
+    <p>En aquellos equipos en los que el sistema de v&iacute;deo no sea compatible con el
+    est&aacute;ndar VESA debe utilizarse un driver vesa. Para esto, debe contactar con el proveedor
+    o servicio t&eacute;cnico de su equipo hardware (un driver es un peque&ntilde;o programa que
+    debe instalarse en el ordenador para dar soporte a algunos dispositivos como, en este caso, su
+    tarjeta de v&iacute;deo).</p>
+    <hr />
+
+    <p><strong>Problemas con el rat&oacute;n.</strong></p>
+
+    <p>Si el rat&oacute;n se desplaza a saltos por la pantalla, en lugar de punto a punto, es
+    debido a que est&aacute; utilizando un dispositivo de rat&oacute;n obsoleto o incorrecto (un
+    driver de rat&oacute;n no actualizado). Puede solucionar este problema de una de estas
+    formas:</p>
+
+    <p><strong>1.</strong> Contacte con el proveedor de su equipo para conseguir un dispositivo de
+    rat&oacute;n actualizado.</p>
+
+    <p><strong>2.</strong> Cambie la resoluci&oacute;n del programa (con la opci&oacute;n
+    <strong>Sistema\Modo de v&iacute;deo</strong>) por otra en la que no se produzca este
+    problema.</p>
+
+    <p><strong>3.</strong> (MS-DOS, s&oacute;lo para usuarios avanzados). Comente la l&iacute;nea
+    de su fichero autoexec.bat en la que carga el dispositivo de rat&oacute;n. Puede hacer
+    &eacute;sto desde el propio DIV, cargue con F4 este fichero (situado en el directorio raiz de
+    su disco duro de arranque) y a&ntilde;ada la palabra REM al inicio la l&iacute;nea que carga el
+    dispositivo de rat&oacute;n (una l&iacute;nea que normalmente acaba con ...mouse.com). Entonces
+    pulse F2 para grabar el fichero nuevamente, ci&eacute;rrelo (pulsando sobre el icono superior
+    izquierdo de la ventana de texto), salga de DIV (ALT+X) y reinicie su equipo. Si despu&eacute;s
+    tuviese problemas con alg&uacute;n otro programa que requiriera ese dispositivo, vuelva a
+    editar el mismo fichero y quite la palabra REM que a&ntilde;adi&oacute; en el mismo.</p>
+    <hr />
+
+    <p><strong>Soluci&oacute;n a posibles problemas en la instalaci&oacute;n.</strong></p>
+
+    <p>En caso de encontrar alg&uacute;n problema, revise los requerimientos m&iacute;nimos del
+    programa indicados en el programa. Si tiene alguna duda sobre alguno de los elementos consulte
+    al servicio t&eacute;cnico de su ordenador o al proveedor de su equipo.</p>
+
+    <p>Lo m&aacute;s probable es que se presente alg&uacute;n problema de lectura del CD- ROM con
+    su unidad lectora; para ello, limpie la superficie del CD de DIV Games Studio cuidadosamente
+    con un pa&ntilde;o limpio y seco, y vuelva a intentar la instalaci&oacute;n del programa.</p>
+
+    <p><strong>Instalaci&oacute;n manual</strong></p>
+
+    <p>Si no ha podido instalar correctamente el programa y dispone de mucho espacio libre en el
+    disco duro de su ordenador (suficiente para realizar una instalaci&oacute;n m&aacute;xima del
+    mismo), entonces puede probar a realizar una instalaci&oacute;n manual del programa, para ello
+    siga los siguientes pasos:</p>
+
+    <p><strong>Usuarios de MS-DOS</strong> - Suponiendo que su unidad de CD-ROM sea la D:,
+    sit&uacute;ese en la unidad de CD-ROM con el siguiente comando:</p>
+
+    <p><strong>D:</strong></p>
+
+    <p>Y pulse Enter. Despu&eacute;s introduzca los siguientes comandos (suponiendo que su unidad
+    de disco duro es la C):</p>
+
+    <p><strong>XCOPY DATA\*.* C:\DIV\*.* /S</strong><br />
+     <strong>C:</strong><br />
+     <strong>CD \DIV</strong><br />
+     <strong>DEL INSTALL*.*</strong><br />
+    </p>
+
+    <p>Pulsando Enter tras cada uno de estos comandos. Si tiene suficiente espacio el programa se
+    instalar&aacute; sin ning&uacute;n problema, introduzca el siguiente comando para ejecutarlo
+    posteriormente:</p>
+
+    <p><strong>D /SAFE</strong><br />
+    </p>
+
+    <p>Para las proximas ejecuciones del programa, siga las instrucciones convencionales.</p>
+
+    <p><strong>Usuarios de Windows 95/98</strong> - Abra una sesi&oacute;n de MS-DOS (pulsando dos
+    veces sobre su icono, o bien desde el men&uacute; inicio \ programas \ ms-dos) y siga las
+    instrucciones para usuarios de MS- DOS. Para las siguientes ejecuciones del programa
+    podr&aacute; utilizar las instrucciones de su sistema operativo, teniendo en cuenta que el
+    programa se habr&aacute; instalado en la carpeta DIV de su disco duro.</p>
+    <hr />
+
+    <p>Si no consigue que el programa funcione correctamente con ninguno de estos consejos,
+    entonces contacte con el servicio t&eacute;cnico de Hammer, cuyo tel&eacute;fono es (91) 304 06
+    22, y su horario de atenci&oacute;n los Martes y Jueves de 16:00 a 18:00.</p>
+
+    <p>Se recuerda que, debido a que DIV Games Studio es un producto de venta masiva y con un
+    soporte t&eacute;cnico limitado, debe procurar seguir cuidadosamente las instrucciones antes de
+    contactar con este servicio.</p>
+
+    <p><strong>Importante:</strong> No se podr&aacute; realizar en dicho servicio t&eacute;cnico
+    ninguna consulta acerca del lenguaje de programaci&oacute;n, ya que no se ofrece m&aacute;s
+    soporte del mismo que este <strong>hipertexto de ayuda</strong> y el <strong>manual de
+    usuario</strong> del programa. Con ellos puede solucionar cualquier duda que se le plantee.</p>
+  </body>
+</html>
+

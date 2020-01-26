@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - sound()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>sound()</h1>
+
+    <p><strong>sound(</strong>&lt;c&oacute;digo del sonido&gt;<strong>,</strong>
+    &lt;volumen&gt;<strong>,</strong> &lt;frecuencia&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <strong>n&uacute;mero de canal</strong> por el que se reproduce el sonido.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Hace sonar el efecto cuyo <strong>c&oacute;digo de sonido</strong> se especifica como primer
+    par&aacute;metro. Primero, el sonido se debe haber cargado de un archivo PCM o WAV con las
+    funciones <a href="134.html">load_pcm()</a> o <a href="134.html">load_wav()</a> que son las que
+    devuelven el <strong>c&oacute;digo de sonido</strong> correspondiente a dicho efecto.</p>
+
+    <p>Como segundo par&aacute;metro se debe especificar el <strong>volumen</strong> al que se
+    desea reproducir el sonido, siendo <strong>0</strong> el volumen m&iacute;nimo y
+    <strong>256</strong> el volumen m&aacute;ximo.</p>
+
+    <p>Como tercer par&aacute;metro se especificar&aacute; la <strong>frecuencia</strong>
+    (velocidad) a la que se desea reproducir el sonido, siendo <strong>256</strong> la frecuencia
+    est&aacute;ndar que reproducir&aacute; el sonido original; a valores menores el sonido se
+    reproducir&aacute; m&aacute;s grave, mientras qu a valores mayores de frecuencia, m&aacute;s
+    agudo.</p>
+
+    <p>La funci&oacute;n devuelve el <strong>n&uacute;mero de canal</strong> que puede ser
+    utilizado por las funciones <a href="167.html">stop_sound()</a> para detener el sonido y <a
+    href="102.html">change_sound()</a> para modificar su volumen o su frecuencia.</p>
+
+    <p>Existen un total de 16 canales de sonido, pudiendo sonar hasta 16 sonidos
+    simult&aacute;neamente.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_sound<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    volumen<span class="syntax3">=</span><span class="syntax2">128</span><span
+class="syntax3">;</span>        <span class="syntax5">// Valor medio (0..256)</span>
+    frecuencia<span class="syntax3">=</span><span class="syntax2">256</span><span
+class="syntax3">;</span>     <span class="syntax5">// Valor medio (0..512)</span>
+    id_sonido<span class="syntax3">,</span> canal<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Volumen: Arriba(+) / Abajo(-)"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> volumen<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">20</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Frecuencia: Derecha(+) / Izquierda(-)"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">30</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> frecuencia<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">180</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para emitir el el sonido."</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">190</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice los cursores para cambiar los valores."</span><span
+class="syntax3">);</span>
+
+    id_sonido <span class="syntax3">=</span> load_pcm<span class="syntax3">(</span><span
+class="syntax4">"help\help.pcm"</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">);</span>
+
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            <span class="syntax5">// Hace que suene</span>
+            canal <span class="syntax3">=</span> sound<span class="syntax3">(</span>id_sonido<span
+class="syntax3">,</span> volumen<span class="syntax3">,</span> frecuencia<span
+class="syntax3">);</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">)</span> <span
+class="syntax1">AND</span> volumen<span class="syntax3">&lt;</span><span
+class="syntax2">256</span><span class="syntax3">)</span> volumen<span
+class="syntax3">++;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_down<span class="syntax3">)</span> <span
+class="syntax1">AND</span> volumen<span class="syntax3">&gt;</span><span
+class="syntax2">0</span><span class="syntax3">)</span> volumen<span
+class="syntax3">--;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">)</span> <span
+class="syntax1">AND</span> frecuencia<span class="syntax3">&lt;</span><span
+class="syntax2">512</span><span class="syntax3">)</span> frecuencia<span
+class="syntax3">++;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">)</span> <span
+class="syntax1">AND</span> frecuencia<span class="syntax3">&gt;</span><span
+class="syntax2">0</span><span class="syntax3">)</span> frecuencia<span
+class="syntax3">--;</span> <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone una pantalla de fondo y un texto explicativo, y se carga un sonido con
+    la funci&oacute;n <a href="134.html">load_pcm()</a>; &eacute;sta devuelve el
+    <strong>identificador del sonido</strong>, que se guarda en la variable
+    <strong>id_sonido</strong>.</p>
+
+    <p>En el bucle principal, a cada pulsaci&oacute;n de la barra espaciadora, se emitir&aacute; el
+    sonido con la funci&oacute;n <strong>sound()</strong> con los par&aacute;metros definidos en
+    las variables <strong>volumen</strong> y <strong>frecuencia</strong>.</p>
+
+    <p>Con las teclas de los cursores se podr&aacute;n manipular estos valores para comprender
+    as&iacute; mejor su funcionamiento.</p>
+
+    <p>El <strong>n&uacute;mero de canal</strong> devuelto por <strong>sound()</strong>, que se
+    guarda en la variable <strong>canal</strong>, se podr&iacute;a haber utilizado para modificar
+    el sonido con <a href="102.html">change_sound()</a> o pararlo con <a
+    href="167.html">stop_sound()</a>.</p>
+    <hr />
+    Ver: <a href="134.html">load_pcm/wav()</a> - <a href="102.html">change_sound()</a> - <a
+    href="167.html">stop_sound()</a>
+  </body>
+</html>
+

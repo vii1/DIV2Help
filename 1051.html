@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - AND &amp;&amp;</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>AND &amp;&amp;</h1>
+
+    <p>Operador binario del <strong>producto l&oacute;gico</strong> utilizado en expresiones y
+    condiciones.</p>
+
+    <p>La palabra reservada <strong>AND</strong> y el s&iacute;mbolo <strong>&amp;&amp;</strong>
+    son sin&oacute;nimos.</p>
+
+    <p><strong>AND l&oacute;gico:</strong> Se eval&uacute;an, primero, las condiciones de la
+    derecha e izquierda del operador y, si ambas son <strong>ciertas</strong>, este operador
+    devolver&aacute; <strong>cierto</strong>, en caso contrario el operador devolver&aacute;
+    siempre <strong>falso</strong>.</p>
+
+    <p>&nbsp;&nbsp;FALSO AND FALSO = FALSO<br />
+    &nbsp;&nbsp;FALSO AND CIERTO = FALSO<br />
+    &nbsp;&nbsp;CIERTO AND FALSO = FALSO<br />
+    &nbsp;&nbsp;CIERTO AND CIERTO = CIERTO<br />
+    </p>
+
+    <p>Se utiliza para comprobar que se cumplan obligatoriamente m&aacute;s de una
+    condici&oacute;n, por ejemplo:</p>
+
+    <p>&nbsp;&nbsp;<strong>(x&gt;0 AND x&lt;100)</strong></p>
+
+    <p>Para comprobar que la variable sea mayor que 0 <strong>Y</strong> que sea menor que 100.</p>
+
+    <p><strong>AND binario:</strong> Eval&uacute;a los bit de los resultados de las expresiones
+    anterior y posterior al operador generando, como resultado, un valor que tendr&aacute; a uno
+    &uacute;nicamente los bit que tuvieran a uno ambas expresiones.</p>
+
+    <p>&nbsp;&nbsp;0 AND 0 = 0<br />
+    &nbsp;&nbsp;0 AND 1 = 0<br />
+    &nbsp;&nbsp;1 AND 0 = 0<br />
+    &nbsp;&nbsp;1 AND 1 = 1<br />
+    </p>
+
+    <p>Esta regla se aplicar&aacute; a todos los bits de los operandos (en el lenguaje son enteros
+    de 32 bits).</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Este operador funciona indistintamente como l&oacute;gico y binario
+    debido a que en el lenguaje se interpretan las expresiones l&oacute;gicas
+    <strong>ciertas</strong> como las que tienen el &uacute;ltimo bit a 1 (el bit 0, de peso 1), es
+    decir, los n&uacute;meros impares (1, -1, 3, -3, ... ), y como expresiones l&oacute;gicas
+    <strong>falsas</strong> las que tienen el &uacute;ltimo bit a 0 (los n&uacute;meros pares: 0,
+    2, -2, 4, -4, ...).</p>
+
+    <p>El operador <strong>AND</strong> &uacute;nicamente dejar&aacute; a 1 el &uacute;ltimo bit
+    (s&oacute;lo devolver&aacute; <strong>cierto</strong> como resultado} cuando lo tuvieran a 1
+    ambos operandos (cuando los dos fueran expresiones <strong>ciertas</strong>).</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El s&iacute;mbolo <strong>&amp;</strong> tambi&eacute;n puede
+    utlizarse como un sin&oacute;nimo m&aacute;s de <strong>AND</strong> y
+    <strong>&amp;&amp;</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1035.html">Expresi&oacute;n</a> - <a
+    href="1037.html">Condici&oacute;n</a>
+  </body>
+</html>
+

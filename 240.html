@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - ignore_error()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>ignore_error()</h1>
+
+    <p><strong>ignore_error(</strong>&lt;n&uacute;mero de error&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite ignorar un error de ejecuci&oacute;n determinado, para ello se
+    requiere como par&aacute;metro el <strong>&lt;n&uacute;mero de error&gt;</strong>; este es el
+    n&uacute;mero presente en la ventana informativa de un error que aparece en ocasiones cuando un
+    programa se est&aacute; ejecutando.</p>
+
+    <p>En un principio, no es recomendable ignorar los errores de ejecuci&oacute;n, ya que el
+    programa se comportar&aacute; anormalmente cuando suceda un error, sin dar ninguna
+    informaci&oacute;n relativa al error que ha sucedido.</p>
+
+    <p>Cuando un programa produce un error de ejecuci&oacute;n, siempre es por una causa que puede
+    solucionarse; e ignorar el error no solucionar&aacute; el problema.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> No todos los errores pueden ser ignorados, hay algunos errores que
+    imposiblitan que el programa contin&uacute;e ejecut&aacute;ndose de ninguna forma; estos son
+    los errores denominados "graves", que siempre abortar&aacute;n el programa en el caso de
+    darse.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_ignore_error<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+
+    ignore_error<span class="syntax3">(</span><span class="syntax2">145</span><span
+class="syntax3">);</span> <span class="syntax5">// Ignorar las divisiones entre cero</span>
+
+    x<span class="syntax3">=</span>x<span class="syntax3">/</span><span
+class="syntax2">0</span><span class="syntax3">;</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se llama a la funci&oacute;n <strong>ignore_error()</strong> para advertir
+    al sistema de que, en adelante, debe ignorar las divisiones por cero (estas dar&aacute;n un
+    resultado indeterminado).</p>
+
+    <p>A continuaci&oacute;n se realiza una divisi&oacute;n por cero, para que se pueda comprobar
+    como no se emite ninguna ventana informativa de dicho error.</p>
+
+    <p>Este error es el n&uacute;mero <strong>145</strong>, se puede observar el mismo comentando
+    la llamada a la funci&oacute;n <strong>ignore_error()</strong> del ejemplo anterior.</p>
+    <hr />
+
+    <p><strong>Lista de c&oacute;digos de los errores de ejecuci&oacute;n:</strong></p>
+
+    <p><strong>100</strong> No hay memoria suficiente para ejecutar el programa.<br />
+    <strong>101</strong> Llamada a key() con un c&oacute;digo de tecla inexistente.<br />
+    <strong>102</strong> No se pudo cargar la paleta, archivo no encontrado.<br />
+    <strong>103</strong> Se intent&oacute; cargar un archivo de paleta inv&aacute;lido.<br />
+    <strong>104</strong> Demasiados ficheros FPG abiertos a la vez.<br />
+    <strong>105</strong> No se pudo cargar el fichero, archivo no encontrado.<br />
+    <strong>106</strong> Se intent&oacute; cargar un fichero FPG no v&aacute;lido.<br />
+    <strong>107</strong> N&uacute;mero de scroll inv&aacute;lido (debe estar entre 0 y 9).<br />
+    <strong>108</strong> N&uacute;mero de regi&oacute;n inv&aacute;lido (fuera de rango).<br />
+    <strong>109</strong> C&oacute;digo de fichero inv&aacute;lido.<br />
+    <strong>110</strong> C&oacute;digo de gr&aacute;fico inv&aacute;lido.<br />
+    <strong>111</strong> Se intent&oacute; usar un fichero FPG antes de cargarlo.<br />
+    <strong>112</strong> Se necesita un c&oacute;digo de gr&aacute;fico para el scroll.<br />
+    <strong>113</strong> Se han cargado demasiados fuentes de letras.<br />
+    <strong>114</strong> No se pudo cargar el fuente, archivo no encontrado.<br />
+    <strong>115</strong> Se intent&oacute; cargar un archivo de fuente no v&aacute;lido.<br />
+    <strong>116</strong> C&oacute;digo identificador de fuente de letras inv&aacute;lido.<br />
+    <strong>117</strong> C&oacute;digo de centrado de texto inv&aacute;lido.<br />
+    <strong>118</strong> Hay demasiados textos activos en el programa.<br />
+    <strong>119</strong> Indentificador de texto no v&aacute;lido.<br />
+    <strong>120</strong> Regi&oacute;n de pantalla definida incorrectamente.<br />
+    <strong>121</strong> Se intent&oacute; utilizar un gr&aacute;fico que no existe.<br />
+    <strong>122</strong> Se intent&oacute; escribir un bloque fuera de la memoria.<br />
+    <strong>123</strong> No se pudo abrir el archivo para escritura.<br />
+    <strong>124</strong> No se pudo escribir el archivo (ver espacio en disco).<br />
+    <strong>125</strong> Se intent&oacute; leer un bloque fuera de la memoria.<br />
+    <strong>126</strong> No se pudo abrir el archivo para lectura.<br />
+    <strong>127</strong> No se pudo leer el archivo.<br />
+    <strong>128</strong> No se pudo cargar el efecto de sonido.<br />
+    <strong>129</strong> No se pudo tocar el efecto de sonido solicitado.<br />
+    <strong>130</strong> No se pudo iniciar la animaci&oacute;n solicitada.<br />
+    <strong>131</strong> N&uacute;mero de modo 7 inv&aacute;lido (debe estar entre 0 y 9).<br />
+    <strong>132</strong> Se necesita un c&oacute;digo de gr&aacute;fico para el modo 7.<br />
+    <strong>133</strong> N&uacute;mero de punto de control inv&aacute;lido.<br />
+    <strong>134</strong> N&uacute;mero de bot&oacute;n incorrecto (debe estar entre 0 y 3).<br />
+    <strong>135</strong> N&uacute;mero de eje incorrecto (debe estar entre 0 y 3).<br />
+    <strong>136</strong> Direcci&oacute;n de la tabla de paleta fuera de la memoria.<br />
+    <strong>137</strong> No se pueden comprobar regiones en gr&aacute;ficos de m-7.<br />
+    <strong>138</strong> C&oacute;digo de informaci&oacute;n gr&aacute;fica incorrecto.<br />
+    <strong>139</strong> No se pueden comprobar colisiones en gr&aacute;ficos de m-7.<br />
+    <strong>140</strong> Acceso fuera de rango.<br />
+    <strong>141</strong> Se intent&oacute; acceder a un proceso inv&aacute;lido.<br />
+    <strong>142</strong> El proceso parece bloqueado, esperando FRAME.<br />
+    <strong>143</strong> No se pudo cargar el mapa, archivo no encontrado.<br />
+    <strong>144</strong> Se intent&oacute; cargar un archivo de mapa inv&aacute;lido.<br />
+    <strong>145</strong> Se ha intentado hacer una divisi&oacute;n entre cero.<br />
+    <strong>146</strong> El tama&ntilde;o de la regi&oacute;n es incorrecto.<br />
+    <strong>147</strong> No se pudo cargar FLI/FLC, archivo no encontrado.<br />
+    <strong>148</strong> Valor de timeout incorrecto (debe ser entre 1 y 60).<br />
+    <strong>149</strong> N&uacute;mero de jugadores incorrecto (debe ser entre 2 y 8).<br />
+    <strong>150</strong> S&oacute;lo se pueden enviar datos globales.<br />
+    <strong>151</strong> Tama&ntilde;o de casilla inv&aacute;lido (debe ser entre 1 y 256).<br />
+    <strong>152</strong> Mapa de b&uacute;squeda no v&aacute;lido (desde 1x1 hasta 128x128).<br />
+    <strong>153</strong> Tama&ntilde;o de mapa incorrecto (de 1x1 a 32768x32768).<br />
+    <strong>154</strong> N&uacute;mero de color incorrecto (debe ser de 0 a 255).<br />
+    <strong>155</strong> El centro est&aacute; fuera de los l&iacute;mites del
+    gr&aacute;fico.<br />
+    <strong>156</strong> El objeto se encuentra fuera del mapa y sera eliminado.<br />
+    <strong>157</strong> Textura del mapa no encontrada.<br />
+    <strong>158</strong> El tama&ntilde;o de la textura es incorrecto.<br />
+    <strong>159</strong> No se pudo cargar el mundo, archivo no encontrado.<br />
+    <strong>160</strong> No se pudo cargar el mundo, archivo no v&aacute;lido.<br />
+    <strong>161</strong> El n&uacute;mero de bandera no es v&aacute;lido.<br />
+    <strong>162</strong> Dispositivo inv&aacute;lido (s&oacute;lo 1-IPX,2-SERIAL,3-MODEM).<br />
+    <strong>163</strong> Tama&ntilde;o de paquete inv&aacute;lido (s&oacute;lo de 1 a 199).<br />
+    <strong>164</strong> La cadena de texto destino no es v&aacute;lida.<br />
+    <strong>165</strong> Se intent&oacute; acceder a un puntero nulo.<br />
+    <strong>166</strong> El modo de acceso al archivo no es v&aacute;lido.<br />
+    <strong>167</strong> No se pudo cargar el m&oacute;dulo.<br />
+    <strong>168</strong> Demasiados errores ignorados.<br />
+    <strong>169</strong> Demasiados archivos abiertos.<br />
+    <strong>170</strong> Identificador de archivo (handle) no v&aacute;lido.<br />
+    <strong>171</strong> Valor fuera de rango.<br />
+    <strong>172</strong> Demasiados objetos gr&aacute;ficos visualizados.<br />
+    <strong>173</strong> Tipo de objeto gr&aacute;fico no conocido.<br />
+    <strong>174</strong> Porcentaje de tinta fuera de rango (0..15).<br />
+    <strong>175</strong> N&uacute;mero de objeto gr&aacute;fico no v&aacute;lido.<br />
+    <strong>176</strong> Error variable de vpe: Textura de mapa [a] no encontrada en fichero
+    [b].<br />
+    <strong>177</strong> Textura de mapa.<br />
+    <strong>178</strong> no encontrada en fichero.<br />
+    <strong>179</strong> Se realizaron demasiadas peticiones de memoria din&aacute;mica.<br />
+    <strong>180</strong> El puntero no se corresponde con ninguno de los bloques reservados.<br />
+    <strong>181</strong> No se pueden reservar bloques de menos de una posici&oacute;n.<br />
+    <strong>182</strong> Se intent&oacute; (des)encriptar un bloque fuera de la memoria.<br />
+    <strong>183</strong> No se puede cargar otra paleta cuando est&aacute; forzada la actual.<br />
+    <strong>200</strong> Archivo con datos corrompidos, no se pudo cargar.<br />
+    </p>
+    <hr />
+
+    <p><strong>Nota:</strong> Mediante las opciones de compilaci&oacute;n (ver <a
+    href="1400.html">Compiler_options</a>) se pueden ignorar todos los errores de ejecuci&oacute;n
+    "no-graves", no obstante, esta pr&aacute;ctica es m&aacute;s que poco recomendable.</p>
+    <hr />
+    Ver: <a href="1400.html">Compiler_options</a>
+  </body>
+</html>
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - No se puede calcular el tama&ntilde;o</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>No se puede calcular el tama&ntilde;o</h1>
+
+    <p>La funci&oacute;n <a href="1094.html">sizeof()</a> se puede utilizar para obtener el
+    n&uacute;mero de elementos de una tabla o de una estructura; para ello requiere, entre <a
+    href="1053.html">par&eacute;ntesis</a>, el nombre de la tabla o estructura (sin corchetes ni
+    &iacute;ndice).</p>
+
+    <p>Tambi&eacute;n se puede utilizar con el nombre de una variable pero, en este caso, la
+    funci&oacute;n devolver&aacute; siempre 1.</p>
+
+    <p>Se puede utilizar indistintamente con datos globales, locales o privados.</p>
+
+    <p>En la posici&oacute;n se&ntilde;alada del programa se pretende obtener el tama&ntilde;o de
+    un objeto que no es una variable, tabla o estructura. Por ejemplo, este error se
+    producir&aacute; si se intenta obtener el tama&ntilde;o de una constante, funci&oacute;n,
+    proceso, etc.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">CONST</span>
+    mi_constante<span class="syntax3">=</span><span class="syntax2">99</span><span
+class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    a<span class="syntax3">=</span><span class="syntax1">sizeof</span><span
+class="syntax3">(</span>mi_constante<span class="syntax3">);</span> <span
+class="syntax5">// Error: No se puede calcular el tama&ntilde;o.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo provocar&aacute; el error al intentar obtener el n&uacute;mero de elementos de
+    una <a href="1004.html">constante</a>, pues una constante no es un objeto que tenga un
+    tama&ntilde;o sino que, simplemente, es un s&iacute;nonimo del valor num&eacute;rico que
+    representa.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1094.html">sizeof</a>
+  </body>
+</html>
+

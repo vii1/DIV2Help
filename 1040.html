@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Estados de un proceso</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Estados de un proceso</h1>
+
+    <p>Los procesos son los diferentes elementos de un programa (objetos del juego); &eacute;stos
+    pueden pasar por diferentes estados al crearse, destruirse o recibir determinadas
+    se&ntilde;ales por medio de la funci&oacute;n <a href="158.html">signal()</a>.</p>
+
+    <p>proceso <strong>vivo o despierto</strong></p>
+
+    <p>Si un proceso se est&aacute; ejecutando (est&aacute; interpretando las sentencias
+    comprendidas entre su <a href="1086.html">BEGIN</a> y su <a href="1091.html">END</a>) se dice
+    que est&aacute; vivo.</p>
+
+    <p>proceso <strong>muerto</strong></p>
+
+    <p>Cuando un proceso finaliza (porque llega su <a href="1091.html">END</a> en la
+    ejecuci&oacute;n, porque ejecute un <a href="1028.html">RETURN</a> o porque reciba una
+    se&ntilde;al <a href="1153.html">s_kill</a> o <a href="1157.html">s_kill_tree</a>) se dice que
+    ha muerto.</p>
+
+    <p>proceso <strong>dormido</strong></p>
+
+    <p>Un proceso puede recibir la se&ntilde;al <a href="1155.html">s_sleep</a> (o <a
+    href="1159.html">s_sleep_tree</a>) y, entonces, pasar&aacute; a estado dormido; en este estado
+    el proceso se comporta como si estuviera muerto, s&oacute;lo que no lo est&aacute; pues, en
+    cualquier momento, puede recibir una se&ntilde;al <a href="1154.html">s_wakeup</a> y volver a
+    estado vivo o despierto. Tambi&eacute;n se puede matar a un proceso que est&aacute;
+    dormido.</p>
+
+    <p>proceso <strong>congelado</strong></p>
+
+    <p>La se&ntilde;al <a href="1156.html">s_freeze</a> (o <a href="1160.html">s_freeze_tree</a>)
+    pasa a estado congelado un proceso. En este estado el proceso se queda inmovilizado, se sigue
+    viendo y el resto de los procesos lo pueden seguir detectando (en las colisiones, por ejemplo),
+    pero no se ejecuta (deja de interpretar sus sentencias de c&oacute;digo). Estar&aacute; en este
+    estado hasta que reciba otra se&ntilde;al que le cambie de estado o lo mate.</p>
+
+    <p>Un proceso congelado puede ser controlado (movido) por otro proceso, manipulando
+    directamente sus variables.</p>
+    <hr />
+
+    <p>Siempre que se env&iacute;a una se&ntilde;al a un proceso con el fin de cambiarle de estado,
+    &eacute;sta no tendr&aacute; efecto si el proceso se est&aacute; ejecutando hasta que llegue a
+    su pr&oacute;xima visualizaci&oacute;n (<a href="1029.html">FRAME</a>). Si el proceso no se
+    estuviera ejecutando, entonces la se&ntilde;al tendr&iacute;a efecto de inmediato.</p>
+
+    <p>No se deben enviar se&ntilde;ales a procesos inexistentes (a un <a
+    href="1039.html">c&oacute;digo identificador</a> que no se corresponda a ning&uacute;n
+    proceso).</p>
+
+    <p>Si se intenta poner a un proceso en el estado en el que ya est&aacute;, la se&ntilde;al
+    ser&aacute; ignorada.</p>
+    <hr />
+    Ver: <a href="1041.html">Jerarqu&iacute;as de procesos</a>
+  </body>
+</html>
+

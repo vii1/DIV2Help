@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Cadena de texto de longitud negativa</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Cadena de texto de longitud negativa</h1>
+
+    <p>Para definir una cadena de texto indicando entre corchetes su longitud se debe emplear un
+    n&uacute;mero entero positivo (0, 1, 2, 3, ...), teniendo en cuenta que todas las cadenas
+    comienzan en la posici&oacute;n cero y terminan en la posici&oacute;n que indicada en el
+    &iacute;ndice.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> cadena1<span class="syntax3">[</span><span
+class="syntax2">9</span><span class="syntax3">];</span>
+    <span class="syntax1">STRING</span> cadena2<span class="syntax3">[-</span><span
+class="syntax2">9</span><span class="syntax3">];</span> <span
+class="syntax5">// Error: Cadena de texto de longitud negativa.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El compilador ha detectado una cadena de texto definida con una longitud negativa como
+    <strong>cadena2</strong>; en este ejemplo se debe definir la cadena como
+    <strong>cadena1</strong> que, en este caso, ser&aacute; una cadena de hasta 10
+    car&aacute;cteres (desde cadena1[0] hasta cadena1[9]).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

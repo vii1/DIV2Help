@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - s_wakeup</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>s_wakeup</h1>
+
+    <p>Constante: <strong>s_wakeup</strong></p>
+    <hr />
+
+    <p>Esta constante se utiliza como par&aacute;metro de la funci&oacute;n <a
+    href="158.html">signal()</a> (para mandar se&ntilde;ales a los procesos). Su valor es
+    <strong>1</strong>.</p>
+
+    <p>Esta se&ntilde;al transmite a los procesos la orden imperativa <strong>wakeup</strong>
+    (despierta). Se utiliza para devolver al estado normal los procesos que han sido dormidos (con
+    la se&ntilde;al <a href="1155.html">s_sleep</a>), o congelados (con la se&ntilde;al <a
+    href="1156.html">s_freeze</a>).</p>
+
+    <p>Es decir, al enviarle una se&ntilde;al <strong>s_wakeup</strong> a un proceso, &eacute;ste
+    ser&aacute; reactivado en las siguientes im&aacute;genes del juego (se volver&aacute; a ver y a
+    procesar).</p>
+
+    <p>Una constante relacionada directamente con &eacute;sta es <a
+    href="1158.html">s_wakeup_tree</a>, con la diferencia de que, al enviar esta se&ntilde;al, se
+    despertar&aacute; al proceso indicado y a sus <strong>hijos</strong>, que son los procesos que
+    &eacute;ste hubiera creado.</p>
+
+    <p>La lista completa de las constantes que utilizadas como se&ntilde;ales pueden ser enviadas a
+    los diferentes procesos de un programa, es:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="1153.html">s_kill</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>s_wakeup</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1155.html">s_sleep</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1156.html">s_freeze</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1157.html">s_kill_tree</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1158.html">s_wakeup_tree</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1159.html">s_sleep_tree</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1160.html">s_freeze_tree</a><br />
+    </p>
+    <hr />
+    Ver: <a href="1202.html">Constantes</a> - <a href="158.html">signal()</a> - <a
+    href="1158.html">s_wakeup_tree</a>
+  </body>
+</html>
+

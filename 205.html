@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - strcmp()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>strcmp()</h1>
+
+    <p><strong>strcmp(</strong>&lt;cadena1&gt;<strong>,</strong>
+    &lt;cadena2&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>+n</strong> - Si la primera cadena es mayor que la segunda.<br />
+     <strong>0</strong> - Si las dos cadenas son id&eacute;nticas.<br />
+     <strong>-n</strong> - Si la primera cadena es menor que la segunda.<br />
+    </p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Compara dos cadenas de texto, car&aacute;cter a car&aacute;cter, devolviendo
+    <strong>0</strong> cuando ambas cadenas sean id&eacute;nticas.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_strcmp<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> micadena<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+
+    <span class="syntax1">IF</span> <span class="syntax3">(</span>strcmp<span
+class="syntax3">(</span>micadena<span class="syntax3">,</span><span
+class="syntax4">"abc"</span><span class="syntax3">)==</span><span class="syntax2">0</span><span
+class="syntax3">)</span>
+
+        <span class="syntax5">// Las dos cadenas son iguales ...</span>
+
+    <span class="syntax1">END</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+    <hr />
+
+    <p>La comparaci&oacute;n de cadenas puede realizarse, siempre que las cadenas sean de menos de
+    1024 car&aacute;cteres, con los operadores de comparaci&oacute;n usuales del lenguaje.</p>
+
+    <p>Por ejemplo, la comparaci&oacute;n del ejemplo anterior podr&iacute;a haberse expresado con
+    la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (micadena=="abc")</strong><br />
+    &nbsp;&nbsp;<strong>//...</strong><br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>De igual forma, se puede comparar el s&iacute;mbolo <a href="1046.html">&lt;&gt;</a> si dos
+    cadenas son diferentes, con los s&iacute;mbolos <a href="1069.html">&lt;</a> o <a
+    href="1072.html">&lt;=</a> si una cadena es menor, o menor o igual a otra, etc.</p>
+    <hr />
+
+    <p>Para buscar una cadena dentro de otra (ver si esta contenida en ella), se utiliza la
+    funci&oacute;n <a href="207.html">strstr()</a>, y para ver si una cadena contiene alg&uacute;n
+    car&aacute;cter se utiliza la funci&oacute;n <a href="206.html">strchr()</a>.</p>
+    <hr />
+    Ver: <a href="202.html">strcpy()</a> - <a href="203.html">strcat()</a> - <a
+    href="204.html">strlen()</a> - <a href="206.html">strchr()</a> 
+
+    <p>- <a href="207.html">strstr()</a> - <a href="208.html">strset()</a> - <a
+    href="209.html">upper()</a> - <a href="210.html">lower()</a> - <a
+    href="211.html">strdel()</a></p>
+  </body>
+</html>
+

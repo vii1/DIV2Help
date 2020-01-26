@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - set_point_m8()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>set_point_m8()</h1>
+
+    <p><strong>set_point_m8(</strong>&lt;n&uacute;mero de v&eacute;rtice&gt;<strong>,</strong>
+    &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Modifica las coordenadas de un v&eacute;rtice de un mapa tridimensional de modo 8. Se
+    requieren los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;n&uacute;mero de v&eacute;rtice&gt;</strong> - N&uacute;mero de v&eacute;rtice
+    del mapa cuya posici&oacute;n se quiere modificar. Este n&uacute;mero se puede obtener en el
+    editor de mapas tridimensionales, cuyo manejo se aborda en el manual de usuario del
+    programa.</p>
+
+    <p><strong>&lt;x&gt;</strong>, <strong>&lt;y&gt;</strong> - Se debe indicar las nuevas
+    coordenadas del v&eacute;rtice. Las coordenadas dentro de un mapa tridimensional se situan
+    dentro del rango (<strong>0</strong> .. <strong>30200</strong>).</p>
+
+    <p>Para iniciar una regi&oacute;n de modo 8, se debe llamar a la funci&oacute;n <a
+    href="190.html">start_mode8()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Esta es una funci&oacute;n cuya utilizaci&oacute;n puede desembocar
+    en m&uacute;ltiples <strong>errores de visibilidad</strong>. Por ello, no se recomienda su
+    utilizaci&oacute;n a usuarios con poca experiencia.</p>
+
+    <p>Los v&eacute;rtices &uacute;nicamente se pueden mover <strong>dentro del sector</strong> en
+    el que se encuentren, <strong>no se pueden cruzar</strong> (ni los v&eacute;rtices, ni las
+    l&iacute;neas que estos forman) y, adem&aacute;s, no se deben mover sectores que puedan
+    contener procesos en su interior.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_set_point_m8<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    posici&oacute;n1<span class="syntax3">;</span>
+    posici&oacute;n2<span class="syntax3">;</span>
+    &aacute;ngulo1<span class="syntax3">;</span>
+    &aacute;ngulo2<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.FPG"</span><span
+class="syntax3">);</span>
+    load_wld<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.WLD"</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>
+    start_mode8<span class="syntax3">(</span><span class="syntax1">id</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">);</span>
+    ctype<span class="syntax3">=</span>c_m8<span class="syntax3">;</span>
+    go_to_flag<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">);</span>
+    <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">z</span><span class="syntax3">+=</span><span
+class="syntax2">64</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        posici&oacute;n1<span class="syntax3">=</span><span class="syntax2">3400</span><span
+class="syntax3">+</span>get_distx<span class="syntax3">(</span>&aacute;ngulo1<span
+class="syntax3">,</span><span class="syntax2">150</span><span class="syntax3">);</span>
+        &aacute;ngulo1<span class="syntax3">+=</span><span class="syntax2">5000</span><span
+class="syntax3">;</span>
+        posici&oacute;n2<span class="syntax3">=</span><span class="syntax2">3400</span><span
+class="syntax3">+</span>get_distx<span class="syntax3">(</span>&aacute;ngulo2<span
+class="syntax3">,</span><span class="syntax2">150</span><span class="syntax3">);</span>
+        &aacute;ngulo2<span class="syntax3">+=</span><span class="syntax2">7000</span><span
+class="syntax3">;</span>
+
+        set_point_m8<span class="syntax3">(</span><span class="syntax2">1620</span><span
+class="syntax3">,</span>posicion1<span class="syntax3">,</span><span
+class="syntax2">9280</span><span class="syntax3">);</span> <span
+class="syntax5">// Fija el v&eacute;rtice 1620</span>
+
+        set_point_m8<span class="syntax3">(</span><span class="syntax2">1621</span><span
+class="syntax3">,</span>posicion2<span class="syntax3">,</span><span
+class="syntax2">9456</span><span class="syntax3">);</span> <span
+class="syntax5">// Fija el v&eacute;rtice 1621</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo inicializa una regi&oacute;n de modo 8, cargando el mapa
+    <strong>wld_view.wld</strong>, y se sit&uacute;a en unas coordenadas predeterminadas con la
+    funci&oacute;n <a href="191.html">go_to_flag()</a>.</p>
+
+    <p>Posteriormente, dentro del bucle principal del programa, se fija la posici&oacute;n de los
+    v&eacute;rtices <strong>1620</strong> y <strong>1621</strong> con la funci&oacute;n
+    <strong>set_point_m8()</strong>.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="195.html">get_point_m8()</a> permite averiguar las coordenadas de
+    un v&eacute;rtice de un mapa tridimensional para modo 8.</p>
+    <hr />
+    Ver: <a href="195.html">get_point_m8()</a> - <a href="190.html">start_mode8()</a> - <a
+    href="1411.html">STRUCT m8</a>
+  </body>
+</html>
+

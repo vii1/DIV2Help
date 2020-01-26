@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - El nombre no es nuevo</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>El nombre no es nuevo</h1>
+
+    <p>Se ha utilizado un <a href="1001.html">nombre</a> de un proceso no v&aacute;lido pues
+    &eacute;ste ya estaba predefinido como nombre de otro objeto. Puede tratarse de un nombre de
+    una <a href="1004.html">constante</a>, una variable, una tabla, una estructura, un proceso o
+    una funci&oacute;n del programa.</p>
+
+    <p>Puede ser que se haya pretendido utilizar el mismo nombre dentro del programa para
+    identificar dos objetos diferentes, o bien <strong>puede que se haya utilizado un nombre
+    predefinido para otro uso dentro del lenguaje</strong>. En dicho caso puede acceder al
+    <strong>glosario</strong> para ver a que objeto se refiere dicho nombre.</p>
+
+    <p>Debe sustituir dicho nombre por otro similar.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> mi_juego<span class="syntax3">()</span> <span
+class="syntax5">// Error: El nombre no es nuevo.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se pretend&iacute;a utilizar como nombre de un proceso el nombre que
+    anteriormente se hab&iacute;a empleado para identificar el programa principal.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1001.html">Nombres</a>
+  </body>
+</html>
+

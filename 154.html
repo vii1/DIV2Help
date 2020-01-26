@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - roll_palette()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>roll_palette()</h1>
+
+    <p><strong>roll_palette(</strong>&lt;color inicial&gt;<strong>,</strong> &lt;n&uacute;mero de
+    colores&gt;<strong>,</strong> &lt;incremento&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Rota una gama de colores de la paleta. Esta funci&oacute;n sirve para crear efectos de
+    movimiento en gr&aacute;ficos est&aacute;ticos, como el efecto del agua corriendo.</p>
+
+    <p>Para utilizar esta funci&oacute;n se deben crear primero gr&aacute;ficos que utilicen una
+    gama de colores consecutivos de la paleta original, en un ciclo perpetuo, por ejemplo, los
+    colores del <strong>0</strong> al <strong>15</strong>, pintando algo con los colores 0, 1, 2,
+    3, ... , 14, 15, 0, 1, 2, ...</p>
+
+    <p>Despu&eacute;s, hay que tener cuidado de que dichos colores no sean utilizados por otros
+    gr&aacute;ficos que vayan a aparecer en pantalla al mismo tiempo, si no se quiere
+    tambi&eacute;n el efecto en ellos.</p>
+
+    <p>El <strong>incremento</strong> (tercer par&aacute;metro) suele ser <strong>1</strong> para
+    realizar la rotaci&oacute;n en un sentido y <strong>-1</strong> para realizarla en el otro,
+    pero se pueden utilizar otros valores para realizar el ciclo de colores a m&aacute;s
+    velocidad.</p>
+
+    <p>Para realizar un ciclo de los colores del <strong>0</strong> al <strong>15</strong> se
+    especificar&iacute;a <strong>0</strong> como &lt;color inicial&gt; y <strong>16</strong> como
+    &lt;n&uacute;mero de colores&gt;.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_roll_palette<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">2</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para rotar la paleta entera."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            roll_palette<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">256</span><span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">);</span> <span
+class="syntax5">// Se rotan los 256 colores.</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone como fondo una pantalla multicolor y dentro del bucle principal del
+    programa se rotar&aacute;n los 256 colores de la paleta cada vez que se pulse la barra
+    espaciadora.</p>
+    <hr />
+
+    <p>Si se quiere determinar la paleta con la que se debe realizar el ciclo de color, se debe
+    cargar &eacute;sta de un archivo con la funci&oacute;n <a href="133.html">load_pal()</a>.</p>
+    <hr />
+
+    <p>Para realizar otros efectos de paleta, sin sustituir unos colores por otros en ciclos, se
+    debe utilizar la funci&oacute;n <a href="110.html">fade()</a> que permite realizar
+    m&uacute;ltiples fundidos y saturaciones de color a diferentes velocidades.</p>
+
+    <p>Existen dos versiones simplificadas de esta &uacute;ltima funci&oacute;n que permiten
+    realizar un fundido a negro (<a href="111.html">fade_off()</a>) y deshacerlo (<a
+    href="112.html">fade_on()</a>).</p>
+    <hr />
+    Ver: <a href="179.html">set_color()</a> - <a href="133.html">load_pal()</a> - <a
+    href="110.html">fade()</a> - <a href="111.html">fade_off()</a> - <a
+    href="112.html">fade_on()</a>
+  </body>
+</html>
+

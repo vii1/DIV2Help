@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - map_xput()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>map_xput()</h1>
+
+    <p><strong>map_xput(</strong>&lt;fichero&gt;<strong>,</strong> &lt;gr&aacute;fico
+    destino&gt;<strong>,</strong> &lt;gr&aacute;fico origen&gt;<strong>,</strong>
+    &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>,</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;angle&gt;<strong>,</strong>
+    &lt;size&gt;<strong>,</strong> &lt;flags&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Versi&oacute;n extendida de la funci&oacute;n <a href="137.html">map_put()</a>.</p>
+
+    <p>Pone un gr&aacute;fico en otro. El gr&aacute;fico que se va a copiar se denomina
+    &lt;gr&aacute;fico origen&gt; y el <strong>gr&aacute;fico destino</strong> es en el que se
+    copiar&aacute; el origen, es decir, esta funci&oacute;n permite copiar un gr&aacute;fico
+    (origen) a otro (destino).</p>
+
+    <p>Ambos gr&aacute;ficos deben estar en el mismo fichero. Los par&aacute;metros son, por orden,
+    los siguientes:</p>
+
+    <p><strong>&lt;fichero&gt;</strong> - <strong>c&oacute;digo del fichero</strong> con la
+    librer&iacute;a de gr&aacute;ficos que contiene a ambos. Los gr&aacute;ficos cargados con la
+    funciones <a href="174.html">load_map()</a> o <a href="174.html">load_pcx()</a> (o creados con
+    <a href="188.html">new_map()</a>) se utilizar&aacute;n como si pertenecieran al primer fichero
+    (el fichero con el c&oacute;digo 0).</p>
+
+    <p><strong>&lt;gr&aacute;fico destino&gt;</strong> - <strong>c&oacute;digo del
+    gr&aacute;fico</strong> en el que se va a poner el otro.</p>
+
+    <p><strong>&lt;gr&aacute;fico origen&gt;</strong> - <strong>c&oacute;digo del
+    gr&aacute;fico</strong> que va a ser copiado en el destino.</p>
+
+    <p><strong>&lt;x&gt;, &lt;y&gt;</strong> - coordenadas dentro del gr&aacute;fico destino donde
+    se desea poner el gr&aacute;fico origen. En estas coordenadas es donde se copiar&aacute; el
+    gr&aacute;fico origen a partir de su esquina superior izquierda.</p>
+
+    <p><strong>&lt;angle&gt;</strong> - &aacute;ngulo (en mil&eacute;simas de grados) en el que se
+    copiar&aacute; el gr&aacute;fico origen, el &aacute;ngulo normal es <strong>0</strong>.</p>
+
+    <p><strong>&lt;size&gt;</strong> - tama&ntilde;o (en porcentaje) en el que se copiar&aacute; el
+    gr&aacute;fico original, el tama&ntilde;o normal es <strong>100</strong>.</p>
+
+    <p><strong>&lt;flags&gt;</strong> - Indica los espejados y transparencias con los que se
+    copiar&aacute; el gr&aacute;fico original en el destino; los valores son:</p>
+
+    <p>&nbsp;<strong>0</strong>-Gr&aacute;fico normal.<br />
+    &nbsp;<strong>1</strong>-Espejado horizontal.<br />
+    &nbsp;<strong>2</strong>-Espejado vertical.<br />
+    &nbsp;<strong>3</strong>-Espejado horizontal y vertical (180&deg;).<br />
+    &nbsp;<strong>4</strong>-Gr&aacute;fico transparente.<br />
+    &nbsp;<strong>5</strong>-Transparente y espejado horizontal.<br />
+    &nbsp;<strong>6</strong>-Transparente y espejado vertical.<br />
+    &nbsp;<strong>7</strong>-Transparente, espejado horizontal y vertical.<br />
+    </p>
+
+    <p>Esta funci&oacute;n modificar&aacute; el gr&aacute;fico indicado, pero s&oacute;lo la copia
+    del mismo que se ha cargado en la memoria del ordenador. El gr&aacute;fico original, que
+    est&aacute; en el archivo <strong>FPG</strong>, <strong>MAP</strong> o <strong>PCX</strong> del
+    disco, <strong>permanecer&aacute; inalterado</strong>. Por ello, si se quiere en un momento del
+    juego recuperar el estado original del gr&aacute;fico se tiene que descargar de memoria (con <a
+    href="169.html">unload_fpg()</a>, <a href="176.html">unload_map()</a> o <a
+    href="176.html">unload_pcx()</a>) y despu&eacute;s volverlo a cargar.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_map_xput<span class="syntax3">;</span>
+<span class="syntax1">PRIVATE</span>
+    x_destino<span class="syntax3">;</span>
+    <span class="syntax1">y_destino</span><span class="syntax3">;</span>
+    fichero1<span class="syntax3">;</span>
+    &aacute;ngulo1<span class="syntax3">;</span>
+    tama&ntilde;o1<span class="syntax3">;</span>
+    banderas1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        x_destino<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">319</span><span
+class="syntax3">);</span>
+        <span class="syntax1">y_destino</span><span class="syntax3">=</span>rand<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">199</span><span class="syntax3">);</span>
+        &aacute;ngulo1<span class="syntax3">=</span>rand<span class="syntax3">(-</span>pi<span
+class="syntax3">,</span> pi<span class="syntax3">);</span>
+        tama&ntilde;o1<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">200</span><span
+class="syntax3">);</span>
+        banderas1<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">);</span>
+
+        map_xput<span class="syntax3">(</span>fichero1<span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">,</span> <span class="syntax2">101</span><span
+class="syntax3">,</span> x_destino<span class="syntax3">,</span> <span
+class="syntax1">y_destino</span><span class="syntax3">,</span> &aacute;ngulo1<span
+class="syntax3">,</span> tama&ntilde;o1<span class="syntax3">,</span> banderas1<span
+class="syntax3">);</span>
+
+        angle<span class="syntax3">+=</span><span class="syntax2">2000</span><span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, se pone el gr&aacute;fico 1 en el centro de la pantalla rotando
+    cont&iacute;nuamente (este gr&aacute;fico es un fondo decorativo en grises).</p>
+
+    <p>En cada paso del bucle se pondr&aacute; dentro de &eacute;l otro gr&aacute;fico con forma de
+    tri&aacute;ngulo (con el n&uacute;mero 100). Este gr&aacute;fico se pondr&aacute; con
+    coordenadas, &aacute;ngulo, tama&ntilde;o y banderas (ver variable <a
+    href="1127.html">flags</a>) elegidas de forma aleatoria.</p>
+
+    <p>Se puede observar c&oacute;mo en el gr&aacute;fico de fondo van apareciendo
+    cont&iacute;nuamente tri&aacute;ngulos de color marr&oacute;n con diferentes efectos
+    aplicados.</p>
+    <hr />
+
+    <p>La funci&oacute;n <strong>map_xput()</strong> es una versi&oacute;n un poco m&aacute;s
+    compleja de la funci&oacute;n <a href="137.html">map_put()</a>, siendo &eacute;sta m&aacute;s
+    f&aacute;cil de utilizar cuando no se requiera poner gr&aacute;ficos rotados, escalados,
+    espejados y transparentes.</p>
+
+    <p>Para poner una parte de un gr&aacute;fico en otro (en lugar de poner el gr&aacute;fico
+    completo) se debe utilizar la funci&oacute;n <a href="135.html">map_block_copy()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Cuando se utilice la funci&oacute;n <strong>map_xput()</strong> (o
+    cualquier otra similar) para modificar un gr&aacute;fico que se est&aacute; utilizando como
+    fondo de una ventana de <strong>scroll</strong>, puede que el gr&aacute;fico puesto no aparezca
+    de forma inmediata en pantalla; para solventar este problema se debe utilizar la funci&oacute;n
+    <a href="152.html">refresh_scroll()</a>.</p>
+    <hr />
+    Ver: <a href="137.html">map_put()</a> - <a href="138.html">map_put_pixel()</a> - <a
+    href="152.html">refresh_scroll()</a> - <a href="135.html">map_block_copy()</a>
+  </body>
+</html>
+

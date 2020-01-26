@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Esperando un nombre</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Esperando un nombre</h1>
+
+    <p>Para definir una tabla de bytes se debe especificar el nombre de la misma tras la palabra
+    reservada <strong>WORD</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">WORD</span> mi_word<span class="syntax3">;</span>
+    <span class="syntax1">WORD</span> mi_tabla1<span class="syntax3">[</span><span
+class="syntax2">127</span><span class="syntax3">];</span>
+    <span class="syntax1">WORD</span> mi_tabla2<span class="syntax3">[</span><span
+class="syntax2">255</span><span class="syntax3">,</span><span class="syntax2">255</span><span
+class="syntax3">];</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se han definido tres datos de este tipo. El primero con el nombre
+    <strong>mi_word</strong> podr&aacute; contener un &uacute;nico valor (entre 0 y 65535), el
+    segundo con el nombre <strong>mi_tabla1</strong> podr&aacute; contener hasta 128 de estos
+    valores (desde mi_tabla1[0] hasta mi_tabla1[127]), y el tercero, que ser&aacute; una tabla de
+    words de dos dimensiones, pudiendo contener un total de 65536 valores (ya que este es el
+    resultado de multiplicar 256 por 256).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1001.html">Nombres</a>
+  </body>
+</html>
+

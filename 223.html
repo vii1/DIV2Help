@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - fopen()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>fopen()</h1>
+
+    <p><strong>fopen(</strong>&lt;nombre de archivo&gt;<strong>,</strong>
+    &lt;modo&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <strong>handle</strong> o identificador de archivo abierto, o bien <strong>0</strong> si
+    se produjo un error.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Abre un archivo del disco para lectura o escritura, utilizando el sistema de acceso a
+    trav&eacute;s de un <strong>handle</strong> o <strong>identificador de archivo</strong> que
+    esta funci&oacute;n retorna del archivo abierto o creado.</p>
+
+    <p>Se requiere el <strong>&lt;nombre del archivo&gt;</strong> a abrir o crear, y el
+    <strong>&lt;modo&gt;</strong> de apertura, que debe ser un literal (texto entre comillas)
+    dentro de los siguientes:</p>
+
+    <p>&nbsp;"<strong>r</strong>" - Abre el archivo para lectura de los datos contenidos en el
+    mismo.</p>
+
+    <p>&nbsp;"<strong>w</strong>" - Crea el archivo para escritura (si existe, se perder&aacute; su
+    contenido anterior).</p>
+
+    <p>&nbsp;"<strong>a</strong>" - Abre el archivo para escribir al final del mismo, o lo crea en
+    caso de no existir a&uacute;n.</p>
+
+    <p>&nbsp;"<strong>r+</strong>" - Abre un archivo existente para actualizarlo, permitiendo tanto
+    lectura como escritura.</p>
+
+    <p>&nbsp;"<strong>w+</strong>" - Crea un fichero (o trunca el existente) para escritura,
+    permitiendo tambi&eacute;n lectura del mismo.</p>
+
+    <p>&nbsp;"<strong>a+</strong>" - Abre un archivo para leer del mismo en cualquier
+    posici&oacute;n y escribir al final del mismo.</p>
+
+    <p>Una vez abierto un archivo, pueden utilizarse todas las funciones de archivos basadas en
+    <strong>handles</strong>, pero una vez se hayan realizado las operaciones necesarias en el
+    fichero <strong>se debe cerrar</strong>, utilizando para ello la funci&oacute;n <a
+    href="224.html">fclose()</a>.</p>
+
+    <p>Las funciones principales son <a href="225.html">fread()</a> para la lectura de datos dentro
+    del archivo y <a href="226.html">fwrite()</a> para escritura de datos; es importante haber
+    abierto el archivo en un <strong>modo</strong> apropiado para las operaciones realizadas. Es
+    decir, que por ejemplo no se podr&aacute; escribir en el fichero si se ha abierto
+    exclusivamente para lectura.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_fopen<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">11</span><span class="syntax3">,</span><span
+class="syntax2">22</span><span class="syntax3">,</span><span class="syntax2">33</span><span
+class="syntax3">,</span><span class="syntax2">44</span><span class="syntax3">;</span>
+    tabla2<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">];</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span> <span
+class="syntax5">// Abre archivo para escritura</span>
+
+    fwrite<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla1<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"r"</span><span class="syntax3">);</span> <span
+class="syntax5">// Abre archivo para lectura</span>
+
+    fread<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla2<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo tiene definidas dos tablas globales; <strong>tabla1</strong> con
+    cuatro valores inicializados a 11, 22, 33 y 44, y <strong>tabla2</strong> con cuatro sin
+    incializar (a cero).</p>
+
+    <p>Se utilizan las funciones de archivos para escribir en un archivo el contenido de la
+    <strong>tabla1</strong> y despu&eacute;s cargarlo sobre la <strong>tabla2</strong>. Al
+    finalizar el programa, se habr&aacute;n copiado los datos de la primera tabla en la
+    segunda.</p>
+
+    <p>Se llama a la funci&oacute;n <strong>fopen()</strong> en dos ocasiones, la primera para
+    <strong>crearlo y escribir</strong> en &eacute;l, y la segunda para <strong>abrirlo y
+    leer</strong> su contenido.</p>
+
+    <p>Es importante resaltar que cada vez que se abra o cree un archivo, se tiene que cerrar
+    despu&eacute;s con la funci&oacute;n <a href="224.html">fclose()</a> (se puede ver como, en el
+    ejemplo, se cierra el archivo en dos ocasiones).</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="227.html">fseek()</a> permite situar el <strong>puntero de
+    lectura/escritura</strong> en cualquier posici&oacute;n del archivo. De esta forma, se pueden
+    leer o escribir datos de cualquier punto del archivo.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="230.html">flush()</a> vac&iacute;a los buffers de escritura y
+    permite adem&aacute;s averiguar cuantos archivos hay abiertos en cada momento.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Las funciones <a href="155.html">save()</a> y <a
+    href="130.html">load()</a> permiten igualmente salvar datos en archivos del disco y
+    recuperarlos. Estas funciones son mas simples y con menos funcionalidad, pero su uso es mucho
+    m&aacute;s sencillo que las funciones basadas en <strong>handles</strong> aqu&iacute;
+    descritas.</p>
+    <hr />
+    Ver: <a href="224.html">fclose()</a> <a href="225.html">fread()</a> - <a
+    href="226.html">fwrite()</a> - <a href="155.html">save()</a>
+  </body>
+</html>
+

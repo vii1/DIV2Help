@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL father</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL father</h1>
+
+    <p><strong>father;</strong> // <a href="1039.html">C&oacute;digo identificador</a> del proceso
+    padre</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>father</strong>.</p>
+
+    <p>Esta variable contiene siempre el <a href="1039.html">c&oacute;digo identificador</a> del
+    proceso que cre&oacute; (llam&oacute;) al proceso actual (el que posee esta variable), es
+    decir, indica qu&eacute; proceso fue el que lo invoc&oacute;.</p>
+
+    <p>Dentro del lenguaje se denomina proceso padre al que llama a otro proceso, y proceso hijo al
+    que ha sido llamado. Para m&aacute;s informaci&oacute;n ver las <a
+    href="1041.html">jerarqu&iacute;as de procesos</a> en el lenguaje.</p>
+
+    <p>El <strong>gestor de procesos</strong> de DIV es el proceso denominado
+    <strong>div_main</strong> y es el encargado de crear el proceso principal del programa
+    (<strong>PROGRAM</strong>) al comienzo de la ejecuci&oacute;n del juego. Por lo tanto,
+    &eacute;ste ser&aacute; el padre del programa principal, as&iacute; como el padre de todos los
+    procesos que queden hu&eacute;rfanos (procesos cuyo padre haya muerto o finalizado antes que
+    ellos, ver <a href="1040.html">estados de un proceso</a>).</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El <a href="1039.html">c&oacute;digo identificador</a> del proceso
+    hijo se indica en la variable local predefinida <a href="1118.html">son</a>.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="1039.html">C&oacute;digo
+    identificador</a> - <a href="1041.html">Jerarquias de procesos</a>
+  </body>
+</html>
+

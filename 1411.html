@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT m8</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT m8</h1>
+
+    <p><strong>STRUCT m8[9];</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>z;</strong> // Prioridad de impresi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>camera;</strong> // Identificador de la c&aacute;mara<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>height;</strong> // Altura de la c&aacute;mara<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>angle;</strong> // Angulo vertical<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura de <strong>10</strong> registros contiene ciertos campos relacionados con
+    par&aacute;metros modificables de las <strong>ventanas de modo 8</strong>. Los diez registros
+    tienen los mismos nombres de campos, pero cada uno de ellos modifica los par&aacute;metros de
+    una ventana de modo 8 diferente (ya que pueden activarse hasta 10 ventanas de este tipo).</p>
+
+    <p>Una <strong>ventana de modo 8</strong> se podr&iacute;a definir como una regi&oacute;n de
+    pantalla que muestra un mapa de sectores tridimensional.</p>
+
+    <p>Para que un registro (del <strong>0</strong> al <strong>9</strong>) de la <strong>estructura
+    m8</strong> tenga sentido, primero debe activarse dicha <strong>ventana de modo 8</strong> (del
+    <strong>0</strong> al <strong>9</strong>) con la funci&oacute;n <a
+    href="190.html">start_mode8()</a> (ver esta funci&oacute;n para m&aacute;s informaci&oacute;n
+    sobre las ventanas de modo 8}.</p>
+
+    <p>Se entiende que los campos de esta estructura son complementarios a los par&aacute;metros de
+    llamada de esta &uacute;ltima funci&oacute;n. Para poder observar un ejemplo pr&aacute;ctico de
+    un modo 8, se puede acceder a la ayuda sobre la funci&oacute;n <a
+    href="189.html">load_wld()</a> o de <a href="190.html">start_mode8()</a>.</p>
+    <hr />
+
+    <p><strong>Forma de uso de la estructura m8:</strong></p>
+
+    <p>Para acceder a estos campos se debe preceder el nombre del campo por la palabra
+    <strong>m8</strong>, el n&uacute;mero de registro entre corchetes y el s&iacute;mbolo <a
+    href="1063.html">. (punto)</a>.</p>
+
+    <p>Por ejemplo, si se inicializaran dos ventanas de modo 8, la n&uacute;mero 0 y la
+    n&uacute;mero 1, se podr&iacute;a acceder a la variable <strong>camera</strong> de ambas
+    ventanas como <strong>m8[0].camera</strong> y <strong>m8[1].camera</strong>, respectivamente.
+    Cuando se acceda a la ventana n&uacute;mero 0 de modo 8 se puede, adem&aacute;s, omitir el
+    n&uacute;mero de ventanas entre corchetes, es decir, que la variable <strong>m8.camera</strong>
+    y la variable <strong>m8[0].camera</strong> son, a todos los efectos, la misma para el
+    lenguaje.</p>
+    <hr />
+
+    <p><strong>Se muestra a continuaci&oacute;n una descripci&oacute;n detallada de cada
+    campo</strong></p>
+
+    <p><strong>z</strong> - Prioridad de impresi&oacute;n del modo 8, aqu&iacute; se indica en
+    qu&eacute; plano de profundidad se debe pintar esta ventana, respecto al resto de procesos. Por
+    defecto, esta variable valdr&aacute; <strong>256</strong> lo cual quiere decir que, como los
+    procesos por defecto tienen su variable <a href="1125.html">local z</a> a <strong>0</strong>,
+    la ventana de modo 8 se pintar&aacute; en un plano de profundidad mayor, m&aacute;s al fondo,
+    visualiz&aacute;ndose los gr&aacute;ficos de los procesos por encima de la ventana. Para variar
+    esta situaci&oacute;n se puede modificar la variable <strong>z</strong> de la ventana (por
+    ejemplo ponerla a <strong>-1</strong>) o la variable <strong>z</strong> de los procesos (por
+    ejemplo ponerla a <strong>257</strong>).</p>
+    <hr />
+
+    <p><strong>camera</strong> - <a href="1039.html">C&oacute;digo identificador del proceso</a> en
+    el que se sit&uacute;a la c&aacute;mara. Para mover la c&aacute;mara que controla la
+    visi&oacute;n del modo 8, &uacute;nicamente se debe crear un proceso de modo 8, un proceso que
+    tenga su variable local <a href="1122.html">ctype</a> <strong>=</strong> <a
+    href="1412.html">c_m8</a>, y poner su <a href="1039.html">c&oacute;digo identificador</a> en la
+    variable <strong>camera</strong> de esta estructura. Tras esto, s&iacute;mplemente se deben
+    modificar las variables locales <a href="1123.html">x</a>, <a href="1124.html">y</a>, <a
+    href="1125.html">z</a> y <a href="1129.html">angle</a> de este proceso y, por ejemplo, utilizar
+    la funci&oacute;n <a href="101.html">advance()</a> para mover hacia delante la
+    c&aacute;mara.</p>
+    <hr />
+
+    <p><strong>height</strong> - Altura de la c&aacute;mara respecto al proceso, por defecto este
+    campo est&aacute; inicializado a <strong>32</strong>. El proceso de modo 8 se situar&aacute;
+    verticalmente en su coordenada <strong>z</strong>, su variable local <strong>height</strong>
+    determina la altura del propio proceso, y este campo (<strong>m8.height</strong>) determina la
+    altura de la c&aacute;mara (de los <strong>ojos</strong> del proceso respecto a su base).</p>
+    <hr />
+
+    <p><strong>angle</strong> - Angulo vertical de la c&aacute;mara, este &aacute;ngulo es un valor
+    entre <strong>-128</strong> y <strong>128</strong>. Define si la c&aacute;mara mira hacia
+    arriba o hacia abajo. Cuando <strong>m8.angle</strong> valga <strong>0</strong>, que es el
+    valor por defecto, la c&aacute;mara mirar&aacute; hacia el centro.</p>
+
+    <p>El &aacute;ngulo horizontal ser&aacute; la variable local <strong>angle</strong> del propio
+    proceso que est&aacute; siendo utilizado como c&aacute;mara de la ventana (cuyo identificador
+    est&aacute; en <strong>m8.camera</strong>).</p>
+    <hr />
+
+    <p>V&eacute;ase tambi&eacute;n las <strong>variables locales</strong> relacionadas con el
+    <strong>modo 8</strong>.</p>
+
+    <p>&nbsp;&nbsp;<a href="1421.html">LOCAL radius</a><br />
+    &nbsp;&nbsp;<a href="1422.html">LOCAL m8_wall</a><br />
+    &nbsp;&nbsp;<a href="1423.html">LOCAL m8_sector</a><br />
+    &nbsp;&nbsp;<a href="1424.html">LOCAL m8_nextsector</a><br />
+    &nbsp;&nbsp;<a href="1425.html">LOCAL m8_step</a><br />
+    </p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="190.html">start_mode8()</a>
+  </body>
+</html>
+

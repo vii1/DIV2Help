@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - fread()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>fread()</h1>
+
+    <p><strong>fread(</strong>&lt;OFFSET datos&gt;<strong>,</strong>
+    &lt;longitud&gt;<strong>,</strong> &lt;handle&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>0</strong> - Se produjo un error, o no se leyeron todos los datos pedidos.<br />
+    <strong>1</strong> - Si se pudieron leer todos los datos.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite leer datos de un archivo abierto con la funci&oacute;n <a
+    href="223.html">fopen()</a>, a partir de la posici&oacute;n indicada por el <strong>puntero de
+    lectura/escritura</strong>.</p>
+
+    <p>El archivo se debe haber abierto en un <strong>modo de lectura</strong>, o que la
+    permita.</p>
+
+    <p>El <strong>puntero</strong> se situa inicialmente al comienzo del archivo, al abrirse el
+    mismo, y avanza secuencialmente seg&uacute;n se vayan leyendo datos. No obst&aacute;nte puede
+    situarse este puntero del archivo en cualquier posici&oacute;n, utilizando la funci&oacute;n <a
+    href="227.html">fseek()</a> y la funci&oacute;n <a href="228.html">ftell()</a> permite obtener
+    la posici&oacute;n actual del puntero de un archivo.</p>
+
+    <p>La funci&oacute;n <strong>fread()</strong> requiere como primer par&aacute;metro el
+    <strong>&lt;</strong><a href="1085.html">OFFSET</a> <strong>de los datos&gt;</strong> en los
+    que deben leerse los datos del archivo, es decir, la direcci&oacute;n de memoria a partir de la
+    cual se deben colocar los datos que se vayan leyendo del archivo.</p>
+
+    <p>Como segundo par&aacute;metro se requiere la <strong>&lt;longitud&gt;</strong> o
+    tama&ntilde;o total de los datos que se quieren leer, es decir, el n&uacute;mero de posiciones
+    de memoria que ocupan dichos datos. La longitud de un dato se puede obtener con la
+    funci&oacute;n <a href="1094.html">sizeof()</a>.</p>
+
+    <p>El &uacute;ltimo par&aacute;metro debe ser el <strong>handle</strong> o
+    <strong>identificador de archivo</strong> que se obtuvo al abrir el archivo como valor de
+    retorno de <a href="223.html">fopen()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_fread<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">11</span><span class="syntax3">,</span><span
+class="syntax2">22</span><span class="syntax3">,</span><span class="syntax2">33</span><span
+class="syntax3">,</span><span class="syntax2">44</span><span class="syntax3">;</span>
+    tabla2<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">];</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span>
+    fwrite<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla1<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"r"</span><span class="syntax3">);</span>
+
+    fread<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla2<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span> <span class="syntax5">// Lee el archivo sobre &lt;tabla2&gt;</span>
+
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo tiene definidas dos tablas globales; <strong>tabla1</strong> con
+    cuatro valores inicializados a 11, 22, 33 y 44, y <strong>tabla2</strong> con cuatro sin
+    incializar (a cero).</p>
+
+    <p>Se utilizan las funciones de archivos para escribir en un archivo el contenido de la
+    <strong>tabla1</strong> y despu&eacute;s cargarlo sobre la <strong>tabla2</strong>. Al
+    finalizar el programa, se habr&aacute;n copiado los datos de la primera tabla en la
+    segunda.</p>
+
+    <p>Se llama a la funci&oacute;n <a href="223.html">fopen()</a> en dos ocasiones, la primera
+    para <strong>crearlo y escribir</strong> en &eacute;l, y la segunda para <strong>abrirlo y
+    leer</strong> su contenido.</p>
+
+    <p>Es importante resaltar que cada vez que se abra o cree un archivo, se tiene que cerrar
+    despu&eacute;s con la funci&oacute;n <a href="224.html">fclose()</a> (se puede ver como, en el
+    ejemplo, se cierra el archivo en dos ocasiones).</p>
+    <hr />
+
+    <p>La funci&oacute;n inversa a <strong>fopen()</strong>, es decir, la que permite escribir
+    datos en un archivo en lugar de leerlos, es <a href="226.html">fwrite()</a>. La forma de
+    utilizar esta funci&oacute;n y sus par&aacute;metros son id&eacute;nticos a los de
+    <strong>fread()</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Por defecto, la <strong>&lt;longitud&gt;</strong> se especifica como
+    el n&uacute;mero de datos simples, teniendo en cuenta que un dato simple (una variable) ocupa
+    <strong>4 bytes</strong>. Es decir, que si por ejemplo, se leen diez datos (indicando 10 como
+    longitud), se estar&aacute;n leyendo cuarenta bytes.</p>
+
+    <p>Se puede cambiar esta relaci&oacute;n modificando la variable global <a
+    href="1420.html">unit_size</a>, que por defecto vale <strong>4</strong> en todos los
+    programas.</p>
+    <hr />
+    Ver: <a href="223.html">fopen()</a> - <a href="226.html">fwrite()</a> - <a
+    href="227.html">fseek()</a> - <a href="1420.html">unit_size</a>
+  </body>
+</html>
+

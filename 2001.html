@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Novedades del lenguaje en la versi&oacute;n 2.0</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Novedades del lenguaje en la versi&oacute;n 2.0</h1>
+
+    <div align="center">
+      <img src="6.png" />
+    </div>
+
+    <p><strong>M&aacute;s lenguaje.</strong> Se ha ampliado el lenguaje de programaci&oacute;n,
+    incluyendo m&uacute;ltiples caracter&iacute;sticas nuevas y funciones internas, a
+    continuaci&oacute;n se detallan las principales novedades del <strong>lenguaje DIV</strong> en
+    su <strong>versi&oacute;n 2.0</strong>.</p>
+    <hr />
+
+    <div>
+      <img src="150.png" align="left" />Las <strong>opciones de compilaci&oacute;n</strong> son una
+      nueva caracter&iacute;stica de esta versi&oacute;n, de esta forma se permite adaptar el
+      proceso de compilaci&oacute;n a las necesidades de cada proyecto (ver <a
+      href="1400.html">Compiler_options</a>).
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="150.png" align="left" />Al margen de los datos ya conocidos de la primera
+      versi&oacute;n (que ahora se conocen como <a href="1402.html">INT</a>), existen datos de los
+      tipos <a href="1406.html">STRING</a> (cadenas de texto), <a href="1403.html">WORD</a>
+      (enteros positivos de 16 bit), <a href="1404.html">BYTE</a> (enteros positivos de 8 bit) y <a
+      href="1405.html">POINTER</a> (punteros, de todos estos tipos).
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="150.png" align="left" />Adem&aacute;s se pueden definir <strong>tablas</strong> y
+      <strong>estructuras</strong> (tambi&eacute;n de cualquiera de estos tipos) de
+      <strong>2</strong> o <strong>3 dimensiones</strong> (ver la <a
+      href="1011.html">declaraci&oacute;n de una tabla</a>), y las estructuras se pueden
+      inicializar globalmente (ver la <a href="1012.html">declaraci&oacute;n de una
+      estructura</a>).
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="150.png" align="left" />Los nuevos <a href="1408.html">bloques FUNCTION</a> se
+      comportan de forma an&aacute;loga a las funciones de otros lenguajes de programaci&oacute;n,
+      se ejecutan de forma secuencial (y no en paralelo como los procesos), no retornando hasta que
+      no han terminado.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="171.png" align="left" />Se ha mejorado varios aspectos del <strong>trazador de
+      programas</strong>, con nuevas funciones y soporte para los nuevos tipos de datos. Destacan
+      entre estas novedades los <strong>perfiles de tiempo</strong>, que pueden accederse con
+      <strong>F11</strong> desde el trazador, donde se puede observar el tiempo consumido por la
+      ejecuci&oacute;n y pintado de cada proceso.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="152.png" align="left" />Se ha mejorado el <strong>sistema de control de
+      errores</strong> de los programas, con lo que se crean ejecutables m&aacute;s s&oacute;lidos
+      y estables, existiendo ahora adem&aacute;s la posibilidad de anular ciertos errores de
+      ejecuci&oacute;n (ver la funci&oacute;n <a href="240.html">ignore_error()</a>.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="157.png" align="left" />Se han a&ntilde;adido una gran cantidad de <strong>nuevas
+      funciones de gesti&oacute;n de archivos</strong>, mucho m&aacute;s flexibles y potentes;
+      v&eacute;ase por ejemplo <a href="223.html">fopen()</a>, <a href="227.html">fseek()</a>, <a
+      href="231.html">get_dirinfo()</a>, <a href="235.html">chdir()</a>, <a
+      href="237.html">remove()</a>) o <a href="238.html">disk_free()</a>.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="158.png" align="left" />Al margen del soporte de m&uacute;sica CD-Audio y los
+      efectos digitales, existen ahora varias funciones para la reproducci&oacute;n de
+      m&oacute;dulos musicales <strong>MOD</strong>, <strong>S3M</strong> y <strong>XM</strong>
+      (ver <a href="214.html">load_song()</a>, <a href="216.html">song()</a> o <a
+      href="218.html">set_song_pos()</a>).
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="163.png" align="left" /><strong>Generador de c&oacute;digo optimizado.</strong> El
+      c&oacute;digo generado para los programas es mejor y m&aacute;s r&aacute;pido (un
+      m&iacute;nimo de un 60%) respecto a la versi&oacute;n anterior. Adem&aacute;s los programas
+      <strong>EXE</strong> creados son mucho m&aacute;s peque&ntilde;os.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="164.png" align="left" /><strong>Funciones para juegos en red.</strong> Ahora es
+      posible crear con DIV Games Studio juegos para jugar por <strong>cable serie</strong>,
+      <strong>m&oacute;dem</strong> y <strong>red local IPX</strong>. Con un sistema muy simple
+      controlado por las funciones <a href="180.html">net_join_game()</a> y <a
+      href="181.html">net_get_games()</a>.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="165.png" align="left" />Otra de las novedades es la integraci&oacute;n en el
+      lenguaje de un potente manejo de cadenas de texto, con los datos de tipo <a
+      href="1406.html">STRING</a>, m&uacute;ltiples funciones (como por ejemplo <a
+      href="203.html">strcat()</a>, <a href="206.html">strchr()</a>, <a href="209.html">upper()</a>
+      o <a href="211.html">strdel()</a>) y una sintaxis adaptada para trabajar con expresiones de
+      cadenas directamente en el lenguaje.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="166.png" align="left" /><strong>Soporte para memoria din&aacute;mica</strong>. Es
+      posible pedir y liberar memoria din&aacute;micamente en los programas, gracias a las
+      funciones <a href="257.html">malloc()</a> y <a href="258.html">free()</a> (lo que se ve
+      complementado con los nuevos datos de tipo <a href="1405.html">POINTER</a>). Adem&aacute;s la
+      funci&oacute;n <a href="239.html">memory_free()</a> permite determinar la memoria libre
+      disponible en el sistema.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="167.png" align="left" />Tambi&eacute;n se ha a&ntilde;adido la posibilidad de
+      <strong>ordenaci&oacute;n</strong> y <strong>desordenaci&oacute;n</strong>, con una simple
+      pero potente funci&oacute;n denominada <a href="213.html">qsort()</a> que permite ordenar y
+      desordenar estructuras de datos, tomando cualquier campo como &iacute;ndice de la misma.
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="168.png" align="left" />Otra de las novedades muy solicitada es la
+      <strong>b&uacute;squeda de caminos</strong>. Se trata de varias funciones (ver <a
+      href="185.html">path_find()</a>) que permiten localizar rutas libres (llamadas por algunos
+      "rutinas de inteligencia artificial").
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="169.png" align="left" /><strong>Compresi&oacute;n de datos.</strong> Todo es
+      m&aacute;s compacto; los ejecutables y los datos instalados (se pueden crear
+      <strong>instalaciones compactadas y protegidas</strong>). Adem&aacute;s se incluyen funciones
+      de compresi&oacute;n en el lenguaje (ver <a href="262.html">compress_file()</a>).
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <img src="170.png" align="left" /><strong>Nuevo modo 8.</strong> Un nuevo modo con hasta 10
+      regiones de pantalla, que permite visualizar mapas de sectores tridimensionales. Con un
+      editor integrado en el entorno y m&uacute;ltiples funciones (ver por ejemplo <a
+      href="190.html">start_mode8()</a>, <a href="192.html">set_sector_height()</a>, o <a
+      href="196.html">set_fog()</a>).
+    </div>
+    <br />
+    <br />
+    <hr />
+
+    <div>
+      <img src="176.png" align="left" /><strong>Y un largo etc&eacute;tera.</strong> Las novedades
+      del lenguaje no acaban aqu&iacute;, existen muchas otras mejoras y funciones (adem&aacute;s
+      de los errores de la primera versi&oacute;n que se han corregido). A continuaci&oacute;n se
+      detallan brevemente otras novedades del lenguaje DIV.
+    </div>
+    <br />
+    <br />
+
+    <p>- Una nueva funci&oacute;n, denominada <a href="266.html">force_pal()</a>, permite que todos
+    <strong>los gr&aacute;ficos cargados en un programa se adapten autom&aacute;ticamente a una
+    paleta</strong> en tiempo de ejecuci&oacute;n.</p>
+
+    <p>- Existen funciones de encriptaci&oacute;n de datos, tanto en memoria como de archivos,
+    estas son <a href="259.html">encode()</a>, <a href="260.html">encode_file()</a> y <a
+    href="261.html">decode_file()</a>.</p>
+
+    <p>- La <strong>declaraci&oacute;n de librer&iacute;as</strong> se realiza ahora en la cabecera
+    del programa, tras la sentencia <strong>PROGRAM</strong> (ver <a
+    href="1014.html">IMPORT</a>).</p>
+
+    <p>- Ahora es posible crear programas en <strong>muchos m&aacute;s modos de
+    v&iacute;deo</strong>, ya que se pueden detectar los modos vesa disponibles (ver <a
+    href="1415.html">video_modes</a>).</p>
+
+    <p>- En esta nueva versi&oacute;n se prohiben inicialmente las <strong>asignaciones dentro de
+    una condici&oacute;n</strong>, para facilitar la programaci&oacute;n a usuarios no
+    experimentados. No obstante esto puede cambiarse (ver <a href="1400.html">_extended_conditions
+    y _simple_conditions</a>).</p>
+
+    <p>- Ahora es posible definir el <strong>n&uacute;mero m&aacute;ximo de procesos</strong> que
+    pueden haber en el programa en tiempo de ejecuci&oacute;n (ver <a
+    href="1400.html">_max_process</a>).</p>
+
+    <p>- Es posible definir <strong>literales en varias l&iacute;neas</strong>, para ello
+    s&iacute;mplemente deber&aacute; dividirse el texto en varios, y ponerse estos seguidos (ver
+    los <a href="1047.html">s&iacute;mbolos delimitadores de literales</a>).</p>
+
+    <p>- El <strong>sistema de sonido</strong> es totalmente nuevo, y ahora se permite la
+    reproducci&oacute;n de <strong>archivos WAV de mucha m&aacute;s calidad</strong> en los
+    programas (ver <a href="134.html">load_wav()</a> y los nuevos campos de la estructura <a
+    href="1104.html">setup</a>). Tambi&eacute;n se han a&ntilde;adido funciones de sonido como <a
+    href="256.html">change_channel()</a> o <a href="221.html">is_playing_sound()</a>.</p>
+
+    <p>- Tambi&eacute;n se permite ahora utilizar directamente <strong>im&aacute;genes en formato
+    PCX</strong> en los programas (ver <a href="174.html">load_pcx()</a>), as&iacute; como grabar
+    estos archivos (ver <a href="241.html">save_map/pcx()</a>).</p>
+
+    <p>- Existen funciones para fijar <strong>un color de la paleta</strong> (<a
+    href="179.html">set_color()</a>) y tambi&eacute;n para localizar colores (<a
+    href="264.html">find_color()</a>).</p>
+
+    <p>- Varias <strong>funciones matem&aacute;ticas</strong> como <a href="242.html">sin()</a>, <a
+    href="243.html">cos()</a>, <a href="244.html">tan()</a>, <a href="245.html">asin()</a>, ...</p>
+
+    <p>- Tambi&eacute;n se han incluido <strong>primitivas para dibujar</strong> distintas
+    gr&aacute;ficas en pantalla: l&iacute;neas, rect&aacute;ngulos y cajas, c&iacute;rculos, ...
+    (ver <a href="249.html">draw()</a>).</p>
+
+    <p>- Se han a&ntilde;adido <strong>otras funciones</strong> diversas que amplian las
+    posibilidades existentes en la creaci&oacute;n de programas, como <a
+    href="212.html">screen_copy()</a>, <a href="253.html">write_in_map()</a>, <a
+    href="254.html">calculate()</a>, <a href="265.html">load_screen()</a>, <a
+    href="183.html">xadvance()</a>, <a href="188.html">new_map()</a>, ...</p>
+
+    <p>- Tambi&eacute;n se puede contar l&aacute;s <strong>im&aacute;genes por segundo</strong>
+    (ver <a href="1426.html">fps</a>), obtener los <strong>par&aacute;metros del programa</strong>
+    (ver <a href="1409.html">argv[]</a>), esperar el <strong>retrazo vertical</strong> (ver <a
+    href="1417.html">vsync</a>), controlar mejor el rat&oacute;n en los programas (ver <a
+    href="1100.html">mouse.cursor</a> y <a href="1100.html">mouse.speed</a>), etc.</p>
+    <hr />
+
+    <p>Y adem&aacute;s, todas las funciones, datos y posibilidades que ya brindaba la primera
+    versi&oacute;n de DIV Games Studio, &iexcl;que siguen aqu&iacute;! <strong>:)</strong></p>
+    <hr />
+    <strong>Ver tambi&eacute;n:</strong> <a href="2002.html">Novedades del entorno
+    gr&aacute;fico</a>
+  </body>
+</html>
+

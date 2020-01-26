@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - C&oacute;digo principal</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>C&oacute;digo principal</h1>
+
+    <p><a href="1086.html">BEGIN</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <strong>;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>El c&oacute;digo principal de un programa comienza con la palabra reservada <a
+    href="1086.html">BEGIN</a>, tras la cual puede aparecer cualquier n&uacute;mero de sentencias,
+    y finaliza con la palabra reservada <a href="1091.html">END</a>.</p>
+
+    <p>Este c&oacute;digo controla el proceso principal del programa, que es el encargado de
+    inicializar el programa, controlar los bucles de men&uacute; y de juego, y finalizar el
+    programa.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    opci&oacute;n<span class="syntax3">;</span>             <span
+class="syntax5">// Opci&oacute;n elegida en el men&uacute;.</span>
+
+<span class="syntax1">BEGIN</span>                   <span
+class="syntax5">// Inicio del c&oacute;digo principal.</span>
+
+    set_mode<span class="syntax3">(</span>m640x480<span class="syntax3">);</span> <span
+class="syntax5">// Inicializaci&oacute;n.</span>
+    set_fps<span class="syntax3">(</span><span class="syntax2">24</span><span
+class="syntax3">,</span> <span class="syntax2">4</span><span class="syntax3">);</span>
+    <span class="syntax5">// ...              // Carga ficheros, sonidos, etc.</span>
+
+    <span class="syntax1">REPEAT</span>              <span
+class="syntax5">// Inicio bucle principal.</span>
+
+        opcion<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>       <span
+class="syntax5">// Bucle de control del men&uacute; de opciones.</span>
+        <span class="syntax5">//...           // Inicializa el men&uacute; de opciones.</span>
+        <span class="syntax1">REPEAT</span>
+            <span class="syntax5">// ...</span>
+            <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_enter<span class="syntax3">))</span> opcion<span
+class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>  <span class="syntax5">// Se elige jugar.</span>
+            <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">))</span> opcion<span
+class="syntax3">=</span><span class="syntax2">2</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>    <span class="syntax5">// Se elige finalizar.</span>
+            <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>opcion<span
+class="syntax3">&gt;</span><span class="syntax2">0</span><span class="syntax3">);</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>opcion<span
+class="syntax3">==</span><span class="syntax2">1</span><span class="syntax3">)</span>  <span
+class="syntax5">// Si se ha elegido la opcion de jugar.</span>
+
+            <span class="syntax5">// Inicializa regiones, scroll, etc.</span>
+            <span class="syntax5">// Crea los procesos de juego.</span>
+            <span class="syntax5">// Bucle de control del juego, espera a que finalice.</span>
+
+        <span class="syntax1">END</span>
+
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>opcion<span
+class="syntax3">==</span><span class="syntax2">2</span><span class="syntax3">);</span>  <span
+class="syntax5">// Final del bucle principal.</span>
+
+    let_me_alone<span class="syntax3">();</span>     <span
+class="syntax5">// Finaliza todos los procesos.</span>
+
+<span class="syntax1">END</span>                     <span
+class="syntax5">// Final del c&oacute;digo pricipal.</span>
+
+<span
+class="syntax5">// ...                  // Declaraci&oacute;n de los procesos del programa.</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Que finalice la ejecuci&oacute;n del c&oacute;digo principal no implica que finalice la
+    ejecuci&oacute;n del programa, pues &eacute;sta continuar&aacute; si quedan procesos vivos; si
+    se quiere forzar la terminaci&oacute;n del programa cuando finalice este c&oacute;digo, se
+    puede utilizar, por ejemplo, la funci&oacute;n <a href="129.html">let_me_alone()</a> justo
+    antes del <a href="1091.html">END</a> que marca el final del c&oacute;digo principal, para
+    eliminar al resto de procesos que puedan quedar vivos.</p>
+
+    <p>Tambi&eacute;n se puede finalizar en cualquier punto del programa su ejecuci&oacute;n
+    mediante la funci&oacute;n <a href="109.html">exit()</a> que autom&aacute;ticamente
+    eliminar&aacute; todos los procesos.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

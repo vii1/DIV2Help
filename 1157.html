@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - s_kill_tree</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>s_kill_tree</h1>
+
+    <p>Constante: <strong>s_kill_tree</strong></p>
+    <hr />
+
+    <p>Esta constante se utiliza como par&aacute;metro de la funci&oacute;n <a
+    href="158.html">signal()</a> (para mandar se&ntilde;ales a los procesos). Su valor es
+    <strong>100</strong>.</p>
+
+    <p>Esta se&ntilde;al se utiliza para que un proceso y todos los procesos que &eacute;ste haya
+    creado sean <strong>eliminados</strong> envi&aacute;ndoles la orden imperativa
+    <strong>kill</strong> (muerte). Es una versi&oacute;n de la se&ntilde;al <a
+    href="1153.html">s_kill</a>, que elimina al proceso, pero no a los procesos que &eacute;ste
+    haya creado.</p>
+
+    <p>Es decir, con <strong>s_kill_tree</strong> se <strong>eliminar&aacute;</strong> al proceso y
+    a toda su descendencia, con lo que ya no aparecer&aacute; ninguno de ellos en las siguientes
+    im&aacute;genes del juego.</p>
+
+    <p>La lista completa de las constantes que utilizadas como se&ntilde;ales, pueden ser enviadas
+    a los diferentes procesos de un programa es:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="1153.html">s_kill</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1154.html">s_wakeup</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1155.html">s_sleep</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1156.html">s_freeze</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>s_kill_tree</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1158.html">s_wakeup_tree</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1159.html">s_sleep_tree</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1160.html">s_freeze_tree</a><br />
+    </p>
+    <hr />
+    Ver: <a href="1202.html">Constantes</a> - <a href="158.html">signal()</a> - <a
+    href="1153.html">s_kill</a>
+  </body>
+</html>
+

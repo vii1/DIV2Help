@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Evaluaci&oacute;n de una expresi&oacute;n</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Evaluaci&oacute;n de una expresi&oacute;n</h1>
+
+    <p>Es importante conocer la forma en la que son evaluadas las expresiones para saber
+    d&oacute;nde pueden ser necesarios o no par&eacute;ntesis que indiquen el modo en el que se
+    pretende que la expresi&oacute;n sea evaluada.</p>
+
+    <p>En el lenguaje, una expresi&oacute;n puede contener operadores de diferentes niveles de
+    prioridad.</p>
+
+    <p>En la evaluaci&oacute;n de una expresi&oacute;n ser&aacute;n siempre procesados primero los
+    de <strong>prioridad 1</strong> (si los hay), luego los de <strong>prioridad 2</strong>, tras
+    estos los de <strong>prioridad 3</strong> y, as&iacute;, sucesivamente.</p>
+
+    <p>Prioridad 1<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1053.html">( )</a> Par&eacute;ntesis, inicio y fin de una
+    sub-expresi&oacute;n<br />
+    </p>
+
+    <p>Prioridad 2<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1063.html">.</a> Punto, operador de acceso a datos locales y
+    estructuras<br />
+    </p>
+
+    <p>Prioridad 3<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1045.html">NOT</a> Negaci&oacute;n binaria y l&oacute;gica
+    (#1045,<strong>!</strong>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1085.html">OFFSET</a> Direcci&oacute;n o desplazamiento
+    (#1050,<strong>&amp;</strong>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1079.html">^</a> Operador de indirecci&oacute;n (<a
+    href="1054.html">*</a>, <a href="1079.html">[ ]</a>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <strong>-</strong> Negaci&oacute;n de signo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1057.html">++</a> Operador de incremento<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1061.html">--</a> Operador de decremento<br />
+    </p>
+
+    <p>Prioridad 4<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1054.html">*</a> Multiplicaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1065.html">/</a> Divisi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1048.html">MOD</a> M&oacute;dulo (<a
+    href="1048.html">%</a>)<br />
+    </p>
+
+    <p>Prioridad 5<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1056.html">+</a> Suma<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1060.html">-</a> Resta<br />
+    </p>
+
+    <p>Prioridad 6<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1070.html">&lt;&lt;</a> Rotaci&oacute;n a la derecha<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1077.html">&gt;&gt;</a> Rotaci&oacute;n a la izquierda<br />
+    </p>
+
+    <p>Prioridad 7<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1051.html">AND</a> AND binario y l&oacute;gico (<a
+    href="1050.html">&amp;</a>, <a href="1051.html">&amp;&amp;</a>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1083.html">OR</a> OR binario y l&oacute;gico (<a
+    href="1083.html">|</a>, <a href="1083.html">||</a>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1082.html">XOR</a> OR exclusivo (<a
+    href="1082.html">^^</a>)<br />
+    </p>
+
+    <p>Prioridad 8<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1074.html">==</a> Comparaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1046.html">&lt;&gt;</a> Distinto (<a
+    href="1046.html">!=</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1076.html">&gt;</a> Mayor<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1075.html">&gt;=</a> Mayor o igual (<a
+    href="1075.html">=&gt;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1069.html">&lt;</a> Menor<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1072.html">&lt;=</a> Menor o igual (<a
+    href="1072.html">=&lt;</a><br />
+    </p>
+
+    <p>Prioridad 9<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1073.html">=</a> Asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1058.html">+=</a> Suma-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1062.html">-=</a> Resta-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1055.html">*=</a>
+    Multiplicaci&oacute;n-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1066.html">/=</a> Divisi&oacute;n-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1049.html">%=</a> M&oacute;dulo-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1052.html">&amp;=</a> AND-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1084.html">|=</a> OR-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1081.html">^=</a> XOR-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1078.html">&gt;&gt;=</a> Rotaci&oacute;n a la
+    derecha-asignaci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="1071.html">&lt;&lt;=</a> Rotaci&oacute;n a la
+    izquierda-asignaci&oacute;n<br />
+    </p>
+
+    <p>Los operadores de <strong>prioridad 3</strong> son los operadores conocidos como
+    <strong>unarios</strong>; &eacute;stos no relacionan a dos operandos (que es el caso de los
+    operadores <strong>binarios</strong> como, por ejemplo, una multiplicaci&oacute;n), sino que
+    &uacute;nicamente afectan al valor de un operador. Dentro de los operadores
+    <strong>unarios</strong> se ejecutar&aacute;n primero los m&aacute;s cercanos al operando, por
+    ejemplo en la expresi&oacute;n:</p>
+
+    <p>&nbsp;&nbsp;<strong>NOT -x</strong></p>
+
+    <p>El operando <strong>x</strong> tiene dos operadores <strong>unarios</strong>, la
+    negaci&oacute;n de signo <strong>-</strong> y el <a href="1045.html">NOT</a> l&oacute;gico y/o
+    binario; de &eacute;stos se ejecutar&aacute; primero la negaci&oacute;n de signo, pues es la
+    que est&aacute; m&aacute;s cerca del operando.</p>
+
+    <p>Todos los operadores a partir de la <strong>prioridad 4</strong> son
+    <strong>binarios</strong> y se ejecutar&aacute;n seg&uacute;n su nivel de prioridad por lo que,
+    cuando en una expresi&oacute;n haya m&aacute;s de un operador del mismo nivel (por ejemplo, una
+    multiplicaci&oacute;n y una divisi&oacute;n, que son ambas de prioridad 4), se
+    procesar&aacute;n de izquierda a derecha, es decir, en la siguiente expresi&oacute;n:</p>
+
+    <p>&nbsp;&nbsp;<strong>8/2*2</strong></p>
+
+    <p>Se ejecutar&aacute; primero la divisi&oacute;n y despu&eacute;s la multiplicaci&oacute;n
+    (que es la forma natural de evaluar las expresiones en matem&aacute;ticas).</p>
+
+    <p>La &uacute;nica excepci&oacute;n son los operadores de <strong>prioridad 9</strong>
+    (operadores de <strong>asignaci&oacute;n</strong>), que ser&aacute;n evaluados de derecha a
+    izquierda (en lugar de izquierda a derecha), es decir, en la expresi&oacute;n:</p>
+
+    <p>&nbsp;&nbsp;<strong>x=y=0</strong></p>
+
+    <p>Primero, se procesar&aacute; <strong>y=0</strong> (se pondr&aacute; <strong>y</strong> a
+    <strong>0</strong>) y, despu&eacute;s, <strong>x=y</strong> (tambi&eacute;n se pondr&aacute;
+    <strong>x</strong> a <strong>0</strong>, ya que <strong>y</strong> ahora valdr&aacute;
+    <strong>0</strong>).</p>
+
+    <p>Como se puede observar las asignaciones funcionan a modo de operador devolviendo, tras
+    realizar la asignaci&oacute;n, el valor que han asignado como resultado de la
+    operaci&oacute;n.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1035.html">Definici&oacute;n de una
+    expresi&oacute;n</a>
+  </body>
+</html>
+

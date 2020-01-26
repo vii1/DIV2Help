@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - El valor STEP no es v&aacute;lido</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>El valor STEP no es v&aacute;lido</h1>
+
+    <p>En una sentencia <a href="1043.html">FROM</a>:</p>
+
+    <p>- Si el valor inicial <strong>es menor</strong> que el valor final, no se puede especificar
+    un valor negativo en la declaraci&oacute;n <a href="1095.html">STEP</a>.</p>
+
+    <p>- Si el valor inicial <strong>es mayor</strong> que el valor final, no se puede especificar
+    un valor positivo en la declaraci&oacute;n <a href="1095.html">STEP</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FROM</span> x<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">10</span> <span
+class="syntax1">STEP</span> <span class="syntax3">-</span><span class="syntax2">1</span><span
+class="syntax3">;</span> <span class="syntax5">// Error: El valor STEP no es v&aacute;lido.</span>
+        <span class="syntax5">//...</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este bucle no es v&aacute;lido pues si a <strong>x</strong>, que originalmente valdr&aacute;
+    <strong>0</strong>, se le resta <strong>1</strong> en cada iteraci&oacute;n, no llegar&aacute;
+    nunca a <strong>10</strong>. Si lo que se pretende es hacer un bucle que se repita siempre, se
+    debe utilizar la sentencia <a href="1024.html">LOOP</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1043.html">Sentencia FROM</a>
+  </body>
+</html>
+

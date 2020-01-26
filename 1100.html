@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT mouse</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT mouse</h1>
+
+    <p><strong>STRUCT mouse;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>x, y;</strong> // Coordenadas<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>graph;</strong> // C&oacute;digo del gr&aacute;fico<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>file;</strong> // C&oacute;digo del fichero<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>z;</strong> // Plano de profundidad<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>angle;</strong> // &aacute;ngulo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>size;</strong> // Tama&ntilde;o (%)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>flags;</strong> // Indicador espejados<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>region;</strong> // Regi&oacute;n de corte<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>left, middle, right;</strong> // Estado botones<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>cursor;</strong> // Emulaci&oacute;n con cursores<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>speed;</strong> // Velocidad del rat&oacute;n<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura global sirve para controlar el rat&oacute;n; contiene una serie de campos
+    relacionados con la programaci&oacute;n de este dispositivo, como la posici&oacute;n en
+    pantalla, el gr&aacute;fico del puntero, el estado de los botones, etc.</p>
+
+    <p>Para acceder a estos campos se debe preceder el nombre del campo por la palabra
+    <strong>mouse</strong> y el s&iacute;mbolo <a href="1063.html">. (punto)</a>; por ejemplo, para
+    acceder al campo <strong>x</strong> (coordenada horizontal del puntero del rat&oacute;n) se
+    debe utilizar <strong>mouse.x</strong>.</p>
+    <hr />
+
+    <p><strong>x</strong>, <strong>y</strong> - Coordenadas horizontal y vertical del rat&oacute;n.
+    Estos dos campos (<strong>mouse.x</strong> y <strong>mouse.y</strong>) ser&aacute;n los
+    &uacute;nicos que necesariamente habr&aacute; que leer para conocer la posici&oacute;n en
+    pantalla del cursor del rat&oacute;n.</p>
+
+    <p>Para <strong>posicionar el rat&oacute;n en otras coordenadas</strong> (forzar su
+    posici&oacute;n), bastar&aacute; con asignar las nuevas coordenadas a estos dos campos.</p>
+    <hr />
+
+    <p><strong>graph</strong> - <strong>C&oacute;digo del gr&aacute;fico</strong> asignado como
+    puntero del rat&oacute;n. Por defecto <strong>el rat&oacute;n no ser&aacute; visible</strong>;
+    para hacerlo visible se debe crear el gr&aacute;fico que va a servir de puntero en el
+    <strong>editor gr&aacute;fico</strong>, cargarlo en el programa (con la funci&oacute;n <a
+    href="132.html">load_fpg()</a>, <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a>, seg&uacute;n se haya guardado este gr&aacute;fico en un
+    <strong>fichero FPG</strong> o en un <strong>archivo MAP/PCX</strong>), y asignar su
+    <strong>c&oacute;digo de gr&aacute;fico</strong> a esta variable
+    (<strong>mouse.graph</strong>). Entonces se har&aacute; visible el puntero del rat&oacute;n en
+    pantalla.</p>
+
+    <p>En las coordenadas <strong>mouse.x</strong>, <strong>mouse.y</strong> aparecer&aacute; el
+    centro del gr&aacute;fico, a no ser que se haya definido el <a href="1136.html">punto de
+    control</a> n&uacute;mero <strong>0</strong> del mismo en el <strong>editor
+    gr&aacute;fico</strong>. Si se define este punto, com&uacute;nmente denominado "<strong>punto
+    caliente del rat&oacute;n</strong>" (<strong>hot spot</strong>), ser&aacute; &eacute;l mismo el
+    que aparezca en las coordenadas indicadas en los campos <strong>mouse.x</strong> e
+    <strong>mouse.y</strong>.</p>
+
+    <p>Por ejemplo, si se crea como dibujo para el puntero del rat&oacute;n la t&iacute;pica flecha
+    (como el puntero de rat&oacute;n DIV Games Studio), el "punto caliente" (punto de control
+    n&uacute;mero <strong>0</strong>) se definir&iacute;a en la esquina superior izquierda del
+    gr&aacute;fico, pues &eacute;ste es el <strong>punto activo</strong> dentro del gr&aacute;fico.
+    Entonces, cuando el rat&oacute;n estuviera, por ejemplo, en las coordenadas (0, 0),
+    ser&iacute;a la precisamente la "<strong>punta de la flecha</strong>" la que se situara en
+    dichas coordenadas.</p>
+    <hr />
+
+    <p><strong>file</strong> - <strong>C&oacute;digo del fichero</strong> que contiene el
+    gr&aacute;fico. En este campo se define el <strong>c&oacute;digo de fichero</strong> que
+    contiene el gr&aacute;fico del puntero del rat&oacute;n. <strong>No es necesario</strong>
+    indicar aqu&iacute; un valor si el gr&aacute;fico se carg&oacute; de un <strong>archivo MAP o
+    PCX</strong>, o si est&aacute; en el primer <strong>archivo FPG</strong> cargado en el
+    programa. En caso contrario, se deber&aacute; asignar a <strong>mouse.file</strong> el
+    <strong>c&oacute;digo de fichero</strong> que retorn&oacute; la funci&oacute;n <a
+    href="132.html">load_fpg()</a> al cargar el fichero que contiene el gr&aacute;fico del puntero
+    del rat&oacute;n.</p>
+    <hr />
+
+    <p><strong>z</strong> - Prioridad de impresi&oacute;n del gr&aacute;fico. Indica en qu&eacute;
+    plano de profundidad debe pintarse el gr&aacute;fico del puntero del rat&oacute;n. <strong>Por
+    defecto</strong> este campo valdr&aacute; <strong>-512</strong>, lo que implica que <strong>el
+    puntero se ver&aacute; por encima del resto de gr&aacute;ficos y textos</strong>. Cuanto mayor
+    sea este campo, m&aacute;s al fondo se situar&aacute; el puntero del rat&oacute;n.</p>
+
+    <p>Si se quisiera que un gr&aacute;fico de un proceso apareciera por encima del puntero del
+    rat&oacute;n, bastar&iacute;a con asignar a la variable <a href="1125.html">local z</a> de
+    dicho proceso un n&uacute;mero entero menor de <strong>-512</strong>, por ejemplo
+    <strong>-600</strong>.</p>
+    <hr />
+
+    <p><strong>angle</strong> - &aacute;ngulo con el que se ver&aacute; el gr&aacute;fico del
+    puntero del rat&oacute;n. El valor de <strong>mouse.angle</strong> por defecto es
+    <strong>0</strong>, lo que implica que no se ver&aacute; rotado este gr&aacute;fico, a no ser
+    que se asigne un nuevo &aacute;ngulo a este campo.</p>
+
+    <p>Se recuerda que los &aacute;ngulos se deben especificar en mil&eacute;simas de grado, por
+    ejemplo, la sentencia <strong>mouse.angle=90000;</strong> har&aacute; que el puntero aparezca
+    rotado <strong>90 grados</strong> (ver el <a href="1044.html">uso de &aacute;ngulos en el
+    lenguaje</a>).</p>
+    <hr />
+
+    <p><strong>size</strong> - Tama&ntilde;o del gr&aacute;fico en porcentaje. Por defecto, este
+    campo valdr&aacute; <strong>100</strong> (el gr&aacute;fico se ver&aacute; al 100% de su
+    tama&ntilde;o), y no es necesario indicar aqu&iacute; otro valor a no ser que se quiera que el
+    gr&aacute;fico se escale (se vea ampliado o reducido).</p>
+
+    <p>Si por ejemplo se quisiera que el gr&aacute;fico apareciera el doble de grande que su
+    tama&ntilde;o original (al 200%), se deber&iacute;a utilizar la sentencia
+    <strong>mouse.size=200;</strong>.</p>
+    <hr />
+
+    <p><strong>flags</strong> - En este campo se indicar&aacute;n diferentes valores cuando se
+    pretenda que el gr&aacute;fico del rat&oacute;n aparezca espejado (invertido horizontal o
+    verticalmente), o se quiera visualizarlo como un gr&aacute;fico (semi) transparente. Los
+    posibles valores asignables a la variable <strong>mouse.flags</strong> son:</p>
+
+    <p>&nbsp;<strong>0</strong>-Gr&aacute;fico normal (valor por defecto).<br />
+    &nbsp;<strong>1</strong>-Espejado horizontal.<br />
+    &nbsp;<strong>2</strong>-Espejado vertical.<br />
+    &nbsp;<strong>3</strong>-Espejado horizontal y vertical (180&deg;).<br />
+    &nbsp;<strong>4</strong>-Gr&aacute;fico transparente.<br />
+    &nbsp;<strong>5</strong>-Transparente y espejado horizontal.<br />
+    &nbsp;<strong>6</strong>-Transparente y espejado vertical.<br />
+    &nbsp;<strong>7</strong>-Transparente, espejado horizontal y vertical.<br />
+    </p>
+    <hr />
+
+    <p><strong>region</strong> - Regi&oacute;n de corte del gr&aacute;fico. A este campo se debe
+    asignar un valor <strong>&uacute;nicamente cuando se quiera que el puntero del rat&oacute;n sea
+    visible s&oacute;lo dentro de una regi&oacute;n</strong> (una zona rectangular de la pantalla);
+    para conseguirlo se debe, primero, definir esta regi&oacute;n con la funci&oacute;n <a
+    href="106.html">define_region()</a> y, despu&eacute;s, asignar a este campo
+    (<strong>mouse.region</strong>) el n&uacute;mero de la regi&oacute;n que se ha definido.</p>
+
+    <p>Por defecto este valor ser&aacute; <strong>0</strong>, que es el n&uacute;mero de
+    regi&oacute;n que se refiere a la pantalla completa, por lo que el gr&aacute;fico ser&aacute;
+    visible en toda la pantalla.</p>
+    <hr />
+
+    <p><strong>left</strong>, <strong>middle</strong> y <strong>right</strong> - Estos tres campos
+    almacenan valores l&oacute;gicos (<strong>0</strong> o <strong>1</strong>) seg&uacute;n los
+    botones del rat&oacute;n est&eacute;n pulsados o no (se corresponden con los botones izquierdo,
+    central y derecho del rat&oacute;n). Normalmente, se activan &uacute;nicamente dos botones del
+    rat&oacute;n (<strong>left</strong> y <strong>right</strong>) ignor&aacute;ndose el estado del
+    bot&oacute;n central. Esto depende del <strong>driver</strong> (dispositivo de control) del
+    rat&oacute;n que est&eacute; instalado en el ordenador.</p>
+
+    <p>Por ejemplo, para realizar en un programa una acci&oacute;n <strong>cuando se pulse el
+    bot&oacute;n izquierdo del rat&oacute;n</strong> (<strong>mouse.left</strong>) se debe incluir
+    en el c&oacute;digo una sentencia como la siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (mouse.left)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;// Acci&oacute;n a realizar (sentencias)<br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>cursor</strong> - Indica si est&aacute; activa la emulaci&oacute;n del rat&oacute;n
+    con las teclas de los <strong>Cursores</strong> y <strong>Enter</strong>; cuando esta
+    emulaci&oacute;n est&eacute; activada, se podr&aacute; mover el puntero tanto con el
+    rat&oacute;n como con los cursores. Por defecto, esta emulaci&oacute;n estar&aacute;
+    desactivada (<strong>mouse.cursor=0;</strong>) a no ser que el programa no pueda detectar un
+    rat&oacute;n conectado al sistema, en cuyo caso se activar&aacute; la emulaci&oacute;n
+    autom&aacute;ticamente (es decir, si <strong>mouse.cursor</strong> vale <strong>1</strong> al
+    inicio del programa, es que no hay un rat&oacute;n conectado en el equipo).</p>
+    <hr />
+
+    <p><strong>speed</strong> - Al igual que en el entorno, ahora se puede regular la velocidad de
+    desplazamiento del puntero del rat&oacute;n en los programas. Este es un valor entre
+    <strong>0</strong> (velocidad m&aacute;xima) y <strong>9</strong> (m&iacute;nima), por defecto
+    <strong>mouse.speed</strong> valdr&aacute; <strong>2</strong>.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a>
+  </body>
+</html>
+

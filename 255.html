@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - itoa()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>itoa()</h1>
+
+    <p><strong>itoa(</strong>&lt;expresi&oacute;n&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>Una cadena de texto conteniendo el resutado.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n se utiliza para convertir un valor num&eacute;rico o
+    <strong>&lt;expresi&oacute;n&gt;</strong> en una cadena de texto, es decir, que permite
+    convertir un n&uacute;mero en un texto. La cadena contendr&aacute; tantos car&aacute;cteres
+    como d&iacute;gitos tenga el resultado.</p>
+
+    <p>La funci&oacute;n <a href="254.html">calculate()</a> permite la operaci&oacute;n contraria;
+    convertir un literal o cadena de texto en un valor num&eacute;rico.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_itoa<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> mensaje<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    mouse<span class="syntax3">.</span>graph<span class="syntax3">=</span><span
+class="syntax2">200</span><span class="syntax3">;</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>mensaje<span class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+
+        <span
+class="syntax5">// Compone un mensaje con texto y n&uacute;meros utilizando itoa()</span>
+
+        mensaje <span class="syntax3">=</span> <span
+class="syntax4">"Cursor del rat&oacute;n en ("</span> <span class="syntax3">+</span> itoa<span
+class="syntax3">(</span>mouse<span class="syntax3">.</span>x<span class="syntax3">)</span> <span
+class="syntax3">+</span>
+                  <span class="syntax4">","</span> <span class="syntax3">+</span> itoa<span
+class="syntax3">(</span>mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">)</span> <span class="syntax3">+</span> <span class="syntax4">")."</span><span
+class="syntax3">;</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo compone en una cadena de texto denominada <strong>mensaje</strong>
+    (ver <a href="1406.html">STRING</a>) letras y valores num&eacute;ricos (las coordenadas del
+    rat&oacute;n, ver <a href="1100.html">mouse</a>), y lo representa en pantalla con la
+    funci&oacute;n <a href="171.html">write()</a>.</p>
+
+    <p>El programa carga el archivo <strong>help.fpg</strong> con <a href="132.html">load_fpg()</a>
+    y asigna el gr&aacute;fico <strong>200</strong> como cursor del rat&oacute;n. El programa
+    continuar&aacute; hasta que se detecte la pulsaci&oacute;n de la tecla
+    <strong>ESC</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El nombre de la funci&oacute;n <strong>itoa()</strong>,
+    hom&oacute;nima del lenguaje C, viene de la expresi&oacute;n "integer to ascii", del
+    ingl&eacute;s. Y la funci&oacute;n que realiza la operaci&oacute;n contraria, "ascii to
+    integer" es <a href="254.html">calculate()</a>.</p>
+    <hr />
+    Ver: <a href="254.html">calculate()</a> - <a href="1035.html">Expresiones
+    aritm&eacute;ticas</a> - <a href="171.html">write()</a>
+  </body>
+</html>
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL region</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL region</h1>
+
+    <p><strong>region=0;</strong> // Regi&oacute;n de pantalla asignada al proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>region</strong>.</p>
+
+    <p>La variable local <strong>region</strong> define en qu&eacute; zona de pantalla debe ser
+    visible el gr&aacute;fico del proceso, indicando el <strong>n&uacute;mero de
+    regi&oacute;n</strong>.</p>
+
+    <p>Una regi&oacute;n es una zona rectangular de pantalla, como una ventana, que est&aacute;
+    asociada a un n&uacute;mero.</p>
+
+    <p>Por defecto, esta variable valdr&aacute; <strong>0</strong> en todos los procesos haciendo
+    referencia a la <strong>regi&oacute;n n&uacute;mero 0</strong> que es <strong>la pantalla
+    entera</strong>.</p>
+
+    <p>Es decir, que por defecto los gr&aacute;ficos de los procesos ser&aacute;n visibles en toda
+    la pantalla (en cualquier punto de la misma en el que est&eacute;n).</p>
+
+    <p>En un principio, &uacute;nicamente est&aacute; definida la <strong>regi&oacute;n numero
+    0</strong>. Para definir nuevas regiones de pantalla se debe utilizar la funci&oacute;n <a
+    href="106.html">define_region()</a>.</p>
+    <hr />
+
+    <p>Por ejemplo, para que el gr&aacute;fico de un proceso fuera visible s&oacute;lo dentro de
+    una caja de 100 por 100 puntos situada en la esquina superior izquierda de la pantalla (en las
+    coordenadas 0, 0), primero se deber&iacute;a definir la nueva regi&oacute;n la siguiente forma,
+    suponiendo que se defina la regi&oacute;n n&uacute;mero <strong>1</strong>:</p>
+
+    <p>&nbsp;&nbsp;<strong>define_region(1, 0, 0, 100, 100);</strong></p>
+
+    <p>y, despu&eacute;s, se deber&iacute;a asignar el n&uacute;mero de regi&oacute;n
+    (<strong>1</strong>) a la variable local <strong>region</strong> del proceso con la siguiente
+    sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>region=1;</strong></p>
+
+    <p>Las regiones pueden redefinirse en cualquier momento dentro de un programa; esto es, se
+    pueden cambiar de posici&oacute;n o de tama&ntilde;o siempre que sea necesario.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El gr&aacute;fico de un proceso se debe indicar asignando un
+    <strong>c&oacute;digo de gr&aacute;fico</strong> a la variable local <a
+    href="1126.html">graph</a>.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="106.html">define_region()</a>
+  </body>
+</html>
+

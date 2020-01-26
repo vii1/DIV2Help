@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Tipos de procesos</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Tipos de procesos</h1>
+
+    <p>Los bloques de los programas que comienzan con la palabra reservada <a
+    href="1016.html">PROCESS</a> determinan el comportamiento de un tipo concreto de proceso.
+    Despu&eacute;s, cuando se ejecute el programa podr&aacute; haber cualquier n&uacute;mero de
+    procesos de dicho tipo en un momento determinado, cada uno con un <a
+    href="1039.html">c&oacute;digo identificador</a> diferente pero todos del mismo tipo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> nave<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> enemigo<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> disparo<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se definen cuatro tipos de procesos, <strong>mi_juego</strong> (que
+    ser&aacute; el tipo del proceso inicial del programa}, <strong>nave</strong>,
+    <strong>enemigo</strong> y <strong>disparo</strong>.</p>
+
+    <p>El n&uacute;mero de procesos de cada uno de estos tipos que haya despu&eacute;s en el juego
+    depende del n&uacute;mero de llamadas que se realicen a dichos procesos.</p>
+
+    <p>Todos los procesos de tipo <strong>nave</strong> ejecutar&aacute;n siempre las sentencias
+    que se definen en el bloque <strong>PROCESS nave()</strong> del programa.</p>
+
+    <p>Un "tipo de proceso" es un c&oacute;digo num&eacute;rico que hace referencia al nombre que
+    tiene el PROCESS que determina el comportamiento del proceso durante el juego; este
+    c&oacute;digo num&eacute;rico se puede obtener con: <strong>TYPE
+    &lt;nombre_del_proceso&gt;</strong></p>
+
+    <p><strong>TYPE</strong> es un operador definido en el lenguaje que, aplicado a un nombre de
+    proceso, devuelve este c&oacute;digo num&eacute;rico.</p>
+
+    <p>Por ejemplo, <strong>TYPE nave</strong> equivaldr&aacute; a una constante num&eacute;rica
+    determinada y <strong>TYPE enemigo</strong> a otra.</p>
+
+    <p>Todos los procesos tienen una variable local que contiene este c&oacute;digo num&eacute;rico
+    y es: <strong>reserved.process_type</strong>.</p>
+
+    <p><strong>&iquest;Para qu&eacute; sirve el tipo de un proceso?</strong></p>
+    <hr />
+
+    <p>El tipo de los procesos se emplea para varias cosas, por ejemplo:</p>
+
+    <p>- Para la funci&oacute;n <a href="120.html">get_id()</a> que recibe como par&aacute;metro un
+    tipo de proceso (por ejemplo, <strong>get_id(TYPE enemigo)</strong>) y devuelve los
+    c&oacute;digos identificadores de los procesos de dicho tipo que existan en el juego en ese
+    momento.</p>
+
+    <p>- Para la funci&oacute;n <a href="104.html">collision()</a> es similar a la anterior
+    s&oacute;lo que devuelve los c&oacute;digos identificadores de los procesos con los que se
+    est&eacute; colisionado (chocando, es decir, que los gr&aacute;ficos de ambos procesos
+    est&eacute;n parcialmente superpuestos).</p>
+
+    <p>- Para la funci&oacute;n <a href="158.html">signal()</a> que puede enviar una se&ntilde;al a
+    todos los procesos que existan de un tipo determinado.</p>
+
+    <p>- O bien para, a partir de un <a href="1039.html">c&oacute;digo identificador</a> de un
+    proceso, poder comprobar de qu&eacute; tipo de proceso se trata (si es de tipo nave, de tipo
+    disparo, etc.).</p>
+    <hr />
+
+    <p>El operador TYPE puede utilizarse &uacute;nicamente precediendo a un nombre de proceso del
+    programa o a la palabra <strong>mouse</strong>, para la detecci&oacute;n de colisiones con el
+    puntero del rat&oacute;n (con <strong>collision(TYPE mouse)</strong>).</p>
+    <hr />
+    Ver: <a href="1039.html">C&oacute;digos identificadores de procesos</a>
+  </body>
+</html>
+

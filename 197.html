@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - set_sector_texture()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>set_sector_texture()</h1>
+
+    <p><strong>set_sector_texture(</strong>&lt;n&uacute;mero de sector&gt;<strong>,</strong>
+    &lt;textura suelo&gt;<strong>,</strong> &lt;textura techo&gt;<strong>,</strong>
+    &lt;luminosidad&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Modifica las <strong>texturas de suelo y techo</strong> de un sector de un modo 8. Se
+    requieren los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;n&uacute;mero de sector&gt;</strong> - N&uacute;mero de sector del mapa cuyas
+    texturas se quieren modificar. Este n&uacute;mero se puede obtener en el editor de mapas
+    tridimensionales, cuyo manejo se aborda en el manual de usuario del programa.</p>
+
+    <p><strong>&lt;textura del suelo&gt;</strong> - Se debe indicar c&oacute;digo del
+    gr&aacute;fico que se desea asignar como nueva <strong>textura del suelo</strong> del sector
+    (el n&uacute;mero de gr&aacute;fico dentro del FPG que contiene todas las texturas del modo 8).
+    Si se indica <strong>-1</strong> como par&aacute;metro, se mantendr&aacute; la textura actual
+    (para modificar s&oacute;lo la del techo).</p>
+
+    <p><strong>&lt;textura del techo&gt;</strong> - Se debe indicar c&oacute;digo del
+    gr&aacute;fico que se desea asignar como nueva <strong>textura del techo</strong> del sector
+    (el n&uacute;mero de gr&aacute;fico dentro del FPG que contiene todas las texturas del modo 8).
+    Si se indica <strong>-1</strong> como par&aacute;metro, se mantendr&aacute; la textura actual
+    (para modificar s&oacute;lo la del suelo).</p>
+
+    <p><strong>&lt;luminosidad&gt;</strong> - Luminosidad de la textura, de <strong>0</strong>
+    (color de ambiente, que normalmente es de color negro) hasta <strong>15</strong> (textura con
+    los colores originales). Si se indica <strong>-1</strong> se mantendr&aacute; el nivel de
+    luminosidad actual del sector.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Todas las texturas deben estar contenidas en un mismo archivo FPG,
+    este es el archivo que se carga con <a href="132.html">load_fpg()</a> y cuyo n&uacute;mero se
+    pasa como par&aacute;metro a la funci&oacute;n <a href="189.html">load_wld()</a>.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_set_sector_texture<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    textura<span class="syntax3">=</span><span class="syntax2">94</span><span
+class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.FPG"</span><span
+class="syntax3">);</span>
+    load_wld<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.WLD"</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>
+    start_mode8<span class="syntax3">(</span><span class="syntax1">id</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">);</span>
+    ctype<span class="syntax3">=</span>c_m8<span class="syntax3">;</span>
+    go_to_flag<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">);</span>
+    <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">z</span><span class="syntax3">+=</span><span
+class="syntax2">128</span><span class="syntax3">;</span>
+    m8<span class="syntax3">.</span>angle<span class="syntax3">=-</span><span
+class="syntax2">64</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>textura<span
+class="syntax3">++==</span><span class="syntax2">103</span><span
+class="syntax3">)</span> textura<span class="syntax3">=</span><span class="syntax2">94</span><span
+class="syntax3">;</span> <span class="syntax1">END</span>
+
+        set_sector_texture<span class="syntax3">(</span><span class="syntax2">255</span><span
+class="syntax3">,</span>textura<span class="syntax3">,-</span><span class="syntax2">1</span><span
+class="syntax3">,</span><span class="syntax2">15</span><span class="syntax3">);</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo inicializa una regi&oacute;n de modo 8, cargando el mapa
+    <strong>wld_view.wld</strong>, y se sit&uacute;a en unas coordenadas predeterminadas con la
+    funci&oacute;n <a href="191.html">go_to_flag()</a>.</p>
+
+    <p>Posteriormente, dentro del bucle principal del programa, se fija la textura del suelo del
+    sector n&uacute;mero <strong>255</strong> con la funci&oacute;n
+    <strong>set_sector_texture()</strong>.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="198.html">get_sector_texture()</a> permite averiguar cuales son
+    las texturas (y luminosidad) que tiene un sector de modo 8.</p>
+
+    <p>La funci&oacute;n <a href="199.html">set_wall_texture()</a> permite establecer la textura de
+    una pared.</p>
+    <hr />
+    Ver: <a href="198.html">get_sector_texture()</a> - <a href="199.html">set_wall_texture()</a> -
+    <a href="192.html">set_sector_height()</a>
+  </body>
+</html>
+

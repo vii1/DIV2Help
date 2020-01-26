@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - fget_dist()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>fget_dist()</h1>
+
+    <p><strong>fget_dist(</strong>&lt;x0&gt;<strong>,</strong> &lt;y0&gt;<strong>,</strong>
+    &lt;x1&gt;<strong>,</strong> &lt;y1&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La distancia entre dos puntos.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Devuelve la distancia que hay desde el <strong>punto 0</strong> (x0, y0) hasta el
+    <strong>punto 1</strong> (x1, y1).</p>
+
+    <p>Como coordenadas de ambos puntos (x0, y0, x1, y1) se puede especificar cualquier
+    expresi&oacute;n num&eacute;rica v&aacute;lida.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_fget_dist<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    coordenada_x0<span class="syntax3">,</span> coordenada_y0<span class="syntax3">;</span>
+    coordenada_x1<span class="syntax3">,</span> coordenada_y1<span class="syntax3">;</span>
+    resultado<span class="syntax3">;</span>
+    fichero1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Coordenadas punto 1"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"X:"</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">20</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> coordenada_x0<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">20</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Y:"</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">20</span><span class="syntax3">,</span> <span
+class="syntax2">20</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> coordenada_y0<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">40</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Coordenadas punto 2"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">50</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"X:"</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">20</span><span class="syntax3">,</span> <span
+class="syntax2">50</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> coordenada_x1<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">60</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Y:"</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">20</span><span class="syntax3">,</span> <span
+class="syntax2">60</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> coordenada_y1<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">80</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Distancia entre el punto 1 y el punto 2"</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">90</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> resultado<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">6</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulsa [ESPACIO] para hallar otra distancia."</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        clear_screen<span class="syntax3">();</span>
+        coordenada_x0<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">319</span><span
+class="syntax3">);</span>
+        coordenada_y0<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">199</span><span
+class="syntax3">);</span>
+        coordenada_x1<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">319</span><span
+class="syntax3">);</span>
+        coordenada_y1<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">199</span><span
+class="syntax3">);</span>
+        put<span class="syntax3">(</span>fichero1<span class="syntax3">,</span><span
+class="syntax2">200</span><span class="syntax3">,</span>coordenada_x0<span
+class="syntax3">,</span> coordenada_y0<span class="syntax3">);</span>
+        put<span class="syntax3">(</span>fichero1<span class="syntax3">,</span><span
+class="syntax2">200</span><span class="syntax3">,</span>coordenada_x1<span
+class="syntax3">,</span> coordenada_y1<span class="syntax3">);</span>
+
+        <span class="syntax5">//Hallamos la distancia que hay entre los dos puntos</span>
+        resultado <span class="syntax3">=</span> fget_dist<span
+class="syntax3">(</span>coordenada_x0<span class="syntax3">,</span> coordenada_y0<span
+class="syntax3">,</span> coordenada_x1<span class="syntax3">,</span> coordenada_y1<span
+class="syntax3">);</span>
+
+        scan_code<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+        <span class="syntax1">WHILE</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">&lt;&gt;</span>_space<span class="syntax3">)</span>
+            <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, despu&eacute;s de poner los mensajes necesarios se guardan las coordenadas de
+    dos puntos hallados aleatoriamente en las variables definidas para tal efecto, obteniendo la
+    distancia entre ellos con la funci&oacute;n <strong>fget_dist()</strong>. Cada vez que se pulse
+    la barra espaciadora se repetir&aacute; el proceso.</p>
+
+    <p>La funci&oacute;n <a href="116.html">get_dist()</a> se utiliza para obtener la
+    <strong>distancia de un proceso a otro</strong>, en lugar de entre dos puntos.</p>
+
+    <p>La funci&oacute;n <a href="114.html">fget_angle()</a> se utiliza para obtener el
+    <strong>&aacute;ngulo entre dos puntos</strong>, en lugar de la distancia.</p>
+    <hr />
+
+    <p>Esta funci&oacute;n se puede utilizar para detectar choques entre procesos por proximidad
+    entre ellos, si bien suele utilizarse para ello la funci&oacute;n <a
+    href="104.html">collision()</a> que detecta cuando dos procesos tienen sus gr&aacute;ficos
+    superpuestos.</p>
+
+    <p>Por ejemplo, con los procesos visualizados dentro de una ventana de modo 7 (ver <a
+    href="162.html">start_mode7()</a>) no se puede utilizar la funci&oacute;n <a
+    href="104.html">collision()</a> debi&eacute;ndose obtener la distancia entre los procesos
+    (normalmente con <a href="116.html">get_dist()</a>) para comprobar si chocan (si su distancia
+    es menor que una determinada).</p>
+    <hr />
+    Ver: <a href="117.html">get_dist</a> - <a href="113.html">fget_angle</a> - <a
+    href="104.html">collision()</a>
+  </body>
+</html>
+

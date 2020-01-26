@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - load_map() / load_pcx()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>load_map() / load_pcx()</h1>
+
+    <p><strong>load_map(</strong>&lt;nombre de archivo&gt;<strong>)</strong></p>
+
+    <p><strong>load_pcx(</strong>&lt;nombre de archivo&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <strong>c&oacute;digo del gr&aacute;fico</strong> cargado.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Carga un <strong>archivo MAP o PCX</strong> con un gr&aacute;fico en la memoria del
+    ordenador. Se requiere el nombre del archivo como par&aacute;metro, entre comillas.</p>
+
+    <p>Se devuelve como valor de retorno el <strong>c&oacute;digo del gr&aacute;fico</strong>, que
+    es un valor num&eacute;rico que debe especificarse para utilizar el gr&aacute;fico, en la
+    variable <a href="1126.html">graph</a> o, en general, en todas las funciones que requieran un
+    <strong>c&oacute;digo de gr&aacute;fico</strong> entre sus par&aacute;metros.</p>
+
+    <p>Es posible cargar tantos gr&aacute;ficos como sea necesario; cada vez que se cargue uno la
+    funci&oacute;n devolver&aacute; el c&oacute;digo que le corresponde (el primer gr&aacute;fico
+    cargado tendr&aacute; el c&oacute;digo <strong>1000</strong>, el siguiente el
+    <strong>1001</strong>, etc.)</p>
+
+    <p>Se puede especificar la ruta de acceso al archivo con el fichero de gr&aacute;ficos, no
+    obstante, si el fichero est&aacute; en el directorio por defecto (\MAP o \PCX) no ser&aacute;
+    necesario.</p>
+    <hr />
+
+    <p><strong>Importante:</strong></p>
+
+    <p>Cuando se requiera dentro de una funci&oacute;n el <strong>c&oacute;digo de fichero</strong>
+    al que pertenece dicho gr&aacute;fico, se debe indicar el c&oacute;digo <strong>0</strong> (que
+    es el c&oacute;digo del primer <strong>fichero FPG</strong> que se cargue en el programa).</p>
+    <hr />
+
+    <p>Cuando se han cargado diferentes gr&aacute;ficos se debe tener en cuenta que si &eacute;stos
+    tienen paletas diferentes, se debe activar cada una de ellas previamente con la funci&oacute;n
+    <a href="133.html">load_pal()</a>, indicando el nombre del fichero como par&aacute;metro, antes
+    de utilizar el gr&aacute;fico.</p>
+
+    <p>No se pueden utilizar simult&aacute;neamente gr&aacute;ficos creados con distintas
+    paletas.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_load_map<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    mapa1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+    mapa1 <span class="syntax3">=</span> load_map<span class="syntax3">(</span><span
+class="syntax4">"help\help.map"</span><span class="syntax3">);</span> <span
+class="syntax5">// Se carga un fichero de mapa gr&aacute;fico.</span>
+
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> mapa1<span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga un mapa gr&aacute;fico con la funci&oacute;n
+    <strong>load_map()</strong> guardando el <strong>c&oacute;digo del gr&aacute;fico</strong> que
+    retorna en la variable privada <strong>mapa1</strong>.</p>
+
+    <p>Este c&oacute;digo se usa posteriormente como par&aacute;metro de la funci&oacute;n <a
+    href="148.html">put_screen()</a> para poner el gr&aacute;fico en el fondo de pantalla.</p>
+    <hr />
+
+    <p>Las funciones <a href="176.html">unload_map()</a> y <a href="176.html">unload_pcx()</a>
+    permiten liberar la memoria del ordenador utilizada por el gr&aacute;fico cuando ya no se va a
+    utilizar m&aacute;s durante un tiempo, y para ello requieren tambi&eacute;n el <strong>codigo
+    del gr&aacute;fico</strong>, para saber qu&eacute; gr&aacute;fico es el que se quiere descargar
+    de memoria.</p>
+
+    <p><strong>No es necesario descargar el gr&aacute;fico de memoria</strong> antes de finalizar
+    el programa, ya que el sistema lo har&aacute; de forma autom&aacute;tica.</p>
+    <hr />
+
+    <p>Para cargar varios gr&aacute;ficos de golpe en un programa, &eacute;stos deben estar
+    incluidos dentro de un fichero de gr&aacute;ficos (FPG) y cargarse con la funci&oacute;n <a
+    href="132.html">load_fpg()</a>.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="188.html">new_map()</a> permite crear en memoria un mapa
+    gr&aacute;fico de cualquier tama&ntilde;o y color, sin cargarlo de un archivo en disco.</p>
+    <hr />
+    Ver: <a href="188.html">new_map()</a> - <a href="176.html">unload_map/pcx()</a> - <a
+    href="132.html">load_fpg()</a> - <a href="133.html">load_pal()</a> - <a
+    href="1126.html">graph</a>
+  </body>
+</html>
+

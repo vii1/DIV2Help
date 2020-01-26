@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Datos de tipo POINTER</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Datos de tipo POINTER</h1>
+
+    <p>Punteros a datos de cualquier otro tipo (<a href="1402.html">INT</a>), <a
+    href="1403.html">WORD</a>, <a href="1404.html">BYTE</a> y <a href="1406.html">STRING</a>).</p>
+
+    <p>Los punteros en el lenguaje DIV tienen un funcionamiento ligeramente diferente a otros
+    lenguajes de programaci&oacute;n, son m&aacute;s sencillos de utilizar.</p>
+
+    <p>Estos punteros se utilizan como si fueran tablas m&oacute;viles, es decir, tablas a las que
+    se les puede decir donde deben situarse, asign&aacute;ndoles un <a href="1085.html">OFFSET</a>
+    (de otro dato) a estos punteros. Entonces se podr&aacute; acceder a los datos situados en dicha
+    posici&oacute;n como <strong>puntero[&iacute;ndice]</strong>, tanto para lectura como para
+    escritura de los valores.</p>
+    <hr />
+
+    <p><strong>Diferentes datos de tipo puntero:</strong></p>
+
+    <p><strong>INT POINTER</strong> - Puntero a datos enteros. La palabra INT puede omitirse,
+    declarando un puntero a <strong>INT</strong> simplemente como <strong>POINTER
+    nombre;</strong>.</p>
+
+    <p><strong>WORD POINTER</strong> - Puntero a una lista o tabla de datos de tipo
+    <strong>WORD</strong>.</p>
+
+    <p><strong>BYTE POINTER</strong> - Puntero a una lista o tabla de datos de tipo
+    <strong>BYTE</strong>.</p>
+
+    <p><strong>STRING POINTER</strong> - Puntero a una cadena de texto contenida en un
+    <strong>STRING</strong>.</p>
+
+    <p><strong>STRUCT POINTER</strong> - Puntero a una estructura, deben declararse como
+    <strong>STRUCT POINTER nombre_estructura &lt;nombre&gt;;</strong>. Donde
+    <strong>&lt;nombre&gt;</strong> ser&aacute; el puntero.</p>
+    <hr />
+
+    <p>Por ejemplo, si en un programa existen varias tablas de tipo <strong>WORD</strong>
+    (declaradas como <strong>WORD t1[9], t2[9], t3[9];</strong>), se puede definir un puntero
+    denominado <strong>ptr</strong> que permita acceder a cualquiera de ellas (como <strong>WORD
+    POINTER ptr</strong>;). Para referirse a una de las tablas se le debe asignar la
+    direcci&oacute;n de la misma al puntero (como con <strong>ptr = OFFSET t1;</strong>). A partir
+    de ese momento, se podr&aacute; acceder a los valores de la tabla con el puntero (se
+    podr&aacute; acceder a <strong>t1[n]</strong> como <strong>ptr[n]</strong>).</p>
+
+    <p>El funcionamiento de los punteros <a href="1402.html">INT</a>), <a href="1403.html">WORD</a>
+    y <a href="1404.html">BYTE</a> es practicamente id&eacute;ntico (permiten acceder a una lista
+    de datos consecutivos).</p>
+
+    <p>Los punteros <a href="1406.html">STRING</a> permiten acceder &uacute;nicamente a una sola
+    cadena de texto (a todos los caracteres de la misma).</p>
+
+    <p>En la declaraci&oacute;n de los punteros <a href="1012.html">STRUCT</a> debe indicarse el
+    nombre de la estructura a la que van a referir, ya que solo podr&aacute;n acceder a un tipo de
+    estructura. No obstante, tras asignarle el <a href="1085.html">OFFSET</a> de la estructura (o
+    el de cualquier registro de la misma), permitir&aacute;n el acceso a todos los campos y a los
+    sucesivos registros, como si el puntero se tratara de una estructura convencional.</p>
+
+    <p><strong>Nota:</strong> Para declarar un puntero a una estructura es imprescindible haber
+    declarado antes la misma. Bastar&aacute; con una declaraci&oacute;n en la que se indiquen los
+    diferentes campos, no es necesario definir el n&uacute;mero de registros de la estructura.</p>
+    <hr />
+
+    <p><strong>Limitaci&oacute;n en el acceso de los punteros.</strong></p>
+
+    <p>No se podr&aacute; acceder los datos apuntados hasta que no se haya establecido el
+    <strong>OFFSET del puntero</strong>. No se puede asignar este <strong>OFFSET</strong> en la
+    declaraci&oacute;n del puntero, se debe hacer en una sentencia del programa, hasta llegar dicha
+    sentencia el puntero valdr&aacute; 0 (<strong>puntero nulo</strong>). El acceso a datos con un
+    puntero nulo provocar&aacute; un error de ejecuci&oacute;n (ver las <a
+    href="1400.html">opciones de compilaci&oacute;n</a>).</p>
+
+    <p>Es posible <strong>limitar el rango de acceso de un puntero</strong>, indicando en su
+    declaraci&oacute;n el valor m&aacute;ximo del &iacute;ndice permitido para el mismo. Para ello
+    s&iacute;mplemente debe indicarse este entre corchetes, tras el nombre del puntero. Por
+    ejemplo, la siguiente declaraci&oacute;n:</p>
+
+    <p><strong>STRING POINTER s[32];</strong></p>
+
+    <p>Definir&aacute; un puntero a una cadena de texto, pero &uacute;nicamente dejar&aacute;
+    acceder directamente a los 33 (de 0 a 32) primeros car&aacute;cteres de la misma. Si se
+    intentara acceder fuera de estos l&iacute;mites, el programa advertir&iacute;a de ello
+    indicando un acceso fuera de rango.</p>
+    <hr />
+    Ver: <a href="1401.html">Tipos de datos</a> - <a href="1009.html">Declaraci&oacute;n de un
+    dato</a> - <a href="1085.html">OFFSET</a>
+  </body>
+</html>
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - delete_text()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>delete_text()</h1>
+
+    <p><strong>delete_text(</strong>&lt;identificador del texto&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Borra un texto definitivamente de la pantalla si se especifica como par&aacute;metro el
+    <strong>identificador del texto</strong>, que es un c&oacute;digo num&eacute;rico que devuelven
+    las funciones <a href="171.html">write()</a> y <a href="172.html">write_int()</a> cuando se les
+    pide que escriban un texto.</p>
+
+    <p>Si se especifica como par&aacute;metro <a href="1161.html">all_text</a> se borrar&aacute;n
+    todos los textos de pantalla.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_delete_text<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    identificador_texto<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para hacer aparecer el texto superior."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        identificador_texto<span class="syntax3">=</span>write<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">160</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para hacer desaparecer este texto."</span><span
+class="syntax3">);</span>
+        <span class="syntax1">WHILE</span> <span class="syntax3">(</span><span
+class="syntax1">NOT</span> key<span class="syntax3">(</span>_space<span class="syntax3">))</span>
+            <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+
+        delete_text<span class="syntax3">(</span>identificador_texto<span
+class="syntax3">);</span> <span class="syntax5">// Borramos el texto</span>
+
+        <span class="syntax1">WHILE</span> <span class="syntax3">(</span><span
+class="syntax1">NOT</span> key<span class="syntax3">(</span>_enter<span class="syntax3">))</span>
+            <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo anterior, se imprimen dos textos en pantalla. Cuando se pulsa la barra
+    espaciadora se borra uno de ellos con la funci&oacute;n <strong>delete_text()</strong>, y
+    cuando se pulsa la tecla Enter hacemos que vuelva a aparecer, imprimi&eacute;ndolo otra vez con
+    la funci&oacute;n <a href="171.html">write()</a>, la cual nos devuelve el identificador del
+    texto.</p>
+    <hr />
+    Ver: <a href="171.html">write()</a> - <a href="172.html">write_int()</a> - <a
+    href="141.html">move_text()</a>
+  </body>
+</html>
+

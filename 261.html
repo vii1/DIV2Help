@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - decode_file()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>decode_file()</h1>
+
+    <p><strong>decode_file(</strong>&lt;nombre de archivo&gt;<strong>,</strong>
+    &lt;clave&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Desencripta uno o varios archivos del disco, con la misma clave con la que fueron
+    encriptados con la funci&oacute;n <a href="260.html">encode_file()</a>. Los par&aacute;metros
+    necesarios son los siguientes:</p>
+
+    <p><strong>&lt;nombre de archivo&gt;</strong> - Descripci&oacute;n del archivo que debe
+    desencriptarse, un literal (texto entre comillas) con el nombre del mismo. Pueden utilizarse
+    los car&aacute;cteres comod&iacute;n "?" y "*" para especificar varios archivos (por ejemplo,
+    "*.BAK" para desencriptar todos los archivos con extensi&oacute;n BAK).</p>
+
+    <p><strong>&lt;clave&gt;</strong> - Otro literal con la clave de desencriptaci&oacute;n del
+    archivo o archivos. Esta clave debe ser <strong>exacta</strong> a la clave con la que fueron
+    encriptados originalmente los archivos, si <strong>se desencriptan con una clave diferente los
+    archivos quedar&aacute;n inservibles</strong>.</p>
+
+    <p>No podr&aacute;n desencriptarse los archivos que no est&aacute;n encriptados.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_decode_file<span class="syntax3">;</span>
+
+<span class="syntax1">CONST</span>
+    clave<span class="syntax3">=</span><span class="syntax4">"miclave"</span><span
+class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    mitabla<span class="syntax3">[]=</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">,</span><span
+class="syntax2">2</span><span class="syntax3">,</span><span class="syntax2">3</span><span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span><span
+class="syntax2">5</span><span class="syntax3">,</span><span class="syntax2">6</span><span
+class="syntax3">,</span><span class="syntax2">7</span><span class="syntax3">,</span><span
+class="syntax2">8</span><span class="syntax3">,</span><span class="syntax2">9</span><span
+class="syntax3">,</span><span class="syntax2">10</span><span class="syntax3">,</span><span
+class="syntax2">11</span><span class="syntax3">,</span><span class="syntax2">12</span><span
+class="syntax3">,</span><span class="syntax2">13</span><span class="syntax3">,</span><span
+class="syntax2">14</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    save<span class="syntax3">(</span><span class="syntax4">"help\help.enc"</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> mitabla<span
+class="syntax3">,</span><span class="syntax1">sizeof</span><span
+class="syntax3">(</span>mitabla<span class="syntax3">));</span>
+    encode_file<span class="syntax3">(</span><span class="syntax4">"help\help.enc"</span><span
+class="syntax3">,</span>clave<span class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+
+    decode_file<span class="syntax3">(</span><span class="syntax4">"help\help.enc"</span><span
+class="syntax3">,</span>clave<span class="syntax3">);</span> <span
+class="syntax5">// Desencripta el archivo</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o programa utiliza la funci&oacute;n <a href="155.html">save()</a> para
+    crear un archivo llamado <strong>help.enc</strong> con los datos contenidos en
+    <strong>mitabla</strong>, y lo encripta con la funci&oacute;n
+    <strong>encode_file()</strong>.</p>
+
+    <p>Antes de finalizar el programa, se vuelve a recuperar el contenido del archivo al
+    desencriptarlo con la funci&oacute;n <strong>decode_file()</strong>. El archivo quedar&aacute;
+    finalmente con los datos contenidos en <strong>mitabla</strong>, en su forma original.</p>
+    <hr />
+
+    <p>Existe otra funci&oacute;n denominada <a href="259.html">encode()</a> que permite encriptar
+    y desencriptar datos en memoria, en este caso la operaci&oacute;n es reversible, por lo que se
+    utiliza la misma funci&oacute;n para ambas operaciones.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Las funciones <a href="262.html">compress_file()</a> y <a
+    href="263.html">uncompress_file()</a> permiten comprimir y descomprimir archivos del disco. Los
+    archivos encriptados <strong>no podr&aacute;n comprimirse</strong> con dichas funciones (debido
+    a que su contenido es completamente aleatorio).</p>
+    <hr />
+    Ver: <a href="260.html">encode_file()</a> - <a href="259.html">encode()</a> - <a
+    href="262.html">compress_file()</a> - <a href="263.html">uncompress_file()</a>
+  </body>
+</html>
+

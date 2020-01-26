@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL xgraph</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL xgraph</h1>
+
+    <p><strong>xgraph=0;</strong> // OFFSET de la tabla gr&aacute;fica del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>xgraph</strong>.</p>
+
+    <p>Esta variable es de nivel avanzado, por lo que requiere cierta experiencia para su
+    utilizaci&oacute;n.</p>
+
+    <p>La variable local <strong>xgraph</strong> (<strong>extended graphic</strong>) sirve para
+    utilizar <strong>gr&aacute;ficos m&uacute;ltiples</strong>. Para definir el gr&aacute;fico de
+    un proceso como un <strong>conjunto de gr&aacute;ficos</strong> de los cuales se debe ver
+    <strong>el m&aacute;s acorde con el &aacute;ngulo del proceso</strong> (especificado en la
+    variable local <a href="1129.html">angle</a>).</p>
+
+    <p>Es decir, si se define la variable <strong>xgraph</strong>, <strong>se ignorar&aacute;
+    la</strong> variable local <a href="1126.html">graph</a> que normalmente define el
+    gr&aacute;fico del proceso y se utilizar&aacute; un gr&aacute;fico u otro en funci&oacute;n de
+    la variable <a href="1129.html">angle</a>.</p>
+
+    <p>Por lo tanto, al cambiar el &aacute;ngulo del proceso <strong>ya no aparecer&aacute; el
+    gr&aacute;fico del proceso rotado</strong>, sino que utilizar&aacute; este &aacute;ngulo como
+    seleccionador del gr&aacute;fico del proceso (dentro del conjunto definido).</p>
+
+    <p>Por defecto la variable <strong>xgraph</strong> valdr&aacute; <strong>0</strong> en todos
+    los procesos, lo que indica que &eacute;stos no van a utilizar <strong>gr&aacute;ficos
+    m&uacute;ltiples</strong>.</p>
+    <hr />
+
+    <p>La utilidad de los gr&aacute;ficos m&uacute;ltiples reside en poder realizar juegos en
+    <strong>perspectiva</strong>, donde un cambio de &aacute;ngulo en un proceso no implica una
+    rotaci&oacute;n de su gr&aacute;fico, sino el cambio del gr&aacute;fico por otro dibujado con
+    otra <strong>perspectiva</strong> (dibujado con otro &aacute;ngulo dentro de dicha
+    perspectiva).</p>
+
+    <p><strong>Forma de empleo de los gr&aacute;ficos m&uacute;ltiples</strong></p>
+    <hr />
+
+    <p>1 - En primer lugar se deben realizar los diferentes dibujos que van a representar al
+    gr&aacute;fico del proceso con diferentes &aacute;ngulos en la perspectiva. &Eacute;stos
+    ser&aacute;n un n&uacute;mero finito de vistas del gr&aacute;fico, como puede ser
+    <strong>4</strong>, <strong>8</strong>, <strong>12</strong>, etc., (o cualquier otro
+    n&uacute;mero entero mayor que <strong>1</strong>).</p>
+
+    <p>Se debe tener en cuenta que si se definen 4 vistas, se estar&aacute; definiendo una vista
+    diferente cada 90 grados, si se definen 8 vistas, cada 45 grados, etc.</p>
+
+    <p>2 - Se deben ordenar dichos gr&aacute;ficos seg&uacute;n su &aacute;ngulo; primero el
+    gr&aacute;fico que se corresponder&aacute; con el &aacute;ngulo 0 (hacia la derecha) y,
+    despu&eacute;s, el resto en sentido contrario a las agujas del reloj.</p>
+
+    <p>3 - Se debe crear una tabla, generalmente <a href="1006.html">GLOBAL</a>, inicializada con
+    los siguientes valores:</p>
+
+    <p>&nbsp;&nbsp;<strong>N&uacute;mero de vistas del gr&aacute;fico</strong>,<br />
+    &nbsp;&nbsp;<strong>C&oacute;digo del gr&aacute;fico para el</strong> &aacute;ngulo <strong>0
+    (primera vista)</strong>,<br />
+    &nbsp;&nbsp;<strong>C&oacute;digo del siguiente &aacute;ngulo (segunda vista)</strong>,<br />
+    &nbsp;&nbsp;...</p>
+
+    <p><strong>Nota:</strong> Esta tabla debe ser de datos simples (de tipo <a
+    href="1402.html">INT</a>, enteros de 32 bit con signo).</p>
+
+    <p>Es indiferente el nombre que se le de a dicha tabla, por ejemplo, si se define un
+    gr&aacute;fico m&uacute;ltiple con 4 vistas, que deben ser los gr&aacute;ficos con el
+    c&oacute;digo 10, 11, 12, y 13, la definici&oacute;n de la tabla podr&iacute;a ser:</p>
+
+    <p>&nbsp;&nbsp;<strong>GLOBAL</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>tabla_gr&aacute;fico1[]=4, 10, 11, 12,
+    13;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....</p>
+
+    <p>4 - Por &uacute;ltimo, se debe asignar la direcci&oacute;n de esta tabla dentro de la
+    memoria del ordenador a la variable local <strong>xgraph</strong> del proceso, lo que se
+    har&iacute;a con la siguiente sentencia (dentro del proceso en cuesti&oacute;n):</p>
+
+    <p>&nbsp;&nbsp;<strong>xgraph=OFFSET tabla_gr&aacute;fico1;</strong></p>
+
+    <p>El operador <a href="1085.html">OFFSET</a> sirve para obtener la direcci&oacute;n en la
+    memoria de un dato del programa.</p>
+    <hr />
+
+    <p>Una vez definido el <strong>gr&aacute;fico m&uacute;ltiple</strong>, el sistema
+    utilizar&aacute; en cada imagen del juego el gr&aacute;fico correspondiente al &aacute;ngulo
+    <strong>que m&aacute;s se aproxima al &aacute;ngulo del proceso</strong> (el indicado en su
+    variable <a href="1129.html">angle</a>).</p>
+
+    <p>Para desactivar el sistema de <strong>gr&aacute;ficos m&uacute;ltiples</strong> en un
+    proceso, simplemente se debe volver a poner a <strong>0</strong> la variable
+    <strong>xgraph</strong>.</p>
+
+    <p><strong>Importante:</strong> Si dentro de la tabla que define el conjunto de gr&aacute;ficos
+    se pone alg&uacute;n c&oacute;digo de gr&aacute;fico con <strong>signo negativo</strong>,
+    entonces aparecer&aacute; este gr&aacute;fico <strong>espejado horizontalmente</strong>, es
+    decir, si el gr&aacute;fico estaba mirando hacia la derecha, aparecer&aacute; mirando hacia la
+    izquierda, y viceversa.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El sistema de gr&aacute;ficos m&uacute;ltiples se suele utilizar en
+    las <strong>ventanas de modo 7</strong>, ya que en el plano tridimensional abatido los
+    gr&aacute;ficos se deben ver de distinta forma seg&uacute;n el &aacute;ngulo desde el que se
+    miren.</p>
+
+    <p>Para m&aacute;s informaci&oacute;n sobre esta t&eacute;cnica, ver la funci&oacute;n <a
+    href="162.html">start_mode7()</a> utilizada para activar una <strong>ventana de modo 7</strong>
+    en el programa.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a>
+  </body>
+</html>
+

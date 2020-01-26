@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - N&uacute;meros de ventana</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>N&uacute;meros de ventana</h1>
+
+    <p>Constantes: <strong>c_0</strong> ... <strong>c_9</strong></p>
+    <hr />
+
+    <p>Estas constantes se utilizan para asignarlas a la variable local predefinida <a
+    href="1134.html">cnumber</a> que sirve para definir las ventanas de scroll o modo 7 en las que
+    debe aparecer el gr&aacute;fico de un proceso.</p>
+
+    <p><strong>&Eacute;sto ser&aacute; necesario solamente cuando se hayan activado varias ventanas
+    de scroll o varias ventanas de modo 7, y NO se quiera que el gr&aacute;fico del proceso se
+    visualice en todas ellas</strong>.</p>
+
+    <p>Pueden definirse hasta 10 ventanas de estos tipos, con los n&uacute;meros del
+    <strong>0</strong> al <strong>9</strong>, y que se corresponder&aacute;n directamente con las
+    constantes <strong>c_0</strong>, <strong>c_1</strong>, <strong>c_2</strong> ...
+    <strong>c_9</strong>.</p>
+
+    <p>Para que el gr&aacute;fico de un proceso aparezca s&oacute;lo en una de estas ventanas, se
+    debe asignar la constante correspondiente a su variable local <a href="1134.html">cnumber</a>.
+    Por ejemplo, si se quisiera que el gr&aacute;fico de un proceso apareciera &uacute;nicamente en
+    la ventana n&uacute;mero 3 (de scroll o modo 7), se deber&iacute;a incluir en su c&oacute;digo
+    la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>cnumber=c_3;</strong></p>
+
+    <p>Si se quiere que el gr&aacute;fico de un proceso aparezca en varias ventanas de estas
+    ventanas, entonces se deber&aacute;n sumar las constantes. Por ejemplo, para que un proceso
+    aparezca en las ventanas 0, 4, y 5 se realizar&aacute; la siguiente asignaci&oacute;n:</p>
+
+    <p>&nbsp;&nbsp;<strong>cnumber=c_0+c_4+c_5;</strong></p>
+
+    <p>Para que el gr&aacute;fico aparezca en todas las ventanas, basta con asignar un
+    <strong>0</strong> a la variable <a href="1134.html">cnumber</a>. Aspecto que no ser&aacute;
+    necesario si esta variable no se ha modificado, pues &eacute;se es su valor por defecto.</p>
+
+    <p>Los valores a los que equivalen estas constantes se corresponden con las siguientes
+    potencias de 2:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>c_0</strong> = 1 scroll / modo 7 n&uacute;mero 0<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_1</strong> = 2 scroll / modo 7 n&uacute;mero 1<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_2</strong> = 4 scroll / modo 7 n&uacute;mero 2<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_3</strong> = 8 scroll / modo 7 n&uacute;mero 3<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_4</strong> = 16 scroll / modo 7 n&uacute;mero 4<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_5</strong> = 32 scroll / modo 7 n&uacute;mero 5<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_6</strong> = 64 scroll / modo 7 n&uacute;mero 6<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_7</strong> = 128 scroll / modo 7 n&uacute;mero 7<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_8</strong> = 256 scroll / modo 7 n&uacute;mero 8<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>c_9</strong> = 512 scroll / modo 7 n&uacute;mero 9<br />
+    </p>
+    <hr />
+    Ver: <a href="1202.html">Constantes</a> - <a href="1134.html">cnumber</a>.
+  </body>
+</html>
+

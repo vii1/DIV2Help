@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - strlen()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>strlen()</h1>
+
+    <p><strong>strlen(</strong>&lt;cadena de texto&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La longitud de la cadena, en car&aacute;cteres (contando los espacios).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Cuenta el n&uacute;mero de car&aacute;cteres del texto pasado como par&aacute;metro, o
+    contenido actualmente en la cadena pasada.</p>
+
+    <p>La <strong>&lt;cadena de texto&gt;</strong> puede ser un literal (texto entre comillas) o un
+    dato de cualquier otro tipo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_strlen<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> cadena1<span class="syntax3">=</span><span
+class="syntax4">"Texto ejemplo"</span><span class="syntax3">;</span>
+    longitud_cadena1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Texto contenido en &lt;cadena1&gt;:"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>cadena1<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">20</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Longitud de &lt;cadena1&gt;:"</span><span
+class="syntax3">);</span>
+
+    longitud_cadena1<span class="syntax3">=</span>strlen<span class="syntax3">(</span>cadena1<span
+class="syntax3">);</span> <span class="syntax5">// Calcula la longitud</span>
+
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">30</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> longitud_cadena1<span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+    <hr />
+
+    <p>Se puede a&ntilde;adir un car&aacute;cter a una cadena con la funci&oacute;n <a
+    href="203.html">strcat()</a>, o bien con una sentencia de <a
+    href="1019.html">asignaci&oacute;n</a> como la siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>cadena1+="a";</strong></p>
+
+    <p>Para quitar car&aacute;cteres de una cadena se debe utilizar <a
+    href="211.html">strdel()</a>, aunque tambi&eacute;n es posible eliminar car&aacute;cteres del
+    final de una cadena con sentencias como las siguientes:</p>
+
+    <p>&nbsp;&nbsp;<strong>cadena1--;</strong><br />
+    &nbsp;&nbsp;<strong>cadena1-=1;</strong><br />
+    &nbsp;&nbsp;<strong>cadena1=cadena1-1;</strong><br />
+    </p>
+    <hr />
+    Ver: <a href="202.html">strcpy()</a> - <a href="203.html">strcat()</a> - <a
+    href="205.html">strcmp()</a> - <a href="206.html">strchr()</a> 
+
+    <p>- <a href="207.html">strstr()</a> - <a href="208.html">strset()</a> - <a
+    href="209.html">upper()</a> - <a href="210.html">lower()</a> - <a
+    href="211.html">strdel()</a></p>
+  </body>
+</html>
+

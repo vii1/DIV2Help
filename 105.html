@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - convert_palette()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>convert_palette()</h1>
+
+    <p><strong>convert_palette(</strong>&lt;fichero&gt;<strong>,</strong>
+    &lt;gr&aacute;fico&gt;<strong>,</strong> &lt;OFFSET nueva_paleta&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Transforma el mapa de color del <strong>&lt;gr&aacute;fico&gt;</strong> del
+    <strong>&lt;fichero&gt;</strong> indicado.</p>
+
+    <p>El <strong>&lt;</strong><a href="1085.html">offset</a> <strong>nueva_paleta&gt;</strong> es
+    la direcci&oacute;n dentro de la memoria del ordenador de una tabla de 256 valores donde se
+    indicar&aacute; el nuevo orden de los colores del gr&aacute;fico.</p>
+
+    <p><strong>Nota:</strong> Esta tabla debe ser de datos simples (de tipo <a
+    href="1402.html">INT</a>, enteros de 32 bit con signo).</p>
+
+    <p>Si la tabla con la nueva paleta fuera como se muestra a continuaci&oacute;n:</p>
+
+    <p>&nbsp;&nbsp;nueva_paleta[255]=0, 1, 2, 3, 4, ... , 254, 255;</p>
+
+    <p>el gr&aacute;fico no sufrir&iacute;a ninguna transformaci&oacute;n. Si, por ejemplo, en la
+    posici&oacute;n 3 de la tabla anterior (nueva_paleta[3]) se pusiera un 16 (en lugar de un 3),
+    al llamar a esta funci&oacute;n con el <a href="1085.html">offset</a> de dicha tabla, se
+    sustituir&iacute;a en el gr&aacute;fico el color 3 por el color 16.</p>
+
+    <p>Los gr&aacute;ficos cargados con las funciones <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a> (o creados con <a href="188.html">new_map()</a>) se
+    utilizar&aacute;n como si pertenecieran al primer fichero (el fichero con el c&oacute;digo
+    0).</p>
+
+    <p>Si un proceso quisiera cambiar los colores de su propio gr&aacute;fico, se deber&iacute;a
+    construir igualmente una tabla con el nuevo orden de los colores y, despu&eacute;s, llamar a la
+    funci&oacute;n con los par&aacute;metros:</p>
+
+    <p>&nbsp;&nbsp;<strong>convert_palette(file, graph,</strong> &lt;OFFSET
+    nueva_paleta&gt;<strong>)</strong></p>
+
+    <p>A continuaci&oacute;n se muestra un programa que cambia los colores de su gr&aacute;fico de
+    esta forma utilizando sus variables locales predefinidas <a href="1131.html">file</a> y <a
+    href="1126.html">graph</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_convert_palette<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    nueva_paleta<span class="syntax3">[</span><span class="syntax2">255</span><span
+class="syntax3">];</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+
+    <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">1</span> <span class="syntax1">TO</span> <span class="syntax2">255</span><span
+class="syntax3">;</span>
+        nueva_paleta<span class="syntax3">[</span>contador<span
+class="syntax3">]=(</span>contador<span class="syntax3">+</span><span
+class="syntax2">16</span><span class="syntax3">)</span> <span class="syntax1">MOD</span> <span
+class="syntax2">256</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+
+    graph<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para cambiar los colores de la bola"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            <span
+class="syntax5">// Convertimos la paleta del gr&aacute;fico n&uacute;mero 100 (bola)</span>
+            convert_palette<span class="syntax3">(</span>file<span
+class="syntax3">,</span> graph<span class="syntax3">,</span> <span
+class="syntax1">offset</span> nueva_paleta<span class="syntax3">);</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En primer lugar, <strong>se crea una tabla con el nuevo orden de los colores</strong> de la
+    paleta. El color n&uacute;mero 0 (transparente) no se sustituir&aacute; por ninguno
+    (nueva_paleta[0] valdr&aacute; siempre 0) y el resto de los colores (del 1 al 255) se
+    sustituir&aacute;n por el color que est&aacute; 16 posiciones m&aacute;s arriba en la paleta
+    (el 1 por el 17, el 2 por el 18, etc.). Los &uacute;ltimos 16 colores se sustituir&aacute;n por
+    los 16 primeros (al realizar la operaci&oacute;n <strong>MOD 256</strong> se truncan los
+    valores, es decir, 256 pasar&aacute; a 0, 257 a 1, etc.).</p>
+
+    <p>Despu&eacute;s, dentro del bucle principal del programa se ejecutar&aacute; la
+    funci&oacute;n <strong>convert_palette()</strong> de modo que cambie los colores del
+    gr&aacute;fico del programa (una bola) cada vez que se pulse la barra espaciadora.</p>
+    <hr />
+    Ver: <a href="133.html">load_pal()</a> - <a href="154.html">roll_palette()</a>
+  </body>
+</html>
+

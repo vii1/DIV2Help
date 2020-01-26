@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL file</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL file</h1>
+
+    <p><strong>file=0;</strong> // C&oacute;digo del fichero del gr&aacute;fico del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>file</strong>.</p>
+
+    <p>La variable local <strong>file</strong> indica, en los casos en los que se hayan cargado
+    varios <strong>ficheros FPG</strong> de gr&aacute;ficos en un programa, cu&aacute;l es el
+    fichero que contiene el gr&aacute;fico que est&aacute; utilizando el proceso.</p>
+
+    <p>El gr&aacute;fico de un proceso se debe indicar asignando un <strong>c&oacute;digo de
+    gr&aacute;fico</strong> a la variable local <a href="1126.html">graph</a>.</p>
+
+    <p>Si &uacute;nicamente se ha cargado un fichero en el programa, no ser&aacute; necesario
+    asignar ning&uacute;n valor a <strong>file</strong>, ya que el <strong>c&oacute;digo del primer
+    fichero cargado</strong> ser&aacute; el <strong>0</strong> y &eacute;ste es el valor por
+    defecto de la variable.</p>
+
+    <p>Si el gr&aacute;fico se ha cargado con las funciones <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a>, tampoco ser&aacute; necesario asignar ning&uacute;n valor a
+    <strong>file</strong>, ya que los gr&aacute;ficos cargados con estas funciones se utilizan como
+    si pertenecieran al fichero n&uacute;mero <strong>0</strong> (al primero que se cargue en el
+    programa).</p>
+
+    <p>Cuando se cargue m&aacute;s de un fichero, se debe indicar en cada proceso en cu&aacute;l de
+    ellos se encuentra su gr&aacute;fico; esto se debe hacer asignando el <strong>c&oacute;digo de
+    fichero</strong> que ha devuelto la funci&oacute;n <a href="132.html">load_fpg()</a> (al cargar
+    dicho <strong>fichero FPG</strong>) a la variable local <strong>file</strong>.</p>
+
+    <p><strong>Nota:</strong> Normalmente, si se cargan varios ficheros en un programa
+    secuencialmente, el primero tendr&aacute; el c&oacute;digo <strong>0</strong>, el segundo el
+    <strong>1</strong>, el tercero el <strong>2</strong> y, as&iacute; sucesivamente.</p>
+    <hr />
+
+    <p>En general, es una buena pr&aacute;ctica, si se utilizan varios ficheros, tener el mismo
+    n&uacute;mero de variables globales (denominadas por ejemplo <strong>fichero1</strong>,
+    <strong>fichero2</strong>, ...) que contengan el c&oacute;digo de cada uno de los ficheros,
+    para utilizarlas en los procesos a la hora de definir su variable <strong>file</strong> (el
+    <strong>fichero FPG</strong> que se debe emplear).</p>
+
+    <p>Las variables se definir&iacute;an dentro de la secci&oacute;n <a
+    href="1006.html">GLOBAL</a> de la siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>GLOBAL</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>fichero1;</strong> // C&oacute;digo del primer
+    fichero<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>fichero2;</strong> // C&oacute;digo del
+    segundo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+
+    <p>Despu&eacute;s, se les asignar&iacute;a a estas variables los <strong>c&oacute;digos de
+    fichero</strong> al cargar &eacute;stos con la funci&oacute;n <a href="132.html">load_fpg()</a>
+    de la siguiente forma (suponiendo que el nombre de los ficheros es
+    <strong>nombre1.fpg</strong>, <strong>nombre2.fpg</strong>, etc.):</p>
+
+    <p>&nbsp;&nbsp;<strong>fichero1=load_fpg("nombre1.fpg");</strong> // Carga de ficheros<br />
+    &nbsp;&nbsp;<strong>fichero2=load_fpg("nombre2.fpg");</strong><br />
+    &nbsp;&nbsp;...</p>
+
+    <p>Generalmente, esta carga de ficheros se realiza al inicio del programa; posteriormente,
+    dentro de cada proceso, solamente habr&iacute;a que definir el fichero utilizado con la
+    siguiente sentencia (suponiendo que el proceso utilice gr&aacute;ficos contenidos en el fichero
+    <strong>nombre1.fpg</strong>):</p>
+
+    <p>&nbsp;&nbsp;<strong>file=fichero1;</strong> // Se utiliza el primer fichero<br />
+    </p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se recuerda que definir la variable local <strong>file</strong> no
+    sirve para nada, a no ser que tambi&eacute;n se asigne un <strong>c&oacute;digo de
+    gr&aacute;fico</strong> a la variable local <a href="1126.html">graph</a>.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a>
+  </body>
+</html>
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Esperando [BEGIN]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Esperando [BEGIN]</h1>
+
+    <p>Este error se produce cuando se realiza una declaraci&oacute;n incorrecta dentro de las
+    secciones <a href="1004.html">CONST</a>, <a href="1006.html">GLOBAL</a>, <a
+    href="1007.html">LOCAL</a> o <a href="1008.html">PRIVATE</a>.</p>
+
+    <p>Tras la sentencia inicial <a href="1003.html">PROGRAM nombre_de_programa;</a> se espera que
+    aparezca alguna de las secciones anteriormente citadas (siempre en ese mismo orden) y al final
+    la palabra <a href="1086.html">BEGIN</a>.</p>
+
+    <p>Tras el inicio de un proceso (<a href="1016.html">PROCESS</a>
+    <strong>nombre_de_proceso(</strong>...<strong>)</strong>) o funci&oacute;n (<a
+    href="1408.html">FUNCTION</a> <strong>nombre_de_funci&oacute;n(</strong>...<strong>)</strong>)
+    que se muestre la secci&oacute;n <a href="1008.html">PRIVATE</a> o la palabra <a
+    href="1086.html">BEGIN</a>.</p>
+
+    <p>El error puede producirse bajo las siguientes circunstancias:</p>
+
+    <p>- Se ha escrito incorrectamente el nombre de alguna secci&oacute;n.</p>
+
+    <p>- Se han puesto varias secciones en un orden incorrecto:</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">LOCAL</span>
+    a<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span> <span class="syntax5">// Error: Esperando [BEGIN]</span>
+    b<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>&nbsp;&nbsp;Se recuerda que las secciones deben ir en el siguiente orden:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>CONST</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1006.html">GLOBAL</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1007.html">LOCAL</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1008.html">PRIVATE</a><br />
+    </p>
+
+    <p>- Dentro de cualquiera de las secciones antes mencionadas ha venido un elemento que no es
+    una declaraci&oacute;n v&aacute;lida dentro de dicha secci&oacute;n.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax3">+</span>variable<span class="syntax3">=</span><span
+class="syntax2">0</span><span class="syntax3">;</span> <span
+class="syntax5">// Error: Esperando [BEGIN]</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>&nbsp;&nbsp;En este ejemplo, al llegar al s&iacute;mbolo <a href="1056.html">+</a> el
+    compilador determina que la secci&oacute;n <a href="1006.html">GLOBAL</a> ya ha finalizado y,
+    por lo tanto, como el siguiente elemento no es el inicio de las secciones <a
+    href="1007.html">LOCAL</a> ni <a href="1008.html">PRIVATE</a>, espera que venga la palabra
+    reservada <a href="1086.html">BEGIN</a> marcando el inicio del c&oacute;digo del programa.</p>
+
+    <p>- Al comienzo del programa o al definir un proceso se ha omitido la palabra
+    <strong>BEGIN</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">()</span>
+    <span class="syntax1">FRAME</span><span class="syntax3">;</span> <span
+class="syntax5">// Error: Esperando [BEGIN]</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1086.html">BEGIN</a>
+  </body>
+</html>
+

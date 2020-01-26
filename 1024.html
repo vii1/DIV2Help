@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia LOOP</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia LOOP</h1>
+
+    <p><strong>LOOP</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>La sentencia <strong>LOOP</strong> (bucle) es una sentencia que implementa un <strong>bucle
+    infinito</strong>, es decir, que <strong>repite indefinidamente un grupo de
+    sentencias</strong>.</p>
+
+    <p>Para implementar este bucle se debe comenzar con la palabra reservada <strong>LOOP</strong>,
+    seguida de las sentencias que se quieren repetir continuamente y la palabra reservada <a
+    href="1091.html">END</a> al final.</p>
+
+    <p>Cuando en un programa se encuentre una sentencia <strong>LOOP</strong> ... <a
+    href="1091.html">END</a> se ejecutar&aacute;n a partir de entonces, una y otra vez, todas las
+    sentencias interiores a dicho bucle.</p>
+
+    <p>Para finalizar un bucle <strong>LOOP</strong> se puede utlizar la sentencia <a
+    href="1026.html">BREAK</a> que, al ejecutarse dentro de un bucle de este tipo, forzar&aacute;
+    al programa a seguir a continuaci&oacute;n del <a href="1091.html">END</a>.</p>
+
+    <p>Cada vez que se ejecutan las sentencias interiores se dice que se ha realizado una
+    <strong>iteraci&oacute;n</strong> del bucle. La sentencia <a href="1027.html">CONTINUE</a>,
+    dentro de un bucle, finalizar&aacute; la <strong>iteraci&oacute;n</strong> actual y
+    comenzar&aacute; la siguiente (el programa continuar&aacute; ejecut&aacute;ndose tras la
+    palabra reservada <strong>LOOP</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    x<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">))</span>
+            <span class="syntax1">BREAK</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se pondr&aacute; la variable local <strong>x</strong> (coordenada x del
+    proceso) a cero y, despu&eacute;s, se le sumar&aacute; 1 y se dar&aacute; un <a
+    href="1029.html">FRAME</a> continuamente. Si se pulsa la tecla de escape (<strong>ESC</strong>)
+    se ejecutar&aacute; la sentencia <a href="1026.html">BREAK</a>, finalizando el bucle
+    <strong>LOOP</strong>.</p>
+
+    <p>Las sentencias interiores a un bucle <strong>LOOP</strong> pueden ser tantas como se quieran
+    y de cualquier tipo incluyendo, por supuesto, nuevos bucles <strong>LOOP</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT m7</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT m7</h1>
+
+    <p><strong>STRUCT m7[9];</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>camera;</strong> // <a href="1039.html">C&oacute;digo
+    identificador</a> de la c&aacute;mara<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>height;</strong> // Altura de la c&aacute;mara<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>distance;</strong> // Distancia de la c&aacute;mara<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>horizon;</strong> // Altura del horizonte<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>focus;</strong> // Focal de visi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>z;</strong> // Plano de profundidad<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>color;</strong> // Color del exterior<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura de <strong>10</strong> registros contiene ciertos campos relacionados con
+    par&aacute;metros modificables de las <strong>ventanas de modo 7</strong>. Los diez registros
+    tienen los mismos nombres de campos, pero cada uno de ellos modifica los par&aacute;metros de
+    una ventana de modo 7 diferente (ya que pueden activarse hasta 10 ventanas de este tipo).</p>
+
+    <p>Una <strong>ventana de modo 7</strong> se podr&iacute;a definir como una regi&oacute;n de
+    pantalla que muestra un plano gr&aacute;fico tridimensionalmente abatido. Por ejemplo como una
+    hoja de papel con un dibujo que pusieramos horizontal, visualiz&aacute;ndose en pantalla como
+    un suelo (o techo) virtual.</p>
+
+    <p>Para que un registro (del <strong>0</strong> al <strong>9</strong>) de la <strong>estructura
+    m7</strong> tenga sentido, primero debe activarse dicha <strong>ventana de modo 7</strong> (del
+    <strong>0</strong> al <strong>9</strong>) con la funci&oacute;n <a
+    href="162.html">start_mode7()</a> (ver esta funci&oacute;n para m&aacute;s informaci&oacute;n
+    sobre las ventanas de modo 7}.</p>
+
+    <p>Se entiende que los campos de esta estructura son complementarios a los par&aacute;metros de
+    llamada de esta &uacute;ltima funci&oacute;n. Para poder observar un ejemplo pr&aacute;ctico de
+    un modo 7, se puede acceder a la ayuda sobre la funci&oacute;n <a
+    href="162.html">start_mode7()</a>.</p>
+    <hr />
+
+    <p><strong>Forma de uso de la estructura m7:</strong></p>
+
+    <p>Para acceder a estos campos se debe preceder el nombre del campo por la palabra
+    <strong>m7</strong>, el n&uacute;mero de registro entre corchetes y el s&iacute;mbolo <a
+    href="1063.html">. (punto)</a>.</p>
+
+    <p>Por ejemplo, si se inicializaran dos ventanas de modo 7, la n&uacute;mero 0 y la
+    n&uacute;mero 1, se podr&iacute;a acceder a la variable <strong>camera</strong> de ambas
+    ventanas como <strong>m7[0].camera</strong> y <strong>m7[1].camera</strong>, respectivamente.
+    Cuando se acceda a la ventana n&uacute;mero 0 de modo 7 se puede, adem&aacute;s, omitir el
+    n&uacute;mero de ventanas entre corchetes, es decir, que la variable <strong>m7.camera</strong>
+    y la variable <strong>m7[0].camera</strong> son, a todos los efectos, la misma para el
+    lenguaje.</p>
+    <hr />
+
+    <p><strong>Se muestra a continuaci&oacute;n una descripci&oacute;n detallada de cada
+    campo</strong></p>
+
+    <p><strong>camera</strong> - <a href="1039.html">C&oacute;digo identificador del proceso</a> al
+    que sigue la c&aacute;mara. Para mover la c&aacute;mara que controla la visi&oacute;n del modo
+    7, &uacute;nicamente se debe crear un proceso de modo 7, un proceso que tenga su variable local
+    <a href="1122.html">ctype</a> <strong>=</strong> <a href="1169.html">c_m7</a>, y poner su <a
+    href="1039.html">c&oacute;digo identificador</a> en la variable <strong>camera</strong> de esta
+    estructura. Tras esto, s&iacute;mplemente se deben modificar las variables locales <a
+    href="1123.html">x</a>, <a href="1124.html">y</a> e <a href="1129.html">angle</a> de este
+    proceso y, por ejemplo, utilizar la funci&oacute;n <a href="101.html">advance()</a> para mover
+    hacia delante la c&aacute;mara.</p>
+
+    <p>El campo <strong>camera</strong> es <strong>imprescindible</strong> inicializarlo para que
+    se active la ventana de modo 7; sin este campo, la ventana no puede determinar desde
+    d&oacute;nde se debe <strong>ver</strong> el plano abatido.</p>
+    <hr />
+
+    <p><strong>height</strong> - Altura de la c&aacute;mara. Esta variable de la estructura regula
+    la distancia a la que se sit&uacute;a del suelo la c&aacute;mara, por defecto su valor es
+    <strong>32</strong>. Cualquier n&uacute;mero positivo har&aacute; que se sit&uacute;e la
+    c&aacute;mara m&aacute;s arriba cuanto mayor sea el n&uacute;mero. Si el valor puesto en el
+    campo <strong>height</strong> de esta misma estructura es negativo, menor que cero, entonces la
+    c&aacute;mara se situar&aacute; por debajo del plano abatido, mostr&aacute;ndose un
+    "<strong>techo</strong>" en lugar de un "<strong>suelo</strong>".</p>
+
+    <p>Se pueden crear dos modos-7 dentro de la misma regi&oacute;n: uno como techo y otro como
+    suelo (uno con <strong>height</strong> positiva y otro negativa). En este caso, es importante
+    fijar la variable <strong>z</strong> de la <a href="1102.html">estructura m7</a> de ambos para,
+    de esta forma, determinar en qu&eacute; plano de profundidad se debe pintar cada uno.</p>
+    <hr />
+
+    <p><strong>distance</strong> - Distancia de la c&aacute;mara al proceso seguido. El punto de
+    vista de la c&aacute;mara siempre se situar&aacute; un poco por detr&aacute;s del proceso cuyo
+    identificador se ha puesto en el campo <strong>camera</strong> de la estructura. Esto se hace
+    para que se vea el gr&aacute;fico del proceso utilizado como c&aacute;mara, en el caso de que
+    este proceso lo tenga definido (en su variable local <a href="1126.html">graph</a> o <a
+    href="1132.html">xgraph</a>).</p>
+
+    <p>Por defecto, la c&aacute;mara se situar&aacute; a <strong>64</strong> puntos por
+    detr&aacute;s del proceso. Se entiende por "detr&aacute;s", a un punto situado a la distancia
+    indicada del gr&aacute;fico en el &aacute;ngulo contrario al que est&eacute; orientado el
+    proceso; por ejemplo, si el proceso est&aacute; mirando a la derecha, 64 puntos a la izquierda
+    del mismo.</p>
+    <hr />
+
+    <p><strong>horizon</strong> - Altura del horizonte. &Eacute;ste es el mismo valor que se
+    indicaba como &uacute;ltimo par&aacute;metro de la funci&oacute;n
+    <strong>start_mode7()</strong>; su valor inicial ser&aacute; el que se indic&oacute; en la
+    llamada a esta funci&oacute;n. La utilidad de esta variable es el poder hacer que suba o baje
+    el horizonte en cada visualizaci&oacute;n (imagen) del juego seg&uacute;n las necesidades de
+    &eacute;ste.</p>
+
+    <p>Al variar la <strong>altura del horizonte</strong> se conseguir&aacute; en la
+    <strong>ventana de modo 7</strong> el efecto de "<strong>mirar hacia arriba</strong>" y
+    "<strong>mirar hacia abajo</strong>".</p>
+    <hr />
+
+    <p><strong>focus</strong> - Focal para la c&aacute;mara. Esta variable controla la perspectiva
+    de la c&aacute;mara; por defecto, su valor es 256 pero se puede poner cualquier valor entre
+    <strong>0</strong> y <strong>512</strong>, consiguiendo diversos efectos de deformaci&oacute;n
+    del plano tridimensional.</p>
+
+    <p>Es decir, este campo controla el &aacute;ngulo que capta el foco de la c&aacute;mara; cuanto
+    mayor sea este valor, m&aacute;s cerca se ver&aacute;n todos los objetos (procesos) situados en
+    el plano abatido.</p>
+    <hr />
+
+    <p><strong>z</strong> - Prioridad de impresi&oacute;n del modo 7, aqu&iacute; se indica en
+    qu&eacute; plano de profundidad se debe pintar esta ventana, respecto al resto de procesos. Por
+    defecto, esta variable valdr&aacute; <strong>256</strong> lo cual quiere decir que, como los
+    procesos por defecto tienen su variable <a href="1125.html">local z</a> a <strong>0</strong>,
+    la ventana de modo 7 se pintar&aacute; en un plano de profundidad mayor, m&aacute;s al fondo,
+    visualiz&aacute;ndose los gr&aacute;ficos de los procesos por encima de la ventana. Para variar
+    esta situaci&oacute;n se puede modificar la variable <strong>z</strong> de la ventana (por
+    ejemplo ponerla a <strong>-1</strong>) o la variable <strong>z</strong> de los procesos (por
+    ejemplo ponerla a <strong>257</strong>).</p>
+    <hr />
+
+    <p><strong>color</strong> - Color para el exterior del modo 7. Cuando en la llamada a la
+    funci&oacute;n <strong>start_mode7()</strong> no se especifique ning&uacute;n
+    <strong>gr&aacute;fico exterior</strong> (se ponga a <strong>0</strong> el cuarto
+    par&aacute;metro de llamada), esta variable controlar&aacute; de qu&eacute; color se quiere
+    pintar el exterior, es decir, de qu&eacute; color debe ser la pantalla m&aacute;s all&aacute;
+    del gr&aacute;fico que se est&aacute; abatiendo (m&aacute;s alla de sus l&iacute;mites).</p>
+
+    <p>Este campo est&aacute; inicializado por defecto a <strong>0</strong> que, normalmente, es el
+    color negro en la paleta de colores, por lo que, si no se asigna a este campo otro valor (y no
+    se define un gr&aacute;fico exterior) se ver&aacute; la pantalla en negro m&aacute;s
+    all&aacute; del plano principal.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="162.html">start_mode7()</a> - <a
+    href="165.html">stop_mode7()</a>
+  </body>
+</html>
+

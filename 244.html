@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - tan()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>tan()</h1>
+
+    <p><strong>tan(</strong>&lt;&aacute;ngulo&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La tangente de un &aacute;ngulo dado.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Calcula la tangente en mil&eacute;simas del &aacute;ngulo pasado como par&aacute;metro.</p>
+
+    <p>Los &aacute;ngulos se manipulan siempre en mil&eacute;simas de grado (ver el <a
+    href="1044.html">uso de &aacute;ngulos en el lenguaje</a>), y la tangente se devolver&aacute;
+    igualmente en mil&eacute;simas (como un valor dentro del rango <a href="1177.html">min_int</a>
+    ... <a href="1178.html">max_int</a>).</p>
+
+    <p>Por ejemplo, <strong>tan(45000)</strong> devolver&aacute; <strong>1000</strong>, ya que la
+    tangente de 45 grados es 1.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_tan<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    &aacute;ngulo<span class="syntax3">[</span><span class="syntax2">15</span><span
+class="syntax3">];</span>
+    tangente<span class="syntax3">[</span><span class="syntax2">15</span><span
+class="syntax3">];</span>
+    n<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Angulos"</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">160</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Tangentes"</span><span class="syntax3">);</span>
+    <span class="syntax1">FROM</span> n<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">15</span><span
+class="syntax3">;</span>
+        &aacute;ngulo<span class="syntax3">[</span>n<span class="syntax3">]</span> <span
+class="syntax3">=</span> rand<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">360000</span><span class="syntax3">);</span>
+
+        tangente<span class="syntax3">[</span>n<span class="syntax3">]</span> <span
+class="syntax3">=</span> tan<span class="syntax3">(</span>&aacute;ngulo<span
+class="syntax3">[</span>n<span class="syntax3">]);</span> <span
+class="syntax5">// Se calcula la tangente del &aacute;ngulo</span>
+
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span>   <span
+class="syntax2">20</span><span class="syntax3">+</span>n<span class="syntax3">*</span><span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> &aacute;ngulo<span
+class="syntax3">[</span>n<span class="syntax3">]);</span>
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">20</span><span class="syntax3">+</span>n<span class="syntax3">*</span><span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> tangente<span
+class="syntax3">[</span>n<span class="syntax3">]);</span>
+    <span class="syntax1">END</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">192</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Pulse ESC para terminar ..."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa imprimir&aacute; en pantalla una lista de &aacute;ngulos, aleatoriamente
+    escogidos entre 0 y 360000 (de 0 a 360 grados), y utilizar&aacute; la funci&oacute;n
+    <strong>tan()</strong> para calcular la tangente de los mismos.</p>
+    <hr />
+    Ver: <a href="1035.html">Expresi&oacute;n</a> - Ver: <a href="1044.html">Uso de &aacute;ngulos
+    en el lenguaje</a>
+  </body>
+</html>
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - find_color()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>find_color()</h1>
+
+    <p><strong>find_color(</strong>&lt;red&gt;<strong>,</strong> &lt;green&gt;<strong>,</strong>
+    &lt;blue&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <strong>n&uacute;mero de color</strong> dentro de la paleta.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Busca el color de la paleta actual m&aacute;s cercano al color indicado.</p>
+
+    <p>Se requieren las tres componentes que con componen el color que se desea localizar dentro de
+    la paleta, como <strong>&lt;red&gt;</strong> (rojo), <strong>&lt;green&gt;</strong> (verde) y
+    <strong>&lt;blue&gt;</strong> (azul), todas ellas como valores entre 0 y 63.</p>
+
+    <p>Como valor de retorno se devolver&aacute; el <strong>n&uacute;mero de color</strong> de la
+    paleta que m&aacute;s se acerca a las componentes indicadas.</p>
+
+    <p>Por ejemplo, si se llama a la funci&oacute;n como <strong>find_color(63,63,0)</strong>,
+    devolver&aacute; el n&uacute;mero del color de la paleta que m&aacute;s se acerca o parece al
+    <strong>amarillo</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La funci&oacute;n <strong>find_color()</strong> <strong>no modifica
+    la paleta actual</strong>, &uacute;nicamente busca colores determinados dentro de la misma,
+    para modificar un color de la paleta se debe emplear la funci&oacute;n <a
+    href="179.html">set_color()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_find_color<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span><span class="syntax3">;</span>
+    azul<span class="syntax3">;</span>
+    verde<span class="syntax3">;</span>
+    amarillo<span class="syntax3">;</span>
+    rojo<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+    azul<span class="syntax3">=</span>find_color<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">63</span><span class="syntax3">);</span>      <span
+class="syntax5">// Busca el color azul</span>
+    verde<span class="syntax3">=</span>find_color<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">63</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>     <span
+class="syntax5">// Busca el color verde</span>
+    amarillo<span class="syntax3">=</span>find_color<span class="syntax3">(</span><span
+class="syntax2">63</span><span class="syntax3">,</span><span class="syntax2">63</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span> <span
+class="syntax5">// Busca el color amarillo</span>
+    rojo<span class="syntax3">=</span>find_color<span class="syntax3">(</span><span
+class="syntax2">63</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>      <span
+class="syntax5">// Busca el color rojo</span>
+
+    draw<span class="syntax3">(</span><span class="syntax2">2</span><span
+class="syntax3">,</span>azul<span class="syntax3">,</span><span class="syntax2">15</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">79</span><span class="syntax3">,</span><span
+class="syntax2">79</span><span class="syntax3">);</span>
+    draw<span class="syntax3">(</span><span class="syntax2">2</span><span
+class="syntax3">,</span>verde<span class="syntax3">,</span><span class="syntax2">15</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">80</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">159</span><span class="syntax3">,</span><span
+class="syntax2">79</span><span class="syntax3">);</span>
+    draw<span class="syntax3">(</span><span class="syntax2">2</span><span
+class="syntax3">,</span>amarillo<span class="syntax3">,</span><span class="syntax2">15</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">160</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">239</span><span class="syntax3">,</span><span
+class="syntax2">79</span><span class="syntax3">);</span>
+    draw<span class="syntax3">(</span><span class="syntax2">2</span><span
+class="syntax3">,</span>rojo<span class="syntax3">,</span><span class="syntax2">15</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">240</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">319</span><span class="syntax3">,</span><span
+class="syntax2">79</span><span class="syntax3">);</span>
+
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo utiliza la funci&oacute;n <strong>find_color()</strong> para localizar los
+    colores <strong>azul</strong>, <strong>verde</strong>, <strong>amarillo</strong> y
+    <strong>rojo</strong> dentro de la paleta (sea cual sea esta), y entonces, mediante la
+    funci&oacute;n <a href="249.html">draw()</a>, muestra cuatro cuadrados de estos colores.</p>
+
+    <p>La ventaja de utilizar este sistema es que no importa que el programa cambie de paleta, ya
+    que siempre se podr&aacute;n localizar los colores dentro de la misma.</p>
+    <hr />
+
+    <p>Para modificar toda la paleta, se suele cargar la misma de un archivo del disco mediante al
+    funci&oacute;n <a href="133.html">load_pal()</a>.</p>
+
+    <p>Para realizar otros efectos de paleta, se puede utilizar la funci&oacute;n <a
+    href="154.html">roll_palette()</a> que permite realizar ciclos de color, o la funci&oacute;n <a
+    href="110.html">fade()</a> que permite realizar m&uacute;ltiples fundidos y saturaciones de
+    color a diferentes velocidades.</p>
+    <hr />
+    Ver: <a href="179.html">set_color()</a> - <a href="154.html">roll_palette()</a> - <a
+    href="133.html">load_pal()</a>
+  </body>
+</html>
+

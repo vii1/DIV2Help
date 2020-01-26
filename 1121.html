@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL priority</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL priority</h1>
+
+    <p><strong>priority=0;</strong> // Nivel de prioridad del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>priority</strong>.</p>
+
+    <p>En la preparaci&oacute;n de cada imagen todos los procesos ser&aacute;n ejecutados en el
+    orden de prioridad establecido por la variable local <strong>priority</strong>.</p>
+
+    <p>Cuanto mayor sea el valor de <strong>priority</strong> en un proceso, antes ser&aacute;
+    procesado &eacute;ste en cada imagen. El valor de priority puede fijarse como cualquier
+    n&uacute;mero entero dentro del rango (<a href="1177.html">min_int</a> ... <a
+    href="1178.html">max_int</a>); por ejemplo, para establecer el nivel de prioridad de un proceso
+    a <strong>10</strong> se debe utilizar la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>priority=10;</strong></p>
+
+    <p>Todos los procesos activos en el programa que tengan <strong>el mismo nivel de
+    prioridad</strong> ser&aacute;n ejecutados en un <strong>orden indeterminado</strong> que,
+    adem&aacute;s, puede variar de unas ejecuciones del juego a otras.</p>
+
+    <p>Por defecto la variable local <strong>priority</strong> estar&aacute; inicializada a
+    <strong>0</strong> en todos los procesos creados en el programa, por lo que &eacute;stos
+    podr&aacute;n ser ejecutados en cualquier orden, si no se define el valor de esta variable.</p>
+
+    <p>Si se fija la <strong>priority</strong> de un s&oacute;lo proceso a un n&uacute;mero
+    positivo, como 1, &eacute;ste ser&aacute; ejecutado antes que el resto de los procesos, y si se
+    fija a un n&uacute;mero negativo, como -1, entonces ser&aacute; ejecutado tras el resto
+    (suponiendo que la variable <strong>priority</strong> del resto no se ha modificado, por lo que
+    sigue valiendo <strong>0</strong>).</p>
+
+    <p><strong>Cuando se debe fijar la prioridad de los procesos</strong></p>
+    <hr />
+
+    <p>Cuando un proceso necesite utilizar en sus c&aacute;lculos datos de otro proceso, suele ser
+    conveniente que se ejecute tras &eacute;l, definiendo su prioridad m&aacute;s baja, para que al
+    leer los datos del otro proceso, &eacute;stos ya est&eacute;n actualizados.</p>
+
+    <p>Por ejemplo, si el proceso <strong>B</strong> debe situar su gr&aacute;fico 8 puntos
+    m&aacute;s abajo que el gr&aacute;fico del proceso <strong>A</strong>, se debe fijar la
+    prioridad de <strong>A</strong> mayor que la de <strong>B</strong>, para que &eacute;ste se
+    ejecute primero.</p>
+
+    <p>De esta forma, cuando el proceso <strong>B</strong> obtenga su coordenada <strong>y</strong>
+    sumando 8 a la del proceso <strong>A</strong>, se realice este c&aacute;lculo con la coordenada
+    <strong>y</strong> del proceso <strong>A</strong> ya actualizada para la siguiente imagen (para
+    asegurar que en cada imagen primero se fijar&aacute; la coordenada <strong>y</strong> del
+    proceso <strong>A</strong> y despu&eacute;s la del proceso <strong>B</strong>).</p>
+
+    <p>Para conseguir &eacute;sto, como ambas prioridades estar&aacute;n por defecto a
+    <strong>0</strong>, bastar&iacute;a con definir la prioridad de <strong>A</strong> como
+    <strong>1</strong>, o bien definir la prioridad de <strong>B</strong> como
+    <strong>-1</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El nivel de prioridad del proceso no tiene nada que ver con el plano
+    de profundidad en el que aparece su gr&aacute;fico en pantalla, ya que &eacute;ste se indica en
+    la variable <a href="1125.html">local z</a>. Es decir, que un gr&aacute;fico se procese antes
+    no implica que su gr&aacute;fico se pinte antes.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a>
+  </body>
+</html>
+

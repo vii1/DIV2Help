@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - set_fps()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>set_fps()</h1>
+
+    <p><strong>set_fps(</strong>&lt;n&ordm; de im&aacute;genes por segundo&gt;<strong>,</strong>
+    &lt;n&ordm; de saltos permitidos&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n es la que regula la velocidad a la que van los juegos; define el
+    n&uacute;mero de im&aacute;genes por segundo que se mostrar&aacute;n del juego (el
+    n&uacute;mero de fotogramas por segundo).</p>
+
+    <p>Por defecto la visualizaci&oacute;n se regular&aacute; a 18 im&aacute;genes por segundo, lo
+    cual quiere decir que si un proceso se mueve un punto por cada imagen (<strong>FRAME</strong>),
+    &eacute;ste se mover&aacute; en pantalla a una velocidad de 18 puntos por segundo.</p>
+
+    <p>Esta funci&oacute;n puede fijar el n&uacute;mero de im&aacute;genes por segundo
+    (<strong>FPS</strong>, Frames Per Second) desde <strong>4</strong> como m&iacute;nimo hasta
+    <strong>200</strong> como m&aacute;ximo; en general no son necesarias m&aacute;s de 24
+    im&aacute;genes por segundo para conseguir un movimiento fluido y suave.</p>
+
+    <p>El segundo par&aacute;metro, <strong>n&uacute;mero m&aacute;ximo de saltos
+    permitidos</strong>, se refiere a c&oacute;mo es preferible que se comporte el programa cuando
+    se ejecute en un ordenador que sea lo suficientemente r&aacute;pido como para calcular el
+    n&uacute;mero de im&aacute;genes por segundo que se solicita. Funciona como se muestra a
+    continuaci&oacute;n.</p>
+
+    <p><strong>N&uacute;mero de saltos permitidos:</strong></p>
+
+    <p><strong>0</strong> - El juego ir&aacute; a menos velocidad cuando se ejecute en un ordenador
+    demasiado lento, es decir, se mostrar&aacute;n las im&aacute;genes por segundo que a ese
+    ordenador le de tiempo a calcular.</p>
+
+    <p><strong>1</strong> - Si el ordenador no puede calcular todas las im&aacute;genes, se le
+    permite que de vez en cuando omita alguna imagen para intentar mantener la velocidad relativa
+    del juego. El juego se ver&aacute; un poco m&aacute;s brusco, pero m&aacute;s
+    r&aacute;pido.</p>
+
+    <p><strong>2 o m&aacute;s</strong> - Se permite al juego que salte tantas im&aacute;genes
+    consecutivas como se indica en este par&aacute;metro con tal de mantener la velocidad relativa
+    original del juego. Por ejemplo, si se fija el n&uacute;mero de saltos a <strong>4</strong> y
+    en el juego un proceso se desplazaba de un punto en un punto, en un ordenador muy lento se
+    podr&iacute;a llegar a desplazar de hasta 4 puntos en 4 puntos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_set_fps<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    im&aacute;genes<span class="syntax3">=</span><span class="syntax2">24</span><span
+class="syntax3">;</span>
+    saltos<span class="syntax3">=</span><span class="syntax2">4</span><span
+class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Im&aacute;genes por segundo: Arriba(+) / Abajo(-)"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> im&aacute;genes<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">20</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Saltos permitidos: Derecha(+) / Izquierda(-)"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">30</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> saltos<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice los CURSORES para cambiar los valores."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+
+        <span class="syntax5">// Se elige el n&uacute;mero imagenes por segundo</span>
+        set_fps<span class="syntax3">(</span>im&aacute;genes<span
+class="syntax3">,</span> saltos<span class="syntax3">);</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">)</span> <span
+class="syntax1">AND</span> im&aacute;genes<span class="syntax3">&lt;</span><span
+class="syntax2">200</span><span class="syntax3">)</span> im&aacute;genes<span
+class="syntax3">++;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_down<span class="syntax3">)</span> <span
+class="syntax1">AND</span> im&aacute;genes<span class="syntax3">&gt;</span><span
+class="syntax2">4</span><span class="syntax3">)</span> im&aacute;genes<span
+class="syntax3">--;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">)</span> <span
+class="syntax1">AND</span> saltos<span class="syntax3">&lt;</span><span
+class="syntax2">20</span><span class="syntax3">)</span> saltos<span
+class="syntax3">++;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">)</span> <span
+class="syntax1">AND</span> saltos<span class="syntax3">&gt;</span><span
+class="syntax2">0</span><span class="syntax3">)</span> saltos<span class="syntax3">--;</span> <span
+class="syntax1">END</span>
+        angle<span class="syntax3">+=</span><span class="syntax2">4000</span><span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se imprimen los mensajes necesarios y el proceso principal crea un
+    gr&aacute;fico en el centro de la pantalla rotando indefinidamente.</p>
+
+    <p>En cada paso del bucle se detectan las teclas del cursor, se cambia el n&uacute;mero de
+    im&aacute;genes por segundo (<strong>im&aacute;genes</strong>) con
+    <strong>arriba/abajo</strong> y el m&aacute;ximo n&uacute;mero de saltos permitidos
+    (<strong>saltos</strong>) con <strong>derecha/izquierda</strong>.</p>
+
+    <p>Al comienzo de cada iteraci&oacute;n del bucle se establece la velocidad seg&uacute;n los
+    valores de ambas variables, con la funci&oacute;n <strong>set_fps()</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La variable global <a href="1426.html">fps</a> mantiene actualizado
+    el n&uacute;mero de im&aacute;genes por segundo que se est&aacute;n consiguiendo realmente en
+    el programa.</p>
+    <hr />
+    Ver: <a href="1029.html">FRAME</a> - <a href="1115.html">max_process_time</a> - <a
+    href="157.html">set_mode()</a> - <a href="1426.html">fps</a>
+  </body>
+</html>
+

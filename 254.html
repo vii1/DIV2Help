@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - calculate()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>calculate()</h1>
+
+    <p><strong>calculate(</strong>&lt;texto con una expresi&oacute;n
+    num&eacute;rica&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El resultado de la expresi&oacute;n num&eacute;rica.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Permite convertir un literal (o texto entre comillas), que contenga un n&uacute;mero o
+    expresi&oacute;n num&eacute;rica, en un valor constante que puede asignarse a cualquier
+    dato.</p>
+
+    <p>Es decir, que permite convertir un texto en n&uacute;mero; por ejemplo, la sentencia
+    <strong>x=calculate("234");</strong> asignar&aacute; el valor <strong>234</strong> a la
+    variable <strong>x</strong> (exactamente igual que la sentencia <strong>x=234;</strong>). La
+    funci&oacute;n <a href="255.html">itoa()</a> permite la operaci&oacute;n contraria, es decir,
+    convertir un n&uacute;mero en un texto.</p>
+
+    <p>Pero adem&aacute;s, la funci&oacute;n <strong>calculate()</strong> puede evaluar una
+    expresi&oacute;n contenida en el texto con diversos operadores, que pueden ser los siguientes
+    (se indican todos los sin&oacute;nimos aceptados de cada operador):</p>
+
+    <p><strong>+ -</strong> Suma y Resta.<br />
+     <strong>* /</strong> Multiplicaci&oacute;n y divisi&oacute;n.<br />
+     <strong>% MOD</strong> M&oacute;dulo, o resto de una divisi&oacute;n entera.<br />
+     <strong>&lt; &lt;&lt;</strong> Rotaci&oacute;n binaria a la izquierda.<br />
+     <strong>&gt; &gt;&gt;</strong> Rotaci&oacute;n a la derecha.<br />
+     <strong>^ ^^ XOR</strong> OR exclusivo binario.<br />
+     <strong>| || OR</strong> OR binario.<br />
+     <strong>&amp; &amp;&amp; AND</strong> AND binario.<br />
+     <strong>! NOT</strong> Negaci&oacute;n binaria.<br />
+     <strong>SQRT</strong> Raiz cuadrada.<br />
+    </p>
+
+    <p>Tambi&eacute;n se pueden utilizar los par&eacute;ntesis <strong>( )</strong> para indicar
+    prioridades dentro del c&aacute;lculo de la expresi&oacute;n. Por ejemplo,
+    <strong>calculate(</strong>"(2+3)*4"<strong>)</strong> devolver&iacute;a <strong>20</strong>
+    como resultado.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La operatividad de esta funci&oacute;n es muy similar a la ventana de
+    la <a href="1301.html">calculadora</a> (<strong>Sistema\Calculadora</strong>) del entorno de
+    ventanas.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_calculate<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> c&aacute;lculo<span class="syntax3">;</span>
+    resultado<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Introduzca una expresi&oacute;n:"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>c&aacute;lculo<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">30</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Resultado:"</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">40</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> resultado<span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">SWITCH</span><span class="syntax3">(</span>ascii<span
+class="syntax3">)</span>
+            <span class="syntax1">CASE</span> <span class="syntax2">8</span><span
+class="syntax3">:</span>
+                c&aacute;lculo<span class="syntax3">--;</span>
+            <span class="syntax1">END</span>
+            <span class="syntax1">CASE</span> <span class="syntax2">27</span><span
+class="syntax3">:</span>
+                c&aacute;lculo<span class="syntax3">=</span><span class="syntax4">""</span><span
+class="syntax3">;</span>
+            <span class="syntax1">END</span>
+            <span class="syntax1">CASE</span> <span class="syntax2">0</span><span
+class="syntax3">..</span><span class="syntax2">31</span><span class="syntax3">:</span>
+            <span class="syntax1">END</span>
+            <span class="syntax1">DEFAULT</span><span class="syntax3">:</span>
+                c&aacute;lculo<span class="syntax3">+=</span>ascii<span class="syntax3">;</span>
+            <span class="syntax1">END</span>
+        <span class="syntax1">END</span>
+
+        resultado <span class="syntax3">=</span> calculate<span
+class="syntax3">(</span>c&aacute;lculo<span class="syntax3">);</span> <span
+class="syntax5">// Eval&uacute;a el c&aacute;lculo</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>timer <span
+class="syntax1">MOD</span> <span class="syntax2">100</span><span class="syntax3">&gt;</span><span
+class="syntax2">50</span><span class="syntax3">)</span>
+            c&aacute;lculo<span class="syntax3">+=</span><span class="syntax4">"_"</span><span
+class="syntax3">;</span>
+        <span class="syntax1">ELSE</span>
+            c&aacute;lculo<span class="syntax3">+=</span><span class="syntax4">" "</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        c&aacute;lculo<span class="syntax3">--;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo permite al usuario introducir una expresi&oacute;n en una cadena de
+    texto (ver <a href="1406.html">STRING</a>) y la eval&uacute;a con la funci&oacute;n
+    <strong>calculate()</strong> para mostrar el resultado de la misma.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Si se produce un error en la evaluaci&oacute;n de la expresi&oacute;n
+    (por ejemplo, que exista alg&uacute;n par&eacute;ntesis sin cerrar), la funci&oacute;n
+    devolver&aacute; <strong>0</strong> como resultado.</p>
+    <hr />
+    Ver: <a href="255.html">itoa()</a> - <a href="171.html">write()</a> - <a
+    href="1406.html">STRING</a>
+  </body>
+</html>
+

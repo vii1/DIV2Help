@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - unload_song()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>unload_song()</h1>
+
+    <p><strong>unload_song(</strong>&lt;identificador del m&oacute;dulo&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Descarga de memoria el m&oacute;dulo musical cuyo identificador se pasa como
+    par&aacute;metro. Este <strong>&lt;identificador del m&oacute;dulo&gt;</strong> es el valor que
+    retorna la funci&oacute;n <a href="214.html">load_song()</a> al cargarlo en memoria.</p>
+
+    <p>Tras descargarse un m&oacute;dulo <strong>se deben extremar las precauciones</strong> para
+    no continuar utiliz&aacute;ndolo en el programa, en cuyo caso el programa correr&iacute;a el
+    riesgo de bloquearse.</p>
+
+    <p><strong>No es necesario descargar los m&oacute;dulos</strong> antes de finalizar el
+    programa, ya que el sistema lo har&aacute; de forma autom&aacute;tica. Luego, solamente deben
+    descargarse de memoria cuando ya no se vayan a utilizar durante un tiempo determinado y se
+    quiera liberar el espacio ocupado en la memoria del ordenador para cargar otros recursos (otros
+    ficheros de gr&aacute;ficos, sonidos, fuentes, etc.).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_unload_song<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    id_canci&oacute;n<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_song<span class="syntax3">(</span><span class="syntax4">"help\help.xm"</span><span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">);</span>
+    song<span class="syntax3">(</span>id_canci&oacute;n<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Pulse ESC para terminar"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_ESC<span class="syntax3">));</span>
+
+    unload_song<span class="syntax3">(</span>id_canci&oacute;n<span class="syntax3">);</span> <span
+class="syntax5">// Libera la memoria ocupada por el m&oacute;dulo</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo carga el m&oacute;dulo contenido en el archivo <strong>help.xm</strong> con la
+    funci&oacute;n <a href="214.html">load_song()</a>. La reproducci&oacute;n del archivo se inicia
+    con una llamada a la funci&oacute;n <a href="216.html">song()</a>.</p>
+
+    <p>El programa permanecer&aacute; reproduciendo este m&oacute;dulo hasta que se pulse la tecla
+    <strong>ESC</strong>, momento en el que se finalizar&aacute; el bucle principal y se
+    descargar&aacute; el m&oacute;dulo de memoria con la funci&oacute;n
+    <strong>unload_song()</strong>, indicando como par&aacute;metro
+    <strong>id_canci&oacute;n</strong> que es contiene el <strong>identificador del
+    m&oacute;dulo</strong> devuelto al cargarlo.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Las m&uacute;sicas contenidas en pistas de CD-Audio, cuya
+    reproducci&oacute;n se inicia con la funci&oacute;n <a href="144.html">play_cd()</a>, no ocupan
+    memoria en el ordenador, por lo que no pueden descargarse con la funci&oacute;n
+    <strong>unload_song()</strong>.</p>
+    <hr />
+    Ver: <a href="214.html">load_song()</a> - <a href="216.html">song()</a>
+  </body>
+</html>
+

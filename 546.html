@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - N&uacute;mero de par&aacute;metros incorrecto</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>N&uacute;mero de par&aacute;metros incorrecto</h1>
+
+    <p>El proceso o funci&oacute;n tiene un n&uacute;mero diferente de par&aacute;metros a los que
+    aparecen en la posici&oacute;n se&ntilde;alada en el programa.</p>
+
+    <p>Si se trata de una funci&oacute;n, acceda al <strong>glosario</strong> para consultar los
+    par&aacute;metros que requiere o bien sit&uacute;e el cursor sobre el nombre de la
+    funci&oacute;n en el programa y entonces pulse <strong>F1</strong>.</p>
+
+    <p>Si se trata de un proceso, entonces puede que en la posici&oacute;n se&ntilde;alada el
+    n&uacute;mero de par&aacute;metros sea correcto pero haya aparecido una llamada a dicho proceso
+    anteriormente en el programa con un n&uacute;mero diferente de par&aacute;metros.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mi_proceso<span class="syntax3">();</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">)</span> <span
+class="syntax5">// Error: N&uacute;mero de par&aacute;metros incorrecto.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo el error no est&aacute; en la definici&oacute;n del proceso como se indica,
+    sino en la llamada anterior a dicho proceso (<strong>mi_proceso();</strong>); esto es
+    as&iacute; porque el compilador, cuando se encuentra una llamada a un proceso que no conoce, lo
+    registra como un nuevo proceso y apunta su n&uacute;mero de par&aacute;metros. Si la
+    pr&oacute;xima vez que se encuentre dicho proceso no coincide el n&uacute;mero de
+    par&aacute;metros con los que ten&iacute;a registrados, entonces se emite el error.</p>
+
+    <p>Por tanto, en caso de ser correcta la llamada o definici&oacute;n del proceso
+    se&ntilde;alada en el programa, utilice la opci&oacute;n de b&uacute;squeda
+    (<strong>ALT-F</strong>) para revisar el n&uacute;mero de par&aacute;metros en las anteriores
+    llamadas a dicho proceso.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1018.html">Par&aacute;metros de un proceso</a>
+  </body>
+</html>
+

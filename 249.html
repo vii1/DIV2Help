@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - draw()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>draw()</h1>
+
+    <p><strong>draw(</strong>&lt;tipo&gt;<strong>,</strong> &lt;color&gt;<strong>,</strong>
+    &lt;opacidad&gt;<strong>,</strong> &lt;regi&oacute;n&gt;<strong>,</strong>
+    &lt;x0&gt;<strong>,</strong> &lt;y0&gt;<strong>,</strong> &lt;x1&gt;<strong>,</strong>
+    &lt;y1&gt;<strong>,</strong><strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <strong>identificador de la primitiva gr&aacute;fica</strong> pintada.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Se trata de una funci&oacute;n gen&eacute;rica capaz de representar varias primitivas
+    gr&aacute;ficas en pantalla (como l&iacute;neas, cajas y c&iacute;rculos). Se deben indicar los
+    siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;tipo&gt;</strong> - Tipo de primitiva, dentro de los siguientes:</p>
+
+    <p>&nbsp;&nbsp;<strong>1</strong> - L&iacute;nea recta.<br />
+    &nbsp;&nbsp;<strong>2</strong> - Rect&aacute;ngulo.<br />
+    &nbsp;&nbsp;<strong>3</strong> - Rect&aacute;ngulo relleno.<br />
+    &nbsp;&nbsp;<strong>4</strong> - Elipse.<br />
+    &nbsp;&nbsp;<strong>5</strong> - Elipse rellena.<br />
+    </p>
+
+    <p><strong>&lt;color&gt;</strong> - Color de tinta para la primitiva (de <strong>0</strong> a
+    <strong>255</strong>, como un color de la paleta).</p>
+
+    <p><strong>&lt;opacidad&gt;</strong> - Nivel de opacidad de la primitiva, de <strong>0</strong>
+    a <strong>15</strong> (para permitir efectos de transparencia).</p>
+
+    <p><strong>&lt;regi&oacute;n&gt;</strong> - N&uacute;mero de regi&oacute;n (ventana dentro de
+    la pantalla) en la que se debe pintar la primitiva; normalmente este valor ser&aacute;
+    <strong>0</strong> para poder imprimir la primitiva en cualquier posici&oacute;n de la
+    pantalla. Para definir una regi&oacute;n se debe utilizar la funci&oacute;n <a
+    href="106.html">define_region()</a>.</p>
+
+    <p><strong>&lt;x0&gt;</strong>, <strong>&lt;y0&gt;</strong> - Punto inicial de la recta, o la
+    esquina superior izquierda de la caja que contiene al rect&aacute;ngulo o elipse.</p>
+
+    <p><strong>&lt;x1&gt;</strong>, <strong>&lt;y1&gt;</strong> - Punto final de la recta, o la
+    esquina inferior derecha de la caja que contiene al rect&aacute;ngulo o elipse.</p>
+    <hr />
+
+    <p>Cuando se pinta una primitiva con <strong>draw()</strong> esta permanecer&aacute; fija en
+    pantalla hasta que se mueva con <a href="251.html">move_draw()</a>, o se elimine con <a
+    href="250.html">delete_draw()</a>.</p>
+
+    <p>El <strong>identificador de la primitiva</strong> devuelto por la funci&oacute;n
+    <strong>draw()</strong> ser&aacute; necesario para mover o borrar dicha primitiva.</p>
+
+    <p>El sistema de representaci&oacute;n de estas primitivas gr&aacute;ficas es muy similar al
+    sistema de textos; se pintan con <a href="171.html">write()</a> y permanecen hasta que se
+    muevan con <a href="141.html">move_text()</a> o se eliminen con <a
+    href="107.html">delete_text()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se puede controlar la prioridad de impresi&oacute;n de las primitivas
+    gr&aacute;ficas mediante la variable global predefinida <a href="1418.html">draw_z</a>.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_draw<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    contador<span class="syntax3">;</span>
+    tipo<span class="syntax3">;</span>
+    color<span class="syntax3">;</span>
+    opacidad<span class="syntax3">;</span>
+    x0<span class="syntax3">,</span><span class="syntax1">y0</span><span class="syntax3">;</span>
+    x1<span class="syntax3">,</span><span class="syntax1">y1</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Pulse ESC para terminar ..."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">1</span> <span class="syntax1">TO</span> <span class="syntax2">10</span><span
+class="syntax3">;</span>
+            tipo<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">1</span><span class="syntax3">,</span><span class="syntax2">5</span><span
+class="syntax3">);</span>
+            color<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">255</span><span
+class="syntax3">);</span>
+            opacidad<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">15</span><span
+class="syntax3">);</span>
+            x0<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">319</span><span
+class="syntax3">);</span>
+            <span class="syntax1">y0</span><span class="syntax3">=</span>rand<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">199</span><span class="syntax3">);</span>
+            x1<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">319</span><span
+class="syntax3">);</span>
+            <span class="syntax1">y1</span><span class="syntax3">=</span>rand<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">199</span><span class="syntax3">);</span>
+
+            <span class="syntax5">// Pinta una primitiva gr&aacute;fica</span>
+
+            draw<span class="syntax3">(</span>tipo<span class="syntax3">,</span>color<span
+class="syntax3">,</span>opacidad<span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>x0<span class="syntax3">,</span><span class="syntax1">y0</span><span
+class="syntax3">,</span>x1<span class="syntax3">,</span><span class="syntax1">y1</span><span
+class="syntax3">);</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        delete_draw<span class="syntax3">(</span>all_drawing<span class="syntax3">);</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo representa en pantalla 10 primitivas gr&aacute;ficas cuyas
+    caracter&iacute;sticas son seleccionadas al azar mediante la funci&oacute;n <a
+    href="149.html">rand()</a>, y tras dar una imagen con <a href="1029.html">FRAME</a>, las borra
+    con la funci&oacute;n <a href="250.html">delete_draw()</a>.</p>
+
+    <p>El proceso se repite hasta que se detecta la tecla ESC.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Pueden representarse en pantalla un m&aacute;ximo de
+    <strong>256</strong> primitivas gr&aacute;ficas simult&aacute;neamente.</p>
+    <hr />
+    Ver: <a href="251.html">move_draw()</a> - <a href="250.html">delete_draw()</a> - <a
+    href="1418.html">draw_z</a>
+  </body>
+</html>
+

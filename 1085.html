@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - OFFSET</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>OFFSET</h1>
+
+    <p>La palabra reservada <strong>OFFSET</strong> permite obtener la direcci&oacute;n de un dato
+    dentro de la memoria del ordenador.</p>
+
+    <p>Todos los datos de un programa se corresponden con alguna posici&oacute;n concreta de la
+    memoria en la que est&aacute; almacenado su valor; el operador <strong>OFFSET</strong> permite
+    obtener esta posici&oacute;n como un valor num&eacute;rico.</p>
+
+    <p>Este operador se utiliza, principalmente, en los par&aacute;metros de algunas de las
+    funciones del lenguaje; esto se hace para permitir a dichas funciones que puedan modificar
+    estos par&aacute;metros.</p>
+
+    <p>Si se tiene una variable, por ejemplo denominada <strong>mi_variable</strong>, con el valor
+    <strong>321</strong> y se pasa, como par&aacute;metro, dicha variable a una funci&oacute;n
+    par&aacute;metro, se le est&aacute; pasando a la funci&oacute;n el n&uacute;mero 321; con esto,
+    la funci&oacute;n no podr&aacute; modificar la variable ya que conoce su valor pero no
+    <strong>d&oacute;nde est&aacute; la variable</strong> (pues puede haber muchos valores
+    <strong>321</strong> por toda la memoria del ordenador, y no sabr&aacute; cu&aacute;l de ellos
+    es la variable).</p>
+
+    <p>Si a esta funci&oacute;n se le pasa como par&aacute;metro <strong>OFFSET
+    mi_variable</strong> se le estar&aacute; informando del lugar en el que est&aacute; almacenado
+    el valor de la variable, pudiendo, la funci&oacute;n, acceder a dicho valor para consultarlo o
+    modificarlo.</p>
+
+    <p>Para m&aacute;s informaci&oacute;n sobre este operador se puede acceder al <a
+    href="1079.html">operador ^</a> que realiza la operaci&oacute;n inversa al operador
+    <strong>OFFSET</strong> (es decir, obtiene el valor que hay en una posici&oacute;n determinada
+    de la memoria).</p>
+    <hr />
+
+    <p>El <a href="1050.html">s&iacute;mbolo &amp;</a> puede utilizarse como
+    <strong>sin&oacute;nimo</strong> de la palabra reservada <strong>OFFSET</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1079.html">^</a>
+  </body>
+</html>
+

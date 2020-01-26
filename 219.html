@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_song_pos()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_song_pos()</h1>
+
+    <p><strong>get_song_pos(</strong><strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La posici&oacute;n actual del m&oacute;dulo musical que se est&eacute; reproduciendo.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Devuelve la posici&oacute;n actual de reproducci&oacute;n del m&oacute;dulo musical, esta
+    posici&oacute;n puede fijarse con la funci&oacute;n <a href="218.html">set_song_pos()</a>.</p>
+
+    <p>Esta <strong>&lt;posici&oacute;n del m&oacute;dulo&gt;</strong> es un n&uacute;mero entre 0
+    y el n&uacute;mero m&aacute;ximo de <strong>pattern</strong> (patrones) del m&oacute;dulo. Este
+    valor varia para cada m&oacute;dulo, y se define en los programas utilizados para componerlos.
+    Los m&oacute;dulos suelen tener un n&uacute;mero muy variable de patrones, aunque la media
+    puede situarse entre 30 y 40.</p>
+
+    <p>Dentro de cada patr&oacute;n los m&oacute;dulos tienen un determinado n&uacute;mero de
+    l&iacute;neas (normalmente 64), en las cuales aparecen las notas musicales, por lo que se
+    podr&iacute;a definir cada patr&oacute;n como una peque&ntilde;a secci&oacute;n del
+    m&oacute;dulo musical.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_song_pos<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    id_canci&oacute;n<span class="syntax3">;</span>
+    posici&oacute;n_m&oacute;dulo<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_song<span class="syntax3">(</span><span class="syntax4">"help\help.xm"</span><span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">);</span>
+    song<span class="syntax3">(</span>id_canci&oacute;n<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Posici&oacute;n del m&oacute;dulo:"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> posici&oacute;n_m&oacute;dulo<span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+
+        posici&oacute;n_m&oacute;dulo<span class="syntax3">=</span>get_song_pos<span
+class="syntax3">();</span> <span class="syntax5">// Obtiene la posici&oacute;n</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa carga el m&oacute;dulo contenido en el archivo <strong>help.xm</strong> y
+    entonces inicia su reproducci&oacute;n con la funci&oacute;n <a href="216.html">song()</a>.</p>
+
+    <p>A partir de este momento se mostrar&aacute; la posici&oacute;n actual del m&oacute;dulo en
+    pantalla, obtenida mediante la funci&oacute;n <strong>get_song_pos()</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se puede obtener el n&uacute;mero de l&iacute;nea que se est&aacute;
+    reproduciendo, dentro del patr&oacute;n, con la funci&oacute;n <a
+    href="220.html">get_song_line()</a>.</p>
+    <hr />
+    Ver: <a href="220.html">get_song_line()</a> - <a href="218.html">set_song_pos()</a> - <a
+    href="216.html">song()</a>
+  </body>
+</html>
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL STRUCT reserved</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL STRUCT reserved</h1>
+
+    <p><strong>STRUCT reserved;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>process_id;</strong> // Identificador del proceso<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>id_scan;</strong> // Indice de procesos<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>process_type;</strong> // Tipo de proceso<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>type_scan;</strong> // Indice de tipos<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>status;</strong> // Estado del proceso<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>param_offset;</strong> // Direcci&oacute;n de los
+    par&aacute;metros<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>program_index;</strong> // Contador de programa<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>is_executed;</strong> // Proceso ejecutado<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>is_painted;</strong> // Proceso pintado<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>distance_1;</strong> // Reservado modo 7<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>distance_2;</strong> // Reservado modo 7<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>frame_percent;</strong> // Porcentaje de imagen<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>box_x0, box_y0;</strong> // Inicio del gr&aacute;fico del
+    proceso<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>box_x1, box_y1;</strong> // Final del gr&aacute;fico del
+    proceso<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>m8_object;</strong> // Objeto dentro del mundo m8<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>old_ctype;</strong> // Antiguo Ctype<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>f_count;</strong> // Contador de anidamiento de
+    funci&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>caller_id;</strong> // Proceso o funci&oacute;n llamadora (0 si
+    fu&eacute; el kernel)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>stack_pointer;</strong> // Puntero de pila del proceso<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>En esta estructura se guardan distintas <strong>variables de uso interno</strong>
+    (utilizadas por el <strong>gestor de procesos de DIV Games Studio</strong>).</p>
+
+    <p>Son variables locales reservadas para el sistema. No es necesario conocer estas variables ya
+    que la gran mayor&iacute;a no son de utilidad en la creaci&oacute;n de programas.</p>
+
+    <p><strong>Importante:</strong> Modificar los valores de estas variables provocar&aacute;, muy
+    probablemente, un <strong>bloqueo</strong> del ordenador, un funcionamiento indebido del
+    <strong>gestor de procesos</strong> o problemas al utilizar muchas de las funciones internas.
+    No se asume ninguna responsabilidad por tanto, sobre los posibles problemas derivados del uso
+    indebido de la estructura <strong>reserved</strong>.</p>
+    <hr />
+
+    <p>Se mostrar&aacute;, por tanto, una <strong>breve descripci&oacute;n</strong> de cada uno de
+    estos campos, &uacute;nicamente con fines documentativos.</p>
+
+    <p><strong>process_id</strong> - <a href="1039.html">C&oacute;digo identificador</a> del
+    proceso; este valor se obtiene normalmente con la palabra reservada <a href="1092.html">ID</a>
+    y no se debe modificar el valor de este campo.</p>
+
+    <p><strong>id_scan</strong> - Se utiliza internamente al detectar las colisiones para guardar
+    registro del <a href="1039.html">c&oacute;digo identificador</a> del &uacute;ltimo proceso que
+    ha colisionado con el proceso actual.</p>
+
+    <p><strong>process_type</strong> - Tipo del proceso actual, que se obtiene normalmente con el
+    operador <a href="1042.html">TYPE</a>, indicando el nombre del proceso a continuaci&oacute;n
+    (ver <a href="1042.html">Tipos de procesos</a>).</p>
+
+    <p><strong>type_scan</strong> - Se utiliza internamente para detectar colisiones u obtener
+    c&oacute;digos identificadores de procesos de un tipo determinado.</p>
+
+    <p><strong>status</strong> - Estado actual del proceso. Los valores que puede adoptar este
+    campo son los siguientes:</p>
+
+    <p>&nbsp;&nbsp;<strong>0</strong> - proceso inexistente.<br />
+    &nbsp;&nbsp;<strong>1</strong> - proceso que ha recibido una se&ntilde;al
+    <strong>s_kill</strong>.<br />
+    &nbsp;&nbsp;<strong>2</strong> - proceso vivo o despierto (s_wakeup).<br />
+    &nbsp;&nbsp;<strong>3</strong> - proceso dormido (s_sleep).<br />
+    &nbsp;&nbsp;<strong>4</strong> - proceso congelado (s_freeze).<br />
+    </p>
+
+    <p><strong>param_offset</strong> - Direcci&oacute;n de la memoria del ordenador en la que
+    est&aacute;n situados los par&aacute;metros que ha recibido el proceso.</p>
+
+    <p><strong>program_index</strong> - Contador de programa. Direcci&oacute;n de la memoria del
+    ordenador en la que se encuentra la primera sentencia que debe ejecutar el proceso en la
+    siguiente imagen.</p>
+
+    <p><strong>is_executed</strong> - Indica si este proceso ha sido ya ejecutado en la imagen
+    actual.</p>
+
+    <p><strong>is_painted</strong> - Indica si el gr&aacute;fico del proceso ha sido ya pintado en
+    la imagen actual del juego.</p>
+
+    <p><strong>distance_1</strong> - Distancia vertical del proceso (reservado para procesos que se
+    visualicen en una ventana de modo 7).</p>
+
+    <p><strong>distance_2</strong> - Distancia horizontal del proceso (ocurre lo mismo que en la
+    sentencia anterior).</p>
+
+    <p><strong>frame_percent</strong> - Porcentaje de la siguiente imagen completado por el
+    proceso; &eacute;ste valor ser&aacute; de utilidad cuando se utilice la sentencia <a
+    href="1029.html">FRAME</a> indicando un porcentaje. En caso contrario valdr&aacute; simplemente
+    0 (0%) cuando el proceso no ha sido ejecutado y 100 (100%) cuando ya lo haya sido.</p>
+
+    <p><strong>box_x0, box_y0</strong> - Coordenada superior izquierda del gr&aacute;fico en la
+    imagen anterior del juego (donde se situ&oacute; el gr&aacute;fico en coordenadas de
+    pantalla).</p>
+
+    <p><strong>box_x1, box_y1</strong> - Coordenada inferior derecha del gr&aacute;fico en la
+    imagen anterior del juego.</p>
+
+    <p><strong>m8_object</strong> - N&uacute;mero de objeto dentro de un modo 8, se indica un
+    ordinal relativo al mapa de sectores.</p>
+
+    <p><strong>old_ctype</strong> - Antiguo valor de la variable local ctype, se utiliza para
+    controlar cambios de &aacute;mbito en las coordenadas de un proceso.</p>
+
+    <p><strong>f_count</strong> - Contador de anidamiento de funcion, para controlar el
+    n&uacute;mero de retornos y poder nivelar la pila para cada proceso.</p>
+
+    <p><strong>caller_id</strong> - C&oacute;digo identificador del proceso o funcion que ha
+    invocado a este (0 si fu&eacute; el kernel qui&eacute;n lanz&oacute; este proceso en esta
+    imagen).</p>
+
+    <p><strong>stack_pointer</strong> - Puntero de pila local de cada proceso, mantiene la
+    direcci&oacute;n de la pila a la entrada del proceso, con los par&aacute;metros apilados.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

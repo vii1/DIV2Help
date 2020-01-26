@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - save()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>save()</h1>
+
+    <p><strong>save(</strong>&lt;nombre de archivo&gt;<strong>,</strong> &lt;OFFSET
+    dato&gt;<strong>,</strong> &lt;sizeof(dato)&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Graba un bloque de datos desde la memoria del programa a un archivo en el disco para
+    recuperarlos despu&eacute;s, cuando se requiera, con la funci&oacute;n <a
+    href="130.html">load()</a>.</p>
+
+    <p>Para ello, la funci&oacute;n requiere el <strong>nombre del archivo</strong>, el
+    desplazamiento dentro de la memoria del ordenador de la variable, tabla o estructura guardada
+    en el disco (el desplazamiento del dato se obtiene con <a href="1085.html">OFFSET</a>
+    <strong>&lt;nombre del dato&gt;</strong>) y el n&uacute;mero de posiciones de memoria que ocupa
+    dicho dato (lo que se puede obtener con <a href="1094.html">sizeof</a><strong>(&lt;nombre del
+    dato&gt;)</strong>).</p>
+
+    <p>Es posible guardar varios datos (variables, tablas o estructuras) si estos se han definido
+    dentro de la misma secci&oacute;n (<a href="1006.html">GLOBAL</a>, <a
+    href="1007.html">LOCAL</a> o <a href="1008.html">PRIVATE</a>) y de forma consecutiva; en este
+    caso se debe indicar como <strong>segundo par&aacute;metro</strong> el <a
+    href="1085.html">OFFSET</a> del primer dato, y como <strong>tercer par&aacute;metro</strong> la
+    suma de los <a href="1094.html">sizeof()</a> de todos los datos.</p>
+
+    <p>No es necesario especificar una ruta de acceso junto al nombre de archivo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_load<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    tabla<span class="syntax3">[</span><span class="syntax2">9</span><span
+class="syntax3">];</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Pulse [ENTER] para borrar los datos."</span><span
+class="syntax3">);</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para cargar los datos del disco"</span><span
+class="syntax3">);</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">30</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Valores actuales de los datos:"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">9</span><span
+class="syntax3">;</span>
+        tabla<span class="syntax3">[</span>contador<span class="syntax3">]=</span>rand<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">100</span><span class="syntax3">);</span>
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">40</span><span class="syntax3">+(</span>contador<span class="syntax3">*</span><span
+class="syntax2">10</span><span class="syntax3">),</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> tabla<span
+class="syntax3">[</span>contador<span class="syntax3">]);</span>
+    <span class="syntax1">END</span>
+
+    save<span class="syntax3">(</span><span class="syntax4">"help\help.dat"</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> tabla<span
+class="syntax3">,</span> <span class="syntax1">sizeof</span><span
+class="syntax3">(</span>tabla<span class="syntax3">));</span> <span
+class="syntax5">// Se graba el archivo.</span>
+
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_enter<span class="syntax3">))</span>
+            <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">9</span><span
+class="syntax3">;</span>
+                tabla<span class="syntax3">[</span>contador<span class="syntax3">]=</span><span
+class="syntax2">0</span><span class="syntax3">;</span>
+            <span class="syntax1">END</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_space<span class="syntax3">))</span>
+            load<span class="syntax3">(</span><span class="syntax4">"help\help.dat"</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> tabla<span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Al inicio del ejemplo se crea una tabla de 10 posiciones (del 0 al 9) con valores
+    aleatorios. Esta tabla se graba en el disco con la funci&oacute;n <strong>save()</strong>.</p>
+
+    <p>Cuando se pulsa la tecla ENTER se borran los valores de la tabla (se ponen a 0 las 10
+    posiciones).</p>
+
+    <p>Cuando se pulsa la barra espaciadora se cargan los valores de la tabla del disco con la
+    funci&oacute;n <a href="130.html">load()</a>.</p>
+    <hr />
+
+    <p>Para grabar en el mismo archivo <strong>tabla[9]</strong> y la variable
+    <strong>contador</strong> se deber&iacute;a haber llamado a la funci&oacute;n
+    <strong>save()</strong> de la siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>save("help\help.dat", offset tabla,
+    sizeof(tabla)+sizeof(contador));</strong></p>
+
+    <p>No variando la instrucci&oacute;n de carga (<strong>load("help\help.dat", offset
+    tabla);</strong>), ya que &eacute;sta no requiere el n&uacute;mero de datos.</p>
+
+    <p>El valor devuelto por <a href="1094.html">sizeof()</a> para cualquier variable (como
+    <strong>contador</strong>) ser&aacute; siempre 1, y para una tabla el n&uacute;mero de
+    posiciones de la misma, luego la sentencia de grabaci&oacute;n podr&iacute;a ponerse como
+    (teniendo en cuenta que se van a grabar 11 datos, 10 de la tabla y 1 de la variable):</p>
+
+    <p>&nbsp;&nbsp;<strong>save("help\help.dat", offset tabla, 11);</strong></p>
+    <hr />
+    Ver: <a href="130.html">load()</a> - <a href="1085.html">OFFSET</a> - <a
+    href="1094.html">sizeof()</a>
+  </body>
+</html>
+

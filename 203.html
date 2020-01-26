@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - strcat()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>strcat()</h1>
+
+    <p><strong>strcat(</strong>&lt;cadena destino&gt;<strong>,</strong> &lt;cadena
+    origen&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>Concatena (une) dos cadenas y retorna la direcci&oacute;n de la cadena destino.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Une dos cadenas de texto, copiando la <strong>&lt;cadena origen&gt;</strong> a
+    continuaci&oacute;n del texto contenido en la <strong>&lt;cadena destino&gt;</strong>.</p>
+
+    <p>La <strong>&lt;cadena destino&gt;</strong> debe ser un dato de tipo <a
+    href="1406.html">STRING</a>, de una longitud suficiente como para contener ambas cadenas.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_strcat<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> cadena1<span class="syntax3">=</span><span
+class="syntax4">"Inicio "</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Texto contenido en &lt;cadena1&gt;:"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>cadena1<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">192</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span
+class="syntax4">"Pulse [ESPACIO] para a&ntilde;adir un texto a &lt;cadena1&gt;"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_space<span class="syntax3">))</span>
+
+            strcat<span class="syntax3">(</span>cadena1<span class="syntax3">,</span><span
+class="syntax4">"Final"</span><span class="syntax3">);</span> <span
+class="syntax5">// Suma un texto a cadena1</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+   <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+    <hr />
+
+    <p>Cuando la longitud de la cadena resultante de la suma de ambas sea menor de 1024
+    car&aacute;cteres, se podr&aacute; realizar esta misma operaci&oacute;n con una sentencia como
+    la siguiente (continuando con el ejemplo anterior):</p>
+
+    <p>&nbsp;&nbsp;<strong>cadena1 = cadena1 + "Final";</strong></p>
+
+    <p>&nbsp;&nbsp;(o bien)</p>
+
+    <p>&nbsp;&nbsp;<strong>cadena1 += "Final";</strong></p>
+
+    <p>Es decir, con una sentencia gen&eacute;rica de <a href="1019.html">asignaci&oacute;n</a> (o
+    con el s&iacute;mbolo <a href="1058.html">+=</a>, de asignaci&oacute;n operativa) como la
+    siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>&lt;cadena destino&gt; = &lt;cadena destino&gt; + &lt;cadena origen&gt;
+    ;</strong></p>
+
+    <p>&nbsp;&nbsp;(o bien)</p>
+
+    <p>&nbsp;&nbsp;<strong>&lt;cadena destino&gt; += &lt;cadena origen&gt; ;</strong></p>
+
+    <p>Siendo siempre <strong>&lt;cadena destino&gt;</strong> un dato de tipo <a
+    href="1406.html">STRING</a>.</p>
+    <hr />
+
+    <p>Para copiar cadenas de texto se debe utilizar la funci&oacute;n <a
+    href="202.html">strcpy()</a>.</p>
+
+    <p>Para separar (o restar) cadenas de texto, se debe utilizar la funci&oacute;n <a
+    href="211.html">strdel()</a>.</p>
+    <hr />
+    Ver: <a href="202.html">strcpy()</a> - <a href="204.html">strlen()</a> - <a
+    href="205.html">strcmp()</a> - <a href="206.html">strchr()</a> 
+
+    <p>- <a href="207.html">strstr()</a> - <a href="208.html">strset()</a> - <a
+    href="209.html">upper()</a> - <a href="210.html">lower()</a> - <a
+    href="211.html">strdel()</a></p>
+  </body>
+</html>
+

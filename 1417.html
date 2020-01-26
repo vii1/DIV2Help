@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL vsync</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL vsync</h1>
+
+    <p><strong>vsync=0;</strong> // Esperar al retrazo vertical</p>
+    <hr />
+
+    <p>La variable global predefinida <strong>vsync</strong> define un valor l&oacute;gico (0 o 1)
+    que indica si debe esperarse al <strong>retrazo vertical</strong> antes de volcar la siguiente
+    imagen a v&iacute;deo (cuando todos los procesos ejecuten la sentencia <a
+    href="1029.html">FRAME</a>).</p>
+
+    <p>Por defecto esta variable estar&aacute; siempre a <strong>0</strong>, es decir, que no se
+    espera al retrazo vertical antes de volcar cada imagen a v&iacute;deo.</p>
+
+    <p>Para indicar al sistema que debe esperar al retrazo vertical se debe poner esta variable a
+    <strong>1</strong> (con la sentencia <strong>vsync=1;</strong>).</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Esperar el retrazo vertical puede proporcionar una suavidad de
+    movimientos mucho mayor en los programas (el efecto es sobre todo m&aacute;s notable en los
+    efectos de panor&aacute;mica, ver <a href="163.html">start_scroll()</a>), pero esperar al
+    retrazo tambi&eacute;n enlentecer&aacute; los programas en la gran mayor&iacute;a de
+    ocasiones.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a>
+  </body>
+</html>
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL joy_filter</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL joy_filter</h1>
+
+    <p><strong>joy_filter=10;</strong> // Filtro aplicado al joystick</p>
+    <hr />
+
+    <p>Esta variable global se utiliza para definir el filtro aplicado a las coordenadas
+    le&iacute;das del joystick.</p>
+
+    <p>Se define como un porcentaje de <strong>0 %</strong> a <strong>99 %</strong>; por defecto
+    <strong>joy_filter</strong> valdr&aacute; <strong>10</strong> (se aplicar&aacute; un filtro de
+    un 10%).</p>
+
+    <p>La utilidad de aplicar este filtro a las coordenadas del joystick es para suavizar los
+    movimientos del mismo y evitar posibles "<strong>picos</strong>" en la lectura de las
+    coordenadas; dichas coordenadas del joystick se deben obtener con la funci&oacute;n <a
+    href="122.html">get_joy_position()</a>. La variable <strong>joy_filter</strong>
+    &uacute;nicamente ser&aacute; de utilidad cuando se est&eacute; utilizando &eacute;sta
+    &uacute;ltima funci&oacute;n.</p>
+
+    <p>Cuanto mayor sea el filtro aplicado m&aacute;s se suavizar&aacute;n los movimientos del
+    mismo, pero tambi&eacute;n se retardar&aacute; su respuesta.</p>
+
+    <p>Dado que la funci&oacute;n cometida por este "<strong>filtro</strong>" es algo
+    dif&iacute;cil de comprender, se muestra a continuaci&oacute;n un ejemplo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_joy_filter<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"joy_filter="</span><span class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">70</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> joy_filter<span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">180</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"El gr&aacute;fico se muestra en las coordenadas del joystick"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">190</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice las teclas arriba/abajo para variar el filtro"</span><span
+class="syntax3">);</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_up <span class="syntax1">AND</span> joy_filter<span
+class="syntax3">&lt;</span><span class="syntax2">99</span><span class="syntax3">)</span>
+            joy_filter<span class="syntax3">++;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_down <span class="syntax1">AND</span> joy_filter<span
+class="syntax3">&gt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+            joy_filter<span class="syntax3">--;</span>
+        <span class="syntax1">END</span>
+        x<span class="syntax3">=</span>get_joy_position<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">);</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span>get_joy_position<span
+class="syntax3">(</span><span class="syntax2">1</span><span class="syntax3">);</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa imprime el gr&aacute;fico de una bola en las coordenadas devueltas por el
+    joystick principal mediante la funci&oacute;n <a href="122.html">get_joy_position()</a>.</p>
+
+    <p>Se puede observar como, para valores peque&ntilde;os de <strong>joy_filter</strong>, se
+    producen muchos "<strong>picos</strong>" (irregularidades) en la lectura, y como para valores
+    muy grandes (como 95%) se produce una lectura de las coordenadas mucho m&aacute;s suave y
+    regular, pero ligeramente retardada.</p>
+
+    <p><strong>Nota:</strong> Es imprescindible tener un joystick (o gamepad) conectado al
+    ordenador para que esta variable tenga utilidad. Si el joystick se conecta durante la
+    ejecuci&oacute;n del programa, el sistema no lo detectar&aacute; (debe estar conectado desde el
+    inicio). Ver la variable global <a href="1112.html">joy_status</a>.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="122.html">get_joy_position()</a> - <a
+    href="1112.html">joy_status</a>
+  </body>
+</html>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - is_playing_cd()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>is_playing_cd()</h1>
+
+    <p><strong>is_playing_cd()</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>Cierto</strong> (1) si est&aacute; sonando el CD, o <strong>falso</strong> (0) si no
+    est&aacute; sonando.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n sirve para poder determinar si el CD est&aacute; tocando una
+    canci&oacute;n.</p>
+
+    <p>Devuelve <strong>Cierto</strong> (un n&uacute;mero impar) si el CD est&aacute; tocando una
+    canci&oacute;n, en caso contrario devuelve <strong>Falso</strong> (un n&uacute;mero par).</p>
+
+    <p>Su uso m&aacute;s generalizado es para poder tocar una canci&oacute;n indefinidamente como
+    se muestra en el siguiente ejemplo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_is_playing_cd<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    play_cd<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span><span
+class="syntax1">NOT</span> is_playing_cd<span class="syntax3">())</span> <span
+class="syntax5">// Comprueba si ya ha finalizado la canci&oacute;n</span>
+
+            play_cd<span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El ejemplo anterior (para el cual se necesita tener un <strong>Compact disc</strong> de
+    m&uacute;sica en el cargador de <strong>CD-ROM</strong>) utiliza la funci&oacute;n <a
+    href="144.html">play_cd()</a> para hacer sonar la primera canci&oacute;n del disco.</p>
+
+    <p>Despu&eacute;s, en un bucle, se comprueba si dicha canci&oacute;n ha terminado de sonar para
+    volver a lanzarla.</p>
+    <hr />
+
+    <p>El volumen de reproducci&oacute;n de cd-audio se puede controlar con la estructura <a
+    href="1104.html">setup</a> y la funci&oacute;n <a href="178.html">set_volume()</a>.</p>
+    <hr />
+    Ver: <a href="144.html">play_cd()</a> - <a href="164.html">stop_cd()</a> - <a
+    href="178.html">set_volume()</a> - <a href="1104.html">Estructura setup</a>
+  </body>
+</html>
+

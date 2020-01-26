@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL flags</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL flags</h1>
+
+    <p><strong>flags=0;</strong> // Indicador de espejados y transparencia</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>flags</strong>.</p>
+
+    <p>La variable local <strong>flags</strong> indica los espejados y transparencias con los que
+    se imprimir&aacute; el gr&aacute;fico del proceso; los posibles valores son:</p>
+
+    <p>&nbsp;<strong>0</strong>-Gr&aacute;fico normal.<br />
+    &nbsp;<strong>1</strong>-Espejado horizontal.<br />
+    &nbsp;<strong>2</strong>-Espejado vertical.<br />
+    &nbsp;<strong>3</strong>-Espejado horizontal y vertical (180&deg;).<br />
+    &nbsp;<strong>4</strong>-Gr&aacute;fico transparente.<br />
+    &nbsp;<strong>5</strong>-Transparente y espejado horizontal.<br />
+    &nbsp;<strong>6</strong>-Transparente y espejado vertical.<br />
+    &nbsp;<strong>7</strong>-Transparente, espejado horizontal y vertical.<br />
+    </p>
+
+    <p>El valor por defecto de la variable <strong>flags</strong> es <strong>0</strong>, es decir,
+    que si no se modifica el gr&aacute;fico se mostrar&aacute; opaco (sin transparencia) y sin
+    espejar.</p>
+
+    <p>Se definen a continuaci&oacute;n los t&eacute;rminos de <strong>espejado</strong> y
+    <strong>transparencia</strong>:</p>
+
+    <p>- <strong>Espejado horizontal</strong>, el gr&aacute;fico se invertir&aacute;
+    horizontalmente, es decir, si estaba mirando hacia la izquierda, mirar&aacute; a la derecha y
+    viceversa.</p>
+
+    <p>- <strong>Espejado vertical</strong>, el gr&aacute;fico se invertir&aacute; verticalmente,
+    es decir, si estaba mirando hacia arriba, mirar&aacute; hacia abajo y viceversa.</p>
+
+    <p>- <strong>Transparencia</strong> (o <strong>ghost-layering</strong>), el gr&aacute;fico se
+    mostrar&aacute; semitransparente, es decir, se podr&aacute; ver lo que haya detr&aacute;s del
+    gr&aacute;fico, como si &eacute;ste fuera una cristalera de colores, en contraposici&oacute;n a
+    los gr&aacute;ficos opacos que se muestran normalmente.</p>
+
+    <p>Por ejemplo, para que el gr&aacute;fico de un proceso se muestre transparente se debe
+    utilizar la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>flags=4;</strong></p>
+    <hr />
+
+    <p><strong>Nota:</strong> El gr&aacute;fico de un proceso se debe indicar asignando un
+    <strong>c&oacute;digo de gr&aacute;fico</strong> a la variable local <a
+    href="1126.html">graph</a>.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a>
+  </body>
+</html>
+

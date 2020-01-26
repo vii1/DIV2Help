@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia SWITCH</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia SWITCH</h1>
+
+    <p><strong>SWITCH</strong> <a href="1053.html">(</a> <a
+    href="1035.html">&lt;expresi&oacute;n&gt;</a> <a href="1053.html">)</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1087.html">CASE</a> <strong>&lt;rango de valores&gt;</strong>
+    <a href="1067.html">:</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1091.html">END</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1088.html">DEFAULT</a> <a href="1067.html">:</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1091.html">END</a><br />
+    <a href="1091.html">END</a></p>
+
+    <p>Una sentencia <strong>SWITCH</strong> consta de una serie de secciones <a
+    href="1087.html">CASE</a> y, opcionalmente, una secci&oacute;n <a
+    href="1088.html">DEFAULT</a>.</p>
+
+    <p>Cuando se ejecuta una sentencia <strong>SWITCH</strong>, primero se eval&uacute;a la
+    expresi&oacute;n y despu&eacute;s, si el resultado est&aacute; dentro del rango de valores
+    contemplados en la primera secci&oacute;n <strong>CASE</strong>, se ejecutar&aacute;n las
+    sentencias de la misma y se dar&aacute; por finalizada la sentencia. En caso de no estar el
+    resultado de la expresi&oacute;n en el primer <a href="1087.html">CASE</a> se pasar&aacute; a
+    comprobarlo con el segundo <a href="1087.html">CASE</a>, el tercero, etc. Y, por &uacute;ltimo,
+    si existe una secci&oacute;n <a href="1088.html">DEFAULT</a> y el resultado de la
+    expresi&oacute;n no ha coincidido con ninguna de las secciones <a href="1087.html">CASE</a>,
+    entonces se ejecutar&aacute;n las sentencias de la secci&oacute;n <a
+    href="1088.html">DEFAULT</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">SWITCH</span> <span class="syntax3">(</span>x<span
+class="syntax3">)</span>
+        <span class="syntax1">CASE</span> <span class="syntax2">1</span><span
+class="syntax3">:</span>
+            x<span class="syntax3">=-</span><span class="syntax2">1</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">CASE</span> <span class="syntax2">2</span><span
+class="syntax3">:</span>
+            x<span class="syntax3">=-</span><span class="syntax2">2</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">CASE</span> <span class="syntax2">3</span><span
+class="syntax3">:</span>
+            x<span class="syntax3">=-</span><span class="syntax2">3</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">CASE</span> <span class="syntax2">99</span><span
+class="syntax3">:</span>
+            x<span class="syntax3">=-</span><span class="syntax2">99</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">DEFAULT</span><span class="syntax3">:</span>
+            x<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>La sentencia <strong>SWITCH</strong> de este programa cambiar&aacute; de signo la variable
+    <strong>x</strong> si &eacute;sta vale <strong>1</strong>, <strong>2</strong>,
+    <strong>3</strong> o <strong>99</strong>; en caso contrario la pondr&aacute; a
+    <strong>0</strong>.</p>
+
+    <p><strong>Rango de valores de una secci&oacute;n case</strong></p>
+    <hr />
+
+    <p>En una secci&oacute;n case se puede especificar un valor, un rango de valores (m&iacute;nimo
+    <a href="1064.html">..</a> m&aacute;ximo), o una lista de valores y/o rangos separados por <a
+    href="1059.html">comas (,)</a>. Por ejemplo, la sentencia anterior se podr&iacute;a haber
+    expresado como:</p>
+
+    <p>&nbsp;&nbsp;<strong>SWITCH (x)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>CASE 1..3, 99:</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=-x;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>DEFAULT:</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=0;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>Una vez ejecutada una de las secciones <a href="1087.html">CASE</a> de una sentencia
+    <strong>SWITCH</strong> <strong>ya no se ejecutar&aacute;n m&aacute;s secciones</strong>,
+    aunque &eacute;stas especifiquen tambi&eacute;n el resultado de la expresi&oacute;n, por
+    ejemplo, en la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>SWITCH (2+2)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>CASE 3..5:</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=x+1;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>CASE 2, 4, 6:</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>y=y-1;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;&nbsp;<strong>END</strong></p>
+
+    <p>Se ejecutar&aacute; la secci&oacute;n <strong>x=x+1;</strong> y despu&eacute;s se
+    finalizar&aacute; la sentencia, no ejecut&aacute;ndose la secci&oacute;n
+    <strong>y=y-1;</strong> pues, aunque el resultado de la expresi&oacute;n evaluada
+    (<strong>4</strong>) est&aacute; contemplado en ella, tambi&eacute;n lo est&aacute; en la
+    secci&oacute;n anterior, (ya que 4 est&aacute; dentro del rango 3..5).</p>
+
+    <p>No es necesario ordenar las secciones <a href="1087.html">CASE</a> seg&uacute;n sus valores
+    (de menor a mayor, o de mayor a menor), pero s&iacute; es imprescindible que la secci&oacute;n
+    <a href="1088.html">DEFAULT</a> (en caso de haberla) sea la &uacute;ltima secci&oacute;n. No
+    puede haber m&aacute;s que una secci&oacute;n <a href="1088.html">DEFAULT</a>.</p>
+
+    <p>Es posible anidar sentencias <strong>SWITCH</strong> sin ning&uacute;n l&iacute;mite, es
+    decir, se pueden poner nuevas sentencias <strong>SWITCH</strong> dentro de una secci&oacute;n
+    <a href="1087.html">CASE</a> (y cualquier otro tipo de sentencia).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Datos de tipo STRING</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Datos de tipo STRING</h1>
+
+    <p>Las tablas <strong>STRING</strong> son una excepci&oacute;n, reciben un tratamiento especial
+    como <strong>cadenas de texto</strong>, y &uacute;nicamente pueden tener <strong>1
+    dimensi&oacute;n</strong>. Si no se le asigna un literal, la cadena quedar&aacute; inicializada
+    a <strong>""</strong> (<strong>cadena vac&iacute;a</strong>).</p>
+
+    <p>Si se define una cadena como <strong>STRING s="abc";</strong>, cuando se acceda a ella por
+    su nombre (<strong>s</strong>) se estar&aacute; refiriendo a la cadena contenida
+    (<strong>"abc"</strong>). Adem&aacute;s se podr&aacute; acceder a cualquier caracter de la
+    cadena como si fuese un elemento de una tabla (por ejemplo, la sentencia
+    <strong>s[3]="d";</strong> a&ntilde;adir&iacute;a una <strong>"d"</strong> a la cadena).</p>
+
+    <p><strong>Nota:</strong> No es necesario declarar entre corchetes la longitud de las cadenas
+    de texto (se reservar&aacute; espacio para guardar hasta 256 caracteres).</p>
+    <hr />
+
+    <p><strong>Operaciones con cadenas de texto.</strong></p>
+
+    <p>Dentro de un programa, suponiendo los datos <strong>s</strong> y <strong>r</strong> de tipo
+    <strong>STRING</strong>, se podr&iacute;an realizar operaciones como las siguientes.</p>
+
+    <p><strong>1.</strong> Se pueden utilizar los datos de tipo <strong>STRING</strong> en todas
+    las funciones que requieren un texto (como <a href="171.html">write</a>(0,0,0,0,s), <a
+    href="132.html">load_fpg</a>(r), ...).</p>
+
+    <p><strong>2.</strong> Tambi&eacute;n es posible asignar literales a una cadena simplemente
+    poniendo <strong>s="cualquier texto...";</strong> o asignar una cadena a otra, como con
+    <strong>s=r;</strong>.</p>
+
+    <p><strong>3.</strong> Pueden sumarse cadenas con sentencias como <strong>s+="texto a
+    a&ntilde;adir";</strong> o <strong>s=r+"ho"+"la";</strong>.</p>
+
+    <p><strong>4.</strong> Adem&aacute;s puede a&ntilde;adirse un car&aacute;cter a una cadena con
+    sentencias como <strong>s+=ascii;</strong> o <strong>r+="a";</strong>.</p>
+
+    <p><strong>5.</strong> Se puede quitar un car&aacute;cter de la cadena (del final) con
+    <strong>s--;</strong>, <strong>s-=1;</strong> o <strong>r=s-1;</strong>.</p>
+
+    <p><strong>6.</strong> Pueden compararse cadenas con condiciones como
+    <strong>(s=="hola")</strong>, <strong>(s&gt;=r)</strong>, <strong>(s&lt;"0"+r)</strong>,
+    etc.</p>
+
+    <p><strong>7.</strong> Y, al margen de todas estas operaciones, existe un gran n&uacute;mero de
+    funciones de manejo de texto (ver la <a href="1032.html">lista de funciones del
+    lenguaje</a>).</p>
+    <hr />
+
+    <p><strong>Literales de varias l&iacute;neas.</strong></p>
+
+    <p>Es posible definir literales en varias l&iacute;neas, para ello s&iacute;mplemente
+    deber&aacute; dividirse el texto en varios, y ponerse estos seguidos (sin separarse por
+    ning&uacute;n s&iacute;mbolo). Por ejemplo, se podr&iacute;a definir una constante como:</p>
+
+    <p><strong>saludo="&iexcl;Ho"</strong><br />
+     <strong>"la!";</strong></p>
+
+    <p>Esto podr&iacute;a utilizarse tambi&eacute;n para inicializar los datos de tipo
+    <strong>STRING</strong>. No hay l&iacute;mite en el n&uacute;mero de l&iacute;neas. Entre dos
+    literales seguidos &uacute;nicamente podr&iacute;an aparecer <a
+    href="1002.html">comentarios</a>.</p>
+    <hr />
+    Ver: <a href="1401.html">Tipos de datos</a> - <a href="1009.html">Declaraci&oacute;n de un
+    dato</a>
+  </body>
+</html>
+

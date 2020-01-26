@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT dirinfo</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT dirinfo</h1>
+
+    <p><strong>STRUCT dirinfo;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>files;</strong> // Numero de archivos en lista<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>name[1024];</strong> // Nombres de los archivos<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura global predefinida se utiliza como retorno de la funci&oacute;n <a
+    href="231.html">get_dirinfo()</a>, para contener la lista de archivos de un directorio (o
+    carpeta).</p>
+
+    <p>Se trata de una estructura de un &uacute;nico registro, que agrupa una variable
+    <strong>files</strong> y una tabla de punteros a <strong>cadenas de texto</strong>
+    (<strong>name[]</strong>).</p>
+    <hr />
+
+    <p><strong>Se muestra a continuaci&oacute;n una descripci&oacute;n detallada de cada
+    campo</strong></p>
+
+    <p><strong>name[]</strong> - La funci&oacute;n <a href="231.html">get_dirinfo()</a> simplemente
+    retorna el <strong>n&uacute;mero total</strong> de archivos listados; los nombres de estos
+    archivos se guardan en esta estructura global, en la tabla <strong>name[]</strong> de la misma
+    (el primer nombre de archivo se guarda en <strong>dirinfo.name[0]</strong>, el segundo en
+    <strong>dirinfo.name[1]</strong>, etc.).</p>
+    <hr />
+
+    <p><strong>files</strong> - El <strong>n&uacute;mero total</strong> de archivos listados que
+    retorna esta funci&oacute;n se guarda adem&aacute;s este campo (es decir, en
+    <strong>dirinfo.files</strong>).</p>
+    <hr />
+
+    <p>La lista de nombres de archivos se guarda siempre en orden alfab&eacute;tico, no obstante se
+    puede utilizar la funci&oacute;n <a href="213.html">qsort()</a> para ordenar la estructura por
+    otro criterio.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="231.html">get_dirinfo()</a>
+  </body>
+</html>
+

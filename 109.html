@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - exit()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>exit()</h1>
+
+    <p><strong>exit(</strong>&lt;mensaje&gt;<strong>,</strong> &lt;c&oacute;digo de
+    retorno&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Termina el juego matando todos los procesos de forma inmediata y regresando al sistema
+    operativo (o al entorno DIV) con un <strong>mensaje</strong> y un <strong>c&oacute;digo
+    num&eacute;rico</strong> (el indicado en la expresi&oacute;n del segundo par&aacute;metro).</p>
+
+    <p>El mensaje es un texto entre comillas que aparecer&aacute; cuando finalice el juego como
+    mensaje de despedida para el jugador.</p>
+
+    <p>El <strong>c&oacute;digo de retorno</strong> es v&aacute;lido para el uso de programas
+    externos a DIV Games Studio (como ficheros de proceso por lotes BAT), para determinar la
+    acci&oacute;n que se debe realizar tras ejecutarse el juego.</p>
+
+    <p>Cuando se utiliza la funci&oacute;n <strong>exit()</strong> no es necesario haber descargado
+    previamente ning&uacute;n recurso, como ficheros, mapas, sonidos, etc., ya que el sistema
+    finaliza de forma autom&aacute;tica todos los recursos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_exit<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulsa [ESPACIO] para acabar el programa."</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key <span
+class="syntax3">(</span>_space<span class="syntax3">))</span>
+            fade_off<span class="syntax3">();</span>
+
+            exit<span class="syntax3">(</span><span
+class="syntax4">"Gracias por usarme!"</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">);</span> <span
+class="syntax5">// Salimos del programa</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se imprime un mensaje y luego se espera a que se pulse la barra espaciadora
+    para salir del programa con la funci&oacute;n <strong>exit()</strong>.</p>
+
+    <p>El uso de la funci&oacute;n <a href="111.html">fade_off()</a> para apagar la pantalla no
+    resulta necesario.</p>
+    <hr />
+
+    <p>Todos los programas terminar&aacute;n su ejecuci&oacute;n si se pulsa la combinaci&oacute;n
+    de teclas <strong>[ALT]+[X]</strong> en cualquier momento; esto resulta similar a forzar la
+    ejecuci&oacute;n de la funci&oacute;n <strong>exit()</strong>, s&oacute;lo que sin mensaje y
+    con el c&oacute;digo de retorno 0.</p>
+    <hr />
+    Ver: <a href="129.html">let_me_alone()</a> - <a href="111.html">fade_off()</a>
+  </body>
+</html>
+

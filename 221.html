@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - is_playing_sound()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>is_playing_sound()</h1>
+
+    <p><strong>is_playing_sound(</strong>&lt;n&uacute;mero de canal&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>0</strong> - Si el canal est&aacute; parado.<br />
+    <strong>1</strong> - Si est&aacute; sonando un sonido por el canal.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite saber si uno de los <strong>canales de sonido</strong> esta
+    reproduciendo sonido, o si est&aacute; disponible.</p>
+
+    <p>Se requiere como par&aacute;metro el <strong>&lt;n&uacute;mero de canal&gt;</strong>, este
+    valor se obtiene como retorno de la funci&oacute;n <a href="159.html">sound()</a> al iniciarse
+    la reproducci&oacute;n de un efecto de sonido.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_is_playing_sound<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    sonido<span class="syntax3">;</span>
+    canal<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Pulse ESC para finalizar."</span><span
+class="syntax3">);</span>
+    sonido <span class="syntax3">=</span> load_pcm<span class="syntax3">(</span><span
+class="syntax4">"help\help.pcm"</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">);</span>
+    canal  <span class="syntax3">=</span> sound<span class="syntax3">(</span>sonido<span
+class="syntax3">,</span> <span class="syntax2">256</span><span class="syntax3">,</span> rand<span
+class="syntax3">(</span><span class="syntax2">100</span><span class="syntax3">,</span><span
+class="syntax2">400</span><span class="syntax3">));</span>
+    <span class="syntax1">REPEAT</span>
+
+        <span
+class="syntax5">// Si finaliz&oacute; la reproducci&oacute;n, vuelve a lanzar el sonido</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span><span
+class="syntax1">NOT</span> is_playing_sound<span class="syntax3">(</span>canal<span
+class="syntax3">))</span>
+
+            canal <span class="syntax3">=</span> sound<span class="syntax3">(</span>sonido<span
+class="syntax3">,</span> <span class="syntax2">256</span><span class="syntax3">,</span> rand<span
+class="syntax3">(</span><span class="syntax2">100</span><span class="syntax3">,</span><span
+class="syntax2">400</span><span class="syntax3">));</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_ESC<span class="syntax3">));</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo utiliza una funci&oacute;n para tocar un sonido continuamente, de forma
+    controlada por el programa, en lugar de autom&aacute;ticamente (lo que se suele hacer indicando
+    en la carga del sonido que &eacute;ste es c&iacute;clico, en las funciones <a
+    href="134.html">load_pcm()</a> o <a href="134.html">load_wav()</a>).</p>
+
+    <p>Se inicia la reproducci&oacute;n de nuevo siempre que el canal del sonido haya quedado
+    libre, es decir, cada vez que acabe de reproducirse el efecto.</p>
+
+    <p>El programa aprovecha esta circunstancia (controlar manualmente la repetici&oacute;n) para
+    emitir el sonido a una frecuencia diferente en cada ocasi&oacute;n, lo que no podr&iacute;a
+    hacerse con una repetici&oacute;n autom&aacute;tica. Esta frecuencia se obtiene como un valor
+    al azar entre 100 y 400 con la funci&oacute;n <a href="149.html">rand()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Un mismo sonido puede reproducirse por diferentes canales cada vez,
+    por ello es necesario guardar el n&uacute;mero de canal cada vez que se inicia la
+    reproducci&oacute;n.</p>
+    <hr />
+    Ver: <a href="159.html">sound()</a> - <a href="102.html">change_sound()</a> - <a
+    href="222.html">is_playing_song()</a>
+  </body>
+</html>
+

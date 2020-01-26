@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - [BREAK] no aparece dentro de un bucle</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>[BREAK] no aparece dentro de un bucle</h1>
+
+    <p>La sentencia <a href="1026.html">BREAK</a> provoca que el programa contin&uacute;e tras el
+    bucle que se est&eacute; ejecutando.</p>
+
+    <p>Esta sentencia sirve para salir de los siguientes bucles:</p>
+
+    <p>&nbsp;&nbsp;<a href="1024.html">LOOP</a> ... <a href="1091.html">END</a><br />
+    &nbsp;&nbsp;<a href="1043.html">FROM</a> .. <a href="1096.html">TO</a> .. <a
+    href="1095.html">STEP</a> .. ... <a href="1091.html">END</a><br />
+    &nbsp;&nbsp;<a href="1023.html">REPEAT</a> ... <a href="1097.html">UNTIL</a> <a
+    href="1053.html">(</a> .. <a href="1053.html">)</a><br />
+    &nbsp;&nbsp;<a href="1022.html">WHILE</a> <a href="1053.html">(</a> .. <a
+    href="1053.html">)</a> ... <a href="1091.html">END</a><br />
+    &nbsp;&nbsp;<a href="1025.html">FOR</a> <a href="1053.html">(</a> .. <a href="1068.html">;</a>
+    .. <a href="1068.html">;</a> .. <a href="1053.html">)</a> ... <a href="1091.html">END</a><br />
+    </p>
+
+    <p>Un <a href="1026.html">BREAK</a> provocar&aacute; que el programa contin&uacute;e
+    ejecut&aacute;ndose tras el <a href="1091.html">END</a> o <a href="1097.html">UNTIL</a> del
+    bucle m&aacute;s cercano a la sentencia. <a href="1026.html">BREAK</a> s&oacute;lo puede
+    aparecer dentro de uno de estos bucles}.</p>
+
+    <p>En caso de haber varios bucles anidados (unos dentro de otros) la sentencia <a
+    href="1026.html">BREAK</a> saldr&aacute; unicamente del bucle m&aacute;s interior de todos
+    ellos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">REPEAT</span>
+            <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">))</span> <span class="syntax1">BREAK</span><span
+class="syntax3">;</span> <span class="syntax1">END</span>
+            <span class="syntax5">//...</span>
+        <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>x<span
+class="syntax3">==</span><span class="syntax2">0</span><span class="syntax3">);</span>
+        <span class="syntax5">//...</span>
+    <span class="syntax1">END</span>
+    <span class="syntax1">BREAK</span><span class="syntax3">;</span> <span
+class="syntax5">// Error: [BREAK] no aparece dentro de un bucle.</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo la sentencia <a href="1026.html">BREAK</a> saldr&aacute; del <a
+    href="1023.html">REPEAT</a> ... <a href="1097.html">UNTIL</a> (cuando se pulse la tecla
+    <strong>ESC</strong>) pero no del <a href="1024.html">LOOP</a> ... <a
+    href="1091.html">END</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1026.html">Sentencia BREAK</a>
+  </body>
+</html>
+

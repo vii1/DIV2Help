@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_fileinfo()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_fileinfo()</h1>
+
+    <p><strong>get_fileinfo(</strong>&lt;nombre de archivo&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>0</strong> - No se pudo obtener informaci&oacute;n sobre el archivo.<br />
+    <strong>1</strong> - La informaci&oacute;n del archivo se guard&oacute; correctamente.<br />
+    </p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Obtiene informaci&oacute;n sobre un archivo o directorio del disco, para ello, la
+    funci&oacute;n requiere el <strong>&lt;nombre del archivo&gt;</strong> como par&aacute;metro
+    (entre comillas). Se puede indicar &uacute;nicamente el nombre, o incluir adem&aacute;s la ruta
+    de acceso al mismo.</p>
+
+    <p>Si la funci&oacute;n encuentra dicho archivo en el directorio especificado (o en el actual,
+    en caso de no especificar ninguno), retornar&aacute; <strong>1</strong> y guardar&aacute; toda
+    la informaci&oacute;n sobre el archivo en la estructura global <a
+    href="1414.html">fileinfo</a>, que contiene los siguientes campos:</p>
+
+    <p><strong>fullpath</strong> - Nombre completo (incluyendo la ruta).<br />
+     <strong>drive</strong> - Unidad de disco (1-A:, 2-B:, 3-C:, ...).<br />
+     <strong>dir</strong> - Directorio del archivo.<br />
+     <strong>name</strong> - Nombre del archivo.<br />
+     <strong>ext</strong> - Extensi&oacute;n del archivo.<br />
+     <strong>size</strong> - Tama&ntilde;o (en datos simples, ver <a
+    href="1420.html">unit_size</a>).<br />
+     <strong>day</strong> - D&iacute;a (fecha de &uacute;ltima actualizaci&oacute;n).<br />
+     <strong>month</strong> - Mes (fecha de &uacute;ltima actualizaci&oacute;n).<br />
+     <strong>year</strong> - A&ntilde;o (fecha de &uacute;ltima actualizaci&oacute;n).<br />
+     <strong>hour</strong> - Hora (hora de &uacute;ltima actualizaci&oacute;n).<br />
+     <strong>min</strong> - Minuto (hora de &uacute;ltima actualizaci&oacute;n).<br />
+     <strong>sec</strong> - Segundo (hora de &uacute;ltima actualizaci&oacute;n).<br />
+     <strong>attrib</strong> - Atributos del archivo.<br />
+    </p>
+
+    <p>La ruta de acceso al archivo se puede especificar completa (a partir del directorio raiz de
+    la unidad, como "C:\WINDOWS\...") o relativa al directorio actual (a partir de donde se ejecute
+    el juego, como "MAP\MIOS\..."). En cualquier caso, en <strong>fileinfo.fullpath</strong>
+    siempre se devolver&aacute; la ruta completa a partir del directorio raiz, incluyendo la letra
+    de la unidad.</p>
+    <hr />
+
+    <p>La funci&oacute;n <strong>get_fileinfo()</strong> &uacute;nicamente obtiene
+    informaci&oacute;n sobre un archivo, para obtener la lista completa de archivos de un
+    directorio, se debe utilizar la funci&oacute;n <a href="231.html">get_dirinfo()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_fileinfo<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+
+    get_fileinfo<span class="syntax3">(</span><span class="syntax4">"HELP\HELP.FPG"</span><span
+class="syntax3">);</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo solicita informaci&oacute;n sobre el fichero
+    <strong>help.fpg</strong> contenido en el directorio <strong>help</strong>. Se puede extraer y
+    trazar (con <strong>F12</strong>) para observar como, tras llamar a la funci&oacute;n, la
+    estructura global predefinida <a href="1413.html">fileinfo</a> se ha rellenado con todos los
+    datos del archivo.</p>
+    <hr />
+
+    <p>Para abrir o crear un archivo se puede utilizar la funci&oacute;n <a
+    href="223.html">fopen()</a>, y para borrar un archivo existente en el disco se utiliza <a
+    href="237.html">remove()</a>.</p>
+
+    <p>La funci&oacute;n <a href="238.html">disk_free()</a> permite averiguar el espacio libre que
+    queda en una unidad de disco.</p>
+    <hr />
+    Ver: <a href="231.html">get_dirinfo()</a> - <a href="223.html">fopen()</a> - <a
+    href="237.html">remove()</a> - <a href="238.html">disk_free()</a>
+  </body>
+</html>
+

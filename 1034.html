@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Referencia a un dato</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Referencia a un dato</h1>
+
+    <p>Una referencia a un dato es cualquier expresi&oacute;n que haga referencia a una celda o
+    posici&oacute;n de la memoria del ordenador, normalmete suele entenderse como uno de los
+    siguientes aspectos:</p>
+
+    <p>- Si el dato es una variable, para referirnos de esta forma al dato simplemente debemos
+    especificar su nombre.</p>
+
+    <p>Ejemplo de una referencia a una variable: <strong>x</strong></p>
+
+    <p>- Si el dato es una tabla se suele hacer referencia a la misma con su nombre seguido de una
+    expresi&oacute;n entre corchetes (<a href="1079.html">[ ]</a>); dicha expresi&oacute;n
+    determinar&aacute; la posici&oacute;n de la tabla que se pretende acceder. Si se omite el
+    &iacute;ndice entre corchetes se acceder&aacute; a la primera posici&oacute;n de la tabla (la
+    posici&oacute;n 0).</p>
+
+    <p>Ejemplo de una referencia a una tabla: <strong>timer[0]</strong></p>
+
+    <p>- Si el dato es una estructura se har&aacute; referencia a la misma con su nombre seguido de
+    una expresi&oacute;n entre corchetes (<a href="1079.html">[ ]</a>) que determinar&aacute; el
+    n&uacute;mero de registro al que se acceder&aacute; y, tras esto, ir&aacute; el s&iacute;mbolo
+    <a href="1063.html">. (punto)</a> precediendo al nombre concreto del campo de la estructura al
+    que se va a acceder. Si se omite el n&uacute;mero de registro entre corchetes se
+    acceder&aacute; al primer registro de la estructura (el n&uacute;mero 0).</p>
+
+    <p>Ejemplo de una referencia a una estructura: <strong>scroll[0].z</strong></p>
+
+    <p>Estos tres casos se refieren a accesos a datos del propio proceso o globales; cuando se
+    pretenda acceder a un dato ajeno (un dato local de otro proceso), se preceder&aacute; por el <a
+    href="1039.html">c&oacute;digo identificador</a> del proceso ajeno y el s&iacute;mbolo <a
+    href="1063.html">. (punto)</a>, operador de acceso a datos locales y estructuras).</p>
+
+    <p>Ejemplo de una referencia a una variable local ajena: <strong>father.x</strong></p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

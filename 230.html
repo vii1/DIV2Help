@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - flush()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>flush()</h1>
+
+    <p><strong>flush(</strong><strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El n&uacute;mero de archivos abiertos.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Vacia los buffers de escritura, es decir, hace que todos los datos escritos a un archivo de
+    disco que est&eacute;n a&uacute;n en la cach&eacute; de escritura se graben f&iacute;sicamente
+    en su archivo correspondiente.</p>
+
+    <p>Esta operaci&oacute;n no suele ser necesaria nunca, ya que la administraci&oacute;n de la
+    cach&eacute; que realiza el sistema operativo es muy efectiva, y no van a perderse nunca datos
+    por que no se escriban directamente al disco.</p>
+
+    <p>No obstante, esta funci&oacute;n tiene otra utilidad, y es que devuelve el <strong>numero de
+    archivos abiertos con</strong> <a href="223.html">fopen()</a> dentro de un programa.</p>
+
+    <p>El sistema de archivos permite &uacute;nicamente un m&aacute;ximo de archivos abiertos, que
+    depende de la configuraci&oacute;n del sistema operativo.</p>
+
+    <p>Deber&aacute;n cerrarse con <a href="224.html">fclose()</a> todos los archivos una vez se
+    haya realizado con ellos la operaci&oacute;n oportuna. Esta &uacute;ltima funci&oacute;n
+    permite cerrar un s&oacute;lo archivo, o todos los que est&eacute;n abiertos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_flush<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    midato1<span class="syntax3">;</span>
+    midato2<span class="syntax3">;</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span>
+
+    midato1<span class="syntax3">=</span>flush<span class="syntax3">();</span> <span
+class="syntax5">// Obtiene el n&uacute;mero de archivos abiertos (1)</span>
+
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+
+    midato2<span class="syntax3">=</span>flush<span class="syntax3">();</span> <span
+class="syntax5">// Obtiene el n&uacute;mero de archivos abiertos (0)</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo obtiene en dos ocasiones el n&uacute;mero de archivos abiertos con la
+    funci&oacute;n <strong>flush()</strong>. Tras aberse abierto el archivo
+    <strong>help.dat</strong> la funci&oacute;n determina que hay abierto uno y, una vez cerrado el
+    mismo, se podr&aacute; comprobar como ya no hay ninguno.</p>
+    <hr />
+    Ver: <a href="223.html">fopen()</a> - <a href="224.html">fclose()</a>
+  </body>
+</html>
+

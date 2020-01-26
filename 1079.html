@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - ^ [ ]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>^ [ ]</h1>
+
+    <p>Operador de indirecci&oacute;n. Este operador requiere un nivel ligeramente avanzado en
+    t&eacute;cnicas de programaci&oacute;n. El uso de punteros es una caracter&iacute;stica de
+    otros lenguajes que, aunque puede ser muy &uacute;til, no resulta imprescindible para la
+    realizaci&oacute;n de programas, por complejos que &eacute;stos sean.</p>
+
+    <p>El s&iacute;mbolo <strong>^</strong> sirve para hacer referencia a una posici&oacute;n
+    determinada de la memoria del ordenador.</p>
+
+    <p><strong>Caso pr&aacute;ctico</strong></p>
+    <hr />
+
+    <p>Por ejemplo, si se tiene una variable denominada <strong>mi_variable</strong> con el valor
+    <strong>3</strong>, &eacute;sta estar&aacute; en una direcci&oacute;n de la memoria (todas las
+    variables tienen su direcci&oacute;n), el operador <a href="1085.html">OFFSET</a> sirve para
+    obtener esta direcci&oacute;n.</p>
+
+    <p>Suponiendo que exista otra variable denominada
+    <strong>direcci&oacute;n_de_mi_variable</strong> en la que guardar la direcci&oacute;n de la
+    variable anterior, &eacute;sto se har&iacute;a con la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>direcci&oacute;n_de_mi_variable = OFFSET mi_variable;</strong></p>
+
+    <p>Esta direcci&oacute;n ser&aacute; un n&uacute;mero entero, pongamos <strong>12345</strong>;
+    para obtener el valor de la variable (<strong>3</strong>) o modificarlo, teniendo
+    &uacute;nicamente la direcci&oacute;n (posici&oacute;n) de la variable en memoria (y no su
+    nombre), se debe utilizar el operador <strong>^</strong>, la sentencia obtener el valor de la
+    variable a partir de su direcci&oacute;n ser&iacute;a:</p>
+
+    <p>&nbsp;&nbsp;<strong>mi_variable = ^ direcci&oacute;n_de_mi_variable;</strong></p>
+
+    <p>Para aclarar los conceptos de <strong>nombre de variable</strong>, <strong>direcci&oacute;n
+    de la variable</strong> y <strong>valor de la variable</strong> se muestran a
+    continuaci&oacute;n una serie de expresiones y sus equivalentes num&eacute;ricos.</p>
+
+    <p>&nbsp;&nbsp;<strong>mi_variable</strong> = <strong>3</strong><br />
+    &nbsp;&nbsp;<strong>OFFSET mi_variable</strong> = <strong>12345</strong><br />
+    &nbsp;&nbsp;<strong>direcci&oacute;n_de_mi_variable</strong> = <strong>12345</strong><br />
+    &nbsp;&nbsp;<strong>^ direcci&oacute;n_de_mi_variable</strong> = <strong>3</strong><br />
+    </p>
+
+    <p>La direcci&oacute;n de una variable puede variar seg&uacute;n se vaya ampliando un programa
+    (a&ntilde;adiendo nuevos datos y sentencias al mismo).</p>
+
+    <p>En resumen, <strong>el operador ^ accede al valor que est&aacute; en la posici&oacute;n de
+    la memoria del ordenador indicada tras &eacute;l</strong>, es decir:</p>
+
+    <p>&nbsp;&nbsp;<strong>^ 12345</strong> = <strong>3</strong><br />
+    </p>
+
+    <p>Lo que quiere decir que, en la direcci&oacute;n <strong>12345</strong> de la memoria del
+    ordenador, est&aacute; el valor <strong>3</strong>, ya que en esta direcci&oacute;n es donde se
+    <strong>almacena</strong> el valor de la variable <strong>mi_variable</strong> y &eacute;se es
+    su valor.</p>
+    <hr />
+
+    <p>El <a href="1054.html">s&iacute;mbolo *</a> puede utilizarse como
+    <strong>sin&oacute;nimo</strong> de <strong>^</strong> (en el ejemplo anterior
+    <strong>*12345</strong> = <strong>3</strong>).</p>
+
+    <p>Los corchetes (s&iacute;mbolos <strong>[ ]</strong>) funcionan de forma similiar al operador
+    <strong>^</strong>, con la &uacute;nica diferencia que acceden al dato cuya direcci&oacute;n se
+    indica entre ellos (en el ejemplo anterior <strong>[12345]</strong> = <strong>3</strong>).</p>
+
+    <p>Los corchetes tambi&eacute;n se utilizan para especificar el &iacute;ndice en las tablas y
+    estructuras.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1085.html">OFFSET</a>
+  </body>
+</html>
+

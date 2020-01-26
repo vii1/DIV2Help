@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL draw_z</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL draw_z</h1>
+
+    <p><strong>draw_z=-255;</strong> // Plano de profundidad de las primitivas gr&aacute;ficas</p>
+    <hr />
+
+    <p>Las <strong>primitivas gr&aacute;ficas</strong> son las l&iacute;neas rectas,
+    rect&aacute;ngulos, c&iacute;rculos, etc., que se imprimen con la funci&oacute;n <a
+    href="249.html">draw()</a>.</p>
+
+    <p>En esta variable global se indica el plano de profundidad en el que deben aparecer las
+    primitivas gr&aacute;ficas en pantalla, esto es, qu&eacute; debe aparecer por encima y
+    qu&eacute; por debajo.</p>
+
+    <p>Los planos de profundidad pueden ser cualquier n&uacute;mero entero dentro del rango (<a
+    href="1177.html">min_int</a> ... <a href="1178.html">max_int</a>) y, cuanto mayor sea el
+    n&uacute;mero, m&aacute;s al fondo se situar&aacute; la imagen.</p>
+
+    <p>Los gr&aacute;ficos de los procesos tienen su variable <a href="1125.html">local z</a> a
+    <strong>0</strong> por defecto, los textos <a href="1106.html">text_z</a> a
+    <strong>-256</strong> y el puntero del rat&oacute;n tiene <a href="1100.html">mouse.z</a> a
+    <strong>-512</strong> por defecto.</p>
+
+    <p>Esto quiere decir que, por defecto, si no se no modifican estos valores, aparecer&aacute;n
+    las primitivas gr&aacute;ficas sobre los procesos, pero por debajo de los textos y del puntero
+    del rat&oacute;n.</p>
+    <hr />
+
+    <p><strong>Nota 1:</strong> La variable <strong>draw_z</strong> es <a
+    href="1006.html">GLOBAL</a> para todas las primitivas gr&aacute;ficas, es decir, que no se
+    pueden representar estas en diferentes planos.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="249.html">draw()</a>
+  </body>
+</html>
+

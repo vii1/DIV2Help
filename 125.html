@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_real_point()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_real_point()</h1>
+
+    <p><strong>get_real_point(</strong>&lt;n&uacute;mero&gt;<strong>,</strong> &lt;OFFSET
+    x&gt;<strong>,</strong> &lt;OFFSET y&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>Las coordenadas actuales del punto de control (en las variables cuyo <a
+    href="1085.html">offset</a> se indica como los dos &uacute;ltimos par&aacute;metros).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n devuelve donde est&aacute; en ese instante un punto de control del
+    gr&aacute;fico del proceso actual en el sistema de coordenadas utilizado por el propio proceso
+    (ver variable local <a href="1122.html">ctype</a>), evaluando la ubicaci&oacute;n original del
+    punto, las coordenadas actuales del proceso, su tama&ntilde;o, &aacute;ngulo, etc.</p>
+
+    <p>Un <a href="1136.html">punto de control</a> es un punto que se puede definir en el editor de
+    gr&aacute;ficos (herramienta de dibujo), en la opci&oacute;n habilitada para dicha
+    funci&oacute;n.</p>
+
+    <p>La funci&oacute;n necesita la <strong>direcci&oacute;n</strong> (que se obtiene con el
+    operador <a href="1085.html">offset</a>) en la memoria del ordenador <strong>de dos
+    variables</strong> en las que devolver&aacute; la posici&oacute;n <strong>x</strong> e
+    <strong>y</strong> del punto de control.</p>
+
+    <p>Los gr&aacute;ficos cargados con las funciones <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a> (o creados con <a href="188.html">new_map()</a>) se
+    utilizar&aacute;n como si pertenecieran al primer fichero (el fichero con el c&oacute;digo
+    0).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_real_point<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    punto<span class="syntax3">;</span>
+    x_punto<span class="syntax3">;</span>
+    <span class="syntax1">y_punto</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">4</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FROM</span> punto<span class="syntax3">=</span><span
+class="syntax2">1</span> <span class="syntax1">TO</span> <span class="syntax2">50</span><span
+class="syntax3">;</span>
+
+            <span
+class="syntax5">// Cogemos las coordenadas de donde est&aacute; ahora el punto de control</span>
+            get_real_point<span class="syntax3">(</span>punto<span class="syntax3">,</span> <span
+class="syntax1">offset</span> x_punto<span class="syntax3">,</span> <span
+class="syntax1">offset</span> <span class="syntax1">y_punto</span><span class="syntax3">);</span>
+
+            proceso_marcador<span class="syntax3">(</span>x_punto<span
+class="syntax3">,</span> <span class="syntax1">y_punto</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        angle<span class="syntax3">+=</span><span class="syntax2">1000</span><span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> proceso_marcador<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">,</span> graph<span
+class="syntax3">);</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se define c&oacute;mo gr&aacute;fico del proceso principal un circuito que
+    recorre la pantalla. Este gr&aacute;fico tiene definidos 50 <a href="1136.html">puntos de
+    control</a> (del 1 al 50).</p>
+
+    <p>El programa se queda en un bucle dentro del cual va rotando este gr&aacute;fico
+    (sum&aacute;ndole un grado con la sentencia <strong>angle+=1000;</strong>) y creando 50
+    procesos en forma de cruz, una en cada uno de los puntos de control del gr&aacute;fico.</p>
+
+    <p>Se puede comprobar c&oacute;mo la posici&oacute;n relativa de los puntos de control no
+    var&iacute;a aunque el gr&aacute;fico del circuito rote.</p>
+    <hr />
+
+    <p>Esta funci&oacute;n se suele utilizar para tener localizados algunos puntos importantes de
+    un gr&aacute;fico. Por ejemplo, si se ha definido un proceso cuyo gr&aacute;fico es un hombre
+    con una pistola que pueda escalarse, rotarse o realizar diversas animaciones, podr&iacute;a
+    definirse un punto de control en la punta del ca&ntilde;&oacute;n de la pistola para saber en
+    cada momento de d&oacute;nde deben salir las balas en caso de que dispare.</p>
+
+    <p>Si el gr&aacute;fico original estaba dentro de una regi&oacute;n de scroll (ver <a
+    href="163.html">start_scroll()</a>) las coordenadas devueltas tambi&eacute;n ser&aacute;n
+    relativas a dicha regi&oacute;n de scroll.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="124.html">get_point()</a> devuelve d&oacute;nde fue emplazado
+    originalmente un punto de control en el gr&aacute;fico, en lugar de su posici&oacute;n actual,
+    como <strong>get_real_point()</strong>.</p>
+    <hr />
+    Ver: <a href="1136.html">Puntos de control</a> - <a href="124.html">get_point()</a> - <a
+    href="123.html">get_pixel()</a>
+  </body>
+</html>
+

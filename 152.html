@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - refresh_scroll()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>refresh_scroll()</h1>
+
+    <p><strong>refresh_scroll(</strong>&lt;n&uacute;mero de scroll&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n se utiliza cuando se ha modificado un gr&aacute;fico con las funciones
+    <a href="137.html">map_put()</a>, <a href="139.html">map_xput()</a>, <a
+    href="135.html">map_block_copy()</a> o <a href="138.html">map_put_pixel()</a> que est&aacute;
+    siendo utilizado como <strong>fondo de una regi&oacute;n de scroll</strong>, para
+    actualizarlo.</p>
+
+    <p>La funci&oacute;n requiere como par&aacute;metro el &lt;n&uacute;mero de scroll&gt; que se
+    especific&oacute; al iniciar el scroll con la funci&oacute;n <a
+    href="163.html">start_scroll()</a>.</p>
+
+    <p>Cuando se modifica un gr&aacute;fico que est&aacute; siendo utilizado como fondo de un
+    scroll no se actualiza en pantalla autom&aacute;ticamente, sino que hay que llamar a esta
+    funci&oacute;n para ello.</p>
+
+    <p>Una vez modificado el gr&aacute;fico permanecer&aacute; as&iacute; durante el resto de la
+    ejecuci&oacute;n del programa, a no ser que se descargue el gr&aacute;fico de memoria (con <a
+    href="169.html">unload_fpg()</a>, <a href="176.html">unload_map()</a> o <a
+    href="176.html">unload_pcx()</a>) y se vuelva a cargar, en cuyo caso se recuperar&aacute; el
+    estado original del gr&aacute;fico.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_refresh_scroll<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    start_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">103</span><span class="syntax3">,</span> <span class="syntax2">102</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">15</span><span class="syntax3">);</span>
+    scroll<span class="syntax3">.</span>camera<span class="syntax3">=</span><span
+class="syntax1">id</span><span class="syntax3">;</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">192</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para poner un gr&aacute;fico en el scroll."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para actualizar scroll."</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_enter<span class="syntax3">)</span>
+           map_put<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">103</span><span class="syntax3">,</span> <span
+class="syntax2">100</span><span class="syntax3">,</span> rand<span class="syntax3">(</span><span
+class="syntax2">16</span><span class="syntax3">,</span> <span class="syntax2">48</span><span
+class="syntax3">),</span> rand<span class="syntax3">(</span><span class="syntax2">16</span><span
+class="syntax3">,</span> <span class="syntax2">48</span><span class="syntax3">));</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            refresh_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">);</span> <span class="syntax5">// Refrescamos el scroll 0.</span>
+
+        <span class="syntax1">END</span>
+        x<span class="syntax3">+=</span><span class="syntax2">2</span><span
+class="syntax3">;</span>
+        <span class="syntax1">y</span><span class="syntax3">+=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se crea el scroll (n&uacute;mero 0) como un scroll de dos planos: el primero
+    con el gr&aacute;fico n&uacute;mero 103 y el plano de fondo con el gr&aacute;fico n&uacute;mero
+    102.</p>
+
+    <p>Dentro del bucle principal se imprimir&aacute; una bola sobre el gr&aacute;fico 103 (primer
+    plano del scroll) cuando se pulse la tecla ENTER. Pero &eacute;ste no aparecer&aacute; en
+    pantalla a no ser que se espere a que el scroll entre poco a poco en pantalla (con el
+    gr&aacute;fico 103 ya modificado), o bien se pulse la barra espaciadora, en cuyo caso la
+    llamada a la funci&oacute;n <strong>refresh_scroll()</strong> actualizar&aacute; la ventana del
+    scroll con el gr&aacute;fico ya modificado.</p>
+
+    <p>Si en el ejemplo anterior se hubiera llamado a la funci&oacute;n
+    <strong>refresh_scroll()</strong> justo a continuaci&oacute;n de <a
+    href="137.html">map_put()</a>, los gr&aacute;ficos impresos sobre el primer plano
+    aparecer&iacute;an instant&aacute;neamente al pulsar la barra espaciadora.</p>
+
+    <p>En el ejemplo, cada vez que se imprime una bola aparecen muchas; esto es debido a que el
+    gr&aacute;fico 103 utilizado como primer plano en el scroll es un gr&aacute;fico peque&ntilde;o
+    y se muestra varias veces, en mosaico, para rellenar toda la zona de scroll.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se puede observar que si el gr&aacute;fico que se imprime est&aacute;
+    en unas coordenadas fuera de pantalla, no ser&aacute; necesario llamar a esta funci&oacute;n ya
+    que las partes del scroll que van entrando en pantalla se van refrescando
+    autom&aacute;ticamente.</p>
+    <hr />
+    Ver: <a href="163.html">start_scroll()</a> - <a href="140.html">move_scroll()</a> - <a
+    href="1101.html">Estructura scroll</a>
+  </body>
+</html>
+

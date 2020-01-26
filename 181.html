@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - net_get_games()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>net_get_games()</h1>
+
+    <p><strong>net_get_games()</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>Partidas activas para este juego.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Devuelve el n&uacute;mero de partidas activas para este juego (para conexiones en red
+    local). Esta funci&oacute;n sirve para ver si existe alguna partida activa en un momento
+    determinado.</p>
+
+    <p>Para establecer una conexi&oacute;n se utiliza la funci&oacute;n <a
+    href="180.html">net_join_game()</a>, bien sea para crear partidas o para conectarse a las
+    mismas.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_net_get_games<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+  n<span class="syntax3">;</span>  <span class="syntax5">// Partidas activas.</span>
+
+<span class="syntax1">BEGIN</span>
+
+  <span class="syntax5">// ...</span>
+
+  n<span class="syntax3">=</span>net_get_games<span class="syntax3">();</span>
+
+  <span class="syntax1">IF</span> <span class="syntax3">(</span>n<span
+class="syntax3">&gt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+    <span class="syntax5">// ...</span>
+  <span class="syntax1">END</span>
+
+  <span class="syntax5">//...</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Unicamente es &uacute;til para conexiones IPX, careciendo de sentido en conexiones por cable
+    serie o a trav&eacute;s de m&oacute;dem (ya que en estos casos &uacute;nicamente puede haber
+    una partida).</p>
+    <hr />
+    Ver: <a href="180.html">net_join_game()</a> - <a href="1410.html">,STRUCT net</a>
+  </body>
+</html>
+

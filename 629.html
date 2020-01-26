@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Literal demasiado largo</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Literal demasiado largo</h1>
+
+    <p>Se ha inicializado una cadena de texto con un literal con m&aacute;s car&aacute;cteres de
+    los que la cadena puede contener.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> cadena1<span class="syntax3">[</span><span
+class="syntax2">3</span><span class="syntax3">]=</span><span class="syntax4">"ABCDE"</span><span
+class="syntax3">;</span> <span class="syntax5">// Error: Literal demasiado largo</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Para inicializar una cadena de texto se debe tener en cuenta que, como m&aacute;ximo, puede
+    tener tantos car&aacute;cteres como indique el n&uacute;mero que va entre los corchetes
+    m&aacute;s 1.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> cadena1<span class="syntax3">[</span><span
+class="syntax2">3</span><span class="syntax3">]=</span><span class="syntax4">"ABCD"</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este caso la cadena de texto <strong>cadena1</strong> puede contener cuatro
+    car&aacute;cteres (cadena1[0]=char("A"), cadena1[1]=char("B"), cadena1[2]=char("C") y
+    cadena1[3]=char("D")).</p>
+
+    <p>Otra opci&oacute;n es <strong>no indicar el tama&ntilde;o de la cadena de texto</strong>,
+    asign&aacute;ndose en este caso a la cadena de texto un tama&ntilde;o m&aacute;ximo de 256
+    car&aacute;cteres.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> cadena1<span class="syntax3">=</span><span
+class="syntax4">"ABCDEF"</span><span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este caso, <strong>cadena1</strong> contendr&iacute;a inicialmente los seis
+    car&aacute;cteres indicados ("ABCDEF"), pero podr&iacute;a llegar a contener hasta 256 durante
+    la ejecuci&oacute;n del programa.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

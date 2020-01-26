@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Local no se puede acceder</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Local no se puede acceder</h1>
+
+    <p>En la posici&oacute;n indicada en el programa se pretende acceder a un dato de otro proceso,
+    siendo imposible ya que dicho dato no es local del otro proceso.</p>
+
+    <p>Debe comprobarse que el dato que se pretende acceder est&aacute; definido dentro de la
+    secci&oacute;n <a href="1007.html">LOCAL</a> del programa, o bien un dato local predefinido en
+    el lenguaje (como <a href="1123.html">x</a>, <a href="1124.html">y</a>, <a
+    href="1126.html">graph</a>, <a href="1128.html">size</a>, ...).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    id_mi_proceso<span class="syntax3">;</span>
+    puntos<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    id_mi_proceso<span class="syntax3">=</span>mi_proceso<span class="syntax3">();</span>
+    id_mi_proceso<span class="syntax3">.</span>x<span class="syntax3">=</span><span
+class="syntax2">0</span><span class="syntax3">;</span>
+    id_mi_proceso<span class="syntax3">.</span>puntos<span class="syntax3">=</span><span
+class="syntax2">0</span><span class="syntax3">;</span> <span
+class="syntax5">// Error: Local no se puede acceder.</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este caso se prentende acceder a los <strong>puntos</strong> de
+    <strong>mi_proceso</strong>, pero <strong>puntos</strong> es una &uacute;nica variable <a
+    href="1006.html">GLOBAL</a> y no una variable <a href="1007.html">LOCAL</a> de cada proceso.
+    Esto tambi&eacute;n puede suceder intentando acceder a una constante (definida en <a
+    href="1005.html">CONST</a>) o a una expresi&oacute;n como:</p>
+
+    <p>&nbsp;&nbsp;<strong>x=id_mi_proceso.(x+1);</strong></p>
+
+    <p>En este &uacute;ltimo ejemplo la expresi&oacute;n carece de sentido por completo;
+    probablemente fuera la siguiente expresi&oacute;n la que se prentendiera formular:</p>
+
+    <p>&nbsp;&nbsp;<strong>x=id_mi_proceso.x+1;</strong></p>
+
+    <p>&nbsp;&nbsp;(equivalente a <strong>x=(id_mi_proceso.x)+1;</strong>).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1007.html">Declaracion datos locales</a>
+  </body>
+</html>
+

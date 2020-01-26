@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia FRAME</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia FRAME</h1>
+
+    <p>La sentencia <strong>FRAME</strong> es una pieza clave dentro del lenguaje. El
+    funcionamiento de un programa es, a grandes rasgos, el siguiente:</p>
+
+    <p>- Comienza ejecut&aacute;ndose el proceso principal, el cual puede crear m&aacute;s procesos
+    (objetos del juego) en cualquier punto. Todos los procesos pueden finalizar en cualquier
+    momento, crear o eliminar otros procesos.</p>
+
+    <p>- Los juegos se visualizar&aacute;n siempre imagen a imagen (frame by frame). En cada
+    imagen, el sistema ejecutar&aacute; todos los procesos existentes en ese momento, uno por uno,
+    hasta que cada uno ejecute la sentencia <strong>FRAME</strong>, que indicar&aacute; que
+    est&aacute; listo para la siguiente visualizaci&oacute;n (imagen).</p>
+
+    <p>En la preparaci&oacute;n de cada imagen todos los procesos ser&aacute;n ejecutados en el
+    orden de prioridad establecido (la variable local <a href="1121.html">priority</a> de los
+    procesos determina este orden).</p>
+
+    <p>Luego esta sentencia es algo as&iacute; como la orden de visualizaci&oacute;n de los
+    procesos.</p>
+
+    <p>Si un proceso comienza a ejecutarse y no finaliza ni ejecuta esta sentencia, entonces el
+    programa se quedar&aacute; bloqueado, ya que existe un proceso que no est&aacute; nunca listo
+    para la siguiente visualizaci&oacute;n; por lo que el sistema ser&aacute; incapaz de mostrar la
+    siguiente imagen.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mi_proceso<span class="syntax3">();</span>
+    mi_proceso<span class="syntax3">();</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">))</span>
+            mi_segundo_proceso<span class="syntax3">();</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_segundo_proceso<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este programa el proceso principal (de tipo <strong>mi_juego</strong>) crea otros dos
+    procesos (de tipo <strong>mi_proceso</strong>); a partir de este momento los tres procesos se
+    ejecutar&aacute;n continuamente, cada uno hasta su sentencia <strong>FRAME</strong>. Pero si se
+    pulsa la tecla de escape (<strong>ESC</strong>), el proceso principal crear&aacute; un nuevo
+    proceso (de tipo <strong>mi_segundo_proceso</strong>) que se quedar&aacute; en un bucle <a
+    href="1024.html">LOOP</a> indefinidamente, sin ejecutar ning&uacute;n <strong>FRAME</strong>,
+    por lo que el programa quedar&aacute; interrumpido (el sistema advertir&aacute; de dicha
+    situaci&oacute;n transcurridos unos segundos, ver <a
+    href="1115.html">max_process_time</a>).</p>
+
+    <p>B&aacute;sicamente, todos los procesos que se corresponden con objetos de un juego
+    construyen un bucle dentro del cual, cada imagen, fija todos sus valores de
+    visualizaci&oacute;n (<a href="1123.html">x</a>, <a href="1124.html">y</a>, <a
+    href="1126.html">graph</a>, <a href="1128.html">size</a>, <a href="1129.html">angle</a>, ...)
+    y, despu&eacute;s, ejecutan la sentencia <strong>FRAME</strong>.</p>
+
+    <p><strong>Sincronizaci&oacute;n de procesos</strong></p>
+    <hr />
+
+    <p>Es posible utilizar esta sentencia con la siguiente sintaxis:</p>
+
+    <p><strong>FRAME(</strong>&lt;porcentaje&gt;<strong>)</strong></p>
+
+    <p>Poniendo un porcentaje entero, de 0 a 100 o mayor, entre par&eacute;ntesis tras la palabra
+    reservada <strong>FRAME</strong>.</p>
+
+    <p>Este porcentaje indicar&aacute; el tanto por ciento de la siguiente imagen completado por el
+    proceso; es decir, cuando no se especifica dicho porcentaje es lo mismo que si se pusiera
+    <strong>FRAME(100)</strong> (se ha completado el 100% del trabajo previo a la siguiente
+    visualizaci&oacute;n por parte del proceso).</p>
+
+    <p>Por ejemplo, si un proceso ejecuta en un bucle la sentencia <strong>FRAME(25)</strong>,
+    necesitar&aacute; ejecutarla <strong>4 veces</strong> antes de estar listo para la siguiente
+    visualizaci&oacute;n (ya que 4*25% es el 100%).</p>
+
+    <p>En el otro extremo, si un proceso ejecuta dentro de su bucle la sentencia
+    <strong>FRAME(400)</strong>, cuando se ejecute la primera vez habr&aacute; completado ya un
+    400% de la visualizaci&oacute;n, por lo que, aun tras visualizarse, le seguir&aacute; restando
+    un 300% de visualizaci&oacute;n completado. Por ello, en la preparaci&oacute;n de las
+    siguientes <strong>3</strong> im&aacute;genes el sistema no ejecutar&aacute; dicho proceso,
+    pues ya est&aacute; listo para la visualizaci&oacute;n. Luego este proceso se ejecutar&iacute;a
+    s&oacute;lo una de cada 4 im&aacute;genes (al contrario que el ejemplo del p&aacute;rrafo
+    anterior, que se ejecutaba 4 veces por cada imagen del juego).</p>
+
+    <p>Los procesos no llegar&aacute;n a la siguiente visualizaci&oacute;n hasta no dar,
+    <strong>por lo menos, el 100%</strong>. Por ejemplo, si un proceso ejecuta siempre sentencias
+    <strong>FRAME(80)</strong>, las ejecutar&aacute; dos veces antes de la primera
+    visualizaci&oacute;n con lo que llevar&aacute; el 160% (2*80%) de la visualizaci&oacute;n
+    completado. Para la siguiente visualizaci&oacute;n tendr&aacute;, por tanto, un 60%
+    pre-completado (160%-100%); por ello, en la segunda visualizaci&oacute;n tan s&oacute;lo
+    requerir&aacute; una sentencia <strong>FRAME(80)</strong> para visualizarse, ya que este 80%,
+    unido al 60% sobrante de la primera, har&aacute; un total de un 140% completado, con lo cual se
+    visualizar&aacute; inmediatamente, e incluso le sobrar&aacute; otro 40% para la
+    preparaci&oacute;n de la siguiente imagen.</p>
+    <hr />
+
+    <p>Una sentencia <strong>FRAME(0)</strong>, que complete un 0% de la siguiente
+    visualizaci&oacute;n, puede tener sentido en estos dos casos:</p>
+
+    <p>- Puede ser una forma de forzar al sistema a que ejecute en ese punto al resto de los
+    procesos que tienen la misma prioridad que el actual y que, tras ellos, vuelva a
+    ejecutarlo.</p>
+
+    <p>- O puede ser una forma de inicializar funciones como <a href="120.html">get_id()</a> o <a
+    href="104.html">collision()</a>, pues &eacute;stas devuelven unos determinados valores para
+    cada imagen; si se quiere volver a obtener valores de nuevo, se puede ejecutar una sentencia
+    <strong>FRAME(0)</strong> que estas funciones interpretar&aacute;n como una nueva imagen.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

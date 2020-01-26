@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL shift_status</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL shift_status</h1>
+
+    <p><strong>shift_status=0;</strong> // Estado de las teclas especiales</p>
+    <hr />
+
+    <p>En esta variable global predefinida se indica el estado de distintas teclas especiales como
+    pueden ser las teclas [<strong>ALT</strong>], [<strong>CONTROL</strong>], etc.</p>
+
+    <p>Cada una de estas teclas tiene asignado un c&oacute;digo que es el siguiente:</p>
+
+    <p>Tecla SHIFT o may&uacute;sculas derecho = <strong>1</strong><br />
+    Tecla SHIFT o may&uacute;sculas izquierdo = <strong>2</strong><br />
+    Teclas CONTROL = <strong>4</strong><br />
+    Teclas ALT y/o ALT GR = <strong>8</strong><br />
+    Tecla BLOQ DESPL o bloqueo desplazamiento = <strong>16</strong><br />
+    Tecla BLOQ NUM o de bloque num&eacute;rico = <strong>32</strong><br />
+    Tecla BLOQ MAYUS o bloqueo de may&uacute;sculas = <strong>64</strong><br />
+    Tecla INSERT o inserci&oacute;n = <strong>128</strong><br />
+    </p>
+
+    <p>La variable <strong>shift_status</strong> contendr&aacute; la <strong>suma de todos los
+    c&oacute;digos de las teclas que est&eacute;n pulsadas o activadas</strong>.</p>
+
+    <p>Por ejemplo, si estuviera pulsada la tecla [<strong>ALT</strong>] y activada la tecla
+    [<strong>BLOQ MAYUS</strong>], la variable <strong>shift_status</strong> tendr&iacute;a el
+    valor <strong>72</strong> (8+64).</p>
+
+    <p>Para comprobar si una tecla como [<strong>ALT</strong>] est&aacute; pulsada, no se puede
+    comprobar que <strong>shift_status</strong> sea igual a <strong>8</strong>, ya que &eacute;sto
+    implicar&iacute;a que [<strong>ALT</strong>] es la <strong>&uacute;nica</strong> tecla especial
+    que est&aacute; pulsada o activada.</p>
+
+    <p>Para realizar esta comprobaci&oacute;n correctamente se deber&iacute;a realizar de la
+    siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (shift_status AND 8 == 8)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Est&aacute; pulsada la tecla [ALT] ...<br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>Nota:</strong> Normalmente, para comprobar si una tecla est&aacute; pulsada, se
+    utiliza la funci&oacute;n <a href="128.html">key()</a>. Pero con esta funci&oacute;n no se
+    puede determinar si teclas como <strong>BLOQ MAYUS</strong> est&aacute;n activadas,
+    &uacute;nicamente si est&aacute;n pulsadas o no.</p>
+
+    <p>Existen dos variables que contienen el c&oacute;digo de la &uacute;ltima tecla que se ha
+    pulsado; <a href="1110.html">scan_code</a> (c&oacute;digo <strong>scan</strong> de la
+    &uacute;ltima tecla pulsada) y <a href="1109.html">ascii</a> (c&oacute;digo
+    <strong>ascii</strong> de la &uacute;ltima tecla pulsada).</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="128.html">key()</a> - <a
+    href="1109.html">ascii</a> - <a href="1110.html">scan_code</a>
+  </body>
+</html>
+

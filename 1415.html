@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT video_modes</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT video_modes</h1>
+
+    <p><strong>STRUCT video_modes[31];</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>wide;</strong> // Ancho del modo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>height;</strong> // Alto del modo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>mode;</strong> // N&uacute;mero del modo<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>En la estructura global predefinida <strong>video_modes</strong> se encuentra, al inicio de
+    todos los programas, la <strong>lista de modos vesa</strong> soportados por el adaptador de
+    v&iacute;deo del ordenador (todos ellos de <strong>256 colores</strong>), hasta <strong>un
+    m&aacute;ximo de 32</strong> (del [0] al [31]).</p>
+
+    <p>El n&uacute;mero de modos encontrados se guarda en la variable global <a
+    href="1419.html">num_video_modes</a>.</p>
+
+    <p>Esta informaci&oacute;n la genera el sistema de forma autom&aacute;tica, sin que se requiera
+    llamar a ninguna funci&oacute;n. Para todos los modos encontrados se registra la siguiente
+    informaci&oacute;n:</p>
+
+    <p><strong>wide</strong> - N&uacute;mero de pixels en horizontal del modo de v&iacute;deo.</p>
+
+    <p><strong>height</strong> - N&uacute;mero de pixels en vertical del modo de v&iacute;deo.</p>
+
+    <p><strong>mode</strong> - N&uacute;mero de modo. Este valor se puede usar directamente como
+    par&aacute;metro para la funci&oacute;n <a href="157.html">set_mode()</a>.</p>
+
+    <p>Una vez seleccionado el <strong>ancho</strong> y <strong>alto</strong> del modo de
+    v&iacute;deo que se desea activar, y por tanto se tiene el <strong>n&uacute;mero de
+    registro</strong> de la estructura del mismo, se se debe activar este llamando a la
+    funci&oacute;n como:</p>
+
+    <p>&nbsp;&nbsp;<strong>set_mode(video_modes[</strong>&lt;n&uacute;mero de
+    registro&gt;<strong>].mode);</strong></p>
+    <hr />
+
+    <p><strong>Nota:</strong> Adem&aacute;s de los modos registrados en esta estructura, existe una
+    lista de modos de v&iacute;deo est&aacute;ndar, cuyos n&uacute;meros se encuentran en las
+    constantes <a href="1150.html">m320x200 ... m1024x768</a>.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1419.html">num_video_modes</a> - <a
+    href="157.html">set_mode()</a>
+  </body>
+</html>
+

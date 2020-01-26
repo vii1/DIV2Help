@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - key()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>key()</h1>
+
+    <p><strong>key(</strong>&lt;c&oacute;digo de tecla&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>Cierto</strong> (1) si la tecla est&aacute; pulsada y <strong>falso</strong> (0) si
+    no lo est&aacute;.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Devuelve <strong>cierto</strong> (un n&uacute;mero impar) si la tecla, indicada como
+    par&aacute;metro, est&aacute; pulsada en ese momento; en caso contrario devuelve
+    <strong>falso</strong> (un n&uacute;mero par).</p>
+
+    <p>Normalmente el par&aacute;metro de entrada ser&aacute; el nombre de la tecla con el
+    s&iacute;mbolo <strong>_</strong> (subrayado) delante; por ejemplo, para leer la tecla
+    [<strong>A</strong>] se debe llamar a la funci&oacute;n como <strong>key(_a)</strong>.</p>
+
+    <p>Acceda a los <a href="1176.html">c&oacute;digos de las teclas</a> para ver la lista completa
+    de c&oacute;digos de teclado que pueden utilizarse como par&aacute;metro de la funci&oacute;n
+    <strong>key()</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_key<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        delete_text<span class="syntax3">(</span>all_text<span class="syntax3">);</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_space<span class="syntax3">))</span> <span
+class="syntax5">// Comprobamos si est&aacute; pulsada la barra espaciadora</span>
+
+            write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Est&aacute; pulsando la tecla [ESPACIO]."</span><span class="syntax3">);</span>
+        <span class="syntax1">ELSE</span>
+            write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"No est&aacute; pulsando la tecla [ESPACIO]."</span><span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se imprime un mensaje u otro dependiendo de que la barra espaciadora
+    est&eacute; o no pulsada.</p>
+    <hr />
+
+    <p>Hay tres variables globales predefinidas que tambi&eacute;n pueden utilizarse para el
+    control del teclado; &eacute;stas son:</p>
+
+    <p><a href="1110.html">scan_code</a> - C&oacute;digo de la &uacute;ltima tecla que se ha
+    pulsado; &eacute;ste es un valor num&eacute;rico que se corresponde directamente con las
+    constantes de <a href="1176.html">c&oacute;digos de teclas</a> utilizadas como
+    par&aacute;metros de la funci&oacute;n <strong>key()</strong>.</p>
+
+    <p><a href="1109.html">ascii</a> - C&oacute;digo ASCII de la &uacute;ltima tecla pulsada.</p>
+
+    <p><a href="1108.html">shift_status</a> - variable que indica un n&uacute;mero en
+    funci&oacute;n de las teclas especiales o de bloqueo (shift, alt, control, ...) que
+    est&eacute;n pulsadas en dicho momento.</p>
+    <hr />
+    Ver: <a href="1176.html">C&oacute;digos de teclas</a> - <a href="1110.html">scan_code</a> - <a
+    href="1109.html">ascii</a> - <a href="1108.html">shift_status</a>
+  </body>
+</html>
+

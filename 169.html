@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - unload_fpg()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>unload_fpg()</h1>
+
+    <p><strong>unload_fpg(</strong>&lt;c&oacute;digo del fichero&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Descarga de memoria el fichero de gr&aacute;ficos cuyo c&oacute;digo se pasa como
+    par&aacute;metro. Este &lt;c&oacute;digo de fichero&gt; es el valor que retorna la
+    funci&oacute;n <a href="132.html">load_fpg()</a> cuando se carga un nuevo fichero de
+    gr&aacute;ficos en la memoria.</p>
+
+    <p>Tras descargarse un fichero de gr&aacute;ficos <strong>se deben extremar las
+    precauciones</strong> para no continuar utilizando en el programa ning&uacute;n gr&aacute;fico
+    que estuviera en dicho fichero. En cuyo caso el programa correr&iacute;a el riesgo de
+    bloquearse.</p>
+
+    <p><strong>No es necesario descargar el fichero de memoria</strong> antes de finalizar el
+    programa, ya que el sistema lo har&aacute; de forma autom&aacute;tica.</p>
+
+    <p>Por lo tanto, un fichero se debe descargar de memoria &uacute;nicamente cuando ya no se vaya
+    a utilizar durante un tiempo determinado y se quiera liberar el espacio ocupado en la memoria
+    del ordenador para cargar otros recursos (otros ficheros de gr&aacute;ficos, sonidos, fuentes,
+    etc.).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_unload_fpg<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    fichero1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span>fichero1<span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para descargar el fichero y terminar"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_enter<span class="syntax3">));</span>
+
+    unload_fpg<span class="syntax3">(</span>fichero1<span class="syntax3">);</span> <span
+class="syntax5">// Se descarga el fichero.</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El ejemplo carga el fichero de gr&aacute;ficos contenido en el archivo
+    <strong>help.fpg</strong> con la funci&oacute;n <a href="132.html">load_fpg()</a>, guardando el
+    <strong>c&oacute;digo del fichero</strong> en la variable privada
+    <strong>fichero1</strong>.</p>
+
+    <p>El programa permanecer&aacute; en un bucle hasta que se pulse la tecla ENTER, momento en el
+    cual se descargar&aacute; el fichero de memoria con <strong>unload_fpg()</strong> y
+    terminar&aacute; el programa.</p>
+    <hr />
+
+    <p>Los gr&aacute;ficos cargardos individualmente con las funciones <a
+    href="174.html">load_map()</a> o <a href="174.html">load_pcx()</a> (o creados con <a
+    href="188.html">new_map()</a>) no se descargar&aacute;n cuando se descargue el fichero
+    n&uacute;mero 0 (con c&oacute;digo 0), aunque &eacute;stos se utilicen como si pertenecieran al
+    mismo, sino que se deber&aacute;n descargar utilizando las funciones <a
+    href="176.html">unload_map()</a> o <a href="176.html">unload_pcx()</a>.</p>
+    <hr />
+    Ver: <a href="132.html">load_fpg()</a> - <a href="174.html">load_map/pcx()</a> - <a
+    href="176.html">unload_map/pcx()</a>
+  </body>
+</html>
+

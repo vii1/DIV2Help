@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL max_process_time</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL max_process_time</h1>
+
+    <p><strong>max_process_time=500;</strong> // Tiempo m&aacute;ximo de ejecuci&oacute;n</p>
+    <hr />
+
+    <p>Los programas est&aacute;n dotados de un mecanismo <strong>anti-bloqueo</strong> que
+    har&aacute; que el gestor de procesos de DIV Games Studio interrumpa su ejecuci&oacute;n cuando
+    un proceso supere el <strong>tiempo m&aacute;ximo de ejecuci&oacute;n</strong> en una imagen
+    del juego.</p>
+
+    <p>Este tiempo m&aacute;ximo es el que se indica en la variable global
+    <strong>max_process_time</strong> en <strong>cent&eacute;simas de segundo</strong>; su valor
+    por defecto es de <strong>500 cent&eacute;simas</strong> (<strong>5 segundos</strong>).</p>
+
+    <p>Es decir, cuando un proceso tarde m&aacute;s tiempo del aqu&iacute; indicado en ejecutar una
+    sentencia <a href="1029.html">FRAME</a> (que indica que el proceso est&aacute; ya preparado
+    para la siguiente imagen del juego), se producir&aacute; un error de ejecuci&oacute;n.</p>
+
+    <p><strong>Nota:</strong> La utilidad que tiene la posibilidad de cambiar esta variable,
+    asign&aacute;ndole un nuevo valor, es para que en los programas en los que exista un proceso,
+    que deba estar realizando c&aacute;lculos durante bastante tiempo, no se produzca este
+    error.</p>
+
+    <p>Para indicar al gestor de procesos, por ejemplo, que no se debe interrumpir un proceso, a no
+    ser que est&eacute; m&aacute;s de 30 segundos de ejecuci&oacute;n en una imagen se debe
+    utilizar una sentencia como la siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>max_process_time=3000;</strong></p>
+
+    <p>Ya que 30 segundos son 3000 cent&eacute;simas de segundo.</p>
+    <hr />
+
+    <p><strong>Importante:</strong> Se debe tener en cuenta que no todos los ordenadores tardan lo
+    mismo en realizar los c&aacute;lculos del programa, por lo que hay que definir este valor con
+    cierto margen, para que no se supere el <strong>tiempo m&aacute;ximo de
+    ejecuci&oacute;n</strong> cuando el juego sea ejecutado en ordenadores m&aacute;s lentos.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1029.html">Sentencia FRAME</a>
+  </body>
+</html>
+

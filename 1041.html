@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Jerarqu&iacute;as de procesos</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Jerarqu&iacute;as de procesos</h1>
+
+    <p>Un proceso es un objeto independiente del programa que ejecuta su propio c&oacute;digo y que
+    puede tener sus propias coordenadas, gr&aacute;ficos, etc., por ejemplo, pueden ser procesos de
+    un programa: una nave, un disparo o un enemigo.</p>
+
+    <p>Cuando un programa comienza a ejecutarse s&oacute;lo existe un proceso; el proceso inicial
+    que es el que comienza a ejecutar las sentencias del c&oacute;digo principal, pero, a partir de
+    entonces, &eacute;ste puede crear nuevos procesos y &eacute;stos, a su vez, otros, destruirse
+    procesos, etc.</p>
+
+    <p>Para aclarar los acontecimientos que van sucediendo en un programa se establece un
+    s&iacute;mil, que es hablar de los procesos como si fueran seres vivos que nacen y mueren
+    (cuando se crean y destruyen). Por ello, se establecen los siguientes t&eacute;rminos:</p>
+
+    <p><strong>Padre</strong>, denominaci&oacute;n que se da al proceso que ha creado a otro (la
+    verdad es que se deber&iacute;a haber llamado madre).</p>
+
+    <p><strong>Hijo</strong>, el proceso que ha sido creado por otro.</p>
+
+    <p><strong>Hermanos</strong>, procesos que han sido creados por el mismo padre.</p>
+
+    <p><strong>Hu&eacute;rfano</strong>, proceso cuyo padre ha muerto (ha sido eliminado o a
+    finalizado).</p>
+
+    <p>Y esta jerga se puede extender hasta donde llegue la imaginaci&oacute;n,
+    <strong>abuelos</strong>, <strong>nietos</strong>, <strong>t&iacute;os</strong>, etc.</p>
+
+    <p>Todos los procesos tienen acceso a los c&oacute;digos identificadores de los procesos con
+    los que tienen parentesco directo (ver: <a href="1038.html">Formas de obtener el
+    {#1039,c&oacute;digo identificador</a> de un proceso}.</p>
+
+    <p>En ocasiones, se hace referencia a acciones hechas por "<strong>el sistema</strong>"; este
+    proceso, denominado <strong>div_main</strong>, es el que controla al resto, por tanto es el
+    encargado de crear el proceso inicial al comienzo de la ejecuci&oacute;n, de ajustar la
+    velocidad de ejecuci&oacute;n, el trazador, etc. Todos los procesos que se quedan
+    hu&eacute;rfanos pasan a ser hijos de este proceso.</p>
+
+    <p>El <strong>identificador de div_main</strong> se puede obtener con <a
+    href="120.html">get_id(0)</a>. Puede servir para enviar una se&ntilde;al en &aacute;rbol (tree)
+    a todos los procesos, pero dicho proceso no se visualizar&aacute; en pantalla aunque se definan
+    sus variables <a href="1123.html">x</a>, <a href="1124.html">y</a>, <a
+    href="1126.html">graph</a>, etc.</p>
+    <hr />
+    Ver: <a href="1040.html">Estados de un proceso</a>
+  </body>
+</html>
+

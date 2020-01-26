@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Declaraci&oacute;n de una estructura</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Declaraci&oacute;n de una estructura</h1>
+
+    <p><strong>STRUCT</strong> <a href="1001.html">&lt;nombre&gt;</a> <a href="1079.html">[</a> <a
+    href="1005.html">&lt;constante&gt;</a> <a href="1079.html">]</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1009.html">&lt;declaraci&oacute;n de dato&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>(o bien, si se inicializa la estructura)</p>
+
+    <p><strong>STRUCT</strong> <a href="1001.html">&lt;nombre&gt;</a> <a href="1079.html">[</a> <a
+    href="1005.html">&lt;constante&gt;</a> <a href="1079.html">]</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1009.html">&lt;declaraci&oacute;n de dato&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a> <a href="1073.html">=</a> <a href="1013.html">&lt;lista de
+    constantes&gt;</a></p>
+
+    <p>Para declarar una estructura dentro de una secci&oacute;n <a href="1006.html">GLOBAL</a>, <a
+    href="1007.html">LOCAL</a> o <a href="1008.html">PRIVATE</a> se debe poner la palabra reservada
+    <strong>STRUCT</strong> precediendo a su nombre; tras &eacute;ste, y entre corchetes,
+    (s&iacute;mbolos <a href="1079.html">[ ]</a>) se deber&aacute; indicar el <strong>n&uacute;mero
+    de registros</strong> de la estructura.</p>
+
+    <p>Tras la cabecera se declarar&aacute;n todos los datos pertenecientes a la estructura, que
+    conformar&aacute;n los campos de la misma. Y, por &uacute;ltimo, para finalizar la
+    declaraci&oacute;n debe aparecer la palabra reservada <strong>END</strong>.</p>
+
+    <p>A continuaci&oacute;n se muestra un ejemplo de estructura:</p>
+
+    <p><strong>STRUCT enemigo[9]</strong><br />
+     <strong>INT energia;</strong><br />
+     <strong>WORD x_inicial,y_inicial;</strong><br />
+     <strong>WORD x_final,y_final;</strong><br />
+     <strong>STRING nombre[15];</strong><br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Al igual que con las tablas, el <strong>n&uacute;mero de registros</strong> se expresa como
+    el <strong>n&uacute;mero de registro m&aacute;ximo</strong> de la estructura, es decir, todas
+    las estructuras tienen desde el registro 0 hasta el indicado entre los corchetes (por ejemplo,
+    la declaraci&oacute;n anterior definie una estructura de <strong>10 registros</strong>).</p>
+
+    <p>Se permite acceder al <strong>resgistro 0</strong> de la estructura simplemente con el
+    nombre de la estructura, es decir, que para el compilador <strong>enemigo[0].y_final</strong>
+    ser&aacute; lo mismo que <strong>enemigo.y_final</strong>.</p>
+
+    <p><strong>Nota:</strong> Cada campo de la estructura puede ser una variable o tabla (de
+    cualquier tipo, ver los <a href="1401.html">tipos de datos</a>) u otra estructura completa, con
+    sus diferentes registros y campos.</p>
+    <hr />
+
+    <p><strong>Inicializaci&oacute;n de la estructura.</strong></p>
+
+    <p>Si se quiere inicializar la estructura (fijar los valores iniciales de sus campos en los
+    diferentes registros), se deber&aacute; poner el s&iacute;mbolo <a href="1073.html">=</a>
+    (asignaci&oacute;n) tras la palabra reservada <strong>END</strong> seguida de una lista de
+    valores.</p>
+
+    <p>Si no se inicializa la estructura, todos los campos ser&aacute;n puestos a 0 por defecto.
+    Por ejemplo, si se hace la siguiente declaraci&oacute;n:</p>
+
+    <p><strong>STRUCT a[2]</strong><br />
+     <strong>b;</strong><br />
+     <strong>c[1];</strong><br />
+    <strong>END = 1,2,3,4,5,6,7,8,9;</strong><br />
+    </p>
+
+    <p>Primero se debe tener en cuenta que la estructura <strong>a[]</strong> tiene <strong>3
+    registros</strong> (desde <strong>a[0]</strong> hasta <strong>a[2]</strong>) y en cada registro
+    <strong>3 campos</strong> (b,c[0] y c[1]), luego la anterior declaraci&oacute;n
+    inicializar&aacute; la estructura de la siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>a[0].b=1;</strong><br />
+    &nbsp;&nbsp;<strong>a[0].c[0]=2;</strong><br />
+    &nbsp;&nbsp;<strong>a[0].c[1]=3;</strong><br />
+    &nbsp;&nbsp;<strong>a[1].b=4;</strong><br />
+    &nbsp;&nbsp;<strong>a[1].c[0]=5;</strong><br />
+    &nbsp; <strong>...</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>Inicializaci&oacute;n global de los campos.</strong></p>
+
+    <p>Si se quiere que todos los registros de la estructura tengan inicialmente los mismos valores
+    para cada campo, se puede inicializar la estructura globalmente.</p>
+
+    <p><strong>STRUCT a[2]</strong><br />
+     <strong>b=1;</strong><br />
+     <strong>c[1]=2,3;</strong><br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>En el ejemplo anterior, todos los registros de la estructura tendr&iacute;an inicializado el
+    campo <strong>b</strong> a <strong>1</strong>, <strong>c[0]</strong> a <strong>2</strong> y
+    <strong>c[1]</strong> a <strong>3</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Ver la <a href="1407.html">alineaci&oacute;n de datos en memoria</a>,
+    donde se muestra la ocupaci&oacute;n de memoria de los diferentes tipos de datos.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1009.html">Declaraci&oacute;n de un dato</a>
+  </body>
+</html>
+

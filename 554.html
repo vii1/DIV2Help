@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - No se puede inicializar un par&aacute;metro</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>No se puede inicializar un par&aacute;metro</h1>
+
+    <p>No es necesario declarar dentro de la secci&oacute;n <a href="1008.html">PRIVATE</a> los <a
+    href="1018.html">par&aacute;metros del proceso</a>, ya que &eacute;stos se declaran de forma
+    autom&aacute;tica, si bien en caso de declararlos se deben declarar como variables no como
+    tablas o estructuras, y no se deben inicializar.</p>
+
+    <p>Lo m&aacute;s probable es que se haya pretendido utilizar el mismo nombre para dos objetos
+    diferentes, por un lado, para uno de los par&aacute;metros del proceso y, por otro, para una
+    variable <a href="1008.html">PRIVATE</a> del mismo proceso.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">(</span>a<span
+class="syntax3">)</span>
+<span class="syntax1">PRIVATE</span>
+    a<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span> <span
+class="syntax5">// Error: No se puede inicializar un par&aacute;metro.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El compilador interpreta que se est&aacute; inicializando el par&aacute;metro
+    <strong>a</strong> a <strong>0</strong>, y como no est&aacute; permitido inicializar un
+    par&aacute;metro (pues su valor lo tomar&aacute; en funci&oacute;n de la llamada al proceso),
+    se emite el error.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1018.html">Par&aacute;metros de un proceso</a>
+  </body>
+</html>
+

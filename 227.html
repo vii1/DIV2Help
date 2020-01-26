@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - fseek()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>fseek()</h1>
+
+    <p><strong>fseek(</strong>&lt;handle&gt;<strong>,</strong> &lt;posici&oacute;n
+    puntero&gt;<strong>,</strong> &lt;modo&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Sit&uacute;a el <strong>puntero de lectura/escritura</strong> de un archivo en la
+    posici&oacute;n indicada.</p>
+
+    <p>La funci&oacute;n requiere, en primer lugar, el <strong>&lt;handle&gt;</strong> o
+    <strong>identificador de archivo</strong> devuelto por la funci&oacute;n <a
+    href="223.html">fopen()</a> al abrirlo.</p>
+
+    <p>En segundo lugar se especifica la nueva posici&oacute;n en la que debe situarse el
+    <strong>&lt;puntero&gt;</strong> del archivo. Tras llamar a esta funci&oacute;n, todas las
+    operaciones de lectura o escritura que se efect&uacute;en, lo har&aacute;n a partir de esta
+    posici&oacute;n.</p>
+
+    <p>Como &uacute;ltimo par&aacute;metro se debe indicar el <strong>&lt;modo&gt;</strong> en el
+    que se especifica la nueva posici&oacute;n del puntero, puede ser uno de estos tres:</p>
+
+    <p>&nbsp;<strong>seek_set</strong> - Posici&oacute;n respecto al inicio del archivo (0).<br />
+    &nbsp;<strong>seek_cur</strong> - Incremento relativo a la posici&oacute;n actual (1).<br />
+    &nbsp;<strong>seek_end</strong> - Posici&oacute;n respecto al final del archivo (2).<br />
+    </p>
+
+    <p>Para obtener la situaci&oacute;n actual del puntero de un archivo, se debe utilizar la
+    funci&oacute;n <a href="228.html">ftell()</a>.</p>
+
+    <p>Todas las operaciones de lectura o escritura sobre un archivo avanzan autom&aacute;ticamente
+    el puntero del mismo, de forma que todos estos accesos se realicen de forma secuencial (leyendo
+    o escribiendo los datos unos a continuaci&oacute;n de otros).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_fseek<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    mitabla<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">11</span><span class="syntax3">,</span><span
+class="syntax2">22</span><span class="syntax3">,</span><span class="syntax2">33</span><span
+class="syntax3">,</span><span class="syntax2">44</span><span class="syntax3">;</span>
+    midato<span class="syntax3">;</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span>
+    fwrite<span class="syntax3">(</span><span class="syntax1">OFFSET</span> mitabla<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"r"</span><span class="syntax3">);</span>
+
+    <span
+class="syntax5">// Sit&uacute;a el puntero para leer el cuarto dato del archivo (44)</span>
+
+    fseek<span class="syntax3">(</span>mihandle<span class="syntax3">,</span><span
+class="syntax2">3</span><span class="syntax3">,</span>seek_set<span class="syntax3">);</span>
+
+    fread<span class="syntax3">(</span><span class="syntax1">OFFSET</span> midato<span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo escribe los cuatro datos contenidos en <strong>mitabla</strong> (11,22,33 y 44)
+    en el archivo <strong>help.dat</strong>, tras esto, abre el archivo para lectura y utiliza la
+    funci&oacute;n <strong>fseek()</strong> para situar el puntero en la <strong>posici&oacute;n
+    3</strong> a partir del inicio del archivo (con <strong>seek_set</strong>).</p>
+
+    <p>A partir de este momento, se podr&aacute; leer a partir del cuarto dato del archivo, por
+    ello, cuando se lee un valor en la variable <strong>midato</strong> este ser&aacute;
+    <strong>44</strong>, es decir, el cuarto valor de la tabla.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Por defecto, la <strong>&lt;posici&oacute;n del puntero&gt;</strong>
+    se especifica como un n&uacute;mero de datos simples, teniendo en cuenta que un dato simple
+    (una variable) ocupa <strong>4 bytes</strong>. Es decir, que si por ejemplo, se sit&uacute;a el
+    puntero en la posici&oacute;n diez a partir del inicio del fichero, se podr&aacute; entonces
+    acceder a los datos contenidos en el archivo a partir del byte cuarenta.</p>
+
+    <p>Se puede cambiar esta relaci&oacute;n modificando la variable global <a
+    href="1420.html">unit_size</a>, que por defecto vale <strong>4</strong> en todos los
+    programas.</p>
+    <hr />
+    Ver: <a href="228.html">ftell()</a> - <a href="225.html">fread()</a> - <a
+    href="226.html">fwrite()</a> - <a href="1420.html">unit_size</a>
+  </body>
+</html>
+

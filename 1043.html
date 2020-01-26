@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia FROM</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia FROM</h1>
+
+    <p><strong>FROM</strong> &lt;variable&gt;<a href="1073.html">=</a><a
+    href="1005.html">&lt;constante&gt;</a> <a href="1096.html">TO</a> <a
+    href="1005.html">&lt;constante&gt;</a><a href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>(o bien)</p>
+
+    <p><strong>FROM</strong> &lt;variable&gt;<a href="1073.html">=</a><a
+    href="1005.html">&lt;constante&gt;</a> <a href="1096.html">TO</a> <a
+    href="1005.html">&lt;constante&gt;</a> <a href="1095.html">STEP</a> <a
+    href="1005.html">&lt;constante&gt;</a><a href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>La sentencia <strong>FROM</strong> es una sentencia que implementa un
+    <strong>bucle</strong>, es decir, que es capaz de <strong>repetir un grupo de sentencias un
+    n&uacute;mero determinado de veces</strong>.</p>
+
+    <p>Para implementar este bucle se necesita una variable <a href="1006.html">GLOBAL</a>, <a
+    href="1007.html">LOCAL</a> o <a href="1008.html">PRIVATE</a> del propio proceso que sirva como
+    contador del bucle.</p>
+
+    <p>Antes de las sentencias que conformar&aacute;n el grupo interior de sentencias se debe poner
+    la palabra reservada <strong>FROM</strong> seguida del <strong>nombre de la variable
+    contador</strong>, el s&iacute;mbolo de asignaci&oacute;n (<a href="1073.html">=</a>), el
+    <strong>valor inicial</strong> de la variable, la palabra reservada <a href="1096.html">TO</a>
+    y, finalmente, el <strong>valor final</strong> de la variable. Tras esta declaraci&oacute;n del
+    bucle <strong>FROM</strong> se debe poner el s&iacute;mbolo <a href="1068.html">;</a> (punto y
+    coma).</p>
+
+    <p>Despu&eacute;s de esta cabecera definiendo las condiciones del bucle vendr&aacute; el grupo
+    interior de sentencias que se pretende repetir un n&uacute;mero determinado de veces y, al
+    final, la palabra reservada <a href="1091.html">END</a>.</p>
+
+    <p>Se denomina <strong>iteraci&oacute;n</strong> del bucle el n&uacute;mero de veces que se
+    ejecuta el grupo interior de sentencias.</p>
+
+    <p>La primera iteraci&oacute;n se har&aacute; con el <strong>valor incial</strong> en la
+    variable usada como contador, tras esta iteraci&oacute;n se le <strong>sumar&aacute; 1</strong>
+    a esta variable (si el valor inicial <strong>es menor</strong> que el valor final) o se le
+    <strong>restar&aacute; 1</strong> (en caso contrario). Tras actualizar el valor de la variable,
+    se pasar&aacute; a la siguiente iteraci&oacute;n siempre que el valor de dicha variable no haya
+    llegado (o sobrepasado) el <strong>valor final</strong> del bucle.</p>
+
+    <p>Como segunda acepci&oacute;n de la sentencia <strong>FROM</strong> se puede poner tras los
+    valores inicial y final de la sentencia la palabra reservada <a href="1095.html">STEP</a>
+    seguida de un <strong>valor constante</strong> que indique el incremento de la variable
+    contador tras cada iteraci&oacute;n del bucle, en lugar de <strong>1</strong> o
+    <strong>-1</strong>, que son los incrementos que se har&aacute;n por defecto si se omite la
+    declaraci&oacute;n <a href="1095.html">STEP</a> (paso).</p>
+
+    <p>A continuaci&oacute;n, se muestra un programa con dos bucles <strong>FROM</strong>, uno sin
+    declaraci&oacute;n <a href="1095.html">STEP</a> (con incremento o decremento por defecto) y
+    otro con ella.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FROM</span> x<span class="syntax3">=</span><span
+class="syntax2">9</span> <span class="syntax1">TO</span> <span class="syntax2">0</span><span
+class="syntax3">;</span>
+        <span class="syntax5">// sentencias interiores ...</span>
+    <span class="syntax1">END</span>
+    <span class="syntax1">FROM</span> x<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">9</span> <span
+class="syntax1">STEP</span> <span class="syntax2">2</span><span class="syntax3">;</span>
+        <span class="syntax5">// Sentencias interiores ...</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>El primer bucle se ejecutar&aacute; <strong>10</strong> veces con la variable
+    <strong>x</strong> valiendo desde <strong>9</strong> hasta <strong>0</strong> en las diferentes
+    iteraciones; por defecto, se le resta uno a la variable cada vez, ya que el valor inicial (9)
+    es mayor que el valor final (0).</p>
+
+    <p>En el segundo, se indica como incremento de la variable la constante <strong>2</strong>, por
+    lo que el bucle se ejecutar&aacute; <strong>5</strong> veces con la variable <strong>x</strong>
+    valiendo <strong>0</strong>, <strong>2</strong>, <strong>4</strong>, <strong>6</strong> y
+    <strong>8</strong>, respectivamente, en las sucesivas iteraciones. Como se puede observar no se
+    har&aacute; ninguna iteraci&oacute;n con <strong>x</strong> valiendo <strong>9</strong>, aunque
+    &eacute;ste sea el <strong>valor final</strong> del bucle.</p>
+
+    <p>Por defecto, si no se hubiera especificado como <a href="1095.html">STEP</a> (paso) del
+    bucle <strong>2</strong>, se le habr&iacute;a sumado <strong>1</strong> a la variable
+    <strong>x</strong> tras cada iteraci&oacute;n.</p>
+
+    <p>Un bucle <strong>FROM</strong> siempre se puede realizar tambi&eacute;n con la sentencia <a
+    href="1025.html">FOR</a>, como se muestra a continuaci&oacute;n (con dos bucles equivalentes a
+    los del ejemplo anterior).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span> x<span
+class="syntax3">=</span><span class="syntax2">9</span> <span class="syntax3">;</span> x<span
+class="syntax3">&gt;=</span><span class="syntax2">0</span> <span class="syntax3">;</span> x<span
+class="syntax3">=</span>x<span class="syntax3">-</span><span class="syntax2">1</span> <span
+class="syntax3">)</span>
+        <span class="syntax5">// Sentencias interiores ...</span>
+    <span class="syntax1">END</span>
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span> x<span
+class="syntax3">=</span><span class="syntax2">0</span> <span class="syntax3">;</span> x<span
+class="syntax3">&lt;=</span><span class="syntax2">9</span> <span class="syntax3">;</span> x<span
+class="syntax3">=</span>x<span class="syntax3">+</span><span class="syntax2">2</span> <span
+class="syntax3">)</span>
+        <span class="syntax5">// Sentencias interiores ...</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Los valores <strong>inicial</strong> y <strong>final</strong> de un bucle
+    <strong>FROM</strong> deben ser diferentes.</p>
+
+    <p>Si el valor inicial <strong>es menor</strong> que el valor final, no se puede especificar un
+    valor negativo en la declaraci&oacute;n <a href="1095.html">STEP</a>.</p>
+
+    <p>Si el valor inicial <strong>es mayor</strong> que el valor final, no se puede especificar un
+    valor positivo en la declaraci&oacute;n <a href="1095.html">STEP</a>.</p>
+
+    <p>Una sentencia <a href="1026.html">BREAK</a> dentro de un bucle <strong>FROM</strong> lo
+    finalizar&aacute; de forma inmediata, continuando el programa por la sentencia siguiente a
+    dicho bucle (tras el <a href="1091.html">END</a>).</p>
+
+    <p>Una sentencia <a href="1027.html">CONTINUE</a> dentro de un bucle <strong>FROM</strong>
+    forzar&aacute; al programa a incrementar inmediatamente la variable usada como contador y,
+    despu&eacute;s, si no se ha sobrepasado el valor final, comenzar con la siguiente
+    iteraci&oacute;n.</p>
+
+    <p>Las sentencias interiores a un bucle <strong>FROM</strong> pueden ser tantas como se quiera
+    y de cualquier tipo, incluyendo, por supuesto, nuevos bucles <strong>FROM</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

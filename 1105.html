@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL timer[]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL timer[]</h1>
+
+    <p><strong>timer[9];</strong> // Contadores de tiempo</p>
+    <hr />
+
+    <p>&Eacute;sta es una tabla global con 10 posiciones, desde <strong>timer[0]</strong> hasta
+    <strong>timer[9]</strong>, y cada una de estas 10 posiciones es un contador de
+    <strong>cent&eacute;simas de segundo</strong> que se va incrementando
+    autom&aacute;ticamente.</p>
+
+    <p>Al comienzo del programa estos 10 contadores ser&aacute;n puestos a cero. Se utilizan para
+    cronometrar tiempos dentro de un programa, para lo que pueden ser puestos a cero en cualquier
+    momento.</p>
+
+    <p>Se dispone de 10 contadores para que el usuario pueda dedicar cada uno de ellos a realizar
+    una cuenta diferente dentro del juego; es indiferente cu&aacute;les de los 10 contadores se
+    utilicen. Normalmente, si el programa necesita un s&oacute;lo contador (en la mayor&iacute;a de
+    ocasiones) se suele utilizar el n&uacute;mero <strong>0</strong> (<strong>timer[0]</strong>),
+    ya que el lenguaje permite omitir el cero entre corchetes en este caso, es decir, si
+    &uacute;nicamente se necesita un contador, se puede utilizar simplemente
+    <strong>timer</strong>.</p>
+
+    <p>Por ejemplo, para implementar un proceso que a los 5 segundos del inicio de su
+    ejecuci&oacute;n (de haberlo llamado) realizara una acci&oacute;n determinada, se
+    construir&iacute;a el mismo de una forma similar a &eacute;sta (utilizando, por ejemplo, el
+    contador timer[9]):</p>
+
+    <p>&nbsp;<strong>PROCESS proceso_ejemplo();</strong><br />
+    &nbsp;<strong>BEGIN</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>timer[9]=0;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>LOOP</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>IF
+    (timer[9]&gt;=500)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Acci&oacute;n
+    a realizar ...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>FRAME;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;<strong>END</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>Nota 1:</strong> Como la cuenta se realiza en cent&eacute;simas de segundo, en cada
+    imagen del juego estos contadores se pueden incrementar en <strong>1</strong> cent&eacute;sima,
+    <strong>2</strong>, <strong>3</strong>, <strong>4</strong>, etc., es decir, en un ejemplo como
+    el anterior no se puede esperar a que <strong>timer[9]</strong> sea exactamente igual a
+    <strong>500</strong>, ya que una imagen podr&iacute;a indicar <strong>497</strong>
+    cent&eacute;simas transcurridas (desde su puesta a cero con <strong>timer[9]=0;</strong>) y la
+    siguiente imagen <strong>502</strong> cent&eacute;simas, sin haber pasado por el valor
+    <strong>500</strong>.</p>
+    <hr />
+
+    <p><strong>Nota 2:</strong> Es tambi&eacute;n importante resaltar que se deben tomar
+    precauciones para que no haya en el programa varios procesos utilizando el mismo contador para
+    diferentes fines.</p>
+
+    <p>Si, por ejemplo, se creara un <strong>proceso_ejemplo()</strong> (como el anterior), en cada
+    imagen del juego &eacute;stos no llegar&iacute;an nunca a ejecutar la acci&oacute;n de los
+    cinco segundos, ya que cada uno de ellos pondr&iacute;a a <strong>0</strong> el contador
+    <strong>timer[9]</strong> al comienzo de su ejecuci&oacute;n invalidando, de esta forma, la
+    cuenta de los procesos anteriores.</p>
+
+    <p>Teniendo en cuenta que el contador timer[9] es <a href="1006.html">GLOBAL</a>, es decir, es
+    el mismo para todos los procesos del juego, si un proceso lo pone a <strong>0</strong>, lo
+    pondr&aacute; a <strong>0</strong> para el resto de los procesos.</p>
+    <hr />
+
+    <p><strong>Nota 3:</strong> Por &uacute;ltimo se debe tener cuidado con las condiciones
+    similares a la del ejemplo anterior (<strong>IF (timer[9]&gt;=500) ...</strong> ) ya que estas
+    condiciones no se activar&aacute;n &uacute;nicamente <strong>una vez a los 5 segundos</strong>,
+    sino que se activar&aacute;n <strong>todas las veces despu&eacute;s de los primeros 5
+    segundos</strong>.</p>
+
+    <p>Para poder comprender mejor el problema, se muestra a continuaci&oacute;n un proceso que
+    realiza una acci&oacute;n, <strong>&uacute;nicamente una vez</strong>, a los cinco segundos de
+    haberse iniciado su ejecuci&oacute;n.</p>
+
+    <p>&nbsp;<strong>PROCESS proceso_ejemplo();</strong><br />
+    </p>
+
+    <p>&nbsp;<strong>PRIVATE</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>acci&oacute;n_realizada=FALSE;</strong><br />
+    </p>
+
+    <p>&nbsp;<strong>BEGIN</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>timer[9]=0;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>LOOP</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>IF (timer[9]&gt;=500) AND NOT
+    acci&oacute;n_realizada)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Acci&oacute;n
+    a realizar ...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>acci&oacute;n_realizada=TRUE;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ...<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>FRAME;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    &nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>Se utiliza una variable privada denominada <strong>acci&oacute;n_realizada</strong> que, en
+    un principio, ser&aacute; <strong>falsa</strong>. Para realizar la acci&oacute;n ahora se
+    requerir&aacute; que hayan pasado m&aacute;s de cinco segundos y que <strong>no se haya
+    realizado ya la acci&oacute;n</strong>. Tras realizar &eacute;sta, se pondr&aacute; por tanto
+    la variable <strong>acci&oacute;n_realizada</strong> a <strong>cierto</strong>.</p>
+
+    <p>Para que el ejemplo anterior ejecutara la acci&oacute;n <strong>cada cinco segundos</strong>
+    (indefinidamente), bastar&iacute;a con volver a poner la sentencia <strong>timer[9]=0;</strong>
+    tras la <strong>acci&oacute;n a realizar</strong>, no siendo necesaria, en esta caso, la
+    variable privada <strong>acci&oacute;n_realizada</strong> ya que se necesitar&iacute;an otros
+    <strong>5</strong> segundos para que <strong>timer[9]</strong> fuera otra vez mayor o igual que
+    <strong>500</strong>.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a>
+  </body>
+</html>
+

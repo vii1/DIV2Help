@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - fclose()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>fclose()</h1>
+
+    <p><strong>fclose(</strong>&lt;handle&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>N&uacute;mero de archivos que se han cerrado.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Cierra un archivo abierto con la funci&oacute;n <a href="223.html">fopen()</a>, para ello
+    debe recibir como par&aacute;metro el <strong>handle</strong> o <strong>identificador de
+    archivo</strong> devuelto por dicha funci&oacute;n.</p>
+
+    <p>En una segunda modalidad, la funci&oacute;n <strong>fclose()</strong> puede <strong>cerrar
+    todos los archivos abiertos</strong> de una vez, para ello se debe indicar simplemente
+    <strong>0</strong> (cero) como par&aacute;metro, en lugar de un <strong>handle</strong>.</p>
+
+    <p>En cualquier caso, la funci&oacute;n retornar&aacute; el n&uacute;mero de archivos que se
+    han cerrado, si se devuelve <strong>0</strong> puede deberse a uno de estos casos:</p>
+
+    <p><strong>-</strong> No hab&iacute;a ning&uacute;n archivo abierto.<br />
+     <strong>-</strong> El <strong>handle</strong> pasado no se corresponde con ning&uacute;n
+    archivo abierto. <strong>-</strong> El archivo correspondiente a dicho <strong>handle</strong>
+    ya habia sido cerrado.</p>
+
+    <p>Todos los archivos abiertos deben cerrarse antes de que el programa finalice su
+    ejecuci&oacute;n.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_fclose<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">11</span><span class="syntax3">,</span><span
+class="syntax2">22</span><span class="syntax3">,</span><span class="syntax2">33</span><span
+class="syntax3">,</span><span class="syntax2">44</span><span class="syntax3">;</span>
+    tabla2<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">];</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span>
+    fwrite<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla1<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span> <span
+class="syntax5">// Se cierra el archivo para abrirlo en otro modo</span>
+
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"r"</span><span class="syntax3">);</span>
+    fread<span class="syntax3">(</span><span class="syntax1">OFFSET</span> tabla2<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span> <span
+class="syntax5">// Se cierra el archivo definitivamente</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Se utilizan las funciones de archivos para escribir en un archivo el contenido de la
+    <strong>tabla1</strong> y despu&eacute;s cargarlo sobre la <strong>tabla2</strong>. Al
+    finalizar el programa, se habr&aacute;n copiado los datos de la primera tabla en la
+    segunda.</p>
+
+    <p>Si un archivo abierto en un modo (con la funci&oacute;n <a href="223.html">fopen()</a>)
+    quiere accederse en otro modo diferente, se debe primero cerrar para entonces volver a abrirlo
+    en el nuevo modo; como sucede en el ejemplo, se cierra el archivo de escritura para abrirlo
+    entonces en modo lectura.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="230.html">flush()</a> vac&iacute;a los buffers de escritura y
+    permite adem&aacute;s averiguar cuantos archivos hay abiertos en cada momento.</p>
+    <hr />
+    Ver: <a href="223.html">fopen()</a> <a href="225.html">fread()</a> - <a
+    href="226.html">fwrite()</a>
+  </body>
+</html>
+

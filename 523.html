@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Esperando [=]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Esperando [=]</h1>
+
+    <p>Para definir una tabla se suele indicar entre corchetes la longitud de la misma; en caso de
+    no especificar entre los corchetes el n&uacute;mero de elementos de la tabla se espera que a
+    continuaci&oacute;n se inicialice para que el compilador pueda determinar su longitud.</p>
+
+    <p>Se ha encontrado una tabla sin longitud definida, por lo que el compilador esperaba que,
+    tras cerrarse los corchetes (<a href="1079.html">[]</a>), viniera el s&iacute;mbolo <a
+    href="1073.html">=</a> precediendo a la inicializaci&oacute;n de la tabla.</p>
+
+    <p>Indique la longitud de la tabla entre los corchetes, o as&iacute;gnele valores a las
+    diferentes posiciones de la tabla.</p>
+
+    <p>Cuando una tabla no se inicializa todas sus posiciones ser&aacute;n incializadas a cero.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> nombre_del_programa<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">];</span>
+    tabla2<span class="syntax3">[]=</span><span class="syntax2">2</span><span
+class="syntax3">,</span> <span class="syntax2">4</span><span class="syntax3">,</span> <span
+class="syntax2">6</span><span class="syntax3">,</span> <span class="syntax2">8</span><span
+class="syntax3">;</span>
+    tabla3<span class="syntax3">[];</span> <span class="syntax5">// Error: Esperando [=].</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se han definido dos tablas de cuatro posiciones (0..3), tabla1 inicializada a
+    (0, 0, 0, 0) y tabla2 inicializada a (2, 4, 6, 8).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1011.html">Declaracion de tabla</a>
+  </body>
+</html>
+

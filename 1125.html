@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL z</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL z</h1>
+
+    <p><strong>z=0;</strong> // Plano de profundidad del gr&aacute;fico del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>z</strong>.</p>
+
+    <p>La variable local <strong>z</strong> define en qu&eacute; plano de profundidad debe situarse
+    el gr&aacute;fico del proceso en la pantalla (el gr&aacute;fico se define en la variable local
+    <a href="1126.html">graph</a>). Es decir, qu&eacute; debe aparecer por encima del
+    gr&aacute;fico del proceso y qu&eacute; por debajo.</p>
+
+    <p>Los planos de profundidad pueden ser cualquier n&uacute;mero entero dentro del rango (<a
+    href="1177.html">min_int</a> ... <a href="1178.html">max_int</a>), y cuanto mayor sea el
+    n&uacute;mero, m&aacute;s al fondo se situar&aacute; el gr&aacute;fico (a mayor
+    profundidad).</p>
+    <hr />
+
+    <p>Por defecto, los planos de profundidad est&aacute;n dispuestos de la siguiente forma:</p>
+
+    <p><strong>(+) Mayor profundidad</strong></p>
+
+    <p><strong>+512</strong> - Ventanas de scroll (ver <a href="1101.html">scroll[].z</a>)<br />
+     <strong>+256</strong> - Ventanas de modo 7 (ver <a href="1102.html">m7[].z</a>)<br />
+     <strong>0</strong> - Gr&aacute;ficos de los procesos (local <strong>z</strong>)<br />
+     <strong>-256</strong> - Textos (ver <a href="1106.html">text_z</a>)<br />
+     <strong>-512</strong> - Puntero del rat&oacute;n (ver <a href="1100.html">mouse.z</a>)<br />
+    </p>
+
+    <p><strong>(-) Menor profundidad</strong></p>
+
+    <p>Es decir, la variable local <strong>z</strong> que define el plano de profundidad de los
+    gr&aacute;ficos de los procesos estar&aacute; inicializada a <strong>0</strong>. Los
+    gr&aacute;ficos de los procesos se situar&aacute;n debajo del puntero del rat&oacute;n y los
+    textos, y sobre las ventanas de scroll y modo 7 (si no se modifican los valores por
+    defecto).</p>
+    <hr />
+
+    <p>Todos los objetos (textos, gr&aacute;ficos, ventanas, ...) que se sit&uacute;en en el mismo
+    plano de profundidad aparecer&aacute;n en pantalla (al superponerse unos sobre otros) en un
+    <strong>orden indeterminado</strong>, que puede variar de unas ejecuciones del programa a
+    otras.</p>
+
+    <p>Si se quisiera, por ejemplo, que el gr&aacute;fico de un proceso apareciera sobre todos los
+    objetos del programa, se podr&iacute;a fijar para el mismo un plano de profundidad por encima
+    del resto (como -1000}, con la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>z=-1000;</strong></p>
+
+    <p>Inicialmente, todos los procesos tienen su variable <strong>z</strong> igual a
+    <strong>0</strong>, luego los gr&aacute;ficos de los procesos aparecer&aacute;n en cualquier
+    orden si no se define en qu&eacute; plano debe situarse cada uno.</p>
+
+    <p>Se puede variar el plano de profundidad de un proceso (asignando un nuevo valor a su
+    variable <strong>z</strong>) tantas veces como sea necesario dentro de un programa.</p>
+
+    <p>Los planos de profundidad del resto de objetos (ventanas, textos y puntero del rat&oacute;n)
+    tambi&eacute;n pueden variarse en cualquier momento del programa.</p>
+    <hr />
+
+    <p><strong>Nota 1:</strong> Los procesos que pertenezcan a una <strong>ventana de
+    scroll</strong> (que tengan su variable <a href="1122.html">ctype</a><strong>=</strong><a
+    href="1168.html">c_scroll</a>) se pintar&aacute;n en el <strong>plano de profundidad de la
+    ventana de scroll</strong>; no obstante, dentro de dicha ventana, todos los gr&aacute;ficos de
+    los procesos aparecer&aacute;n <strong>ordenados por su plano de profundidad</strong>.</p>
+
+    <p>Es decir, el plano de profundidad del proceso (indicado como siempre en la variable
+    <strong>z</strong>) ser&aacute; entonces <strong>relativo a la ventana de scroll</strong> en la
+    que aparece el proceso (ver <a href="163.html">start_scroll()</a>).</p>
+    <hr />
+
+    <p><strong>Nota 2:</strong> Los procesos que pertenezcan a una <strong>ventana de modo
+    7</strong> (que tengan su variable <a href="1122.html">ctype</a><strong>=</strong><a
+    href="1167.html">c_m7</a>) aparecer&aacute;n en dicha ventana <strong>ordenados por estricto
+    orden de profundidad en el plano tridimensional</strong> ignor&aacute;ndose el valor de su
+    variable local <strong>z</strong>.</p>
+
+    <p>El &uacute;nico sentido que tiene la variable local <strong>z</strong> en procesos de un
+    <strong>modo 7</strong> es definir el orden en el que deben superponerse los procesos que
+    est&eacute;n <strong>exactamente</strong> en las mismas coordenadas del plano abatido, es
+    decir, si se sit&uacute;an dos procesos en el plano tridimensional en las mismas coordenadas
+    entonces se podr&aacute;, con la variable <strong>z</strong>, definir cu&aacute;l de ellos debe
+    aparecer sobre el otro (ver <a href="162.html">start_mode7()</a>).</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="1100.html">mouse.z</a> - <a
+    href="1101.html">scroll[].z</a> - <a href="1102.html">m7[].z</a> - <a
+    href="1106.html">text_z</a>
+  </body>
+</html>
+

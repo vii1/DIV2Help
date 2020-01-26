@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Formas de obtener el c&oacute;digo identificador de un proceso</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Formas de obtener el c&oacute;digo identificador de un proceso</h1>
+
+    <p>Todos los procesos tienen su propio <a href="1039.html">c&oacute;digo identificador</a> en
+    <a href="1092.html">ID</a> (palabra reservada en el lenguaje que equivale al <a
+    href="1039.html">c&oacute;digo identificador</a> del proceso).</p>
+
+    <p>Cuando se crea un proceso (se llama), &eacute;ste devuelve como valor de retorno su propio
+    <a href="1039.html">c&oacute;digo identificador</a>, a no ser que haya terminado con un <a
+    href="1028.html">RETURN</a><a href="1053.html">(</a>&lt;expresi&oacute;n&gt;<a
+    href="1053.html">)</a>. Es decir, un proceso devolver&aacute; su <a
+    href="1039.html">c&oacute;digo identificador</a> siempre que termine (llegue su <a
+    href="1091.html">END</a>), ejecute la sentencia <a href="1029.html">FRAME</a> o la sentencia <a
+    href="1028.html">RETURN</a> sin expresi&oacute;n entre par&eacute;ntesis.</p>
+
+    <p>En el siguiente ejemplo, desde el programa principal se crea un proceso (de tipo
+    <strong>mi_proceso</strong>) y se guarda su identificador en la variable
+    <strong>id2</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">PRIVATE</span> id2<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    id2<span class="syntax3">=</span>mi_proceso<span class="syntax3">();</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Todos los procesos tienen predefinidas las siguientes variables locales con indentificadores
+    de otros procesos:</p>
+
+    <p><a href="1117.html">father</a> - padre, identificador del proceso que lo cre&oacute; (el que
+    hizo la llamada).</p>
+
+    <p><a href="1118.html">son</a> - hijo, identificador del &uacute;ltimo proceso creado por
+    &eacute;ste (&uacute;ltimo proceso al que se ha llamado).</p>
+
+    <p><a href="1120.html">bigbro</a> - Hermano mayor, identificador del &uacute;ltimo proceso que
+    cre&oacute; el padre antes de crear &eacute;ste.</p>
+
+    <p><a href="1119.html">smallbro</a> - Hermano menor, identificador del siguiente proceso que
+    cre&oacute; el padre tras crear &eacute;ste.</p>
+
+    <p>Estas variables pueden valer <strong>0</strong> si no han sido definidas (por ejemplo <a
+    href="1118.html">son</a> valdr&aacute; <strong>0</strong> hasta que no se cree un proceso, o si
+    &eacute;ste ya ha desaparecido).</p>
+
+    <p>Los c&oacute;digos identificadores de los procesos permiten acceder a las variables locales
+    del mismo (&lt;identificador&gt;.&lt;variable&gt;), y como <a href="1117.html">father</a>, <a
+    href="1118.html">son</a>, etc., son, a su vez, variables locales se pueden realizar
+    combinaciones como <strong>son.bigbro</strong> para acceder al identificador del
+    pen&uacute;ltimo proceso creado (ya que <a href="1118.html">son</a> es el del &uacute;ltimo,
+    por lo que su hermano mayor ser&aacute; el pen&uacute;ltimo).</p>
+
+    <p>Hay otras formas de obtener c&oacute;digos identificadores de procesos (adem&aacute;s de
+    cuando se crean y por parentesco directo), como son:</p>
+
+    <p>- La funci&oacute;n <a href="120.html">get_id()</a> para obtener los identificadores de los
+    procesos de un tipo determinado (nave, disparo, etc.) que existen en un determinado momento del
+    juego.</p>
+
+    <p>- La funci&oacute;n <a href="104.html">collision()</a> para obtener los identificadores de
+    los procesos con los se est&aacute; chocando (colisionando).</p>
+
+    <p>Cuando un proceso determinado necesita acceder desde muchos otros, por ser un proceso
+    importante como, por ejemplo, la nave protagonista de un juego, entonces puede ser m&aacute;s
+    &uacute;til asignar su identificador a una variable <a href="1006.html">GLOBAL</a> del programa
+    (que puede ser accedida por cualquier proceso en cualquier punto). De esta forma cualquier
+    proceso podr&aacute; interactuar con &eacute;l, ya que tendr&aacute; su identificador.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+  id_nave<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    id_nave<span class="syntax3">=</span>nave<span class="syntax3">();</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> nave<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> enemigo<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+    id_nave<span class="syntax3">.</span><span class="syntax1">z</span><span
+class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo los procesos de tipo <strong>enemigo</strong> acceden en un determinado
+    punto a la variable <strong>z</strong> de la <strong>nave</strong> que cre&oacute; el programa
+    principal, utilizando para ello su identificador que est&aacute; en la variable global
+    <strong>id_nave</strong>.</p>
+    <hr />
+    Ver: <a href="1039.html">C&oacute;digos identificadores de procesos</a>
+  </body>
+</html>
+

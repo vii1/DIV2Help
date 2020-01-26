@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - write()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>write()</h1>
+
+    <p><strong>write(</strong>&lt;fuente&gt;<strong>,</strong> &lt;x&gt;<strong>,</strong>
+    &lt;y&gt;<strong>,</strong> &lt;c&oacute;digo de centrado&gt;<strong>,</strong>
+    &lt;texto&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El c&oacute;digo identificador del texto que se ha escrito.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n es la utilizada para mostrar un texto alfanum&eacute;rico en pantalla;
+    para ello requiere los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;fuente&gt;</strong> - El <strong>c&oacute;digo de la fuente</strong> o
+    <strong>tipo de letra</strong> que se va a utilizar. Aqu&iacute; se debe poner un 0 cuando se
+    quiera utilizar la fuente del sistema (fuente de color blanco, peque&ntilde;a, de 6 por 8
+    puntos), o bien el <strong>c&oacute;digo de fuente</strong> devuelto por la funci&oacute;n <a
+    href="131.html">load_fnt()</a> cuando se carga una nueva fuente en el programa.</p>
+
+    <p><strong>&lt;x&gt;</strong>, <strong>&lt;y&gt;</strong> - Las coordenadas relativas a
+    pantalla en las que se va a imprimir el texto, primero en el eje horizontal y despu&eacute;s en
+    el vertical.</p>
+
+    <p><strong>&lt;c&oacute;digo de centrado&gt;</strong> - Es un c&oacute;digo que determina la
+    posici&oacute;n del texto que se especifica en las coordenadas anteriores. Sus valores son:</p>
+
+    <p>&nbsp;&nbsp;<strong>0</strong>-Arriba izquierda <strong>1</strong>-Arriba
+    <strong>2</strong>-Arriba derecha<br />
+    &nbsp;&nbsp;<strong>3</strong>-Izquierda <strong>4</strong>-Centro
+    <strong>5</strong>-Derecha<br />
+    &nbsp;&nbsp;<strong>6</strong>-Abajo izquierda <strong>7</strong>-Abajo
+    <strong>8</strong>-Abajo derecha<br />
+    </p>
+
+    <p>Por ejemplo, si se escribe un texto en las coordenadas 160, 0 y con el c&oacute;digo de
+    centrado 1 (Arriba), entonces se centrar&aacute; el texto en la columna 160 y se
+    imprimir&aacute; de la l&iacute;nea 0 hacia abajo. O si se quiere un texto en la esquina
+    superior izquierda, se debe imprimir en las coordenadas 0, 0 y con c&oacute;digo de centrado 0
+    (Arriba izquierda).</p>
+
+    <p><strong>&lt;texto&gt;</strong> - Como &uacute;ltimo par&aacute;metro se especificar&aacute;
+    texto a escribir como un literal, es decir, un texto entre comillas (Ver los <a
+    href="1047.html">s&iacute;mbolos delimitadores de literales</a>).</p>
+    <hr />
+
+    <p>El texto impreso permanecer&aacute; en pantalla hasta que se borre con la funci&oacute;n <a
+    href="107.html">delete_text()</a>, que requiere como par&aacute;metro el <strong>c&oacute;digo
+    identificador</strong> que devuelve <strong>write()</strong>.</p>
+
+    <p>Para imprimir el valor num&eacute;rico de una variable (como pudiera ser la
+    puntuaci&oacute;n del jugador) se debe utilizar funci&oacute;n <a
+    href="172.html">write_int()</a>.</p>
+
+    <p>Los textos permanecer&aacute;n inalterados en pantalla aunque se impriman gr&aacute;ficos en
+    la misma o pasen gr&aacute;ficos de procesos por delante o por detr&aacute;s de los mismos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_write<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    fuente1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fuente1 <span class="syntax3">=</span> load_fnt<span class="syntax3">(</span><span
+class="syntax4">"help\help.fnt"</span><span class="syntax3">);</span>
+
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">100</span><span class="syntax3">,</span> <span class="syntax2">4</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Texto de ejemplo con la fuente del sistema."</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span>fuente1<span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax4">"ARRIBA IZQUIERDA"</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span>fuente1<span class="syntax3">,</span> <span
+class="syntax2">320</span><span class="syntax3">,</span> <span class="syntax2">200</span><span
+class="syntax3">,</span> <span class="syntax2">8</span><span class="syntax3">,</span> <span
+class="syntax4">"ABAJO DERECHA"</span><span class="syntax3">);</span>
+
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo anterior se carga la fuente contenida en el archivo <strong>help.fnt</strong>
+    con la funci&oacute;n <a href="131.html">load_fnt()</a> (cuyo c&oacute;digo de fuente se guarda
+    en la variable <strong>fuente1</strong>), y despu&eacute;s se escriben tres textos:</p>
+
+    <p>El primero con la fuente del sistema (0), situ&aacute;ndose en las coordenadas 160, 100
+    (centro de la pantalla) el <strong>centro</strong> del texto (c&oacute;digo de centrado 4).</p>
+
+    <p>El segundo con la fuente cargada (cuyo <strong>identificador de fuente</strong> se tiene
+    almacenado en la variable <strong>fuente1</strong>), situ&aacute;ndose en las coordenadas 0, 0
+    la esquina superior izquierda del texto (c&oacute;digo de centrado 0).</p>
+
+    <p>Y, por &uacute;ltimo, el tercer texto, tambi&eacute;n con la fuente cargada,
+    situ&aacute;ndose en las coordenadas 320, 200 la esquina inferior derecha del texto
+    (c&oacute;digo de centrado 8).</p>
+
+    <p>Tras esto el programa se quedar&aacute; esperando indefinidamente dentro de un bucle.</p>
+    <hr />
+
+    <p>El plano de profundidad en el que aparecen los textos escritos se controla mediante la
+    variable global <a href="1106.html">text_z</a>, que sirve para regular qu&eacute;
+    gr&aacute;ficos se deben ver por encima de los textos y cu&aacute;les por debajo.</p>
+
+    <p>Los textos podr&aacute;n, luego, moverse hasta otra posici&oacute;n si es necesario
+    utilizando la funci&oacute;n <a href="141.html">move_text()</a>, que tambi&eacute;n requiere
+    como par&aacute;metro el <strong>c&oacute;digo identificador</strong> que devuelve
+    <strong>write()</strong>.</p>
+    <hr />
+
+    <p>Cuando se utilicen fuentes cargadas de <strong>archivos FNT</strong> debe estar activada la
+    paleta de colores que se ha utilizado para generar dichas fuentes (ver <a
+    href="133.html">load_pal()</a>) pues, de lo contrario, los colores pueden aparecer cambiados,
+    visualiz&aacute;ndose el texto incorrectamente.</p>
+    <hr />
+    Ver: <a href="172.html">write_int()</a> - <a href="141.html">move_text()</a> - <a
+    href="107.html">delete_text()</a> - <a href="131.html">load_fnt()</a> - <a
+    href="1106.html">text_z</a>
+  </body>
+</html>
+

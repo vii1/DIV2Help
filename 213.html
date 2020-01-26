@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - qsort()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>qsort()</h1>
+
+    <p><strong>qsort(</strong>&lt;nombre estructura&gt;<strong>,</strong> &lt;nombre
+    campo&gt;<strong>,</strong> &lt;modo&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Ordena o desordena una estructura del programa por uno de sus campos.</p>
+
+    <p>Se trata de una simple pero vers&aacute;til funci&oacute;n que posibilita la r&aacute;pida
+    ordenaci&oacute;n y desordenaci&oacute;n de estructuras de datos.</p>
+
+    <p>Su uso es muy simple, se requiere &uacute;nicamente el <strong>&lt;nombre de la
+    estructura&gt;</strong>, el del <strong>&lt;campo que se va a utilizar como
+    &iacute;ndice&gt;</strong>, y el <strong>&lt;modo de ordenaci&oacute;n&gt;</strong>; uno de los
+    indicados a continuaci&oacute;n:</p>
+
+    <p><strong>0</strong> - Ordenaci&oacute;n ascendente (de menor a mayor).</p>
+
+    <p><strong>1</strong> - Ordenaci&oacute;n descendente (de mayor a menor).</p>
+
+    <p><strong>2</strong> - Desordenaci&oacute;n aleatoria.</p>
+
+    <p>Se puede utilizar como campo &iacute;ndice cualquiera de los datos contenidos en la
+    estructura, bien se trate de un dato num&eacute;rico, o de una cadena de texto (en cuyo caso se
+    ordenar&aacute; alfab&eacute;ticamente).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_qsort<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+
+  <span class="syntax1">STRUCT</span> miestructura<span class="syntax3">[</span><span
+class="syntax2">9</span><span class="syntax3">];</span>
+    <span class="syntax1">STRING</span> nombre<span class="syntax3">[</span><span
+class="syntax2">32</span><span class="syntax3">];</span>
+    puntos<span class="syntax3">;</span>
+    x<span class="syntax3">,</span><span class="syntax1">y</span><span class="syntax3">;</span>
+  <span class="syntax1">END</span>
+
+<span class="syntax1">BEGIN</span>
+
+  <span class="syntax5">//...</span>
+
+  <span
+class="syntax5">// Ordena los registros de miestructura, de forma que se sit&uacute;en los de</span>
+  <span class="syntax5">// mayor puntuaci&oacute;n al principio</span>
+
+  qsort<span class="syntax3">(</span>miestructura<span class="syntax3">,</span>puntos<span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">);</span>
+
+  <span class="syntax5">//...</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo muestra la f&aacute;cil utilizaci&oacute;n de la funci&oacute;n
+    <strong>qsort()</strong> para ordenar una estructura, que puede representar cualquier tipo de
+    objeto dentro de un programa.</p>
+
+    <p>No es necesario que el campo utilizado como &iacute;ndice (<strong>puntos</strong> en este
+    caso) sea el primero de la estructura.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La desordenaci&oacute;n de una estructura requiere igualmente un
+    campo que diferencie a los distintos registros de la misma. Esta operaci&oacute;n puede ser
+    &uacute;til para dotar de "aleatoriedad" a un programa (por ejemplo, para "barajar" un conjunto
+    de cartas).</p>
+  </body>
+</html>
+

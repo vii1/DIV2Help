@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT joy</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT joy</h1>
+
+    <p><strong>STRUCT joy;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>left;</strong> // Control izquierda<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>right;</strong> // Control derecha<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>up;</strong> // Control arriba<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>down;</strong> // Control abajo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>button1;</strong> // Primer bot&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>button2;</strong> // Segundo bot&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>button3;</strong> // Tercer bot&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>button4;</strong> // Cuarto bot&oacute;n<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura global sirve para controlar el <strong>joystick</strong> (palanca de
+    juegos); contiene una serie de campos l&oacute;gicos relacionados con la programaci&oacute;n de
+    este dispositivo que son el estado de los botones (si se encuentran pulsados o no) y el estado
+    de las cuatro direcciones de control principales.</p>
+
+    <p>Para acceder a estos campos se debe preceder el nombre del campo por la palabra
+    <strong>joy</strong> y el s&iacute;mbolo <a href="1063.html">. (punto)</a>, por ejemplo, para
+    acceder al campo <strong>left</strong> (que indica si se est&aacute; pulsando el control
+    izquierda) se debe utilizar <strong>joy.left</strong>.</p>
+    <hr />
+
+    <p><strong>left</strong> - Este campo estar&aacute; a <strong>1</strong> cuando el
+    <strong>joystick</strong> est&eacute; orientado hacia la <strong>izquierda</strong>, y a
+    <strong>0</strong> en caso contrario.</p>
+
+    <p><strong>right</strong> - Este campo estar&aacute; a <strong>1</strong> cuando el
+    <strong>joystick</strong> est&eacute; orientado hacia la <strong>derecha</strong>, y a
+    <strong>0</strong> en caso contrario.</p>
+
+    <p><strong>up</strong> - Este campo estar&aacute; a <strong>1</strong> cuando el
+    <strong>joystick</strong> est&eacute; orientado hacia <strong>arriba</strong>, y a
+    <strong>0</strong> en caso contrario.</p>
+
+    <p><strong>down</strong> - Este campo estar&aacute; a <strong>1</strong> cuando el
+    <strong>joystick</strong> est&eacute; orientado hacia <strong>abajo</strong>, y a
+    <strong>0</strong> en caso contrario.</p>
+
+    <p>Por ejemplo, para realizar en un programa una acci&oacute;n <strong>cuando se mueva el
+    joystick hacia la derecha</strong> (<strong>joy.right</strong>) se debe incluir en el
+    c&oacute;digo una sentencia como la siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (joy.right)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;// Acci&oacute;n a realizar (sentencias)<br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>Para las posiciones en diagonal se deben comprobar los dos campos que conforman esa
+    diagonal; por ejemplo, para realizar una acci&oacute;n cuando el <strong>joystick</strong>
+    est&eacute; en la diagonal superior derecha se utilizar&aacute; la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (joy.up AND joy.right)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;// Acci&oacute;n a realizar (sentencias)<br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>button1</strong>, <strong>button2</strong>, <strong>button3</strong> y
+    <strong>button4</strong> - Estos campos indican el estado de hasta cuatro botones del joystick,
+    estando a <strong>1</strong> cuando el bot&oacute;n respectivo est&eacute; pulsado, y a
+    <strong>0</strong> cuando no lo est&eacute;.</p>
+
+    <p>Algunos joystick s&oacute;lo tienen 2 botones; en este caso, ser&aacute;n los botones
+    n&uacute;mero 0 y 1. En ordenadores con dos joystick conectados el segundo joystick
+    tendr&aacute; los botones n&uacute;mero 2 y 3.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Cuando se requiera una lectura anal&oacute;gica del
+    <strong>joystick</strong> (conocer las coordenadas exactas en las que est&aacute; situada la
+    "palanca" del joystick), se deber&aacute; utilizar la funci&oacute;n <a
+    href="122.html">get_joy_position()</a>. Obviamente, esta funci&oacute;n ser&aacute; util
+    &uacute;nicamente en <strong>joystick</strong> anal&oacute;gicos, no funcionando en los
+    digitales.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="122.html">get_joy_position()</a> - <a
+    href="121.html">get_joy_button()</a>
+  </body>
+</html>
+

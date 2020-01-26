@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - STEP</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>STEP</h1>
+
+    <p>La palabra reservada <strong>STEP</strong> forma parte de la sentencia <a
+    href="1043.html">FROM</a> y sirve para indicar el incremento (paso) que se debe hacer en cada
+    iteraci&oacute;n del bucle.</p>
+
+    <p>La sentencia <a href="1043.html">FROM</a> implementa un bucle, es decir, un grupo de
+    sentencias que se van a repetir un n&uacute;mero determinado de veces; para ello, utiliza una
+    variable como contador del n&uacute;mero de repeticiones.</p>
+
+    <p>Se define el valor inicial de la variable as&iacute; como el valor final, y el bucle se
+    repetir&aacute; hasta que la variable alcance el valor final, partiendo del valor inicial.</p>
+
+    <p>Por defecto, la variable pasar&aacute; por todos los valores num&eacute;ricos enteros
+    comprendidos entre el valor inicial y el valor final, pero se puede indicar una
+    declaraci&oacute;n <strong>STEP</strong> para establecer un incremento de la variable
+    diferente.</p>
+
+    <p>Por ejemplo, si se define un bucle en el que la variable <strong>x</strong> va a recorrer
+    los valores del <strong>1</strong> al <strong>10</strong>, se ejecutar&aacute; dicho bucle un
+    total de <strong>10</strong> veces, pero si se estable el paso (<strong>STEP</strong>) como
+    <strong>2</strong> el bucle se ejecutar&aacute; &uacute;nicamente <strong>5</strong> veces, en
+    donde la variable <strong>x</strong> tomar&aacute; los valores <strong>1</strong>,
+    <strong>3</strong>, <strong>5</strong>, <strong>7</strong> y <strong>9</strong>, pues se
+    habr&aacute; establecido que la variable debe incrementarse de <strong>2</strong> en
+    <strong>2</strong>. Este bucle se implementar&iacute;a de la siguiente forma:</p>
+
+    <p><strong>FROM x=1 TO 10 STEP 2</strong><br />
+    &nbsp;&nbsp;// Sentencias que se van a repetir las cinco veces<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Si se omite la declaraci&oacute;n <strong>STEP</strong> de la sentencia <a
+    href="1043.html">FROM</a>, el incremento ser&aacute; siempre de 1 en 1, sumando 1 a la variable
+    tras cada iteraci&oacute;n del bucle (o restando 1, en el caso de que el valor final sea menor
+    que el valor inicial).</p>
+
+    <p><strong>Nota:</strong> Unicamente se pueden establecer incrementos enteros.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1043.html">Sentencia FROM</a>
+  </body>
+</html>
+

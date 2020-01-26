@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL dump_type</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL dump_type</h1>
+
+    <p><strong>dump_type=complete_dump;</strong> // Tipo de volcado</p>
+    <hr />
+
+    <p>Esta variable global indica el tipo de volcado de im&aacute;genes a pantalla que se debe
+    realizar en cada imagen del juego.</p>
+
+    <p>Se denomina <strong>volcado</strong> a cuando se env&iacute;an las im&aacute;genes del juego
+    al monitor (a la memoria de v&iacute;deo de la tarjeta gr&aacute;fica).</p>
+    <hr />
+
+    <p>Hay dos tipos de volcado aplicables que se corresponden, directamente, con dos constantes
+    que pueden ser asignadas a la variable <strong>dump_type</strong>.</p>
+
+    <p><a href="1170.html">partial_dump</a> - Se realizar&aacute;n <strong>volcados
+    parciales</strong> si se indica con la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>dump_type=partial_dump;</strong></p>
+
+    <p>En este modo, s&oacute;lo se volcar&aacute;n en pantalla los gr&aacute;ficos que se
+    actualicen, que hayan variado respecto a la imagen anterior. Este volcado conviene activarlo
+    <strong>para ganar velocidad</strong> cuando se programe un juego (o una secci&oacute;n del
+    mismo) sin una ventana de scroll o modo 7 que ocupe toda la pantalla, es decir, cuando el juego
+    muestre movimientos de gr&aacute;ficos sobre un fondo fijo, o bien cuando las ventanas activas
+    de scroll o modo 7 sean m&aacute;s peque&ntilde;as que la pantalla.</p>
+
+    <p><a href="1171.html">complete_dump</a> - Se realizar&aacute;n <strong>volcados
+    completos</strong> si se indica con la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>dump_type=complete_dump;</strong></p>
+
+    <p>En este modo, se volcar&aacute; toda la pantalla sin importar si los gr&aacute;ficos han
+    cambiado o no. &Eacute;ste es m&aacute;s lento que el <strong>volcado parcial</strong>, sin
+    embargo es el que se debe utilizar cuando el juego tenga una ventana de scroll o modo 7 que
+    ocupe toda la pantalla.</p>
+    <hr />
+
+    <p>Por defecto, el valor de <strong>dump_type</strong> es <strong>complete_dump</strong>, es
+    decir, que si no se indica otro valor en esta variable se realizar&aacute;n <strong>volcados
+    completos</strong> de la pantalla tras cada imagen del juego (lo que suele ser
+    <strong>m&aacute;s lento</strong> que realizar volcados parciales).</p>
+
+    <p>Se puede cambiar la modalidad de volcado durante la ejecuci&oacute;n de un programa tantas
+    veces como sea necesario, seg&uacute;n los requerimientos de las fases (o secciones) que se
+    ejecuten en cada momento.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Existe otra variable global relacionada tambi&eacute;n con la
+    gesti&oacute;n que DIV Games Studio realiza de la pantalla; &eacute;sta es <a
+    href="1113.html">restore_type</a> que define el tipo de <strong>restauraci&oacute;n</strong>
+    que debe realizarse en la pantalla tras cada imagen del juego (qu&eacute; gr&aacute;ficos o
+    qu&eacute; textos deben ser borrados).</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1113.html">restore_type</a>
+  </body>
+</html>
+

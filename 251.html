@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - move_draw()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>move_draw()</h1>
+
+    <p><strong>move_draw(</strong>&lt;identificador de la primitiva&gt;<strong>,</strong>
+    &lt;color&gt;<strong>,</strong> &lt;opacidad&gt;<strong>,</strong> &lt;x0&gt;<strong>,</strong>
+    &lt;y0&gt;<strong>,</strong> &lt;x1&gt;<strong>,</strong> &lt;y1&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Modifica una primitiva gr&aacute;fica que se ha pintado con la funci&oacute;n <a
+    href="249.html">draw()</a>, para ello se requieren los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;identificador de la primitiva&gt;</strong> - Es el c&oacute;digo num&eacute;rico
+    que devolvi&oacute; la funci&oacute;n <a href="249.html">draw()</a> cuando se pint&oacute; la
+    primitiva que ahora se prentende modificar.</p>
+
+    <p><strong>&lt;color&gt;</strong> - Color de tinta para la primitiva (de <strong>0</strong> a
+    <strong>255</strong>, como un color de la paleta).</p>
+
+    <p><strong>&lt;opacidad&gt;</strong> - Nivel de opacidad de la primitiva, de <strong>0</strong>
+    a <strong>15</strong> (para permitir efectos de transparencia).</p>
+
+    <p><strong>&lt;x0&gt;</strong>, <strong>&lt;y0&gt;</strong> - Punto inicial de la recta, o la
+    esquina superior izquierda de la caja que contiene al rect&aacute;ngulo o elipse.</p>
+
+    <p><strong>&lt;x1&gt;</strong>, <strong>&lt;y1&gt;</strong> - Punto final de la recta, o la
+    esquina inferior derecha de la caja que contiene al rect&aacute;ngulo o elipse. y las
+    coordenadas (<strong>x</strong>, <strong>y</strong>) de pantalla a las que se debe mover.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_move_draw<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    id_draw<span class="syntax3">;</span>
+    color<span class="syntax3">;</span>
+    opacidad<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Mueva el rat&oacute;n ..."</span><span
+class="syntax3">);</span>
+    id_draw<span class="syntax3">=</span>draw<span class="syntax3">(</span><span
+class="syntax2">4</span><span class="syntax3">,</span> <span class="syntax2">127</span><span
+class="syntax3">,</span> <span class="syntax2">15</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">32</span><span class="syntax3">,</span> <span class="syntax2">32</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        color<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">255</span><span
+class="syntax3">);</span>
+        opacidad<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">15</span><span
+class="syntax3">);</span>
+
+        <span
+class="syntax5">// Se mueve la primitiva gr&aacute;fica a las coordenadas del rat&oacute;n</span>
+
+        move_draw<span class="syntax3">(</span>id_draw<span class="syntax3">,</span> color<span
+class="syntax3">,</span> opacidad<span class="syntax3">,</span> mouse<span
+class="syntax3">.</span>x<span class="syntax3">-</span><span class="syntax2">16</span><span
+class="syntax3">,</span> mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">-</span><span class="syntax2">16</span><span class="syntax3">,</span> mouse<span
+class="syntax3">.</span>x<span class="syntax3">+</span><span class="syntax2">16</span><span
+class="syntax3">,</span> mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">+</span><span class="syntax2">16</span><span class="syntax3">);</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pinta, con la funci&oacute;n <a href="249.html">draw()</a>, una primitiva
+    gr&aacute;fica circular, y se guarda su <strong>identificador de primitiva
+    gr&aacute;fica</strong> en la variable global <strong>id_draw</strong>.</p>
+
+    <p>Entonces es cuando, dentro de un bucle, se utilizar&aacute; la funci&oacute;n
+    <strong>move_draw()</strong> para situar dicho c&iacute;rculo en las coordenadas del
+    rat&oacute;n, y asignarle un color y opacidad escogidos al azar en cada imagen.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Para eliminar (borrar) una primitiva gr&aacute;fica se utiliza la
+    funci&oacute;n <a href="250.html">delete_draw()</a>, y con la variable global predefinida <a
+    href="1418.html">draw_z</a> se puede controlar la prioridad de impresi&oacute;n de las
+    mismas.</p>
+    <hr />
+    Ver: <a href="249.html">draw()</a> - <a href="250.html">delete_draw()</a> - <a
+    href="1418.html">draw_z</a>
+  </body>
+</html>
+

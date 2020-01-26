@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL scan_code</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL scan_code</h1>
+
+    <p><strong>scan_code=0;</strong> // C&oacute;digo de rastreo de la &uacute;ltima tecla
+    pulsada</p>
+    <hr />
+
+    <p>Esta variable global indica siempre el c&oacute;digo de rastreo (scan code) de la
+    <strong>&uacute;ltima tecla pulsada</strong> en la &uacute;ltima imagen del juego.</p>
+
+    <p>La variable <strong>scan_code</strong> estar&aacute; a <strong>0</strong> si no se ha
+    pulsado ninguna tecla en la imagen anterior del juego.</p>
+
+    <p>Se utiliza muchas veces esta variable para esperar en un programa a que el usuario pulse una
+    tecla (cualquiera), con una sentencia como la siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>WHILE (scan_code == 0)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>FRAME;</strong><br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>Esta sentencia indica que mientras no se haya pulsado una tecla en la imagen anterior
+    (mientras <strong>scan_code</strong> sea igual a <strong>0</strong>), se deben seguir
+    visualizando im&aacute;genes del juego.</p>
+
+    <p>Los <strong>c&oacute;digos de rastreo</strong> son simplemente una relaci&oacute;n
+    num&eacute;rica de las teclas del PC; estos c&oacute;digos pueden variar ligeramente (en alguna
+    tecla) de un teclado a otro, ya que hay teclados de diferentes idiomas, con un n&uacute;mero
+    variado de teclas, etc.</p>
+
+    <p>Sin embargo, se mantienen constantes casi todos los c&oacute;digos de las principales
+    teclas. Hay predefinida una lista de constantes (sin&oacute;nimos para estos c&oacute;digos) en
+    el lenguaje que se puede ver accediendo a la ayuda sobre <a href="1176.html">c&oacute;digos de
+    teclas</a> (o c&oacute;digos de rastreo del teclado); son, precisamente, estos valores
+    num&eacute;ricos los que ser&aacute;n asignados a la variable <strong>scan_code</strong> cuando
+    las respectivas teclas sean pulsadas en el programa.</p>
+    <hr />
+
+    <p><strong>Importante:</strong> Existe otra variable global predefinida, denominada <a
+    href="1109.html">ascii</a>, que tambi&eacute;n contiene el c&oacute;digo de la &uacute;ltima
+    tecla pulsada pero, a diferencia de <strong>scan_code</strong>, &eacute;sta &uacute;ltima
+    guarda el <strong>c&oacute;digo ASCII</strong> (car&aacute;cter) generado por la tecla, es
+    decir, indica <strong>qu&eacute; car&aacute;cter ha generado la &uacute;ltima tecla
+    pulsada</strong> y no qu&eacute; <strong>tecla ha sido pulsada</strong> (como
+    <strong>scan_code</strong>).</p>
+
+    <p>Acceda a la ayuda sobre los <a href="1176.html">c&oacute;digos de teclas</a> para observar
+    un <strong>programa ejemplo</strong> con las variables <strong>ascii</strong> y
+    <strong>scan_code</strong>.</p>
+
+    <p>Normalmente, para comprobar si una tecla est&aacute; siendo pulsada se utiliza simplemente
+    la funci&oacute;n <a href="128.html">key()</a> del lenguaje, que recibe como par&aacute;metro
+    uno de estos <a href="1176.html">c&oacute;digos de teclas</a>, y devuelve <strong>0</strong> si
+    la tecla no est&aacute; pulsada o <strong>1</strong> cuando si lo est&aacute;.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="1109.html">ascii</a> - <a
+    href="128.html">key()</a>
+  </body>
+</html>
+

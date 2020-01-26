@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - lower()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>lower()</h1>
+
+    <p><strong>lower(</strong>&lt;cadena o car&aacute;cter&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>Si se recibe un car&aacute;cter correspondiente a una letra may&uacute;scula, retorna dicho
+    car&aacute;cter convertido en min&uacute;scula.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Convierte una cadena (o un simple car&aacute;cter) a min&uacute;sculas, incluyendo los
+    car&aacute;cteres especiales, como la letra "&ntilde;" o las vocales acentuadas.</p>
+
+    <p>Esta funci&oacute;n puede trabajar en dos modos, en funci&oacute;n del par&aacute;metro que
+    reciba:</p>
+
+    <p>- Si recibe una cadena de texto (o literal entre comillas), convertir&aacute; a
+    min&uacute;sculas todos los car&aacute;cteres contenidos en dicha cadena y no retornar&aacute;
+    ning&uacute;n valor significativo (&uacute;nicamente el propio puntero a la cadena
+    recibida).</p>
+
+    <p>- Si recibe un s&oacute;lo car&aacute;cter (su valor ordinal o ASCII), devolver&aacute; el
+    car&aacute;cter convertido en min&uacute;scula (nuevamente su valor ordinal), y la
+    funci&oacute;n no cambiar&aacute; ning&uacute;n dato en memoria.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_lower<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> micadena<span class="syntax3">=</span><span
+class="syntax4">"ESTA ES UNA CADENA DE EJEMPLO"</span><span class="syntax3">;</span>
+    <span class="syntax1">BYTE</span>   miletra<span class="syntax3">=</span><span
+class="syntax4">"A"</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+    lower<span class="syntax3">(</span>micadena<span class="syntax3">);</span> <span
+class="syntax5">// Convierte una cadena a min&uacute;sculas</span>
+    lower<span class="syntax3">(</span>miletra<span class="syntax3">);</span>  <span
+class="syntax5">// Convierte un car&aacute;cter en min&uacute;scula</span>
+
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>micadena<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> miletra<span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo tiene definidos dos datos globales (<strong>micadena</strong> y
+    <strong>miletra</strong>), se utilizar&aacute; la funci&oacute;n <strong>lower()</strong> para
+    convertirlos a min&uacute;sculas, y entonces se mostrar&aacute;n en pantalla.</p>
+    <hr />
+
+    <p>Esta funci&oacute;n no modificar&aacute; aquellos car&aacute;cteres que no sean letras
+    may&uacute;sculas.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="209.html">upper()</a> es la inversa a <strong>lower()</strong>,
+    ya que puede convertir una cadena (o un car&aacute;cter) a may&uacute;sculas.</p>
+    <hr />
+    Ver: <a href="202.html">strcpy()</a> - <a href="203.html">strcat()</a> - <a
+    href="204.html">strlen()</a> - <a href="205.html">strcmp()</a> - <a
+    href="206.html">strchr()</a> 
+
+    <p>- <a href="207.html">strstr()</a> - <a href="208.html">strset()</a> - <a
+    href="209.html">upper()</a> - <a href="211.html">strdel()</a></p>
+  </body>
+</html>
+

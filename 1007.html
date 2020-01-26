@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Declaraci&oacute;n de datos locales</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Declaraci&oacute;n de datos locales</h1>
+
+    <p><strong>LOCAL</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1009.html">&lt;declaraci&oacute;n de dato&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...</p>
+
+    <p>Esta secci&oacute;n de los programas es opcional, ya que es donde se declaran los datos de
+    &aacute;mbito local, es decir, los <strong>datos que tendr&aacute;n todos los procesos del
+    programa</strong>, cada uno con sus propios valores (como las variables locales predefinidas <a
+    href="1123.html">x</a> e <a href="1124.html">y</a> determinan las coordenadas de todos los
+    procesos).</p>
+
+    <p>La secci&oacute;n debe comenzar obligatoriamente con la palabra reservada
+    <strong>LOCAL</strong> seguida de una serie de <a href="1009.html">declaraciones de datos</a>
+    terminadas con un s&iacute;mbolo <a href="1068.html">;</a> (punto y coma).</p>
+
+    <p>En general, se declaran como datos locales todos aquellos que se consideren informaciones
+    importantes de los procesos, o sea, aquellos que pueda interesar consultar o modificar desde
+    otros procesos.</p>
+
+    <p>Un ejemplo puede ser la energ&iacute;a que le queda a un proceso (puede ser una nave, un
+    disparo, el protagonista, etc.); esta informaci&oacute;n podr&iacute;a almacenarse en la
+    variable local <strong>energ&iacute;a</strong> de modo que cualquier proceso pudiera acceder o
+    modificar la energ&iacute;a de los dem&aacute;s (por ejemplo, cuando colisionara con ellos les
+    podr&iacute;a quitar energ&iacute;a).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">LOCAL</span>
+    energ&iacute;a<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Si un dato declarado como local va a utilizarse &uacute;nicamente dentro de un proceso,
+    entonces se puede definir como un dato privado (dentro de la secci&oacute;n <a
+    href="1008.html">PRIVATE</a> de dicho proceso).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1009.html">Declaraci&oacute;n de un dato</a>
+  </body>
+</html>
+

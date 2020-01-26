@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - change_channel()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>change_channel()</h1>
+
+    <p><strong>change_channel(</strong>&lt;canal&gt;<strong>,</strong>
+    &lt;volumen&gt;<strong>,</strong> &lt;balance&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Se trata de una funci&oacute;n complementaria a <a href="102.html">change_sound()</a>, que
+    modifica las propiedades de uno de los canales de sonido que reproducen los efectos digitales
+    (ver <a href="159.html">sound()</a>) o m&oacute;dulos musicales (ver <a
+    href="216.html">song()</a>).</p>
+
+    <p>Se debe indicar el n&uacute;mero de <strong>&lt;canal&gt;</strong> que quiere ajustarse,
+    (normalmente el n&uacute;mero de canal devuelto por la funci&oacute;n <a
+    href="159.html">sound()</a>), y los siguientes dos valores:</p>
+
+    <p><strong>&lt;volumen&gt;</strong> - Se trata del volumen propio del canal, entre
+    <strong>0</strong> y <strong>512</strong>, independiente del volumen del propio sonido y del
+    volumen general.</p>
+
+    <p>Cuando los volumenes de los diferentes canales son demasiado altos se producen efectos de
+    distorsi&oacute;n, por ello se recomienda modificar el volumen de los efectos de sonido
+    mediante la funci&oacute;n <a href="102.html">change_sound()</a> que, adem&aacute;s, permite
+    ajustar la frecuencia de los mismos.</p>
+
+    <p><strong>&lt;balance&gt;</strong> - Es el "panning" o diferencia de volumen entre el atavoz
+    izquierdo y derecho, debe ser un valor entre <strong>0</strong> y <strong>255</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Los niveles generales de volumen se pueden ajustar mediante la
+    estructura global <a href="1104.html">setup</a> (sonido digital, cd-audio y volumen
+    general).</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_change_channel<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    balance<span class="syntax3">=</span><span class="syntax2">128</span><span
+class="syntax3">;</span>     <span class="syntax5">// Valor medio (0..256)</span>
+
+    id_sonido<span class="syntax3">;</span>
+    canal<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+
+    id_sonido <span class="syntax3">=</span> load_pcm<span class="syntax3">(</span><span
+class="syntax4">"help\help.pcm"</span><span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">);</span>
+    canal <span class="syntax3">=</span> sound<span class="syntax3">(</span>id_sonido<span
+class="syntax3">,</span> <span class="syntax2">256</span><span class="syntax3">,</span> <span
+class="syntax2">256</span><span class="syntax3">);</span>
+
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Presione derecha o izquierda para cambiar el balance."</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> balance<span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+
+        <span class="syntax5">// Cambia el balance del canal</span>
+
+        change_channel<span class="syntax3">(</span>canal<span class="syntax3">,</span> <span
+class="syntax2">50</span><span class="syntax3">,</span> balance<span class="syntax3">);</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">)</span> <span
+class="syntax1">AND</span> balance<span class="syntax3">&lt;</span><span
+class="syntax2">255</span><span class="syntax3">)</span> balance<span
+class="syntax3">++;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">)</span> <span
+class="syntax1">AND</span> balance<span class="syntax3">&gt;</span><span
+class="syntax2">0</span><span class="syntax3">)</span> balance<span
+class="syntax3">--;</span> <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga y se emite un sonido (contenido en el archivo
+    <strong>help.pcm</strong>). Dentro del bucle principal del programa se puede cambiar el balance
+    del canal por el que est&aacute; sonando dicho sonido con la funci&oacute;n
+    <strong>change_channel()</strong>, utilizando las teclas de los cursores.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Ver tambi&eacute;n la tabla global predefinida <a
+    href="1416.html">channel</a>, que indica cuales de los canales de sonido est&aacute;n siendo
+    utilizados.</p>
+    <hr />
+    Ver: <a href="102.html">change_sound()</a> - <a href="159.html">sound()</a> - <a
+    href="216.html">song()</a> <a href="1104.html">STRUCT setup</a>
+  </body>
+</html>
+

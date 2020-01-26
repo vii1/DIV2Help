@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - strdel()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>strdel()</h1>
+
+    <p><strong>strdel(</strong>&lt;cadena de texto&gt;<strong>,</strong> &lt;resta
+    inicio&gt;<strong>,</strong> &lt;resta final&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n borra car&aacute;cteres de una <strong>&lt;cadena de texto&gt;</strong>.
+    Se eliminar&aacute;n <strong>&lt;resta inicio&gt;</strong> car&aacute;cteres del inicio de la
+    cadena y <strong>&lt;resta final&gt;</strong> car&aacute;cteres del final de la misma.</p>
+
+    <p>Para eliminar &uacute;nicamente car&aacute;cteres del inicio de la cadena se debe indicar
+    <strong>0</strong> como <strong>&lt;resta final&gt;</strong>, y para eliminar s&oacute;lo del
+    final, <strong>0</strong> como <strong>&lt;resta inicio&gt;</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_strdel<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> micadena<span class="syntax3">=</span><span
+class="syntax4">"Esta es una cadena de ejemplo."</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+
+    strdel<span class="syntax3">(</span>micadena<span class="syntax3">,</span><span
+class="syntax2">5</span><span class="syntax3">,</span><span class="syntax2">9</span><span
+class="syntax3">);</span>
+
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span>micadena<span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo utiliza la funci&oacute;n <strong>strdel()</strong> para eliminar los primeros
+    <strong>5</strong> car&aacute;cteres de <strong>&lt;micadena&gt;</strong> y los &uacute;ltimos
+    <strong>9</strong>, para luego mostrar la cadena resultante en pantalla ("es una cadena
+    de").</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Si se indica una cantidad negativa de car&aacute;cteres (bien sea
+    para el inicio o para el final), la funci&oacute;n a&ntilde;adir&aacute; espacios a la
+    cadena.</p>
+    <hr />
+
+    <p>Tambi&eacute;n es posible eliminar car&aacute;cteres del final de una cadena con sentencias
+    como las siguientes:</p>
+
+    <p>&nbsp;&nbsp;<strong>cadena1--;</strong><br />
+    &nbsp;&nbsp;<strong>cadena1-=1;</strong><br />
+    &nbsp;&nbsp;<strong>cadena1=cadena1-1;</strong><br />
+    </p>
+    <hr />
+    Ver: <a href="202.html">strcpy()</a> - <a href="203.html">strcat()</a> - <a
+    href="204.html">strlen()</a> - <a href="205.html">strcmp()</a> - <a
+    href="206.html">strchr()</a> 
+
+    <p>- <a href="207.html">strstr()</a> - <a href="208.html">strset()</a> - <a
+    href="209.html">upper()</a> - <a href="210.html">lower()</a></p>
+  </body>
+</html>
+

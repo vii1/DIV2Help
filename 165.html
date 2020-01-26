@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - stop_mode7()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>stop_mode7()</h1>
+
+    <p><strong>stop_mode7(</strong>&lt;n&uacute;mero de m7&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Elimina la ventana de modo 7 cuyo n&uacute;mero (del 0 al 9) se pasa como par&aacute;metro.
+    Este &lt;n&uacute;mero de m7&gt; es el que se indic&oacute; como primer par&aacute;metro en la
+    funci&oacute;n <a href="162.html">start_mode7()</a>, es necesario debido a que pueden haber
+    hasta 10 ventanas diferentes de modo 7, y el sistema necesita saber cu&aacute;l de ellas se
+    est&aacute; finalizando.</p>
+
+    <p>Al eliminar una ventana de modo 7, morir&aacute;n autom&aacute;ticamente todos los procesos
+    que pertenezcan en exclusiva a dicha ventana, es decir, todos los procesos que tengan su
+    variable <a href="1122.html">ctype</a> con el valor <a href="1169.html">c_m7</a> y no se
+    est&eacute;n visualizando en ninguna otra ventana de modo 7.</p>
+
+    <p><strong>Importante:</strong> Al cambiar de modo de v&iacute;deo con la funci&oacute;n <a
+    href="157.html">set_mode()</a> todas las ventanas de modo 7 (y sus procesos) ser&aacute;n
+    igualmente eliminadas, no siendo en este caso necesario usar esta funci&oacute;n
+    (<strong>stop_mode7()</strong>).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_stop_mode7<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax4">"Pulse [ENTER] para poner modo 7."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax4">"Pulse [ESPACIO] para quitar modo 7."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">190</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice el rat&oacute;n para moverse por el modo 7."</span><span
+class="syntax3">);</span>
+    angle<span class="syntax3">=</span><span class="syntax2">90000</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            stop_mode7<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">);</span> <span class="syntax5">// Se quita el modo 7</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_enter<span class="syntax3">)</span>
+            start_mode7<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">4</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">64</span><span class="syntax3">);</span>
+            m7<span class="syntax3">.</span>camera<span class="syntax3">=</span><span
+class="syntax1">id</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        x<span class="syntax3">=</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">;</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span>mouse<span
+class="syntax3">.</span><span class="syntax1">y</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga el fichero de gr&aacute;ficos y se muestran las instrucciones del
+    programa en pantalla, tras lo cual las coordenadas del proceso principal, que servir&aacute; de
+    c&aacute;mara del modo 7, ser&aacute;n controladas con el rat&oacute;n (mediante las sentencias
+    <strong>x=mouse.x;</strong> y <strong>y=mouse.y</strong>).</p>
+
+    <p>Cuando se pulse la tecla ENTER se crear&aacute; una ventana de modo 7 con un gr&aacute;fico
+    de un circuito abatido, controlada por el proceso principal.</p>
+
+    <p>Al pulsarse la barra espaciadora se invocar&aacute; a la funci&oacute;n
+    <strong>stop_mode7()</strong>, eliminando esta la ventana de visualizaci&oacute;n en modo
+    7.</p>
+    <hr />
+
+    <p>Crear una ventana de modo 7 es un procedimiento algo avanzado y requiere iniciar varios
+    par&aacute;metros, como en este caso la c&aacute;mara, algunos de ellos requeridos por la
+    funci&oacute;n <a href="162.html">start_mode7()</a> y otros contenidos en la estructura global
+    <a href="1102.html">m7</a> (como la variable <strong>m7.camera</strong> utilizada en el
+    ejemplo).</p>
+    <hr />
+    Ver: <a href="162.html">start_mode7()</a> - <a href="1102.html">Estructura m7</a>
+  </body>
+</html>
+

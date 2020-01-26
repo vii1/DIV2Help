@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia de asignaci&oacute;n</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia de asignaci&oacute;n</h1>
+
+    <p>Las sentencias de asignaci&oacute;n sirven para calcular expresiones y
+    <strong>asign&aacute;rselas</strong> a un dato.</p>
+
+    <p><a href="1034.html">&lt;Referencia a un dato&gt;</a> <a href="1073.html">=</a> <a
+    href="1035.html">&lt;expresi&oacute;n&gt;</a> <a href="1068.html">;</a></p>
+
+    <p>Se debe indicar el dato en el cual se va a guardar el resultado de la expresi&oacute;n,
+    seguido del s&iacute;mbolo <a href="1073.html">=</a> (s&iacute;mbolo de la
+    <strong>asignaci&oacute;n</strong>) y la expresi&oacute;n num&eacute;rica o l&oacute;gica a
+    evaluar cuando se ejecute la sentencia. Tras esta sentencia se debe poner siempre el
+    s&iacute;mbolo <a href="1068.html">;(punto y coma)</a>.</p>
+
+    <p>En una sentencia de asignaci&oacute;n s&oacute;lo est&aacute; permitido asignar valores a
+    objetos tales como variables (de cualquier tipo), a una <a href="1011.html">posici&oacute;n de
+    una tabla</a>, o a un <a href="1012.html">elemento de una estructura</a>.</p>
+
+    <p>No es posible asignar un valor a una <a href="1004.html">constante</a>, a una funci&oacute;n
+    o a un proceso, o, en general, a cualquier <a href="1035.html">expresi&oacute;n num&eacute;rica
+    o l&oacute;gica</a>.</p>
+
+    <p>Se muestra a continuaci&oacute;n un programa con varias asignaciones.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    angle<span class="syntax3">=(</span>angle<span class="syntax3">*</span><span
+class="syntax2">3</span><span class="syntax3">)/</span><span class="syntax2">2</span><span
+class="syntax3">-</span>pi<span class="syntax3">/</span><span class="syntax2">2</span><span
+class="syntax3">;</span>
+    size<span class="syntax3">=(</span>x<span class="syntax3">+</span><span
+class="syntax1">y</span><span class="syntax3">)/</span><span class="syntax2">2</span><span
+class="syntax3">;</span>
+    <span class="syntax1">z</span><span class="syntax3">=</span>abs<span
+class="syntax3">(</span>x<span class="syntax3">-</span><span class="syntax1">y</span><span
+class="syntax3">)*</span><span class="syntax2">3</span><span class="syntax3">-</span>pow<span
+class="syntax3">(</span>x<span class="syntax3">,</span> <span class="syntax2">2</span><span
+class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>&Eacute;sta es la forma b&aacute;sica de las asignaciones, si bien existen otros
+    s&iacute;mbolos de asignaci&oacute;n que, en lugar de asignar un nuevo valor al dato referido,
+    modifican su valor. &Eacute;stos son los s&iacute;mbolos de <strong>asignaciones
+    operativas</strong>:</p>
+
+    <p><a href="1058.html">+=</a> Suma al dato el resultado de la expresi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=2; x+=2;</strong> -&gt; (x==4)</p>
+
+    <p><a href="1062.html">-=</a> Resta al dato el resultado de la expresi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=4; x-=2;</strong> -&gt; (x==2)</p>
+
+    <p><a href="1055.html">*=</a> Multiplica el dato por el resultado de la expresi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=2; x*=3;</strong> -&gt; (x==6)</p>
+
+    <p><a href="1066.html">/=</a> Divide el dato por el resultado de la expresi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=8; x/=2;</strong> -&gt; (x==4)</p>
+
+    <p><a href="1049.html">%=</a> Pone en el dato el resto de dividir al mismo entre el resultado
+    de la expresi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=3; x%=2;</strong> -&gt; (x==1)</p>
+
+    <p><a href="1052.html">&amp;=</a> Realiza un AND (binario y/o l&oacute;gico) entre el dato y el
+    resultado de la expresi&oacute;n y lo asigna como nuevo valor del dato<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=5; x&amp;=6;</strong> -&gt;
+    (x==4)</p>
+
+    <p><a href="1084.html">|=</a> Realiza un OR (binario y/o l&oacute;gico) entre el dato y el
+    resultado de la expresi&oacute;n y lo asigna como nuevo valor del dato<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=5; x|=6;</strong> -&gt; (x==7)</p>
+
+    <p><a href="1081.html">^=</a> Realiza un OR exclusivo (XOR binario y/o l&oacute;gico) entre el
+    dato y el resultado de la expresi&oacute;n y lo asigna como nuevo valor del dato<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=5; x^=3;</strong> -&gt; (x==3)</p>
+
+    <p><a href="1078.html">&gt;&gt;=</a> Rota a la derecha el dato tantas veces como indique el
+    resultado de la expresi&oacute;n (cada rotaci&oacute;n a la derecha equivale a dividir entre 2
+    el dato)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=8; x&gt;&gt;=2;</strong> -&gt;
+    (x==2)</p>
+
+    <p><a href="1071.html">&lt;&lt;=</a> Rota a la izquierda el dato tantas veces como indique el
+    resultado de la expresi&oacute;n (cada rotaci&oacute;n a la izquierda equivale a multiplicar
+    por 2 el dato)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=2; x&lt;&lt;=2;</strong> -&gt;
+    (x==8)</p>
+
+    <p>Tambi&eacute;n se admiten dentro de la categor&iacute;a de sentencias de asignaci&oacute;n
+    los <strong>incrementos</strong> y <strong>decrementos</strong> de un dato. Por ejemplo, si
+    quisieramos sumarle 1 a la variable local <strong>x</strong> podr&iacute;amos hacerlo con la
+    sentencia <strong>x=x+1;</strong>, con la sentencia <strong>x+=1;</strong> o bien con el
+    operador de incremento: <strong>x++;</strong> o <strong>++x;</strong>.</p>
+
+    <p>Es decir, se aceptan como sentencias de asignaci&oacute;n <a href="1057.html">incrementos (
+    ++ )</a> o <a href="1061.html">decrementos ( -- )</a> de un dato.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

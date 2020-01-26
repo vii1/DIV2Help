@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Esperando un elemento de la estructura</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Esperando un elemento de la estructura</h1>
+
+    <p>En la posici&oacute;n se&ntilde;alada del programa se pretende declarar un elemento (campo)
+    de la estructura no v&aacute;lido.</p>
+
+    <p>Una estructura puede tener &uacute;nicamente campos de los siguientes tipos:</p>
+
+    <p>- Una variable, en cuyo caso se deber&aacute; indicar en la declaraci&oacute;n el nombre de
+    la misma, sin inicializar.</p>
+
+    <p>- Una tabla, indicando el nombre de la misma y, a continuaci&oacute;n, entre corchetes, la
+    longitud de la misma (se recuerda que una tabla declarada como <strong>mi_tabla[9];</strong> es
+    una tabla de <strong>10</strong> posiciones, desde mi_tabla[0] hasta mi_tabla[10]). Tampoco se
+    deben inicializar.</p>
+
+    <p>- Otra estructura. Es posible incluir estructuras dentro de otras estructuras, sin
+    ning&uacute;n l&iacute;mite de anidamiento, hasta donde sea necesario. A continuaci&oacute;n se
+    muestra un ejemplo de anidamiento de estructuras.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRUCT</span> mi_estructura<span class="syntax3">[</span><span
+class="syntax2">9</span><span class="syntax3">]</span>
+        elementos<span class="syntax3">;</span>
+        <span class="syntax1">STRUCT</span> datos<span class="syntax3">[</span><span
+class="syntax2">9</span><span class="syntax3">]</span>
+            x<span class="syntax3">,</span> <span class="syntax1">y</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+    a<span class="syntax3">,</span> b<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FROM</span> a<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">9</span><span
+class="syntax3">;</span>
+        mi_estructura<span class="syntax3">[</span>a<span class="syntax3">].</span>elementos<span
+class="syntax3">=-</span><span class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">FROM</span> b<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">9</span><span
+class="syntax3">;</span>
+            mi_estructura<span class="syntax3">[</span>a<span class="syntax3">].</span>datos<span
+class="syntax3">[</span>b<span class="syntax3">].</span>x<span class="syntax3">=-</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+            mi_estructura<span class="syntax3">[</span>a<span class="syntax3">].</span>datos<span
+class="syntax3">[</span>b<span class="syntax3">].</span><span class="syntax1">y</span><span
+class="syntax3">=-</span><span class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+    <span class="syntax1">END</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo, cada registro de <strong>mi_estructura</strong> tendr&aacute; una variable
+    denominada <strong>elementos</strong> y otra estructura con 10 elementos cada uno con dos
+    variables: <strong>x</strong> e <strong>y</strong>.</p>
+
+    <p>M&aacute;s adelante, en el mismo ejemplo, se puede observar un ejemplo de acceso a dicha
+    estrucutra con dos bucles anidados que inicializan todos los valores de la estructura a
+    <strong>-1</strong>.</p>
+
+    <p>Para ver c&oacute;mo se debe inicializar en propia definici&oacute;n los valores de una
+    estructura acceda al t&oacute;pico <a href="1000.html">sintaxis</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1012.html">Declaraci&oacute;n de
+    Estructura</a>
+  </body>
+</html>
+

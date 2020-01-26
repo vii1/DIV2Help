@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - near_angle()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>near_angle()</h1>
+
+    <p><strong>near_angle(</strong>&lt;&aacute;ngulo&gt;<strong>,</strong> &lt;&aacute;ngulo
+    final&gt;<strong>,</strong> &lt;incremento&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>Un nuevo &aacute;ngulo m&aacute;s pr&oacute;ximo al &aacute;ngulo final.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Acerca un &aacute;ngulo a otro en el incremento dado. La funci&oacute;n devuelve el nuevo
+    &aacute;ngulo.</p>
+
+    <p>Se utiliza cuando se quiere que un &aacute;ngulo (&lt;&aacute;ngulo&gt;) var&iacute;e
+    gradualmente hasta convertirse en otro (&lt;&aacute;ngulo final&gt;); para ello, la
+    funci&oacute;n necesita el &aacute;ngulo original, el <strong>&aacute;ngulo final</strong> y el
+    <strong>incremento</strong> angular que se le va a ir sumando o restando al &aacute;ngulo
+    original.</p>
+
+    <p>Se recuerda que todos los &aacute;ngulos se especifican en mil&eacute;simas de grado. El
+    <strong>incremento</strong> angular no es m&aacute;s que un &aacute;ngulo peque&ntilde;o, como
+    pudiera ser un grado (<strong>1000</strong>) o cinco (<strong>5000</strong>).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_near_angle<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    &aacute;ngulo2<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    mouse<span class="syntax3">.</span>graph<span class="syntax3">=</span><span
+class="syntax2">200</span><span class="syntax3">;</span>
+    graph<span class="syntax3">=</span><span class="syntax2">101</span><span
+class="syntax3">;</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span class="syntax4">"Mueva el cursor del rat&oacute;n"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        &aacute;ngulo2<span class="syntax3">=</span>fget_angle<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">,</span> mouse<span
+class="syntax3">.</span>x<span class="syntax3">,</span> mouse<span class="syntax3">.</span><span
+class="syntax1">y</span><span class="syntax3">);</span>
+
+        <span
+class="syntax5">// Acerca el &aacute;ngulo actual al final en 10 grados como m&aacute;ximo</span>
+        angle <span class="syntax3">=</span> near_angle<span class="syntax3">(</span>angle<span
+class="syntax3">,</span> &aacute;ngulo2<span class="syntax3">,</span> <span
+class="syntax2">10000</span><span class="syntax3">);</span>
+
+        advance<span class="syntax3">(</span><span class="syntax2">6</span><span
+class="syntax3">);</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se define el cursor del rat&oacute;n como una peque&ntilde;a cruz que el
+    usuario puede mover.</p>
+
+    <p>El programa principal define su gr&aacute;fico como un tri&aacute;ngulo
+    (<strong>graph=101;</strong>) que, en cada iteraci&oacute;n del bucle, obtiene el &aacute;ngulo
+    hacia el cursor del rat&oacute;n con la funci&oacute;n <a href="113.html">fget_angle()</a>;
+    despu&eacute;s modifica su &aacute;ngulo para que se acerque un m&aacute;ximo de 10 grados
+    (10000) hacia el &aacute;ngulo del cursor, utilizando la funci&oacute;n
+    <strong>near_angle()</strong> y, por &uacute;ltimo, avanza 6 puntos en esa direcci&oacute;n
+    utilizando la funci&oacute;n <a href="101.html">advance()</a>.</p>
+
+    <p>Se puede observar c&oacute;mo el tri&aacute;ngulo persigue cont&iacute;nuamente al cursor
+    del rat&oacute;n sin realizar ning&uacute;n giro brusco (de m&aacute;s de 10 grados).</p>
+    <hr />
+    Ver: <a href="1044.html">Uso de &aacute;ngulos en el lenguaje</a> - <a
+    href="1129.html">angle</a> - <a href="116.html">get_angle()</a> - <a
+    href="113.html">fget_angle()</a>
+  </body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - system()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>system()</h1>
+
+    <p><strong>system(</strong>&lt;"comando externo"&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Ejecuta el comando de sistema operativo que se pasa como par&aacute;metro.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_system<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax4">"Presione [ESPACIO] para hacer un DIR."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            system<span class="syntax3">(</span><span class="syntax4">"dir"</span><span
+class="syntax3">);</span> <span class="syntax5">// Se ejecuta un comando del MS-DOS.</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, tras imprimir un texto, se entra dentro del bucle principal en el que se
+    ejecutar&aacute; el comando <strong>DIR</strong> del sistema operativo MS-DOS cada vez que se
+    pulse la barra espaciadora.</p>
+    <hr />
+
+    <p>Una utilidad que puede tener este comando es, por ejemplo, borrar alg&uacute;n archivo
+    temporal que se haya creado en el programa, invocando el comando del sistema <strong>DEL
+    &lt;</strong>nombre de archivo<strong>&gt;</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El sistema puede bloquearse seg&uacute;n qu&eacute; comandos se
+    ejecuten, debiendo reinicializar el ordenador en estos casos; no se ofrece ning&uacute;n tipo
+    de garant&iacute;a en cuanto al funcionamiento de esta funci&oacute;n, debido a las
+    m&uacute;ltiples incompatibilidades que se pueden presentar entre los comandos externos y el
+    gestor de procesos interno de DIV Games Studio.</p>
+    <hr />
+
+    <p><strong>system("COMMAND.COM")</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Ejecuta una sesi&oacute;n del sistema operativo MS-DOS desde del propio programa. Al teclear
+    EXIT desde la misma, se retornar&aacute; al programa en el punto en el que se ejecut&oacute;
+    esta sentencia.</p>
+    <hr />
+    Ver: <a href="109.html">exit()</a>
+  </body>
+</html>
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Opciones de compilaci&oacute;n</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Opciones de compilaci&oacute;n</h1>
+
+    <p>Estas opciones modifican la forma en la que DIV interpreta un programa y el c&oacute;digo
+    que genera para &eacute;l. Normalmente no ser&aacute; necesario especificar ninguna
+    opci&oacute;n.</p>
+
+    <p>Para a&ntilde;adir una o varias de estas opciones a un programa se debe especificar como la
+    primera sentencia del mismo (comentarios al margen) la palabra
+    <strong>COMPILER_OPTIONS</strong> seguida de los nombres de las opciones incluidas.</p>
+
+    <p>Si se incluyen varias opciones, deben aparecer separadas por comas, a&ntilde;adiendo siempre
+    un punto y coma al final (tras la ultima opci&oacute;n).</p>
+    <hr />
+
+    <p><strong>Opciones de compilaci&oacute;n disponibles:</strong></p>
+
+    <p><strong>_max_process=x</strong></p>
+
+    <p>Donde x es un n&uacute;mero entero positivo. Define el n&uacute;mero de procesos
+    simult&aacute;neos m&aacute;ximo permitidos en ejecuci&oacute;n. Esto puede hacerse una vez
+    completado un programa (cuando se sepa cuantos procesos puede llegar a tener a la vez), para
+    ahorrar memoria en ejecuci&oacute;n. En caso de no definirse este valor, se reservar&aacute; un
+    m&iacute;nimo de 1 Mb (y un m&aacute;ximo de 2 Mb) para la memoria del programa.</p>
+
+    <p><strong>_extended_conditions</strong></p>
+
+    <p>Permite utilizar asignaciones dentro de una condici&oacute;n (como:
+    <strong>IF(id2=get_id(...))...)</strong>; esto estaba permitido por defecto en la primera
+    versi&oacute;n. Esta opci&oacute;n puede ser necesaria para que muchos programas de la primera
+    versi&oacute;n funcionen en la segunda.</p>
+
+    <p><strong>_simple_conditions</strong></p>
+
+    <p>Interpreta el s&iacute;mbolo = como una comparaci&oacute;n, cuando aparece dentro de una
+    condici&oacute;n. Este es un caso opuesto al anterior (e incompatible con &eacute;l), al
+    incluir esta opci&oacute;n se permitir&aacute; hacer comparaciones como
+    <strong>IF(x=0)...</strong>, en lugar de interpretarlo como una asignaci&oacute;n del valor 0 a
+    la variable x.</p>
+
+    <p><strong>_case_sensitive</strong></p>
+
+    <p>Diferencia en todos los nombres entre may&uacute;sculas y min&uacute;sculas. En caso de
+    activarse esta opci&oacute;n <strong>Abc</strong> y <strong>abc</strong> ser&aacute;n dos
+    nombres diferentes. Es importante saber que, en este caso, todas las palabras reservadas del
+    lenguaje (<strong>program</strong>, <strong>loop</strong>, <strong>frame</strong>,
+    <strong>if</strong>, ...) deber&aacute;n ponerse en letras min&uacute;sculas.</p>
+
+    <p><strong>_ignore_errors</strong></p>
+
+    <p>Prohibe la aparici&oacute;n de mensajes de error durante la ejecuci&oacute;n del programa.
+    La mayor&iacute;a de errores ser&aacute;n ignorados (como errores de memoria, si no se
+    encuentra un fichero, divisiones por cero, etc.) , se desaconseja el uso de esta opci&oacute;n
+    pero, en caso de querer incluirse, debe hacerse &uacute;nicamente en los programas ya
+    finalizados, suficientemente probados, y sin errores conocidos, antes de realizar una
+    instalaci&oacute;n (ver las consideraciones finales).</p>
+
+    <p><strong>_free_sintax</strong></p>
+
+    <p>Permite usar una sintaxis libre. Con esta opci&oacute;n no ser&aacute;n necesarios los
+    s&iacute;mbolos <strong>;</strong> (punto y coma) del final de las sentencias y se
+    podr&aacute;n obviar los par&eacute;ntesis de las condiciones en las sentencias como
+    <strong>IF</strong>, <strong>WHILE</strong> o <strong>UNTIL</strong>. Por ejemplo, en este modo
+    se dar&aacute;n por v&aacute;lidas sentencias como: <strong>IF a&lt;0 a=0 END</strong> (ver
+    antes las consideraciones finales).</p>
+
+    <p><strong>_no_strfix</strong></p>
+
+    <p>No terminar autom&aacute;ticamente las cadenas de texto. Cuando se mete un car&aacute;cter
+    en un dato de tipo <a href="1406.html">STRING</a> se genera c&oacute;digo para, cuando este se
+    inserte m&aacute;s alla del final de la cadena, a&ntilde;adir espacios en blanco hasta el mismo
+    y el car&aacute;cter <strong>NUL</strong> (ascii 0) al final de la cadena. Esta opci&oacute;n
+    deshabilita esta caracter&iacute;stica.</p>
+
+    <p><strong>_no_optimization</strong></p>
+
+    <p>No optimizar el c&oacute;digo generado. Por defecto se optimizan los programas, tanto en
+    velocidad como en tama&ntilde;o. Esta opci&oacute;n puede incluirse para deshabilitar estas
+    optimizaciones. Es decir, si se especifica esta opci&oacute;n, los programas ir&aacute;n
+    m&aacute;s lentos y ocupar&aacute;n m&aacute;s memoria.</p>
+
+    <p><strong>_no_range_check</strong></p>
+
+    <p>No comprobar accesos fuera de rango en tablas y estructuras. El compilador genera
+    c&oacute;digo para comprobar en tiempo de ejecuci&oacute;n que las expresiones utilizadas como
+    &iacute;ndices de una tabla o estructura est&aacute;n dentro de los l&iacute;mites permitidos,
+    para emitir un error cuando se acceda fuera de rango. Esta opci&oacute;n prohibe que se genere
+    dicho c&oacute;digo.</p>
+
+    <p><strong>_no_id_check</strong></p>
+
+    <p>No comprobar la validez de un c&oacute;digo identificador. El compilador tambi&eacute;n
+    genera c&oacute;digo para comprobar la validez de un identificador cuando se utiliza este para
+    acceder a la variable local de otro proceso (como en <strong>id2.graph</strong>). Si se
+    especifica esta opci&oacute;n al comienzo del programa, no se realizar&aacute;n estas
+    comprobaciones.</p>
+
+    <p><strong>_no_null_check</strong></p>
+
+    <p>No comprobar los accesos a punteros nulos (<strong>NULL POINTER</strong>). Deshabilitar las
+    comprobaciones de accesos a memoria con punteros nulos o no definidos. Incluyendo esta
+    opci&oacute;n no se generar&aacute; c&oacute;digo para proteger estos accesos de lectura o
+    escritura a memoria.</p>
+
+    <p><strong>_no_check</strong></p>
+
+    <p>No realizar ninguna de las comprobaciones de seguridad. Esta opci&oacute;n engloba a las
+    tres anteriores, y prohibe al compilador generar c&oacute;digo para comprobar cualquier tipo de
+    operaci&oacute;n an&oacute;mala en tiempo de ejecuci&oacute;n. Los programas pueden ganar
+    velocidad, pero no se recomienda utilizar estas opciones a no ser que se trate de programas ya
+    finalizados y sin errores.</p>
+    <hr />
+
+    <p>Para utilizar estas opciones, por ejemplo, se podr&iacute;a comenzar un programa con la
+    siguiente sentencia:</p>
+
+    <p><strong>COMPILER_OPTIONS _max_process=64,_no_id_check;</strong></p>
+
+    <p>En este caso se indicar&iacute;a al compilador que reservara memoria para que, en la
+    ejecuci&oacute;n del programa pudieran haber 64 procesos simult&aacute;neamente, y no se
+    comprobar&iacute;a la validez de los identificadores en los accesos a variables locales de
+    otros procesos (lo que puede ser &uacute;til en programas que utilicen mucho estos accesos,
+    siempre que el programador tenga la suficiente experiencia como para estar seguro de lo que
+    hace).</p>
+    <hr />
+
+    <p><strong>Importante: Consideraciones sobre algunas opciones.</strong></p>
+
+    <p><strong>1.</strong> Los usuarios nuevos en DIV o no muy experimentados en la
+    programaci&oacute;n pueden simplificar un poco las condiciones con la opci&oacute;n
+    <strong>_simple_conditions</strong>, de forma se puedan comparar dos valores con el
+    s&iacute;mbolo <strong>=</strong> (adem&aacute;s de con el s&iacute;mbolo <strong>==</strong>).
+    En cambio, los usuarios que ya hubieran programado con la primera versi&oacute;n y con
+    m&aacute;s experiencia, probablemente preferir&aacute;n activar la opci&oacute;n
+    <strong>_extended_conditions</strong> de forma que se puedan crear condiciones complejas, con
+    asignaciones dentro de las mismas.</p>
+
+    <p><strong>2.</strong> Las opciones <strong>_ignore_error</strong> y todas las variantes de
+    <strong>_no_check</strong> deben utilizarse &uacute;nicamente por programadores con mucha
+    experiencia, y solo en la versi&oacute;n final del programa. Si no se recomienda su uso, es
+    porque pueden producirse errores graves de ejecuci&oacute;n, siendo adem&aacute;s muy
+    dif&iacute;cil averiguar cual ha sido la causa determinante.</p>
+
+    <p><strong>3.</strong> Los programas ya est&aacute;n optimizados en general (el c&oacute;digo
+    generado es un <strong>60%</strong> m&aacute;s r&aacute;pido que en la primera versi&oacute;n),
+    y no se conseguir&aacute;n grandes variaciones en la velocidad de ejecuci&oacute;n con ninguna
+    de estas opciones. Se pueden utilizar los <strong>perfiles de tiempo</strong> del trazador para
+    ver la repercusi&oacute;n de cada una.</p>
+
+    <p><strong>4.</strong> La opci&oacute;n <strong>_ignore_errors</strong> suele ser poco
+    conveniente, siempre ser&aacute; mejor utilizar la funci&oacute;n <a
+    href="240.html">ignore_error()</a> para ignorar, en todo caso, algunos errores determinados de
+    forma selectiva.</p>
+
+    <p><strong>5.</strong> El uso de una sintaxis libre (con <strong>_free_sintax</strong>)
+    tambi&eacute;n tiene sus peligros. Ya que que los saltos de l&iacute;nea y espacios en blanco
+    carecen de significado, y pueden producirse interpretaciones indebidas en algunos casos. Por
+    ejemplo, en la sentencia: <strong>IF derecha ++x END</strong>, el compilador
+    interpretar&aacute; que el s&iacute;mbolo <strong>++</strong> es el postincremento de
+    <strong>derecha</strong>, en lugar del preincremento de <strong>x</strong> (aunque el
+    s&iacute;mbolo este unido a esta &uacute;ltima variable). Otro caso similar podr&iacute;a pasar
+    al utilizar punteros al estilo C, con estas dos asignaciones consecutivas: <strong>a=1
+    *ptr=2</strong>, el compilador las interpretar&iacute;a como: <strong>a=(1*ptr)=2</strong>
+    (aunque estuvieran en lineas diferentes). Aunque en general, si no se utilizan preincrementos o
+    punteros al estilo C, no habr&aacute;n problemas con la sintaxis libre (y tambi&eacute;n se
+    pueden utilizar par&eacute;ntensis o puntos y coma en puntos concretos, para solucionar estos
+    peque&ntilde;os problemas).</p>
+
+    <p><strong>6.</strong> En cambio la opci&oacute;n <strong>_max_process</strong> (que es la
+    &uacute;nica que debe aparecer seguida de un s&iacute;mbolo <strong>=</strong> y un
+    n&uacute;mero) se recomienda sin ning&uacute;n tipo de reservas. Si se conoce el n&uacute;mero
+    de procesos que pueden llegar a haber a la vez en un programa, se podr&aacute; reservar menos
+    memoria para ellos (quedando esta libre para gr&aacute;ficos, sonidos, etc.).</p>
+  </body>
+</html>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - stop_scroll()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>stop_scroll()</h1>
+
+    <p><strong>stop_scroll(</strong>&lt;n&uacute;mero de scroll&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Elimina la ventana de scroll cuyo n&uacute;mero (del 0 al 9) se pasa como par&aacute;metro.
+    Este &lt;n&uacute;mero de scroll&gt; es el que se indic&oacute; como primer par&aacute;metro en
+    la funci&oacute;n <a href="163.html">start_scroll()</a> y es necesario debido a que puede haber
+    hasta 10 ventanas diferentes de scroll, y el sistema necesita saber cu&aacute;l de ellas se
+    est&aacute; finalizando.</p>
+
+    <p>Al eliminar una ventana de scroll morir&aacute;n, autom&aacute;ticamente, todos los procesos
+    que pertenezcan en exclusiva a dicha ventana, es decir, todos los procesos que tengan su
+    variable <a href="1122.html">ctype</a> con el valor <a href="1168.html">c_scroll</a> y no se
+    est&eacute;n visualizando en ninguna otra ventana de scroll.</p>
+
+    <p><strong>Importante:</strong> Al cambiar de modo de v&iacute;deo con la funci&oacute;n <a
+    href="157.html">set_mode()</a> todas las ventanas de scroll (y sus procesos) ser&aacute;n
+    igualmente eliminadas, no siendo en este caso necesario usar esta funci&oacute;n
+    (<strong>stop_scroll()</strong>).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_stop_scroll<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para activar la ventana de scroll."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para finalizar el scroll."</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_space<span class="syntax3">)</span>
+
+            stop_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">);</span> <span class="syntax5">// Se quita el scroll.</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>scan_code<span
+class="syntax3">==</span>_enter<span class="syntax3">)</span>
+            start_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">103</span><span class="syntax3">,</span> <span class="syntax2">102</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">15</span><span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        scroll<span class="syntax3">.</span>x0<span class="syntax3">+=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+        scroll<span class="syntax3">.</span><span class="syntax1">y0</span><span
+class="syntax3">+=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+        scroll<span class="syntax3">.</span>x1<span class="syntax3">-=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga el fichero de gr&aacute;ficos y se muestran las instrucciones del
+    programa en pantalla.</p>
+
+    <p>Cuando se pulse la tecla ENTER se crear&aacute; una ventana de scroll y al pulsarse la barra
+    espaciadora se invocar&aacute; a la funci&oacute;n <strong>stop_scroll()</strong>, eliminando
+    &eacute;sta la ventana de visualizaci&oacute;n del scroll.</p>
+
+    <p>Dentro del bucle principal se acceden a las coordenadas del scroll contenidas en la <a
+    href="1101.html">estructura global scroll</a> para desplazar manualmente la ventana de scroll
+    (<strong>scroll.x0+=1; ...</strong>).</p>
+    <hr />
+
+    <p>Crear una ventana de scroll es un procedimiento algo avanzado y requiere iniciar varios
+    par&aacute;metros, algunos de ellos requeridos por la funci&oacute;n <a
+    href="163.html">start_scroll()</a> y otros contenidos en la <a href="1101.html">estructura
+    global scroll</a> (como la variable <strong>scroll.x0</strong> utilizada en el ejemplo).</p>
+    <hr />
+    Ver: <a href="163.html">start_scroll()</a> - <a href="1101.html">Estructura scroll</a>
+  </body>
+</html>
+

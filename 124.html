@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_point()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_point()</h1>
+
+    <p><strong>get_point(</strong>&lt;fichero&gt;<strong>,</strong>
+    &lt;gr&aacute;fico&gt;<strong>,</strong> &lt;n&uacute;mero&gt;<strong>,</strong> &lt;OFFSET
+    x&gt;<strong>,</strong> &lt;OFFSET y&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La posici&oacute;n del punto de control (en las variables cuyo <a
+    href="1085.html">offset</a> se indica como los dos &uacute;ltimos par&aacute;metros).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n devuelve donde se situ&oacute; en un <strong>gr&aacute;fico</strong>
+    (del <strong>fichero</strong> indicado) el punto de control cuyo <strong>n&uacute;mero</strong>
+    se indica como tercer par&aacute;metro.</p>
+
+    <p>Un <a href="1136.html">punto de control</a> es un punto que se puede definir en el editor de
+    gr&aacute;ficos (herramienta de dibujo), en la opci&oacute;n habilitada para dicha
+    funci&oacute;n.</p>
+
+    <p>La funci&oacute;n necesita la <strong>direcci&oacute;n</strong> (que se obtiene con el
+    operador <a href="1085.html">offset</a>) en la memoria del ordenador <strong>de dos
+    variables</strong> en las que devolver&aacute; la posici&oacute;n <strong>x</strong> e
+    <strong>y</strong> del punto de control.</p>
+
+    <p>Los gr&aacute;ficos cargados con las funciones <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a> (o creados con <a href="188.html">new_map()</a>) se
+    utilizar&aacute;n como si pertenecieran al primer fichero (el fichero con el c&oacute;digo
+    0).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_point<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    fichero1<span class="syntax3">;</span>
+    punto<span class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+    x_punto<span class="syntax3">;</span>
+    <span class="syntax1">y_punto</span><span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">4</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">101</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>fget_dist<span
+class="syntax3">(</span>x<span class="syntax3">,</span> <span class="syntax1">y</span><span
+class="syntax3">,</span> x_punto<span class="syntax3">,</span> <span
+class="syntax1">y_punto</span><span class="syntax3">)&lt;</span><span class="syntax2">6</span><span
+class="syntax3">)</span>
+            <span class="syntax1">IF</span> <span class="syntax3">(</span>punto<span
+class="syntax3">++==</span><span class="syntax2">50</span><span class="syntax3">)</span> punto<span
+class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">END</span>
+
+        <span class="syntax5">// Cogemos el punto de control</span>
+        get_point<span class="syntax3">(</span>fichero1<span class="syntax3">,</span> <span
+class="syntax2">4</span><span class="syntax3">,</span>punto<span class="syntax3">,</span> <span
+class="syntax1">offset</span> x_punto<span class="syntax3">,</span> <span
+class="syntax1">offset</span> <span class="syntax1">y_punto</span><span class="syntax3">);</span>
+
+        angle<span class="syntax3">=</span>fget_angle<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">,</span> x_punto<span
+class="syntax3">,</span> <span class="syntax1">y_punto</span><span class="syntax3">);</span>
+        advance<span class="syntax3">(</span><span class="syntax2">6</span><span
+class="syntax3">);</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone como fondo un dibujo con un circuito que recorre la pantalla; este
+    dibujo (el gr&aacute;fico <strong>4</strong> del fichero) tiene definidos 50 <a
+    href="1136.html">puntos de control</a> (del 1 al 50) a lo largo del recorrido del circuito.</p>
+
+    <p>El proceso principal aparece como un tri&aacute;ngulo que va recorriendo el circuito.</p>
+
+    <p>Esto se consigue teniendo en la variable <strong>punto</strong> el n&uacute;mero del punto
+    de control al que se debe dirigir el tri&aacute;ngulo, en un principio el punto n&uacute;mero
+    1.</p>
+
+    <p>Las coordenadas de cada punto de control, obtenidas con la funci&oacute;n
+    <strong>get_point()</strong>, se guardan en las variables <strong>x_punto</strong> e
+    <strong>y_punto</strong> y sirven para que el proceso se dirija hacia esa posici&oacute;n con
+    las funciones <a href="113.html">fget_angle()</a> (para obtener en la variable
+    <strong>angle</strong> el &aacute;ngulo hacia el punto) y <a href="101.html">advance()</a>
+    (para avanzar 6 puntos en esa direcci&oacute;n).</p>
+
+    <p>Cuando se est&aacute; cerca del punto de control, lo que se comprueba con la funci&oacute;n
+    <a href="114.html">fget_dist()</a>, es si se incrementa el n&uacute;mero de punto, para dirigir
+    el tri&aacute;ngulo hacia el siguiente (cuando se haya alcanzado el punto n&uacute;mero 50, se
+    volver&aacute; al 1).</p>
+    <hr />
+
+    <p>Esta funci&oacute;n devuelve las coordenadas exactas en las que fue colocado ese punto de
+    control dentro del gr&aacute;fico, sin importar c&oacute;mo est&eacute; dicho gr&aacute;fico
+    ahora (escalado, rotado, etc.). Para poder obtener la posici&oacute;n de un punto de control en
+    un gr&aacute;fico escalado, rotado, etc. y relativa a las coordenadas de pantalla (y no del
+    gr&aacute;fico original) se debe emplear la funci&oacute;n <a
+    href="125.html">get_real_point()</a>.</p>
+
+    <p>Es decir, esta &uacute;ltima funci&oacute;n devuelve d&oacute;nde est&aacute; en un momento
+    determinado un punto de control, y <strong>get_point()</strong> devuelve d&oacute;nde fue
+    emplazado originalmente.</p>
+    <hr />
+    Ver: <a href="1136.html">Puntos de control</a> - <a href="125.html">get_real_point()</a> - <a
+    href="123.html">get_pixel()</a>
+  </body>
+</html>
+

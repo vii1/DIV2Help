@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT setup</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT setup</h1>
+
+    <p><strong>STRUCT setup;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>card;</strong> // Tipo de tarjeta<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>port;</strong> // Puerto de acceso<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>irq;</strong> // Interrupci&oacute;n requerida<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>dma;</strong> // Canal de acceso a memoria<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>dma2;</strong> // Canal de acceso de 16 bit<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>mixer;</strong> // Tipo de mezclador<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>rate;</strong> // Frecuencia m&aacute;xima (bitrate)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>bits;</strong> // Calidad 8 o 16 bits<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>master;</strong> // Volumen maestro (general)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>sound_fx;</strong> // Volumen de los efectos<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>cd_audio;</strong> // Volumen de m&uacute;sica CD<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura de datos es de nivel muy avanzado y no es en absoluto necesaria para crear
+    ning&uacute;n juego, por complejo que &eacute;ste sea, ya que el gestor de procesos de DIV
+    Games Studio se encargar&aacute;, normalmente, del hardware de sonido de forma
+    transparente.</p>
+
+    <p>Todos los campos referentes al hardware de sonido se actualizan de manera autom&aacute;tica
+    por el programa si se tiene una tarjeta de sonido, siempre y cuando se tenga la variable de
+    entorno <strong>BLASTER</strong> o <strong>GRAVIS</strong> debidamente inicializada.</p>
+
+    <p>Esta estructura de un &uacute;nico registro contiene una serie de campos divididos en dos
+    grupos: los primeros para activar nuevos par&aacute;metros del hardware de sonido instalado en
+    el ordenador y los segundos para ajustar los diferentes controles de volumen gestionados por el
+    mezclador (<strong>mixer</strong>) del sistema de sonido.</p>
+    <hr />
+
+    <p><strong>Importante:</strong></p>
+
+    <p>Para activar los nuevos par&aacute;metros del hardware de sonido que se introduzcan en esta
+    estructura se debe llamar a la funci&oacute;n <a href="175.html">reset_sound()</a>.</p>
+
+    <p>Para activar los nuevos niveles de volumen que se introduzcan en la estructura (en los
+    campos <strong>master</strong>, <strong>sound_fx</strong> y <strong>cd_audio</strong>) se debe
+    llamar a la funci&oacute;n <a href="178.html">set_volume()</a>.</p>
+
+    <p>Esta estructura se utiliza generalmente dentro de los programas de configuraci&oacute;n del
+    sistema de sonido (ver <a href="1093.html">setup_program</a>).</p>
+
+    <p><strong>Nota:</strong> Para acceder a estos campos se debe preceder el nombre del campo por
+    la palabra <strong>setup</strong> y el s&iacute;mbolo <a href="1063.html">. (punto)</a>; por
+    ejemplo, para acceder al campo <strong>master</strong> (que indica el nivel de volumen general
+    del mezclador) se debe utilizar <strong>setup.master</strong>.</p>
+    <hr />
+
+    <p>Se muestra, a continuaci&oacute;n, una descripci&oacute;n algo m&aacute;s detallada de cada
+    uno de los campos de esta estructura.</p>
+
+    <p><strong>card</strong> - Indica el tipo de tarjeta de sonido instalada en el ordenador. El
+    programa admite tarjetas de las familias <strong>Sound Blaster</strong> (tm) y <strong>Gravis
+    Ultra Sound</strong> (tm) y todas las que sean compatibles <strong>100%</strong> con
+    &eacute;stas.</p>
+
+    <p>Los valores que puede tomar este campo son los siguientes, depediendo del tipo de tarjeta de
+    sonido:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Sin tarjeta o sin sonido = <strong>0</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Sound Blaster 1.5 = <strong>1</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Sound Blaster 2.0 = <strong>2</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Sound Blaster Pro = <strong>3</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Sound Blaster 16 = <strong>4</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Sound Blaster AWE = <strong>5</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Gravis Ultra Sound = <strong>6</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;Gravis Ultra Sound MAX = <strong>7</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>port</strong> - Indica el puerto de comunicaciones del ordenador en el cual se deben
+    escribir y leer los datos de la tarjeta de sonido.</p>
+
+    <p>Los valores que puede tomar este campo son los siguientes, dependiendo del puerto asignado
+    al hardware de sonido:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;0x210 = <strong>0</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;0x220 = <strong>1</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;0x230 = <strong>2</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;0x240 = <strong>3</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;0x250 = <strong>4</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;0x260 = <strong>5</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>irq</strong> - Este campo indica el n&uacute;mero de interrupci&oacute;n o IRQ
+    (Interrupt request) asignado a la tarjeta de sonido activa.</p>
+
+    <p>Los valores que puede tomar este campo son, dependiendo de la interrupci&oacute;n utilizada
+    por la tarjeta, los siguientes:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;IRQ 2 = <strong>0</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 3 = <strong>1</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 5 = <strong>2</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 7 = <strong>3</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 10 = <strong>4</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 11 = <strong>5</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 12 = <strong>6</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 13 = <strong>7</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 14 = <strong>8</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;IRQ 15 = <strong>9</strong><br />
+    </p>
+    <hr />
+
+    <p><strong>dma</strong> - En este campo se debe indicar el n&uacute;mero de canal de acceso
+    directo a memoria (DMA) que utiliza la tarjeta de sonido.</p>
+
+    <p>Este campo puede tomar valores de 0 a 10, dependiendo directamente del n&uacute;mero de
+    canal.</p>
+    <hr />
+
+    <p><strong>dma2</strong> - Algunas tarjetas de sonido tienen disponible un segundo canal de
+    acceso directo a memoria m&aacute;s r&aacute;pido que el anterior, de 16 bits, denominado
+    com&uacute;nmente HDMA, DMA2 o DMA16.</p>
+
+    <p>Como el campo anterior de esta estructura, &eacute;ste podr&aacute; tomar valores del 0 al
+    10 dependiendo del n&uacute;mero de canal de 16 bits utilizado por la tarjeta.</p>
+    <hr />
+
+    <p><strong>mixer</strong> - Tipo de mezclador utilizado por el sistema de sonido, puede ser una
+    de estas dos constantes:</p>
+
+    <p>&nbsp;&nbsp;<strong>fast_mixer</strong> - Mezclador r&aacute;pido de los canales de sonido
+    (1).<br />
+    &nbsp;&nbsp;<strong>quality_mixer</strong> - Mezclador de calidad m&aacute;xima (2).<br />
+    </p>
+
+    <p>Por defecto, todos los programas tendr&aacute;n activado el mezclador r&aacute;pido
+    (<strong>setup.mixer=fast_mixer;</strong>) ya que este es el modo m&aacute;s r&aacute;pido, y
+    la diferencia de calidad no es muy grande.</p>
+    <hr />
+
+    <p><strong>rate</strong> - Frecuencia m&aacute;xima permitida (bit rate), entre
+    <strong>11025</strong> (calidad de sonido m&iacute;nima permitida) y <strong>44100</strong>
+    (calidad CD). Por defecto, todos los programas se configuran a 44100
+    (<strong>setup.rate=44100;</strong>), no obstante esto puede cambiarse, ya que a mayor calidad,
+    m&aacute;s lento ser&aacute; el sistema de sonido, y m&aacute;s tiempo de procesador
+    consume.</p>
+
+    <p>Se entiende que el valor especificado en <strong>setup.rate</strong> es la <strong>calidad
+    m&aacute;xima</strong> de sonido, lo que quiere decir que todos los efectos de sonido cargados
+    se adaptar&aacute;n a esta calidad en caso de tener una mayor. Es decir, que los efectos
+    grabados a una frecuencia de 11025 seguir&aacute;n sonando con calidad pobre, aunque la
+    frecuencia m&aacute;xima permitida sea mayor.</p>
+    <hr />
+
+    <p><strong>bits</strong> - Resoluci&oacute;n de las muestras de los efectos digitales y
+    m&oacute;dulos musicales, este campo puede tener uno de estas dos constantes como valores:</p>
+
+    <p>&nbsp;&nbsp;<strong>sound_bits_8</strong> - Muestras de 8 bit.<br />
+    &nbsp;&nbsp;<strong>sound_bits_16</strong> - Muestras de 16 bit.<br />
+    </p>
+
+    <p>El efecto es similar al valor especificado en el campo <strong>rate</strong>, los sonidos
+    con <strong>8 bit</strong> suenan peor (tambi&eacute;n ocupan menos espacio) y los de
+    <strong>16 bit</strong> son de m&aacute;s calidad. El valor indicado en
+    <strong>setup.bits</strong> indicar&aacute; la profundidad de muestra m&aacute;xima.</p>
+
+    <p>Por defecto, todos los programas activar&aacute;n las muestras de <strong>16 bit</strong>
+    (<strong>setup.bits=sound_bits_8;)), ya que la diferencia de calidad es m&aacute;s que
+    notable.</strong></p>
+    <hr />
+
+    <p><strong>master</strong> - Este campo contiene el volumen general o maestro de salida de la
+    tarjeta. Aqu&iacute; se debe indicar un n&uacute;mero entre 0 (volumen m&iacute;nimo) y 15
+    (volumen m&aacute;ximo). El valor por defecto es <strong>15</strong>, el volumen
+    m&aacute;ximo.</p>
+
+    <p>Si se disminuye el volumen maestro afectar&aacute; tanto al volumen de los efectos de sonido
+    como al volumen de reproducci&oacute;n de la m&uacute;sica de cd audio.</p>
+    <hr />
+
+    <p><strong>sound_fx</strong> - Este campo controla el volumen al que los efectos de sonido que
+    se ejecutan con la funci&oacute;n <a href="159.html">sound()</a> son reproducidos.</p>
+
+    <p>Este volumen es independiente del utilizado con las funciones de sonido siendo, este
+    volumen, general para todos los efectos de sonido y el indicado en las funciones el
+    espec&iacute;fico para cada sonido.</p>
+
+    <p>Este campo tambi&eacute;n puede oscilar entre 0 (volumen m&iacute;nimo) y 15 (volumen
+    m&aacute;ximo), siendo el valor por defecto el volumen m&aacute;ximo.</p>
+    <hr />
+
+    <p><strong>cd_audio</strong> - Este campo controla el volumen de la m&uacute;sica que
+    ser&aacute; reproducida a partir de pistas de audio de un CD ROM o de un Compact Disc.</p>
+
+    <p>Al igual que los dos campos anteriores, este campo tambi&eacute;n puede oscilar entre 0
+    (volumen m&iacute;nimo) y 15 (volumen m&aacute;ximo) siendo el valor por defecto el volumen
+    m&aacute;ximo.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="175.html">reset_sound()</a> - <a
+    href="178.html">set_volume()</a>
+  </body>
+</html>
+

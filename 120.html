@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_id()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_id()</h1>
+
+    <p><strong>get_id(</strong>&lt;tipo de proceso&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <a href="1039.html">c&oacute;digo identificador</a> de un proceso o
+    <strong>0</strong>.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Comprueba si hay procesos del tipo especificado activos. En caso afirmativo, esta
+    funci&oacute;n devolver&aacute; el <a href="1039.html">c&oacute;digo identificador</a> de uno
+    de ellos y, en el caso contrario, devolver&aacute; un 0.</p>
+
+    <p>Si existen varios procesos del tipo que se ha especificado, la funci&oacute;n
+    <strong>get_id()</strong> devolver&aacute; el resto de los identificadores en las sucesivas
+    llamadas que se realicen a la misma.</p>
+
+    <p>Una vez se hayan devuelto todos los <a href="1039.html">c&oacute;digos identificadores</a>,
+    la funci&oacute;n devolver&aacute; 0, hasta que se vuelva a ejecutar una sentencia <a
+    href="1029.html">FRAME</a>, momento a partir del cual esta funci&oacute;n devolver&aacute;, de
+    nuevo, todos los c&oacute;digos identificadores de los procesos del tipo indicado.</p>
+
+    <p>Para obtener de esta forma todos los <a href="1039.html">c&oacute;digos identificadores</a>
+    de los procesos no se debe utilizar la sentencia <a href="1029.html">FRAME</a> entre dos
+    llamadas consecutivas a la sentencia <strong>get_id()</strong>. En el caso de ejecutar una
+    sentencia <a href="1029.html">FRAME</a>, esta funci&oacute;n volver&aacute; a retornar todos
+    los <a href="1039.html">c&oacute;digos identificadores</a> de procesos desde el primero.</p>
+
+    <p>Algo similar sucede si se ejecuta una llamada a la funci&oacute;n especificando un tipo de
+    proceso diferente; si tras esto se vuelven a pedir identificadores del tipo de proceso
+    anterior, esta funci&oacute;n tambi&eacute;n los volver&aacute; a retornar todos desde el
+    primero.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_id<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    identificador_proceso<span class="syntax3">;</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">1</span> <span class="syntax1">TO</span> <span class="syntax2">20</span><span
+class="syntax3">;</span>
+        proceso_m&oacute;vil<span class="syntax3">(</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">319</span><span
+class="syntax3">),</span> rand<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">199</span><span class="syntax3">),</span> <span
+class="syntax2">101</span><span class="syntax3">);</span>
+    <span class="syntax1">END</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">1</span> <span class="syntax1">TO</span> <span class="syntax2">20</span><span
+class="syntax3">;</span>
+
+            <span class="syntax5">// Cogemos los identificadores de los procesos</span>
+            identificador_proceso <span class="syntax3">=</span> get_id<span
+class="syntax3">(</span><span class="syntax1">TYPE</span> proceso_m&oacute;vil<span
+class="syntax3">);</span>
+
+            identificador_proceso<span class="syntax3">.</span>angle<span
+class="syntax3">+=</span>rand<span class="syntax3">(-</span><span class="syntax2">5000</span><span
+class="syntax3">,</span> <span class="syntax2">5000</span><span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> proceso_m&oacute;vil<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">,</span> graph<span
+class="syntax3">);</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, despu&eacute;s de cargar el fichero de gr&aacute;ficos y poner la pantalla de
+    fondo, se crean 20 procesos tipo <strong>proceso_m&oacute;vil</strong> con sus posiciones
+    elegidas aleatoriamente y un tri&aacute;ngulo como su gr&aacute;fico.</p>
+
+    <p>Estos procesos &uacute;nicamente ejecutar&aacute;n sentencias <a href="1029.html">FRAME</a>
+    dentro de un bucle, para visualizarse.</p>
+
+    <p>Desde el programa principal se van cogiendo los identificadores de los procesos tipo
+    <strong>proceso_m&oacute;vil</strong> con la funci&oacute;n <strong>get_id()</strong>
+    (guard&aacute;ndolos en la variable <strong>identificador_proceso</strong>) y
+    utiliz&aacute;ndolos para modificarles el &aacute;ngulo (su variable local <a
+    href="1129.html">angle</a>).</p>
+
+    <p>Al disponer del <a href="1039.html">c&oacute;digo identificador</a> de un proceso se pueden
+    consultar o modificar sus variables locales (como <a href="1129.html">angle</a> en este
+    ejemplo) o bien enviar se&ntilde;ales al proceso con la funci&oacute;n <a
+    href="158.html">signal()</a>.</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="104.html">collision()</a> sirve para obtener los <a
+    href="1039.html">c&oacute;digos identificadores</a> de procesos de un tipo determinado que,
+    adem&aacute;s, colisionen (choquen) con el proceso actual.</p>
+    <hr />
+    Ver: <a href="1038.html">Formas de obtener el c&oacute;digo identificador</a> - <a
+    href="1042.html">Tipos de procesos</a> - <a href="1039.html">C&oacute;digos identificadores</a>
+  </body>
+</html>
+

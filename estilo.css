@@ -1,0 +1,85 @@
+a {
+	color: #2200fe;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body {
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+div.ejemplo {
+	background-color: #e6e6e6;
+	margin-left: 5px;
+	padding: 5px;
+	border: 3px double #ccc;
+}
+
+div.ejtitulo {
+	background-color: #9bcafe;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	padding: 2px;
+	margin-left: -10px;
+	border: 1px solid #1e7cfe;
+}
+
+pre.ejprograma {
+	font-size: large;
+}
+
+span.syntax4 {
+	color: #077d7f;
+}
+
+span.syntax2 {
+	color: #80113f;
+}
+
+span.syntax1 {
+	font-weight: bold;
+}
+
+span.syntax3 {
+	font-weight: bold;
+}
+
+span.syntax5 {
+	color: green;
+}
+
+h1 {
+	color: #5a5a5a;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	padding: 4px;
+	text-shadow: rgba(0,0,0,0.45) 2px 1px 3px;
+	border-style: solid;
+	border-color: #cbcbcb;
+	background-color: #f2f6f8;
+}
+
+div.botonera {
+}
+
+div.botonera ul {
+	list-style-type: none;
+}
+
+div.botonera ul li {
+	display: inline;
+	border-style: outset;
+	border-width: 1px;
+	background-color: #e6e6e6;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+div.botonera ul li a {
+	color: #000;
+}
+
+div.botonera ul li a:hover {
+	text-decoration: none;
+}

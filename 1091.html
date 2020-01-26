@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - END</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>END</h1>
+
+    <p>Esta palabra reservada marca el final de una de las siguientes sentencias:</p>
+
+    <p>&nbsp;&nbsp;<a href="1086.html">BEGIN</a><br />
+    &nbsp;&nbsp;<a href="1020.html">IF</a><br />
+    &nbsp;&nbsp;<a href="1022.html">WHILE</a><br />
+    &nbsp;&nbsp;<a href="1021.html">SWITCH</a><br />
+    &nbsp;&nbsp;<a href="1087.html">CASE</a><br />
+    &nbsp;&nbsp;<a href="1087.html">DEFAULT</a><br />
+    &nbsp;&nbsp;<a href="1025.html">FOR</a><br />
+    &nbsp;&nbsp;<a href="1043.html">FROM</a><br />
+    &nbsp;&nbsp;<a href="1024.html">LOOP</a><br />
+    &nbsp;&nbsp;<a href="1030.html">CLONE</a><br />
+    </p>
+
+    <p>Es decir, la funci&oacute;n de la palabra <strong>END</strong> es <strong>delimitar
+    d&oacute;nde acaba una sentencia</strong>.</p>
+
+    <p>Se debe tener en cuenta que las sentencias se pueden anidar, es decir, incluir unas dentro
+    de otras, por lo que si no se estructura bien un programa (tabulando el c&oacute;digo), puede
+    resultar dif&iacute;cil averiguar a qu&eacute; sentencia corresponde cada
+    <strong>END</strong>.</p>
+
+    <p>Por ejemplo, en el siguiente c&oacute;digo se puede ver claramente a qu&eacute; sentencia
+    pertenece cada <strong>END</strong>.</p>
+
+    <p><strong>BEGIN</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>IF (x&gt;0)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=x-1;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Pero este mismo c&oacute;digo podr&iacute;a haberse expresado como sigue:</p>
+
+    <p><strong>BEGIN</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>IF (x&gt;0)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>x=x-1;</strong><br />
+    <strong>END</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>resultando mucho m&aacute;s complicada la lectura del programa, aunque para el compilador
+    del lenguaje <strong>ambos bloques de c&oacute;digo son exactamente iguales</strong> (el
+    compilador seguir&aacute; interpretando que el primer <strong>END</strong> es el de la
+    sentencia <strong>IF</strong> y el segundo el del <strong>BEGIN</strong>, aunque &eacute;stos
+    est&eacute;n tabulados incorrectamente).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

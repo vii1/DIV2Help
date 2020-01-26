@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL graph</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL graph</h1>
+
+    <p><strong>graph=0;</strong> // C&oacute;digo del gr&aacute;fico del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>graph</strong>.</p>
+
+    <p>Normalmente, la mayor&iacute;a de procesos se corresponden con un objeto gr&aacute;fico
+    visualizado en pantalla que se situar&aacute; en las coordenadas indicadas en las variables
+    locales <a href="1123.html">x</a> e <a href="1123.html">y</a>. Se debe definir qu&eacute;
+    gr&aacute;fico es el correspondiente a dicho proceso asignando un <strong>c&oacute;digo de
+    gr&aacute;fico</strong> a la variable local <strong>graph</strong>.</p>
+
+    <p>Por defecto, esta variable valdr&aacute; <strong>0</strong> lo que implica que no se
+    visualizar&aacute; ning&uacute;n gr&aacute;fico para este proceso.</p>
+
+    <p>Los gr&aacute;ficos se deben crear primero en el <strong>editor gr&aacute;fico</strong> de
+    DIV Games Studio (con la opci&oacute;n "<strong>Nuevo...</strong>" del men&uacute; de mapas) y,
+    despu&eacute;s, se pueden guardar en un <strong>archivo MAP o PCX</strong> (que
+    contendr&aacute; este gr&aacute;fico), o en un <strong>fichero FPG</strong> junto a otros
+    gr&aacute;ficos (se puede crear un fichero nuevo con la opci&oacute;n
+    "<strong>Nuevo...</strong>" del men&uacute; de ficheros).</p>
+
+    <p>Es decir, los gr&aacute;ficos utilizados en un programa pueden provenir de un
+    <strong>archivo MAP o PCX</strong> (que contiene un s&oacute;lo gr&aacute;fico) o de un
+    <strong>fichero FPG</strong> (que puede contener muchos gr&aacute;ficos).</p>
+
+    <p><strong>Nota:</strong> Un mismo gr&aacute;fico puede ser utilizado por muchos procesos a la
+    vez en un programa.</p>
+
+    <p><strong>Archivos MAP o PCX</strong></p>
+    <hr />
+
+    <p>Para utilizar en el programa un gr&aacute;fico de un <strong>archivo MAP o PCX</strong> se
+    debe cargar este llamando a las funciones <a href="174.html">load_map()</a> o <a
+    href="174.html">load_pcx()</a>, que devolver&aacute;n el <strong>c&oacute;digo del
+    gr&aacute;fico</strong> que se debe ser asignado a la variable <strong>graph</strong>.</p>
+
+    <p>Normalmente se utiliza una variable <a href="1006.html">GLOBAL</a> para guardar este
+    <strong>c&oacute;digo de gr&aacute;fico</strong> y despu&eacute;s se asigna &eacute;sta a la
+    variable <strong>graph</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_graph<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    gr&aacute;fico1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    gr&aacute;fico1<span class="syntax3">=</span>load_map<span class="syntax3">(</span><span
+class="syntax4">"help\help.map"</span><span class="syntax3">);</span>
+
+    graph<span class="syntax3">=</span>gr&aacute;fico1<span class="syntax3">;</span> <span
+class="syntax5">// Se define el gr&aacute;fico del proceso.</span>
+
+    <span class="syntax1">LOOP</span>
+        x<span class="syntax3">=</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">;</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span>mouse<span
+class="syntax3">.</span><span class="syntax1">y</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Si bien en el ejemplo anterior se podr&iacute;a haber prescindido de la variable global
+    <strong>gr&aacute;fico1</strong> y haber asignado directamente el c&oacute;digo devuelto por la
+    funci&oacute;n <a href="174.html">load_map()</a> a la variable <strong>graph</strong> con la
+    siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>graph=load_map("help\help.map");</strong></p>
+
+    <p>los <strong>c&oacute;digos de gr&aacute;fico</strong> que devuelve esta funci&oacute;n son
+    simplemente n&uacute;meros enteros a partir de <strong>1000</strong>.</p>
+
+    <p><strong>Ficheros FPG</strong></p>
+    <hr />
+
+    <p>Para incluir un gr&aacute;fico que se ha realizado en el <strong>editor
+    gr&aacute;fico</strong> en un <strong>fichero FPG</strong> de debe <strong>arrastrar la ventana
+    del gr&aacute;fico a la ventana del fichero</strong> (pulsar en el gr&aacute;fico, moverse
+    hasta el fichero y soltar), entonces el programa pedir&aacute; el <strong>c&oacute;digo del
+    gr&aacute;fico</strong>, con lo que se debe introducir aqu&iacute; un n&uacute;mero entero
+    entre <strong>1</strong> y <strong>999</strong>.</p>
+
+    <p>Para utilizar entonces el gr&aacute;fico en un programa, se debe primero cargar el
+    <strong>fichero FPG</strong> que lo contiene con la funci&oacute;n <a
+    href="132.html">load_fpg()</a> y, despu&eacute;s, asignar el <strong>c&oacute;digo del
+    gr&aacute;fico</strong> a la variable <strong>graph</strong>.</p>
+
+    <p>Se muestra, a continuaci&oacute;n, un ejemplo es necesario saber antes que un gr&aacute;fico
+    de una <strong>bola marr&oacute;n</strong> se introdujo en el <strong>fichero HELP.FPG</strong>
+    indicando el <strong>c&oacute;digo de gr&aacute;fico 100</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_graph<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+
+    graph<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">;</span> <span class="syntax5">// Se define el gr&aacute;fico del proceso.</span>
+
+    <span class="syntax1">LOOP</span>
+        x<span class="syntax3">=</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">;</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span>mouse<span
+class="syntax3">.</span><span class="syntax1">y</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Se pueden cargar <strong>varios ficheros FPG</strong> en un programa; en ese caso se
+    deber&aacute; indicar, adem&aacute;s del <strong>c&oacute;digo del gr&aacute;fico</strong> en
+    la variable local <strong>graph</strong>, el <strong>c&oacute;digo de fichero</strong> que
+    devuelve la funci&oacute;n <a href="132.html">load_fpg()</a> en la variable local <a
+    href="1131.html">file</a>.</p>
+
+    <p>Si s&oacute;lo se carga un fichero &eacute;sto no ser&aacute; necesario, ya que la variable
+    <a href="1131.html">file</a> vale <strong>0</strong> por defecto en todos los procesos y
+    <strong>0</strong> ser&aacute; siempre el <strong>c&oacute;digo del primer fichero</strong> que
+    se cargue en el programa.</p>
+    <hr />
+
+    <p>Existen m&aacute;s variables locales relacionadas con el gr&aacute;fico de un proceso, las
+    principales son las siguientes:</p>
+
+    <p>&nbsp;&nbsp;<strong>graph</strong> - C&oacute;digo del gr&aacute;fico<br />
+    &nbsp;&nbsp;<a href="1131.html">file</a> - C&oacute;digo del fichero<br />
+    &nbsp;&nbsp;<a href="1123.html">x</a>, <a href="1124.html">y</a> - Coordenadas del
+    gr&aacute;fico<br />
+    &nbsp;&nbsp;<a href="1125.html">z</a> - Plano de profundidad<br />
+    &nbsp;&nbsp;<a href="1129.html">angle</a> - &aacute;ngulo del gr&aacute;fico<br />
+    &nbsp;&nbsp;<a href="1128.html">size</a> - Tama&ntilde;o del gr&aacute;fico<br />
+    &nbsp;&nbsp;<a href="1127.html">flags</a> - Espejados y transparencias<br />
+    &nbsp;&nbsp;<a href="1130.html">region</a> - Ventana de visualizaci&oacute;n<br />
+    </p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a>
+  </body>
+</html>
+

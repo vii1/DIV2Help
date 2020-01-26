@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - map_block_copy()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>map_block_copy()</h1>
+
+    <p><strong>map_block_copy(</strong>&lt;fichero&gt;<strong>,</strong> &lt;gr&aacute;fico
+    destino&gt;<strong>,</strong> &lt;x destino&gt;<strong>,</strong> &lt;y
+    destino&gt;<strong>,</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;gr&aacute;fico
+    origen&gt;<strong>,</strong> &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>,</strong>
+    &lt;ancho&gt;<strong>,</strong> &lt;alto&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>La funci&oacute;n <strong>map_block_copy()</strong> permite transferir un bloque rectangular
+    de un gr&aacute;fico a otro.</p>
+
+    <p>El gr&aacute;fico del cual se toma la regi&oacute;n rectangular se denomina
+    &lt;gr&aacute;fico origen&gt; y el <strong>gr&aacute;fico destino</strong> es en el que se
+    copiar&aacute; dicho bloque, es decir, esta funci&oacute;n permite copiar un trozo de un
+    gr&aacute;fico (origen) a otro (destino). Los par&aacute;metros son, por orden, los
+    siguientes:</p>
+
+    <p><strong>&lt;fichero&gt;</strong> - Ambos gr&aacute;ficos deben provenir del mismo fichero de
+    gr&aacute;ficos. Como primer par&aacute;metro se debe especificar el <strong>c&oacute;digo del
+    fichero</strong> (ver <a href="132.html">load_fpg()</a>). Los gr&aacute;ficos cargados con las
+    funciones <a href="174.html">load_map()</a> o <a href="174.html">load_pcx()</a> (o creados con
+    <a href="188.html">new_map()</a>) se utilizar&aacute;n como si pertenecieran al primer fichero
+    (el fichero con el c&oacute;digo 0).</p>
+
+    <p><strong>&lt;gr&aacute;fico destino&gt;</strong> - <strong>c&oacute;digo del
+    gr&aacute;fico</strong> en el que se va a poner el bloque.</p>
+
+    <p><strong>&lt;x destino&gt;, &lt;y destino&gt;</strong> - coordenadas (<strong>x</strong>,
+    <strong>y</strong>) en las que se quiere poner el bloque dentro del gr&aacute;fico destino.</p>
+
+    <p><strong>&lt;gr&aacute;fico origen&gt;</strong> - <strong>c&oacute;digo del
+    gr&aacute;fico</strong> del que se va a tomar el bloque.</p>
+
+    <p><strong>&lt;x&gt;, &lt;y&gt;</strong> - coordenadas de <strong>inicio</strong> del bloque
+    dentro del gr&aacute;fico origen.</p>
+
+    <p><strong>&lt;ancho&gt;, &lt;alto&gt;</strong> - <strong>dimensiones</strong> del bloque que
+    se va a transferir.</p>
+
+    <p>Esta funci&oacute;n modificar&aacute; el gr&aacute;fico indicado, pero s&oacute;lo la copia
+    del mismo que se ha cargado en la memoria del ordenador. El gr&aacute;fico original, que
+    est&aacute; en el archivo <strong>FPG</strong>, <strong>MAP</strong> o <strong>PCX</strong> del
+    disco, <strong>permanecer&aacute; inalterado</strong>. Por ello si se quiere en un momento del
+    juego recuperar el estado original del gr&aacute;fico se tiene que descargar de memoria (con <a
+    href="169.html">unload_fpg()</a>, <a href="176.html">unload_map()</a> o <a
+    href="176.html">unload_pcx()</a>) y despu&eacute;s volverlo a cargar.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_map_block_copy<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    x_destino<span class="syntax3">,</span> <span class="syntax1">y_destino</span><span
+class="syntax3">;</span>
+    x_origen<span class="syntax3">,</span> <span class="syntax1">y_origen</span><span
+class="syntax3">;</span>
+    ancho<span class="syntax3">,</span> alto<span class="syntax3">;</span>
+    fichero1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        x_destino<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">320</span><span
+class="syntax3">);</span>
+        <span class="syntax1">y_destino</span><span class="syntax3">=</span>rand<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">);</span>
+        ancho<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">1</span><span class="syntax3">,</span> <span class="syntax2">32</span><span
+class="syntax3">);</span>
+        alto<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">1</span><span class="syntax3">,</span> <span class="syntax2">32</span><span
+class="syntax3">);</span>
+        x_origen<span class="syntax3">=</span>rand<span class="syntax3">(</span><span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">32</span><span
+class="syntax3">-</span>ancho<span class="syntax3">);</span>
+        <span class="syntax1">y_origen</span><span class="syntax3">=</span>rand<span
+class="syntax3">(</span><span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">32</span><span class="syntax3">-</span>alto<span class="syntax3">);</span>
+
+        map_block_copy<span class="syntax3">(</span>fichero1<span class="syntax3">,</span> <span
+class="syntax2">1</span><span class="syntax3">,</span> x_destino<span
+class="syntax3">,</span> <span class="syntax1">y_destino</span><span class="syntax3">,</span> <span
+class="syntax2">100</span><span class="syntax3">,</span> x_origen<span
+class="syntax3">,</span> <span class="syntax1">y_origen</span><span
+class="syntax3">,</span> ancho<span class="syntax3">,</span> alto<span class="syntax3">);</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+        angle<span class="syntax3">+=</span><span class="syntax2">1000</span><span
+class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, despu&eacute;s de cargar el fichero de gr&aacute;ficos y poner uno ( el
+    gr&aacute;fico n&uacute;mero 1) el centro de pantalla va rotando cont&iacute;nuamente. En el
+    bucle principal, se va copiando el gr&aacute;fico de una bola (el gr&aacute;fico n&uacute;mero
+    100) dentro del gr&aacute;fico destino (el n&uacute;mero 1) en unas coordenadas elegidas
+    aleatoriamente.</p>
+    <hr />
+
+    <p>Cuando se ponga un gr&aacute;fico en otro que se est&eacute; utilizando como fondo para una
+    regi&oacute;n de scroll, &eacute;ste no aparecer&aacute; autom&aacute;ticamente en pantalla a
+    no ser que se utilice la funci&oacute;n <a href="152.html">refresh_scroll()</a>.</p>
+    <hr />
+    Ver: <a href="139.html">map_xput()</a> - <a href="137.html">map_put()</a> - <a
+    href="138.html">map_put_pixel()</a>
+  </body>
+</html>
+

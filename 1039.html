@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - C&oacute;digos identificadores de procesos</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>C&oacute;digos identificadores de procesos</h1>
+
+    <p>Un proceso es un objeto independiente del programa que ejecuta su propio c&oacute;digo y que
+    puede tener sus propias coordenadas, gr&aacute;ficos, etc., por ejemplo pueden ser procesos de
+    un programa: una nave, un disparo o un enemigo.</p>
+
+    <p>Cuando se pone dentro de un programa algo similar a esto:</p>
+
+    <p><strong>PROCESS disparo(</strong>...<strong>);</strong><br />
+    <a href="1086.html">BEGIN</a><br />
+    &nbsp;&nbsp;&nbsp; <strong>//</strong> sentencias <strong>...</strong><br />
+    <a href="1091.html">END</a></p>
+
+    <p>Se est&aacute;n especificando las sentencias que van a ejecutar los procesos "de tipo
+    <strong>disparo</strong>", es decir, el c&oacute;digo que va a regir su comportamiento.</p>
+
+    <p>Como se puede observar puede haber en un programa m&aacute;s de un proceso tipo
+    <strong>disparo</strong>, luego &iquest;c&oacute;mo se diferencian unos de otros?
+    Sencillamente, por su c&oacute;digo identificador.</p>
+
+    <p>Cada vez que en un juego se crea un nuevo proceso, a &eacute;ste le es asignado un
+    c&oacute;digo identificador; este c&oacute;digo va a ser la referencia exclusiva del proceso
+    hasta el momento en el que desaparezca.</p>
+
+    <p>Dos procesos diferentes no tendr&aacute;n nunca el mismo c&oacute;digo identificador a la
+    vez; sin embargo, el c&oacute;digo que perteneci&oacute; a un proceso que ya ha desaparecido le
+    puede ser asignado a un nuevo proceso (algo as&iacute; como el n&uacute;mero del carnet de
+    identidad).</p>
+
+    <p>Los c&oacute;digo identificadores son siempre n&uacute;meros enteros positivos e impares,
+    como podr&iacute;an ser 471, 1937 o 10823.</p>
+
+    <p>Todos los procesos tienen su propio c&oacute;digo identificador en <a
+    href="1092.html">ID</a>, que es algo similar a una variable local del proceso, salvo que no
+    puede modificarse.</p>
+
+    <p>Los procesos, adem&aacute;s, tienen el c&oacute;digo identificador del proceso que les
+    cre&oacute; (el que los llam&oacute;) en <a href="1117.html">father</a> (padre), el del
+    &uacute;ltimo proceso que ellos crearon (el &uacute;ltimo que llamaron) en <a
+    href="1118.html">son</a> (hijo), etc. (ver <a href="1041.html">Jerarqu&iacute;as de
+    procesos</a>).</p>
+
+    <p><strong>&iquest;Para qu&eacute; sirven los c&oacute;digos identificadores?</strong></p>
+    <hr />
+
+    <p>Normalmente, todos los procesos necesitan el c&oacute;digo identificador de los dem&aacute;s
+    procesos para interactuar con ellos (ver donde est&aacute;n, modificarlos, ...).</p>
+
+    <p>No se puede, por ejemplo, restarle energ&iacute;a al proceso "tipo
+    <strong>enemigo</strong>", pues procesos de ese tipo pueden no existir ninguno o existir
+    muchos; se necesita el c&oacute;digo identificador concreto del proceso
+    <strong>enemigo</strong> al que se quiere restarle energ&iacute;a.</p>
+
+    <p>Un proceso accede a todas sus propias variables simplemente por sus nombres, como <a
+    href="1123.html">x</a>, <a href="1128.html">size</a> o <a href="1126.html">graph</a>. Pues
+    bien, si se dispone del identificador de un proceso (en <a href="1118.html">son</a>, <a
+    href="1117.html">father</a> o cualquier variable definida por el usuario, como
+    <strong>id2</strong>) se puede, entonces, acceder a las variables de dicho proceso como
+    (<strong>son.x</strong>, <strong>father.size</strong> o <strong>id2.graph</strong>), es decir,
+    la sintaxis para acceder a variables locales de otro proceso es:</p>
+
+    <p>&nbsp;&nbsp;&lt;c&oacute;digo_identificador&gt; . &lt;nombre_variable&gt;</p>
+
+    <p>Pudi&eacute;ndose utilizar dichas variables normalmente para consultarlas o
+    modificarlas.</p>
+
+    <p><strong>No es posible en ning&uacute;n caso acceder a variables de tipo <a
+    href="1008.html">PRIVATE</a> de otro proceso</strong>. Si se quiere acceder a una variable
+    privada de otro proceso, se debe cambiar la declaraci&oacute;n de &eacute;sta a la
+    secci&oacute;n <a href="1007.html">LOCAL</a> para convertirla en una variable local; entonces,
+    cualquier proceso podr&aacute; acceder a dicha variable teniendo el c&oacute;digo identificador
+    del proceso, ya que todos los procesos poseer&aacute;n dicha variable.</p>
+
+    <p>Los identificadores tienen m&aacute;s usos que el acceso a variables locales ajenas, como
+    puede ser la funci&oacute;n <a href="158.html">signal()</a> que puede enviar determinadas
+    se&ntilde;ales a un proceso si se dispone de su c&oacute;digo identificador (por ejemplo, para
+    eliminar el proceso).</p>
+
+    <p>Tambi&eacute;n hay otras funciones, como <a href="104.html">collision()</a>, para detectar
+    colisiones (choques) con otros procesos que, en caso de detectar una colisi&oacute;n, devuelve
+    el c&oacute;digo identificador del proceso con el cual se est&aacute; chocando. Una vez se
+    tiene dicho c&oacute;digo, se puede acceder a las variables del proceso y enviarle
+    se&ntilde;ales.</p>
+
+    <p>La funci&oacute;n <a href="120.html">get_id()</a> funciona de forma similar a <a
+    href="104.html">collision()</a>, obteniendo el c&oacute;digo identificador de un proceso, pero
+    sin necesidad de que se produzca una colisi&oacute;n con &eacute;l.</p>
+    <hr />
+    Ver: <a href="1038.html">Formas de obtener el c&oacute;digo identificador de un proceso</a>
+  </body>
+</html>
+

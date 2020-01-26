@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - filelength()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>filelength()</h1>
+
+    <p><strong>filelength(</strong>&lt;handle&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La longitud del archivo.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite obtener la longitud de un archivo previamente abierto con <a
+    href="223.html">fopen()</a>, para ello requiere como par&aacute;metro el
+    <strong>&lt;handle&gt;</strong> o <strong>identificador de archivo</strong> devuelto por dicha
+    funci&oacute;n.</p>
+
+    <p>Esta funci&oacute;n no modifica la posici&oacute;n actual del puntero de lectura/escritura
+    del archivo, simplemente devuelve el n&uacute;mero de datos contenidos actualmente en el
+    mismo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_filelength<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    mitabla<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">]=</span><span class="syntax2">11</span><span class="syntax3">,</span><span
+class="syntax2">22</span><span class="syntax3">,</span><span class="syntax2">33</span><span
+class="syntax3">,</span><span class="syntax2">44</span><span class="syntax3">;</span>
+    longitud<span class="syntax3">;</span>
+    mihandle<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"w"</span><span class="syntax3">);</span>
+    fwrite<span class="syntax3">(</span><span class="syntax1">OFFSET</span> mitabla<span
+class="syntax3">,</span><span class="syntax2">4</span><span class="syntax3">,</span>mihandle<span
+class="syntax3">);</span>
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+    mihandle<span class="syntax3">=</span>fopen<span class="syntax3">(</span><span
+class="syntax4">"help\help.dat"</span><span class="syntax3">,</span><span
+class="syntax4">"r"</span><span class="syntax3">);</span>
+
+    longitud<span class="syntax3">=</span>filelength<span class="syntax3">(</span>mihandle<span
+class="syntax3">);</span> <span class="syntax5">// Obtiene la longitud del archivo (4)</span>
+
+    fclose<span class="syntax3">(</span>mihandle<span class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa ejemplo crea primeramente un archivo denominado <strong>help.dat</strong>,
+    escribiendo en el los cuatro valores contenidos en <strong>mitabla</strong>.</p>
+
+    <p>Una vez creado el archivo en disco, se abrir&aacute; para obtener su
+    <strong>longitud</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Por defecto, la <strong>longitud del archivo</strong> se obtiene como
+    el n&uacute;mero de datos simples que contiene, teniendo en cuenta que un dato simple (una
+    variable) ocupa <strong>4 bytes</strong>. Es decir, que si por ejemplo, la longitud de un
+    archivo es diez, ocupar&aacute; cuarenta bytes en el disco.</p>
+
+    <p>Se puede cambiar esta relaci&oacute;n modificando la variable global <a
+    href="1420.html">unit_size</a>, que por defecto vale <strong>4</strong> en todos los
+    programas.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Las funciones <a href="231.html">get_dirinfo()</a> y <a
+    href="232.html">get_fileinfo()</a> permiten obtener mucha m&aacute;s informaci&oacute;n sobre
+    la estructura de directorios (carpetas) del disco y sobre los archivos contenidos en ella.</p>
+    <hr />
+    Ver: <a href="223.html">fopen()</a> - <a href="231.html">get_dirinfo()</a> - <a
+    href="1420.html">unit_size</a>
+  </body>
+</html>
+

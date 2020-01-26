@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - start_scroll()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>start_scroll()</h1>
+
+    <p><strong>start_scroll(</strong>&lt;n&uacute;mero de scroll&gt;<strong>,</strong>
+    &lt;fichero&gt;<strong>,</strong> &lt;gr&aacute;fico&gt;<strong>,</strong> &lt;gr&aacute;fico
+    fondo&gt;<strong>,</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;n&uacute;mero
+    de regi&oacute;n&gt;<strong>,</strong> &lt;indicador de bloqueo&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta es una funci&oacute;n de cierta complejidad, que requiere que el usuario tenga cierta
+    soltura (haya realizado alg&uacute;n programa antes) para poder utilizarla.</p>
+
+    <p>Crea una ventana de scroll, en la que se realizar&aacute; una panor&aacute;mica sobre un
+    gr&aacute;fico de fondo (el decorado del juego). Es decir, utilizando como fondo del juego un
+    gr&aacute;fico m&aacute;s grande que la ventana de visualizaci&oacute;n, se podr&aacute;
+    mostrar una parte del mismo e ir desplaz&aacute;ndolo en cualquier direcci&oacute;n.</p>
+
+    <p>Para conseguir este efecto se llamar&aacute; a esta funci&oacute;n con los siguientes
+    par&aacute;metros:</p>
+
+    <p><strong>&lt;n&uacute;mero de scroll&gt;</strong> - Se pueden crear hasta 10 ventanas de
+    scroll en pantalla, con los n&uacute;meros del <strong>0</strong> al <strong>9</strong>; si
+    s&oacute;lo se quiere crear una, lo mejor es definir la n&uacute;mero <strong>0</strong>. Este
+    n&uacute;mero ser&aacute; necesario posteriormente para modificar los par&aacute;metros de la
+    ventana, pues el sistema necesitar&aacute; saber cu&aacute;l de las <strong>10</strong>
+    posibles ventanas de scroll se quiere alterar.</p>
+
+    <p><strong>&lt;fichero&gt;</strong> - Los gr&aacute;ficos que se pretendan mostrar como fondo o
+    decorado en dicha ventana deben estar en un fichero cuyo <strong>c&oacute;digo de
+    fichero</strong> se debe especificar aqu&iacute;, como segundo par&aacute;metro de la
+    funci&oacute;n. Los gr&aacute;ficos cargados con las funciones <a
+    href="174.html">load_map()</a> o <a href="174.html">load_pcx()</a> (o creados con <a
+    href="188.html">new_map()</a>) se utilizar&aacute;n como si pertenecieran al primer fichero (el
+    fichero con el c&oacute;digo 0).</p>
+
+    <p><strong>&lt;gr&aacute;fico&gt;</strong> - El tercer par&aacute;metro debe ser el
+    <strong>c&oacute;digo del gr&aacute;fico</strong> principal que se va a mostrar como fondo en
+    la ventana y debe pertenecer al fichero anteriormente indicado. Este gr&aacute;fico suele ser
+    el decorado principal del juego sobre el que se va a desarrollar la acci&oacute;n, un
+    gr&aacute;fico m&aacute;s grande que la ventana de visualizaci&oacute;n, que se ir&aacute;
+    desplazando en una o varias direcciones y sobre el que se situar&aacute;n los gr&aacute;ficos
+    del juego.</p>
+
+    <p>La ventana de scroll se situar&aacute; inicialmente con el <a href="1136.html">punto de
+    control</a> n&uacute;mero <strong>0</strong> de este gr&aacute;fico en la esquina superior
+    izquierda, cuando se haya definido este punto en el <strong>editor gr&aacute;fico</strong>.</p>
+
+    <p><strong>&lt;gr&aacute;fico fondo&gt;</strong> - Aqu&iacute; se indicar&aacute; un
+    <strong>0</strong> si se quiere un s&oacute;lo plano de scroll (un s&oacute;lo gr&aacute;fico
+    de fondo), o bien otro <strong>c&oacute;digo de gr&aacute;fico</strong> si se quiere que
+    &eacute;ste aparezca como segundo plano de scroll (a mayor profundidad), detr&aacute;s del
+    plano principal. Para que se vea este plano de fondo es imprescindible que el
+    <strong>gr&aacute;fico principal</strong> (primer plano) tenga partes dibujadas con el color
+    n&uacute;mero 0 de la paleta, pues estas zonas transparentes ser&aacute;n las que
+    permitir&aacute;n ver a trav&eacute;s de ellas el <strong>gr&aacute;fico de fondo</strong>.</p>
+
+    <p><strong>&lt;n&uacute;mero de regi&oacute;n&gt;</strong> - Aqu&iacute; se indicar&aacute; la
+    regi&oacute;n rectangular de pantalla en la que se va a mostrar el scroll, si se indica
+    <strong>0</strong> como n&uacute;mero de regi&oacute;n, se mostrar&aacute; en toda la pantalla.
+    El resto de regiones se deben definir previamente con la funci&oacute;n <a
+    href="106.html">define_region()</a> (una <strong>regi&oacute;n</strong> no es m&aacute;s que
+    una zona rectangular de la pantalla).</p>
+
+    <p><strong>&lt;indicador de bloqueo&gt;</strong> - Aqu&iacute; se indicar&aacute; un valor que
+    define si cada uno de los dos planos de scroll es c&iacute;clico en horizontal y vertical. Por
+    ejemplo, un plano es c&iacute;clico en horizontal cuando al salirse del dibujo por la derecha
+    aparece el dibujo por la izquierda. Para componer este valor se deben sumar las siguientes
+    cantidades:</p>
+
+    <p>&nbsp; <strong>+ 1</strong> - Si el primer plano es c&iacute;clico horizontalmente.<br />
+    &nbsp; <strong>+ 2</strong> - Si el primer plano es c&iacute;clico verticalmente.<br />
+    &nbsp; <strong>+ 4</strong> - Si el segundo plano es c&iacute;clico horizontalmente.<br />
+    &nbsp; <strong>+ 8</strong> - Si el segundo plano es c&iacute;clico verticalmente.<br />
+    </p>
+
+    <p>Es decir, <strong>0</strong> si ninguno de los dos planos debe ser c&iacute;clico,
+    <strong>15</strong>
+    (<strong>1</strong>+<strong>2</strong>+<strong>4</strong>+<strong>8</strong>) si ambos planos
+    deben ser c&iacute;clicos en ambos ejes, <strong>12</strong>
+    (<strong>4</strong>+<strong>8</strong>) si &uacute;nicamente debe ser c&iacute;clico el segundo
+    plano, etc.</p>
+
+    <p>Cuando un gr&aacute;fico (principal o de fondo) sea m&aacute;s peque&ntilde;o que la ventana
+    de visualizaci&oacute;n, el sistema forzar&aacute; a que su plano de scroll sea c&iacute;clico
+    pues, en caso contrario, no se podr&iacute;a rellenar la ventana de scroll por completo, sin
+    repetir <strong>c&iacute;clicamente</strong> el gr&aacute;fico (en mosaico).</p>
+    <hr />
+
+    <p><strong>Adem&aacute;s de la llamada a la funci&oacute;n se deben inicializar algunos valores
+    de la</strong> <a href="1101.html">estructura global scroll</a> <strong>para el correcto
+    funcionamiento de la ventana</strong>. &Eacute;sta es una estructura de 10 registros (uno para
+    cada posible ventana de scroll) y cada registro tiene los siguientes campos:</p>
+
+    <p>&nbsp;&nbsp;<strong>x0, y0</strong> - Coordenadas del primer plano<br />
+    &nbsp;&nbsp;<strong>x1, y1</strong> - Coordenadas del segundo plano<br />
+    &nbsp;&nbsp;<strong>z</strong> - Plano de profundidad<br />
+    &nbsp;&nbsp;<strong>camera</strong> - <a href="1039.html">C&oacute;digo identificador</a> de la
+    c&aacute;mara<br />
+    &nbsp;&nbsp;<strong>ratio</strong> - Velocidad relativa del segundo plano<br />
+    &nbsp;&nbsp;<strong>speed</strong> - Velocidad m&aacute;xima del primer plano<br />
+    &nbsp;&nbsp;<strong>region1</strong> - Primera regi&oacute;n de pantalla<br />
+    &nbsp;&nbsp;<strong>region2</strong> - Segunda regi&oacute;n de pantalla<br />
+    </p>
+
+    <p>Hay dos formas de programar el movimiento de las ventanas de scroll:</p>
+
+    <p>- Manualmente, modificando en cada imagen del juego los campos <strong>x0</strong>,
+    <strong>y0</strong>, <strong>x1</strong> e <strong>y1</strong> de esta estructura (las
+    coordenadas de los planos de scroll).</p>
+
+    <p>- Autom&aacute;ticamente, para lo que se necesita el <a href="1038.html">c&oacute;digo
+    identificador</a> de un proceso en el campo <strong>camera</strong> de esta estructura. Siendo
+    a partir de entonces el sistema el encargado de realizar en la ventana de scroll un seguimiento
+    al gr&aacute;fico de este proceso.</p>
+
+    <p>Ver la ayuda sobre la <a href="1101.html">estructura scroll</a> para m&aacute;s
+    informaci&oacute;n sobre estos campos, o para saber c&oacute;mo acceder a ellos.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo de scroll AUTOMATICO:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_start_scroll<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    fichero1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+
+    start_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> fichero1<span class="syntax3">,</span> <span
+class="syntax2">103</span><span class="syntax3">,</span> <span class="syntax2">102</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">15</span><span class="syntax3">);</span>
+
+    scroll<span class="syntax3">.</span>camera<span class="syntax3">=</span><span
+class="syntax1">id</span><span class="syntax3">;</span>
+
+    ctype<span class="syntax3">=</span>c_scroll<span class="syntax3">;</span>
+    graph<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">;</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax4">"Utilice los cursores para moverse"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span> x<span class="syntax3">+=</span><span
+class="syntax2">2</span><span class="syntax3">;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span> x<span class="syntax3">-=</span><span
+class="syntax2">2</span><span class="syntax3">;</span> <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_down<span class="syntax3">))</span> <span class="syntax1">y</span><span
+class="syntax3">+=</span><span class="syntax2">2</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">))</span> <span class="syntax1">y</span><span
+class="syntax3">-=</span><span class="syntax2">2</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga el fichero de gr&aacute;ficos y entonces se crea una ventana de
+    scroll con la funci&oacute;n <strong>start_scroll()</strong>. A esta &uacute;ltima se le pasan
+    los siguientes par&aacute;metros:</p>
+
+    <p><strong>0</strong> - N&uacute;mero de ventana de scroll (la primera, puesto que s&oacute;lo
+    se crear&aacute; una ventana de esta clase).</p>
+
+    <p><strong>fichero1</strong> - C&oacute;digo del fichero del que se deben tomar los
+    gr&aacute;ficos; este es el c&oacute;digo del archivo <strong>help.fpg</strong> que se
+    carg&oacute; con la funci&oacute;n <a href="132.html">load_fpg()</a>.</p>
+
+    <p><strong>103</strong> - C&oacute;digo del gr&aacute;fico principal (primer plano) del scroll,
+    para ver este gr&aacute;fico se debe cargar el fichero con el <strong>Men&uacute; de
+    ficheros</strong> y as&iacute; poder observar cu&aacute;l es el gr&aacute;fico con
+    <strong>c&oacute;digo 103</strong>.</p>
+
+    <p><strong>102</strong> - C&oacute;digo de gr&aacute;fico secundario (segundo plano, de fondo);
+    &eacute;ste es el gr&aacute;fico que se mostrar&aacute; en la ventana de scroll
+    <strong>detr&aacute;s</strong> del gr&aacute;fico principal.</p>
+
+    <p><strong>0</strong> - N&uacute;mero de regi&oacute;n de la pantalla en la que se debe
+    <strong>colocar</strong> el scroll; con 0 se indica que se debe colocar en la pantalla
+    entera.</p>
+
+    <p><strong>15</strong> - Indicador de bloqueo, con 15 (1+2+4+8) se indica que tanto el primer
+    plano como el segundo ser&aacute;n c&iacute;clicos en ambos ejes (horizontal y vertical).</p>
+
+    <p>Tras llamar a la funci&oacute;n <strong>start_scroll()</strong> el programa define el campo
+    <strong>camera</strong> de la <a href="1101.html">estructura scroll</a>, asign&aacute;ndole el
+    <a href="1039.html">c&oacute;digo identificador</a> del proceso principal (con la sentencia
+    <strong>scroll.camera=</strong><a href="1092.html">id</a><strong>;</strong>); con esto se
+    convierte el scroll en <strong>autom&aacute;tico</strong> siguiendo a partir de ese momento al
+    gr&aacute;fico del proceso principal.</p>
+
+    <p>El programa contin&uacute;a definiendo su <strong>tipo de coordenada</strong> como
+    <strong>coordenada de scroll</strong> (con la sentencia <strong>ctype=c_scroll;</strong>),
+    definiendo su gr&aacute;fico como el n&uacute;mero 100, que es una bola marr&oacute;n (con
+    <strong>graph=100;</strong>), imprimiendo un mensaje y despu&eacute;s permanecer&aacute; en un
+    bucle en el que se pueden variar las coordenadas de este proceso (las variables <a
+    href="1123.html">x</a> e <a href="1124.html">y</a>) con las teclas de los cursores.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo de scroll MANUAL:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_start_scroll<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    fichero1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+
+    start_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> fichero1<span class="syntax3">,</span> <span
+class="syntax2">103</span><span class="syntax3">,</span> <span class="syntax2">102</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">15</span><span class="syntax3">);</span>
+
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice los cursores desplazar el scroll"</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span>
+            scroll<span class="syntax3">.</span>x0<span class="syntax3">+=</span><span
+class="syntax2">2</span><span class="syntax3">;</span>
+            scroll<span class="syntax3">.</span>x1<span class="syntax3">+=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span>
+            scroll<span class="syntax3">.</span>x0<span class="syntax3">-=</span><span
+class="syntax2">2</span><span class="syntax3">;</span>
+            scroll<span class="syntax3">.</span>x1<span class="syntax3">-=</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_down<span class="syntax3">))</span>
+            scroll<span class="syntax3">.</span><span class="syntax1">y0</span><span
+class="syntax3">+=</span><span class="syntax2">2</span><span class="syntax3">;</span>
+            scroll<span class="syntax3">.</span><span class="syntax1">y1</span><span
+class="syntax3">+=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">))</span>
+            scroll<span class="syntax3">.</span><span class="syntax1">y0</span><span
+class="syntax3">-=</span><span class="syntax2">2</span><span class="syntax3">;</span>
+            scroll<span class="syntax3">.</span><span class="syntax1">y1</span><span
+class="syntax3">-=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga el fichero de gr&aacute;ficos y entonces se crea una ventana de
+    scroll con la funci&oacute;n <strong>start_scroll()</strong>. A esta &uacute;ltima se le pasan
+    exactamente los mismos par&aacute;metros que en el ejemplo anterior.</p>
+
+    <p>Tras esto, el programa permanecer&aacute; en un bucle dentro del cual; al detectarse las
+    teclas de los cursores se variar&aacute;n los campos <strong>x0</strong>, <strong>y0</strong>,
+    <strong>x1</strong> e <strong>y1</strong> de la <a href="1101.html">estructura global
+    scroll</a>, los cuales definen las coordenadas de los dos planos del scroll
+    (<strong>x0</strong>, <strong>y0</strong> son las del primer plano y <strong>x1</strong>,
+    <strong>y1</strong> las del segundo).</p>
+
+    <p>Se puede observar la diferencia entre ambos m&eacute;todos; este &uacute;ltimo, al no haber
+    inicializado el campo <strong>camera</strong> de la estrucutra, podr&aacute; manipular
+    directamente las coordenadas de ambos planos.</p>
+    <hr />
+    <strong>C&oacute;mo visualizar gr&aacute;ficos de procesos sobre el scroll</strong>
+    <hr />
+
+    <p>Para crear un proceso cuyo gr&aacute;fico se visualice en la ventana de scroll, se debe
+    definir su variable local <a href="1122.html">ctype</a> como <a href="1168.html">c_scroll</a>
+    (<strong>tipo de coordenada</strong> como <strong>coordenada de scroll</strong>), lo que se
+    har&aacute; con la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>ctype=c_scroll;</strong></p>
+
+    <p>Una vez hecho esto, el proceso se visualizar&aacute; en el scroll con su gr&aacute;fico
+    (definido en la variable local <a href="1126.html">graph</a>). El proceso &uacute;nicamente
+    debe modificar sus variables <a href="1123.html">x</a> e <a href="1124.html">y</a> para moverse
+    por el scroll.</p>
+    <hr />
+
+    <p><strong>Cuando un proceso pertenezca al scroll (se haya asignado el valor c_scroll a su
+    variable local</strong> <a href="1122.html">ctype</a><strong>):</strong></p>
+
+    <p>&nbsp;&nbsp;- Sus variables <a href="1123.html">x</a> e <a href="1124.html">y</a>
+    estar&aacute;n referidas al punto del gr&aacute;fico del primer plano sobre el cual se
+    situar&aacute; el gr&aacute;fico del proceso.</p>
+
+    <p>&nbsp;&nbsp;- Su variable <a href="1125.html">z</a> ahora ser&aacute; relativa a las
+    <strong>variables z</strong> de los procesos que tambi&eacute;n pertenezcan a la misma ventana
+    de scroll. Es decir, cada vez que se pinte una ventana de scroll, se pintar&aacute;n justo a
+    continuaci&oacute;n todos los gr&aacute;ficos que pertenecen a la misma (ordenados por su
+    <strong>z</strong>), y despu&eacute;s se seguir&aacute;n pintando los procesos que <strong>no
+    pertenecen a dicha ventana de scroll</strong>.</p>
+
+    <p>&nbsp;&nbsp;- El proceso ser&aacute; eliminado autom&aacute;ticamente cuando se elimine la
+    ventana de scroll a la que pertenece el proceso, con la funci&oacute;n <a
+    href="166.html">stop_scroll()</a>. O cuando se cambie el modo de v&iacute;deo con la
+    funci&oacute;n <a href="157.html">set_mode()</a>, ya que al hacerlo se eliminar&aacute;n
+    tambi&eacute;n las ventanas de scroll.</p>
+    <hr />
+
+    <p>Si hubiera varias ventanas de <strong>scroll</strong> el proceso si visualizar&iacute;a por
+    defecto en todas; si &uacute;nicamente se debiera visualizar el algunas de ellas, se
+    deber&iacute;a definir su variable local <a href="1134.html">cnumber</a>. Por ejemplo, si
+    hubiera 6 ventanas de scroll (de la n&uacute;mero 0 a la 5) y se quisiera que un proceso se
+    visualizara &uacute;nicamente en las ventanas 0 y 2, se deber&iacute;a incluir en el mismo la
+    siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>cnumber=c_0+c_2;</strong></p>
+
+    <p>Para poder observar un ejemplo de lo aqu&iacute; expuesto, lo mejor es examinar alguno de
+    los juegos ejemplo de DIV Games Studio que utilizan esta t&eacute;cnica, por lo que se remite
+    al lector directamente a los comentarios de estos programas (por ejemplo v&eacute;ase el
+    ejemplo <strong>Helioball</strong>).</p>
+    <hr />
+    Ver: <a href="166.html">stop_scroll()</a> - <a href="152.html">refresh_scroll()</a> - <a
+    href="140.html">move_scroll()</a> - <a href="1101.html">Estructura scroll</a>
+  </body>
+</html>
+

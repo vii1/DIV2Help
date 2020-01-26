@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - out_region()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>out_region()</h1>
+
+    <p><strong>out_region(</strong>&lt;c&oacute;digo identificador&gt;<strong>,</strong>
+    &lt;n&uacute;mero de regi&oacute;n&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>Cierto</strong> si el proceso est&aacute; fuera de la regi&oacute;n o
+    <strong>Falso</strong> en caso contrario.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n determina si un proceso est&aacute; fuera de una regi&oacute;n de
+    pantalla, para ello la funci&oacute;n requiere el <a href="1039.html">c&oacute;digo
+    identificador</a> del proceso y un n&uacute;mero de regi&oacute;n.</p>
+
+    <p>Las regiones de pantalla se pueden definir con la funci&oacute;n <a
+    href="106.html">define_region()</a> y son, simplemente, zonas rectangulares de pantalla.</p>
+
+    <p>La regi&oacute;n n&uacute;mero <strong>0</strong> no se puede definir ya que ser&aacute;
+    siempre la pantalla completa, por lo tanto, si se especifica un <strong>0</strong> como segundo
+    par&aacute;metro esta funci&oacute;n determina si un proceso est&aacute; fuera de la pantalla
+    (si no se ve).</p>
+
+    <p>En el caso de que el gr&aacute;fico del proceso est&eacute; fuera de la regi&oacute;n
+    especificada la funci&oacute;n devuelve <strong>Cierto</strong> (un n&uacute;mero impar); en
+    cambio si el gr&aacute;fico se ve, aunque sea parcialmente, en dicha regi&oacute;n, la
+    funci&oacute;n devuelve <strong>Falso</strong> (cualquier n&uacute;mero par).</p>
+
+    <p>El proceso cuyo <a href="1039.html">c&oacute;digo identificador</a> se indica debe tener
+    definido correctamente su gr&aacute;fico (normalmente en su variable <a
+    href="1026.html">graph</a>) pues, de lo contrario, el sistema advertir&aacute; un error ya que
+    si el proceso no tiene un gr&aacute;fico, no se pueden calcular las dimensiones del mismo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_out_region<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    graph<span class="syntax3">=</span><span class="syntax2">101</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        advance<span class="syntax3">(</span><span class="syntax2">8</span><span
+class="syntax3">);</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>out_region<span
+class="syntax3">(</span><span class="syntax1">id</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">))</span> <span
+class="syntax5">// Se comprueba si se sale de pantalla</span>
+
+            x<span class="syntax3">=</span><span class="syntax2">160</span><span
+class="syntax3">;</span>
+            <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+            angle<span class="syntax3">=</span>rand<span class="syntax3">(-</span>pi<span
+class="syntax3">,</span> pi<span class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se pone un gr&aacute;fico de fondo y el programa principal crea un
+    gr&aacute;fico en el centro de la pantalla con un &aacute;ngulo aleatorio y en forma de
+    tri&aacute;ngulo.</p>
+
+    <p>En cada paso del bucle el tri&aacute;ngulo avanza y se comprueba si ha salido de la pantalla
+    (region 0) con la funci&oacute;n <strong>out_region()</strong>. Si ha salido de pantalla se
+    pone otra vez en el centro con otro &aacute;ngulo elegido nuevamente al azar.</p>
+    <hr />
+    Ver: <a href="106.html">define_region()</a> - <a href="1130.html">region</a> - <a
+    href="1039.html">Codigos identificadores</a>
+  </body>
+</html>
+

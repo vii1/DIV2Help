@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL y</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL y</h1>
+
+    <p><strong>y=0;</strong> // Coordenada vertical del gr&aacute;fico</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>y</strong>.</p>
+
+    <p>La variables locales <a href="1123.html">x</a> e <strong>y</strong> de los procesos definen
+    d&oacute;nde debe situarse el gr&aacute;fico de los mismos (definido en la variable local <a
+    href="1126.html">graph</a>).</p>
+
+    <p>La variable local <strong>y</strong> define la <strong>coordenada vertical</strong> del
+    proceso, que se puede definir como un n&uacute;mero entero dentro del rango (<a
+    href="1177.html">min_int</a> ... <a href="1178.html">max_int</a>), situ&aacute;ndose las
+    coordenadas positivas hacia abajo y las negativas hacia arriba.</p>
+
+    <p>Por defecto, estas coordenadas se especificar&aacute;n en <strong>puntos</strong>
+    (p&iacute;xeles), referidos a coordenadas de pantalla, donde la esquina superior izquierda es
+    el punto situado en (<strong>0</strong>, <strong>0</strong>).</p>
+
+    <p><strong>Tipo de coordenadas</strong></p>
+    <hr />
+
+    <p>Hay varios sistemas de coordenadas que pueden ser utilizados por los procesos y que se
+    definen con la variable local <a href="1122.html">ctype</a>, el sistema por defecto son las
+    coordenadas relativas a la pantalla.</p>
+
+    <p><strong>Resoluci&oacute;n de las coordenadas</strong></p>
+    <hr />
+
+    <p>La variable local <a href="1135.html">resolution</a> indica la precisi&oacute;n de las
+    coordenadas del proceso; por defecto, &eacute;sta variable valdr&aacute; <strong>0</strong> y
+    las coordenadas (<a href="1123.html">x</a>,<strong>y</strong>) se especifican en puntos.</p>
+
+    <p>Cuanto mayor sea el valor de <a href="1135.html">resolution</a>, m&aacute;s peque&ntilde;a
+    (y precisa) ser&aacute; la unidad en la que se interpretan las coordenadas, a
+    continuaci&oacute;n se muestran algunos ejemplos:</p>
+
+    <p><strong>resolution=1;</strong> - Las coordenadas se especifican en puntos.</p>
+
+    <p><strong>resolution=10;</strong> - Se especifican en d&eacute;cimas de puntos.</p>
+
+    <p><strong>resolution=100;</strong> - Se especifican en cent&eacute;simas de puntos.</p>
+
+    <p><strong>resolution=2;</strong> - Se especifican en mitades de punto.</p>
+
+    <p>...</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se puede definir para cada proceso un tipo y una resoluci&oacute;n de
+    coordenadas diferente, as&iacute; como cambiarlos en tiempo de ejecuci&oacute;n cuando sea
+    necesario.</p>
+    <hr />
+
+    <p><strong>Importante:</strong> Cuando se sit&uacute;a un gr&aacute;fico en unas coordenadas
+    determinadas, normalmente ser&aacute; el <strong>centro</strong> del gr&aacute;fico el que se
+    sit&uacute;e en dichas coordenadas.</p>
+
+    <p>&Eacute;sto se puede cambiar definiendo en el <strong>editor gr&aacute;fico</strong> el <a
+    href="1136.html">punto de control</a> n&uacute;mero <strong>0</strong> del gr&aacute;fico del
+    proceso (cuyo <strong>c&oacute;digo de gr&aacute;fico</strong> se indica en la variable <a
+    href="1126.html">graph</a>).</p>
+
+    <p>Si se ha definido el punto de control, ser&aacute; &eacute;ste el que se sit&uacute;e en las
+    coordenadas especificadas.</p>
+
+    <p>Por ejemplo, si se sit&uacute;a el punto de control <strong>0</strong> en la esquina
+    superior izquierda del gr&aacute;fico y, posteriormente, se pone el gr&aacute;fico en las
+    coordenadas (100, 100), se posicionar&aacute; la esquina superior izquierda del gr&aacute;fico
+    en dichas coordenadas.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="1122.html">ctype</a> - <a
+    href="1135.html">resolution</a>
+  </body>
+</html>
+

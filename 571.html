@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia FROM incorrecta</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia FROM incorrecta</h1>
+
+    <p>En una sentencia <a href="1043.html">FROM</a>:</p>
+
+    <p>- Los valores <strong>inicial</strong> y <strong>final</strong> de un bucle <a
+    href="1043.html">FROM</a> deben ser diferentes.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">FROM</span> x<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">0</span><span
+class="syntax3">;</span> <span class="syntax5">// Error: Sentencia FROM incorrecta.</span>
+        <span class="syntax5">//...</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Realizar este bucle no tiene sentido, pues no se va a repetir el grupo interior de
+    sentencias m&aacute;s que una sola vez, lo que ser&iacute;a equivalente a inicializar
+    <strong>x</strong> a <strong>0</strong> (con la sentencia <strong>x=0;</strong>) y,
+    despu&eacute;s, poner directamente las sentencias interiores, omitiendo el bucle <a
+    href="1043.html">FROM</a>.</p>
+
+    <p>Si lo que se pretende es hacer un bucle que se repita siempre, se debe utilizar la sentencia
+    <a href="1024.html">LOOP</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1043.html">Sentencia FROM</a>
+  </body>
+</html>
+

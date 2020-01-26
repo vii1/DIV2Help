@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - write_in_map()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>write_in_map()</h1>
+
+    <p><strong>write_in_map(</strong>&lt;fuente&gt;<strong>,</strong>
+    &lt;texto&gt;<strong>,</strong> &lt;c&oacute;digo de centrado&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <strong>c&oacute;digo del gr&aacute;fico</strong> creado conteniendo al texto.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Crea un nuevo mapa en memoria (sin cargarlo de un archivo del disco, al igual que la
+    funci&oacute;n <a href="188.html">new_map()</a>) y escribe en el mismo un texto cuyas
+    caracter&iacute;sticas se describen con los siguientes par&aacute;metros:</p>
+
+    <p><strong>&lt;fuente&gt;</strong> - El <strong>c&oacute;digo de la fuente</strong> o
+    <strong>tipo de letra</strong> que se va a utilizar. Aqu&iacute; se debe poner un 0 cuando se
+    quiera utilizar la fuente del sistema (fuente de color blanco, peque&ntilde;a, de 6 por 8
+    puntos), o bien el <strong>c&oacute;digo de fuente</strong> devuelto por la funci&oacute;n <a
+    href="131.html">load_fnt()</a> cuando se carga una nueva fuente en el programa.</p>
+
+    <p><strong>&lt;texto&gt;</strong> - En segundo lugar se especificar&aacute; texto a escribir
+    como un literal, es decir, un texto entre comillas (ver los <a href="1047.html">s&iacute;mbolos
+    delimitadores de literales</a>).</p>
+
+    <p><strong>&lt;c&oacute;digo de centrado&gt;</strong> - Es un c&oacute;digo que determina la
+    posici&oacute;n del texto en la que situar&aacute; el <strong>centro</strong> o <a
+    href="1136.html">punto de control</a> del mapa creado. Sus posibles valores son:</p>
+
+    <p>&nbsp;&nbsp;<strong>0</strong>-Arriba izquierda <strong>1</strong>-Arriba
+    <strong>2</strong>-Arriba derecha<br />
+    &nbsp;&nbsp;<strong>3</strong>-Izquierda <strong>4</strong>-Centro
+    <strong>5</strong>-Derecha<br />
+    &nbsp;&nbsp;<strong>6</strong>-Abajo izquierda <strong>7</strong>-Abajo
+    <strong>8</strong>-Abajo derecha<br />
+    </p>
+
+    <p>El texto siempre estar&aacute; encajado en un mapa nuevo de sus mismas dimensiones, pero
+    este <a href="1136.html">punto de control</a> especificar&aacute; que punto de dicho mapa se
+    centrar&aacute; en las coordenadas en las que posteriormente se sit&uacute;e el mismo.</p>
+    <hr />
+
+    <p>Esta funci&oacute;n se comporta practicam&eacute;nte igual que <a
+    href="174.html">load_map()</a>, salvo que no se lee un archivo en disco con el gr&aacute;fico,
+    sino que se crea como un gr&aacute;fico que contiene un mensaje escrito con una fuente de
+    letras determinada.</p>
+
+    <p>Se devuelve como valor de retorno el <strong>c&oacute;digo del gr&aacute;fico</strong>, que
+    es un valor num&eacute;rico que debe especificarse para utilizar el gr&aacute;fico, en la
+    variable <a href="1126.html">graph</a> o, en general, en todas las funciones que requieran un
+    <strong>c&oacute;digo de gr&aacute;fico</strong> entre sus par&aacute;metros.</p>
+
+    <p>Cuando se requiera dentro de una funci&oacute;n el <strong>c&oacute;digo de fichero</strong>
+    al que pertenece dicho gr&aacute;fico, se debe indicar el c&oacute;digo <strong>0</strong> (que
+    es el c&oacute;digo del primer <strong>fichero FPG</strong> que se cargue en el programa).</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_write_in_map<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    mi_fuente<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    mi_fuente<span class="syntax3">=</span>load_fnt<span class="syntax3">(</span><span
+class="syntax4">"help\help.fnt"</span><span class="syntax3">);</span>
+
+    <span class="syntax5">// Se crea un mapa nuevo con el texto "MOUSE"</span>
+    <span class="syntax5">// con el punto de control en el centro, y se</span>
+    <span class="syntax5">// asigna como gr&aacute;fico del puntero del rat&oacute;n.</span>
+
+    mouse<span class="syntax3">.</span>graph <span class="syntax3">=</span> write_in_map<span
+class="syntax3">(</span>mi_fuente<span class="syntax3">,</span><span
+class="syntax4">"MOUSE"</span><span class="syntax3">,</span><span class="syntax2">4</span><span
+class="syntax3">);</span>
+
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span>
+    unload_map<span class="syntax3">(</span>mouse<span class="syntax3">.</span>graph<span
+class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo se carga una fuente de letras con la funci&oacute;n <a
+    href="131.html">load_fnt()</a>, y entonces se crea un mapa con la funci&oacute;n
+    <strong>write_in_map()</strong> guardando el <strong>c&oacute;digo del gr&aacute;fico</strong>
+    que retorna en la variable <a href="1100.html">mouse.graph</a>, de forma que aparezca como
+    puntero del rat&oacute;n.</p>
+
+    <p>El nuevo mapa se crea con el mensaje <strong>"MOUSE"</strong> escrito con la fuente
+    <strong>help.fnt</strong>, y su <a href="1136.html">punto de control</a> principal se
+    sit&uacute;a en el centro (con el c&oacute;digo <strong>4</strong>).</p>
+
+    <p>Pulsando la tecla <strong>ESC</strong> se saldr&aacute; del bucle de visualizaci&oacute;n
+    del programa y se descargar&aacute; el gr&aacute;fico con la funci&oacute;n <a
+    href="176.html">unload_map()</a> (exactamente igual que si se hubiera cargado de un archivo del
+    disco).</p>
+
+    <p>No obstante, <strong>no es necesario descargar el gr&aacute;fico de memoria</strong> antes
+    de finalizar el programa, ya que el sistema lo har&aacute; de forma autom&aacute;tica.</p>
+    <hr />
+
+    <p>La principal ventaja que proporciona la funci&oacute;n <strong>write_in_map()</strong> es el
+    poder tratar los textos como si se tratara de gr&aacute;ficos, con lo que se podr&aacute;n
+    rotar, escalar, imprimir con transparencia, etc.</p>
+
+    <p><strong>Nota:</strong> Para que <strong>write_in_map()</strong> pueda mostrar un valor
+    num&eacute;rico se debe utilizar la funci&oacute;n <a href="255.html">itoa()</a>, que permite
+    convertir un valor num&eacute;rico en una cadena de texto.</p>
+    <hr />
+    Ver: <a href="171.html">write()</a> - <a href="176.html">unload_map/pcx()</a> - <a
+    href="1126.html">graph</a> - <a href="255.html">itoa()</a>
+  </body>
+</html>
+

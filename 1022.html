@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia WHILE</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia WHILE</h1>
+
+    <p><strong>WHILE</strong> <a href="1053.html">(</a> <a
+    href="1037.html">&lt;condici&oacute;n&gt;</a> <a href="1053.html">)</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <a
+    href="1068.html">;</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a><br />
+    </p>
+
+    <p>La sentencia <strong>WHILE</strong> (mientras) es una sentencia que implementa un
+    <strong>bucle</strong>, es decir, que es capaz de <strong>repetir un grupo de sentencias un
+    n&uacute;mero determinado de veces</strong>.</p>
+
+    <p>Para implementar este bucle se debe especificar entre par&eacute;ntesis la condici&oacute;n
+    que se debe cumplir para que se ejecute el grupo de sentencias a continuaci&oacute;n de la
+    palabra reservada <strong>WHILE</strong>. Tras especificar esta condici&oacute;n, se
+    pondr&aacute;n todas las sentencias que se necesita que se repitan y, finalmente, se
+    marcar&aacute; el final del bucle con la palabra reservada <a href="1091.html">END</a> (No
+    importa que dentro del bucle aparezcan m&aacute;s palabras <a href="1091.html">END</a> si
+    &eacute;stas forman parte de sentencias interiores a dicho bucle).</p>
+
+    <p>Cuando se ejecute una sentencia <strong>WHILE</strong> se realizar&aacute; la
+    comprobaci&oacute;n que se especifica y, si &eacute;sta resulta cierta, se ejecutar&aacute;n
+    las sentencias interiores; en caso contrario, se continuar&aacute; el programa a partir del <a
+    href="1091.html">END</a> que marca el final del <strong>WHILE</strong>.</p>
+
+    <p>Si se han ejecutado las sentencias interiores (lo que se denomina realizar una
+    <strong>iteraci&oacute;n</strong> del bucle), se volver&aacute; a comprobar la condici&oacute;n
+    y, si &eacute;sta vuelve a ser cierta, se realizar&aacute; otra
+    <strong>iteraci&oacute;n</strong> (se volver&aacute;n a ejecutar las sentencias interiores).
+    Este proceso se repetir&aacute; hasta que, al comprobarse la condici&oacute;n del
+    <strong>WHILE</strong>, &eacute;sta resulte falsa.</p>
+
+    <p>Si seg&uacute;n se ejecuta una sentencia <strong>WHILE</strong> la condici&oacute;n resulta
+    falsa directamente, entonces no se ejecutar&aacute;n las sentencias interiores ninguna vez.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    x<span class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>
+    <span class="syntax1">WHILE</span> <span class="syntax3">(</span>x<span
+class="syntax3">&lt;</span><span class="syntax2">320</span><span class="syntax3">)</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">10</span><span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se pondr&aacute; la variable local <strong>x</strong> (coordenada x del
+    proceso) a cero y despu&eacute;s, mientras x sea menor que 320, se le sumar&aacute;n 10 a
+    <strong>x</strong> y se dar&aacute; un <a href="1029.html">FRAME</a>.</p>
+
+    <p>Una sentencia <a href="1026.html">BREAK</a> dentro de un bucle <strong>WHILE</strong> lo
+    finalizar&aacute; de forma inmediata, continuando el programa por la sentencia siguiente a
+    dicho bucle.</p>
+
+    <p>Una sentencia <a href="1027.html">CONTINUE</a> dentro de un bucle <strong>WHILE</strong>
+    forzar&aacute; al programa a comprobar la condici&oacute;n inicial inmediatamente y, si
+    &eacute;sta es cierta, volver a ejecutar las sentencias interiores desde el principio (tras el
+    <strong>WHILE</strong>). Si la condici&oacute;n resulta falsa, la sentencia <a
+    href="1027.html">CONTINUE</a> finalizar&aacute; el bucle.</p>
+
+    <p>Las sentencias interiores a un bucle <strong>WHILE</strong> pueden ser tantas como se
+    quieran y de cualquier tipo, incluyendo, por supuesto, nuevos bucles
+    <strong>WHILE</strong>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Declaraci&oacute;n de librer&iacute;as</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Declaraci&oacute;n de librer&iacute;as</h1>
+
+    <p><strong>IMPORT</strong> <strong>&lt;nombre de archivo&gt;</strong></p>
+
+    <p>La creaci&oacute;n de librer&iacute;as de funciones para el lenguaje es un tema <strong>muy
+    avanzado</strong>, s&oacute;lo apto para programadores con amplia experiencia en el lenguaje
+    <strong>C</strong> y/o <strong>Ensamblador</strong>.</p>
+
+    <p>Las librer&iacute;as deben distribuirse con dos archivos: uno, con extensi&oacute;n
+    <strong>DLL</strong> con la librer&iacute;a en s&iacute; y, otro, con el mismo nombre pero con
+    extensi&oacute;n <strong>TXT</strong> que debe ser un archivo de texto, con la
+    explicaci&oacute;n del prop&oacute;sito y funcionamiento de la librer&iacute;a; en el mismo
+    deben venir explicadas todas las funciones proporcionadas y el proceso de instalaci&oacute;n y
+    utilizaci&oacute;n de la librer&iacute;a.</p>
+
+    <p>Desde el lenguaje se deben importar las librer&iacute;as poniendo la palabra reservada
+    <strong>IMPORT</strong> (tras la cabecera del programa) seguida de la ruta de acceso al archivo
+    <strong>DLL</strong>. Si el archivo con extensi&oacute;n <strong>DLL</strong> se ha copiado al
+    directorio de <strong>DIV Games Studio</strong> entonces no es necesario especificar la ruta de
+    la librer&iacute;a.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+
+<span class="syntax1">IMPORT</span> <span class="syntax4">"c:\tmp\3dtrans.dll"</span><span
+class="syntax3">;</span>
+
+<span class="syntax1">CONST</span>
+  <span class="syntax5">//...</span>
+<span class="syntax1">GLOBAL</span>
+  <span class="syntax5">//...</span>
+<span class="syntax1">LOCAL</span>
+  <span class="syntax5">//...</span>
+<span class="syntax1">PRIVATE</span>
+  <span class="syntax5">//...</span>
+
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Desde el momento en que las librer&iacute;as de funciones pueden ser desarrolladas de forma
+    libre, <strong>no se garantiza el correcto funcionamiento de DIV Games Studio cuando se
+    utilicen librer&iacute;as DLL externas</strong>. Puede ser habitual el funcionamiento
+    incorrecto del <strong>trazador de programas</strong> cuando en un juego se cargue una DLL que
+    modifique partes vitales de la librer&iacute;a de funciones o del gestor de procesos de DIV
+    Games Studio.</p>
+    <hr />
+
+    <p><strong>Nota 1:</strong> En la primera versi&oacute;n del lenguaje de programaci&oacute;n
+    DIV, esta declaraci&oacute;n se deb&iacute;a hacer entre las secciones <strong>LOCAL</strong> y
+    <strong>PRIVATE</strong> del programa.</p>
+
+    <p><strong>Nota 2:</strong> Las librer&iacute;as preparadas para la primera versi&oacute;n del
+    lenguaje <strong>no funcionar&aacute;n correctamente</strong> en versiones posteriores,
+    debi&eacute;ndose recompilar previamente estas librer&iacute;as con los nuevos archivos de
+    declaraciones. Es decir, que el c&oacute;digo fuente de las librer&iacute;as sigue siendo
+    v&aacute;lido, pero antes debe compilarse nuevamente con los nuevos archivos de cabecera (ya
+    que estos contienen las declaraciones de los nuevos datos y estructuras existentes en el
+    lenguaje).</p>
+
+    <p><strong>Nota 3:</strong> Si usted es un programador experto en C y Ensamblador, puede
+    obtener m&aacute;s informaci&oacute;n sobre la creaci&oacute;n de nuevas librer&iacute;as en el
+    archivo DLL\SOURCE\LEEME.TXT de DIV.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

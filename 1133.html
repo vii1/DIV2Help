@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL height</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL height</h1>
+
+    <p><strong>height=0;</strong> // Altura del gr&aacute;fico (en el modo 7)</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>height</strong>.</p>
+
+    <p>La variable local <strong>height</strong> se utiliza <strong>exclusivamente</strong> en los
+    procesos que pertenecen a <strong>ventanas de modo 7</strong>, es decir, procesos que tienen su
+    sistema de coordenadas dentro de una ventana tridimensional (su variable local <a
+    href="1122.html">ctype</a>=<a href="1169.html">c_m7</a>).</p>
+
+    <p>Se utiliza para definir la altura a la que deben situarse los gr&aacute;ficos de los
+    procesos sobre el plano tridimensional. No se utiliza para esto la variable <a
+    href="1125.html">local z</a>, porque &eacute;sta sigue utiliz&aacute;ndose para definir el
+    plano de profundidad de los gr&aacute;ficos (aunque ahora &uacute;nicamente sea &uacute;til
+    para procesos situados en las mismas coordenadas).</p>
+
+    <p>La altura del proceso puede definirse como cualquier n&uacute;mero entero dentro del rango
+    (<a href="1177.html">min_int</a> ... <a href="1178.html">max_int</a>), si bien se suelen
+    utilizar normalmente n&uacute;meros positivos, ya que la altura (<strong>height</strong>) del
+    suelo es la <strong>0</strong> y los procesos se sit&uacute;an por encima de &eacute;ste.</p>
+
+    <p>El valor por defecto de la variable <strong>height</strong> es <strong>0</strong> para todos
+    los procesos, lo que quiere decir que si no se especifica otro valor, los gr&aacute;ficos de
+    los procesos aparecer&aacute;n justo sobre el suelo del <strong>modo 7</strong> (sobre el plano
+    tridimensionalmente abatido).</p>
+
+    <p>En un principio se situar&aacute; en la altura indicada en <strong>height</strong> la
+    <strong>base del gr&aacute;fico</strong> del proceso, a no ser que se defina el <a
+    href="1136.html">punto de control</a> n&uacute;mero <strong>0</strong>, en cuyo caso
+    ser&aacute; este punto el que se sit&uacute;e en esa altura.</p>
+
+    <p><strong>Nota:</strong> Para m&aacute;s informaci&oacute;n sobre las <strong>ventanas de modo
+    7</strong> y c&oacute;mo situar gr&aacute;ficos dentro de estas ventanas, se debe ver la ayuda
+    sobre la funci&oacute;n <a href="162.html">start_mode7()</a> que es la utilizada para
+    activarlas en el programa.</p>
+    <hr />
+
+    <p>En los procesos que no son de <strong>modo 7</strong> se puede utilizar esta variable con
+    cualquier otra finalidad, ya que el sistema la ignorar&aacute; por completo.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a> - <a href="162.html">start_mode7()</a>
+  </body>
+</html>
+

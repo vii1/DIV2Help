@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - No se puede duplicar 0 o menos veces</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>No se puede duplicar 0 o menos veces</h1>
+
+    <p>El operador <a href="1089.html">DUP</a> utilizado para inicializar tablas y estructuras
+    permite repetir (duplicar) una secuencia de valores un determinado n&uacute;mero de veces:
+    desde una sola vez (en cuyo caso el operador no tiene n&iacute;nguna utilidad) hasta un
+    n&uacute;mero positivo indeterminado de veces.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">GLOBAL</span>
+    tabla1<span class="syntax3">[]=</span><span class="syntax2">10</span> <span
+class="syntax1">dup</span> <span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax2">2</span><span class="syntax3">,</span> <span
+class="syntax2">3</span><span class="syntax3">);</span>
+    tabla2<span class="syntax3">[]=-</span><span class="syntax2">10</span> <span
+class="syntax1">dup</span> <span class="syntax3">(</span><span class="syntax2">1</span><span
+class="syntax3">,</span> <span class="syntax2">2</span><span class="syntax3">,</span> <span
+class="syntax2">3</span><span class="syntax3">);</span> <span
+class="syntax5">// Error: No se puede duplicar 0 o menos veces.</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo, tabla1 ser&iacute;a una tabla de 30 posiciones (desde tabla1[0] hasta
+    tabla1[29]) inicializada de la siguiente forma: 1, 2, 3, 1, 2, 3, ...</p>
+
+    <p>Es posible, adem&aacute;s, omitir el operador <a href="1089.html">DUP</a> quedando entonces
+    la declaraci&oacute;n de tabla1 de la siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>tabla1[]=10(1, 2, 3);</strong></p>
+
+    <p>El efecto es exactamente el mismo que en el ejemplo anterior, es decir, cuando el compilador
+    se encuentra en una inicializaci&oacute;n de tabla la secuencia <strong>n&uacute;mero (
+    secuencia_de_valores ... )</strong> interpreta que se pretende repetir la
+    <strong>secuencia_de_valores</strong> el <strong>n&uacute;mero</strong> de veces que se
+    indica.</p>
+
+    <p>Por tanto, es imposible repetir una secuencia de valores cero o un n&uacute;mero negativo de
+    veces.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1089.html">DUP</a>
+  </body>
+</html>
+

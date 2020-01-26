@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Trazando los programas</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Trazando los programas</h1>
+
+    <p>Las mentes m&aacute;s inquietas pueden curiosear en los juegos pulsando la tecla F12 (desde
+    el propio juego, estando &eacute;ste en ejecuci&oacute;n), que permite acceder al trazador de
+    programas, que es una utilidad dise&ntilde;ada para ejecutar paso a paso los juegos. Pudiendo
+    observar todos los procesos y modificar sus datos (si se da con el dato apropiado, se pueden
+    cambiar todos los par&aacute;metros del juego, el n&uacute;mero de fase, las vidas, ...).</p>
+
+    <p>En la parte superior de esta ventana aparece una lista con los procesos activos en cada
+    momento (algo as&iacute; como los mu&ntilde;ecos o gr&aacute;ficos que est&aacute; empleando el
+    programa). Estos se pueden seleccionar con el rat&oacute;n y, pulsando el bot&oacute;n
+    <strong>Ver datos</strong>, se ver&aacute;n todas las variables, contadores, etc. que el
+    proceso est&aacute; utilizando.</p>
+
+    <p>En la parte inferior de la pantalla aparece el listado del programa, que b&aacute;sicamente
+    son las &oacute;rdenes que el ordenador debe ir cumpliendo para que el juego funcione. Este
+    aparece dividido normalmente en peque&ntilde;os bloques que comienzan con palabra
+    <strong>PROCESS</strong> (una de las palabras reservadas del lenguaje de programaci&oacute;n).
+    En cada uno de estos bloques vienen especificadas las ordenes para elemento concreto del juego
+    (por ejemplo, para un disparo, un enemigo o una explosi&oacute;n).</p>
+
+    <p><strong>Funcionamiento general de los programas</strong></p>
+
+    <p>A grandes rasgos, los juegos siempre son una secuencia de im&aacute;genes. Para componer
+    cada imagen intervienen varios elementos (o procesos) en funci&oacute;n del tipo de juego.
+    Todos estos elementos deben realizar una serie de operaciones o c&aacute;lculos (normalmente
+    muy simples) para determinar cual debe ser su apariencia en la siguiente imagen (que dibujo o
+    gr&aacute;fico se debe mostrar, en que posici&oacute;n, a que tama&ntilde;o, etc.)</p>
+
+    <p>El ordenador va cumpliendo las &oacute;rdenes especificadas para cada proceso hasta
+    encontrarse con la orden <strong>FRAME</strong> (imagen o fotograma). Esta orden indica que un
+    proceso ya est&aacute; listo para mostrarse en la siguiente imagen, es decir, que ya ha
+    definido todos los par&aacute;metros que definir&aacute;n su apariencia en la siguiente
+    imagen.</p>
+
+    <p><strong>Nota:</strong> A las &oacute;rdenes especificadas en un programa se les denomina
+    sentencias. Cada una de estas sentencia indica una operaci&oacute;n o c&aacute;lculo que el
+    ordenador debe realizar.</p>
+
+    <p>De esta forma, el ordenador ir&aacute; relizando todas estas operaciones y c&aacute;lculos
+    que le vayan indicando las ordenes de cada proceso, hasta que todos los procesos activos hayan
+    dado la orden <strong>FRAME</strong>. En ese momento, el ordenador dejar&aacute; de ejecutar
+    &oacute;rdenes y se dedicar&aacute; en exclusiva a componer la siguiente imagen que debe
+    aparecer en el monitor.</p>
+
+    <p>Luego en los juegos van alternando siempre estas dos tareas, primero se ejecutan las
+    &oacute;rdenes, y despu&eacute;s se compone y muestra la imagen.</p>
+
+    <p><strong>Controles b&aacute;sicos del trazador</strong></p>
+
+    <p>Esto puede ser visualizado desde el trazador de programas, por medio de varios botones que
+    permiten que las acciones de un programa o juego se vayan realizando poco a poco, de forma
+    visible. Los principales botones son los siguientes:</p>
+
+    <p><strong>1. Paso.</strong> Indica al ordenador que ejecute la siguiente orden del siguiente
+    proceso. El siguiente proceso aparece resaltado en color blanco en la lista superior del
+    trazador, y la siguiente orden a realizar (por este proceso) aparece en el listado del programa
+    resaltada en el mismo color.</p>
+
+    <p><strong>2. Ejec.Proceso.</strong> Este bot&oacute;n se utiliza para que el ordenador ejecute
+    todas las instrucciones del siguiente proceso hasta llegar a una orden FRAME, es decir, que
+    realice todas las operaciones necesarias para que el siguiente proceso pueda ser visualizado en
+    la siguiente imagen.</p>
+
+    <p><strong>3. Sgte.Frame.</strong> Este bot&oacute;n es el utilizado para avanzar el juego
+    imagen a imagen. Cada vez que sea pulsado se ejecutar&aacute;n todas las &oacute;rdenes
+    pendientes de todos los procesos activos, se compondr&aacute; la nueva imagen, y finalmente se
+    volcar&aacute; a v&iacute;deo (se denomina "volcar a v&iacute;deo" a la acci&oacute;n de
+    transferir una imagen que se acaba de componer a la tarjeta de v&iacute;deo, de forma que esta
+    se visualice en el monitor del ordenador).</p>
+
+    <p>Cuando se realiza un programa, todos los aspectos imaginables pueden ser controlados: el
+    &oacute;rden en el que se ejecutan las &oacute;rdenes de los diferentes procesos, el
+    &oacute;rden en el que los gr&aacute;ficos se superponen en pantalla, las reacciones varios
+    procesos al superponerse (al "tocarse" uno con el otro), cuando deben emitirse los efectos de
+    sonido, las reacciones de cada proceso al teclado, rat&oacute;n, ...</p>
+    <hr />
+    Ver: <a href="2000.html">Introducci&oacute;n a DIV 2</a>
+  </body>
+</html>
+

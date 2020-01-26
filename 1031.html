@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Sentencia DEBUG</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Sentencia DEBUG</h1>
+
+    <p>La sentencia <strong>DEBUG</strong> invocar&aacute; al trazador (o debugger) interactivo
+    cuando se ejecute.</p>
+
+    <p>Se suele utilizar para depurar programas, es decir, para encontrar posibles errores que
+    tengan los programas. Se suele poner, en ocasiones, en los siguientes puntos.</p>
+
+    <p>- Donde se quiera comprobar que una parte del programa ha hecho lo que se esperaba que
+    hiciera; tras ejecutarse dicha parte, <strong>DEBUG</strong> invocar&aacute; al trazador, desde
+    donde pueden comprobarse todos los procesos activos y el valor de todas sus variables.</p>
+
+    <p>- Cuando no se est&aacute; muy seguro de si algo puede suceder en un programa, se puede
+    poner esta sentencia en dicho punto, para que nos avise en caso de que suceda.</p>
+
+    <p>Esta sentencia se pone &uacute;nicamente de forma temporal hasta que se localiza el error
+    buscado; una vez encontrado ya no es necesaria la sentencia por lo que se puede quitar del
+    programa, ya que por lo dem&aacute;s, no tiene ning&uacute;n otro efecto.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+    <span class="syntax1">IF</span> <span class="syntax3">(</span>x<span
+class="syntax3">&lt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+        <span class="syntax1">DEBUG</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se comprueba, en un determinado punto del programa, que la coordenada
+    <strong>x</strong> del proceso no sea un n&uacute;mero negativo (menor que cero); si esto
+    sucediera, se invocar&aacute; al trazador para poder investigar por qu&eacute; ha sucedido.</p>
+
+    <p>Cuando se ejecuta esta sentencia se abre un cuadro de di&aacute;logo que nos ofrece las
+    siguientes opciones:</p>
+
+    <p>- Desabilitar la sentencia <strong>DEBUG</strong>, para que no vuelva a activarse en esta
+    ejecuci&oacute;n del programa.</p>
+
+    <p>- Detener el programa y entrar en el trazador, para poder examinar todos los procesos y sus
+    variables.</p>
+
+    <p>- O terminar de inmediato la ejecuci&oacute;n del programa, regresando a la edici&oacute;n
+    del mismo en el entorno gr&aacute;fico de ventanas.</p>
+
+    <p>Adem&aacute;s, si se pulsa la tecla de escape <strong>ESC</strong> en dicho cuadro,
+    simplemente se ignorar&aacute; dicha sentencia <strong>DEBUG</strong> y se continuar&aacute;
+    ejecutando el programa normalmente.</p>
+    <hr />
+
+    <p>Cuando se ejecuta un programa desde el entorno gr&aacute;fico de ventanas, puede invocarse
+    al trazador en cualquier instante pulsando la tecla <strong>F12</strong>.</p>
+
+    <p>Al invocarse de esta forma al trazador, el programa ser&aacute; interrumpido siempre justo
+    antes de empezar a procesar una nueva imagen, estando todos los procesos por ejecutar antes de
+    la pr&oacute;xima visualizaci&oacute;n.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

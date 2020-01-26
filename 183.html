@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - xadvance()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>xadvance()</h1>
+
+    <p><strong>xadvance(</strong>&lt;angulo&gt;<strong>,</strong>
+    &lt;distancia&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Avanza el proceso <strong>en el &aacute;ngulo indicado</strong> tantos puntos como indique
+    <strong>la distancia indicada</strong> como par&aacute;metro.</p>
+
+    <p>Esta funci&oacute;n equivale a la funci&oacute;n <a href="101.html">advance()</a>, si se
+    utiliza la variable <a href="1129.html">angle</a> como primer par&aacute;metro.</p>
+
+    <p>La distancia puede ser tambi&eacute;n un n&uacute;mero negativo, con lo cual el
+    gr&aacute;fico del proceso avanzar&aacute; (sus coordenadas <a href="1123.html">x</a> e <a
+    href="1124.html">y</a>) en la direcci&oacute;n contraria a este &aacute;ngulo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_xadvance<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+  angle2<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">101</span><span
+class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Use los cursores para cambiar la direcci&oacute;n."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        angle<span class="syntax3">+=</span><span class="syntax2">5000</span><span
+class="syntax3">;</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span> angle2<span
+class="syntax3">-=</span><span class="syntax2">10000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span> angle2<span
+class="syntax3">+=</span><span class="syntax2">10000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+
+        advance<span class="syntax3">(</span>angle2<span class="syntax3">,</span><span
+class="syntax2">4</span><span class="syntax3">);</span> <span
+class="syntax5">// Avanzamos dos puntos el proceso</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo dibujar&aacute; un tri&aacute;ngulo en pantalla que avanzar&aacute; en la
+    direcci&oacute;n seleccionada con los cursores, independiente en todo momento de la
+    orientaci&oacute;n del gr&aacute;fico en pantalla (del &aacute;ngulo de visualizaci&oacute;n
+    del mismo).</p>
+
+    <p>Se recuerda que el &aacute;ngulo se especifica en mil&eacute;simas de grado.</p>
+    <hr />
+    Ver: <a href="1044.html">Uso de &aacute;ngulos en el lenguaje</a> - <a
+    href="101.html">advance()</a> - <a href="118.html">get_distx()</a> - <a
+    href="119.html">get_disty()</a>
+  </body>
+</html>
+

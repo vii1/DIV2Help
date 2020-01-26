@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - load_pal()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>load_pal()</h1>
+
+    <p><strong>load_pal(</strong>&lt;nombre de archivo&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Carga una paleta de color de disco (de un archivo PAL, FPG, MAP, PCX o FNT) con la
+    definici&oacute;n de los <strong>256 colores</strong> que se visualizan en pantalla.</p>
+
+    <p>A partir de ese momento el juego se ver&aacute; con la correspondencia de colores que indica
+    dicha paleta.</p>
+
+    <p>Si en el momento de cargar la paleta el programa ten&iacute;a asignada ya otra diferente,
+    entonces se realizar&aacute; un fundido de los colores de la pantalla a negro para
+    despu&eacute;s ir introduciendo, en los siguientes fotogramas del juego, la nueva paleta de
+    color de forma gradual.</p>
+
+    <p>Se puede especificar la ruta de acceso al archivo con la paleta; no obstante, si el fichero
+    est&aacute; en el directorio por defecto (que dependiendo del tipo de archivo &eacute;ste
+    ser&aacute;: \PAL, \FPG, \MAP, \PCX o \FNT) no ser&aacute; necesario.</p>
+
+    <p>El programa leer&aacute; la paleta autom&aacute;ticamente del primero de estos tipos de
+    archivos que se carguen en el programa, aunque no se utilice la funci&oacute;n
+    <strong>load_pal()</strong>. Luego, esta funci&oacute;n se utiliza cuando el programa usa
+    varias paletas diferentes para cambiar de una a otra.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_load_pal<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ESPACIO] para cargar una paleta diferente."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Pulse [ENTER] para cargar la paleta original."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_space<span class="syntax3">))</span>
+
+            load_pal<span class="syntax3">(</span><span class="syntax4">"help\help.pal"</span><span
+class="syntax3">);</span> <span class="syntax5">// Se carga una paleta de un fichero .pal</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_enter<span class="syntax3">))</span>
+
+            load_pal<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>  <span class="syntax5">// Se carga una paleta de un fichero .fpg</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, al inicio se carga un fichero de gr&aacute;ficos, se pone un fondo de
+    pantalla y se imprimen los mensajes necesarios.</p>
+
+    <p>En el bucle principal del programa se carga una paleta diferente (de
+    <strong>help.pal</strong>) cuando se pulsa la barra espaciadora y la paleta original (de
+    <strong>help.fpg</strong>) al pulsar la tecla ENTER.</p>
+    <hr />
+
+    <p>Una paleta no se puede descargar de la memoria del ordenador, ya que &eacute;sta no ocupa
+    espacio en la memoria.</p>
+    <hr />
+    Ver: <a href="174.html">load_map/pcx()</a> - <a href="132.html">load_fpg()</a> - <a
+    href="131.html">load_fnt()</a>
+  </body>
+</html>
+

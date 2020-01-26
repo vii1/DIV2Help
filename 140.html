@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - move_scroll()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>move_scroll()</h1>
+
+    <p><strong>move_scroll(</strong>&lt;n&uacute;mero de scroll&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Fuerza a mover un scroll autom&aacute;tico de forma inmediata. Esta es una funci&oacute;n
+    algo avanzada y por ello puede resultar dif&iacute;cil de comprender su prop&oacute;sito.</p>
+
+    <p>La funci&oacute;n requiere como par&aacute;metro el &lt;n&uacute;mero de scroll&gt; de 0 a 9
+    que se indic&oacute; en la funci&oacute;n <a href="163.html">start_scroll()</a> como primer
+    par&aacute;metro cuando se inici&oacute; el scroll.</p>
+
+    <p>Esta funci&oacute;n se utiliza cuando una regi&oacute;n de scroll se controla
+    autom&aacute;ticamente, por haber definido el campo <strong>camera</strong> de la <a
+    href="1101.html">estructura scroll</a> correspondiente con el identificador de un proceso.</p>
+
+    <p>El prop&oacute;sito es forzar a que se actualicen los valores (<strong>x0</strong>,
+    <strong>y0</strong>, <strong>x1</strong> y <strong>y1</strong>) de dicha estructura; si no se
+    utiliza esta funci&oacute;n estos valores no se actualizar&aacute;n hasta la pr&oacute;xima
+    imagen del juego.</p>
+
+    <p>Es decir, cuando un scroll se controla de forma autom&aacute;tica y otro proceso necesita
+    conocer antes de la pr&oacute;xima imagen el valor de las coordenadas de dicho scroll
+    (normalmente para colocarse &eacute;l en una posici&oacute;n acorde al movimiento del fondo) se
+    debe hacer esto:</p>
+
+    <p><strong>1</strong> - Se inicia el scroll con <a href="163.html">start_scroll()</a>.</p>
+
+    <p><strong>2</strong> - Se crea el proceso que se utilizar&aacute; como c&aacute;mara y se pone
+    su <a href="1039.html">c&oacute;digo identificador</a> en el campo <strong>camera</strong> de
+    la <a href="1101.html">estructura scroll</a>.</p>
+
+    <p><strong>3</strong> - A este proceso se le debe poner una prioridad muy alta, para que se
+    ejecute antes que el resto de los procesos (poniendo en su variable local <a
+    href="1121.html">priority</a> un valor entero positivo como, por ejemplo, 100).</p>
+
+    <p><strong>4</strong> - Justo antes de la sentencia <a href="1029.html">FRAME</a> del bucle del
+    proceso usado como c&aacute;mara se llamar&aacute; a la funci&oacute;n
+    <strong>move_scroll()</strong>.</p>
+
+    <p>De esta forma se garantizar&aacute; que este proceso se ejecute el primero y, justo al
+    finalizar, actualice los valores (<strong>x0</strong>, <strong>y0</strong>, <strong>x1</strong>
+    y <strong>y1</strong>) de la <a href="1101.html">estructura scroll</a>, de forma que el resto
+    de los procesos puedan utilizar estas variables ya actualizadas.</p>
+
+    <p>El uso m&aacute;s generalizado de esta funci&oacute;n es cuando en una ventana de scroll se
+    quieren tener m&aacute;s de dos planos de fondo y, para ello, se crean una serie de procesos
+    que simulen un tercer o cuarto plano, situando sus coordenadas en funci&oacute;n de la
+    posici&oacute;n exacta del scroll en cada imagen. A continuaci&oacute;n se muestra un programa
+    que lo hace.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_move_scroll<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    fichero1<span class="syntax3">;</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    set_fps<span class="syntax3">(</span><span class="syntax2">100</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">);</span>
+    fichero1<span class="syntax3">=</span>load_fpg<span class="syntax3">(</span><span
+class="syntax4">"help\help.fpg"</span><span class="syntax3">);</span>
+    start_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> fichero1<span class="syntax3">,</span> <span
+class="syntax2">103</span><span class="syntax3">,</span> <span class="syntax2">102</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">15</span><span class="syntax3">);</span>
+    scroll<span class="syntax3">.</span>camera<span class="syntax3">=</span><span
+class="syntax1">id</span><span class="syntax3">;</span>
+    priority<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">;</span>
+    <span class="syntax1">FROM</span> contador<span class="syntax3">=-</span><span
+class="syntax2">2000</span> <span class="syntax1">TO</span> <span class="syntax2">2000</span> <span
+class="syntax1">step</span> <span class="syntax2">100</span><span class="syntax3">;</span>
+        proceso_m&oacute;vil<span class="syntax3">(</span>contador<span class="syntax3">);</span>
+    <span class="syntax1">END</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Utilice cursor derecha e izquierda para moverse"</span><span
+class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">101</span><span
+class="syntax3">;</span>
+    ctype<span class="syntax3">=</span>c_scroll<span class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">if</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span>
+            x<span class="syntax3">+=</span><span class="syntax2">2</span><span
+class="syntax3">;</span>
+            flags<span class="syntax3">=</span><span class="syntax2">0</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">if</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span>
+            x<span class="syntax3">-=</span><span class="syntax2">2</span><span
+class="syntax3">;</span>
+            flags<span class="syntax3">=</span><span class="syntax2">1</span><span
+class="syntax3">;</span>
+        <span class="syntax1">END</span>
+
+        move_scroll<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">);</span> <span class="syntax5">// Actualiza la estructura scroll[]</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> proceso_m&oacute;vil<span
+class="syntax3">(</span>x_scroll<span class="syntax3">)</span>
+<span class="syntax1">BEGIN</span>
+    ctype<span class="syntax3">=</span>c_scroll<span class="syntax3">;</span>
+    <span class="syntax1">z</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    graph<span class="syntax3">=</span><span class="syntax2">104</span><span
+class="syntax3">;</span>
+    <span class="syntax1">LOOP</span>
+        x<span class="syntax3">=</span>x_scroll<span class="syntax3">-</span>scroll<span
+class="syntax3">.</span>x0<span class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo inicia un scroll a pantalla completa con dos planos y despu&eacute;s mueve un
+    tri&aacute;ngulo hacia la derecha e izquierda con los cursores; este proceso ser&aacute; la
+    c&aacute;mara del scroll, centr&aacute;ndose la visi&oacute;n en el mismo de forma
+    autom&aacute;tica (al poner <strong>scroll.camera=</strong><a
+    href="1092.html">id</a><strong>;</strong>).</p>
+
+    <p>Pero, adem&aacute;s, crea un total de 40 procesos (de -2000 hasta 2000, cada 100 puntos) con
+    el dibujo de una banda vertical de colores que se mover&aacute;n como si fueran un tercer plano
+    de scroll (procesos de tipo <strong>proceso_m&oacute;vil</strong>).</p>
+
+    <p>Para ello, es importante que su <strong>z</strong> sea superior al resto de los procesos
+    (<strong>z=100;</strong>) y que la prioridad del proceso que controla la c&aacute;mara sea
+    mayor (<strong>priority=100;</strong>) y este &uacute;ltimo utilice la funci&oacute;n
+    <strong>move_scroll()</strong> antes de cada imagen (<strong>FRAME;</strong>).</p>
+
+    <p>Los procesos que simula el tercer plano (<strong>proceso_m&oacute;vil</strong>),
+    sit&uacute;an su coordenada <strong>x</strong> en funci&oacute;n de la <strong>x del
+    scroll</strong> y su posici&oacute;n original.</p>
+
+    <p>La diferencia es que si no se hubiera utilizado <strong>move_scroll()</strong>, al utilizar
+    los procesos la variable <strong>scroll.x0</strong> sin actualizar, se mover&iacute;an con un
+    cierto retraso que restar&iacute;a verosimilitud al juego.</p>
+    <hr />
+    Ver: <a href="163.html">start_scroll()</a> - <a href="1101.html">Estructura scroll</a> - <a
+    href="1121.html">priority</a> - <a href="1125.html">z</a>
+  </body>
+</html>
+

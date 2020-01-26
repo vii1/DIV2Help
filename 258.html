@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - free()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>free()</h1>
+
+    <p><strong>free(</strong>&lt;OFFSET del bloque de memoria&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Libera un bloque de memoria din&aacute;mica que ha sido reservado anteriormente con la
+    funci&oacute;n <a href="257.html">malloc()</a></p>
+
+    <p>Se requiere como par&aacute;metro el <strong>OFFSET</strong> o direcci&oacute;n de memoria
+    en la que comienza el bloque, que es el valor que se obtiene al reservarlo.</p>
+
+    <p>Los bloques de memoria que no se liberen con la funci&oacute;n <strong>free()</strong>,
+    ser&aacute;n liberados autom&aacute;ticamente por el sistema al finalizar el programa.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_free<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">POINTER</span> mitabla<span class="syntax3">[</span><span
+class="syntax2">1000</span><span class="syntax3">];</span>  <span
+class="syntax5">// Puntero a una tabla de 1000 datos</span>
+
+<span class="syntax1">BEGIN</span>
+
+    mitabla <span class="syntax3">=</span> malloc<span class="syntax3">(</span><span
+class="syntax2">1000</span><span class="syntax3">);</span> <span
+class="syntax5">// Solicita 1000 posiciones de memoria</span>
+
+    <span class="syntax1">FOR</span> <span class="syntax3">(</span>contador<span
+class="syntax3">=</span><span class="syntax2">0</span><span class="syntax3">;</span>contador<span
+class="syntax3">&lt;</span><span class="syntax2">1000</span><span
+class="syntax3">;</span>contador<span class="syntax3">++)</span> <span
+class="syntax5">// Accede a los datos</span>
+        mitabla<span class="syntax3">[</span>contador<span class="syntax3">]=-</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+
+    free<span class="syntax3">(</span>mitabla<span class="syntax3">);</span>          <span
+class="syntax5">// Libera la memoria ocupada por la tabla</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo muestra como se puede definir un puntero a una tabla (con el
+    puntero no se reserva espacio para los datos de la tabla), y como solicitar memoria para esta
+    con la funci&oacute;n <a href="257.html">malloc()</a>.</p>
+
+    <p>Una vez solicitada la memoria para la tabla de datos se accede a los mismos (se inicializan
+    a -1, como un ejemplo), y se libera la memoria.</p>
+    <hr />
+    Ver: <a href="248.html">free()</a> - <a href="1405.html">POINTER</a>
+  </body>
+</html>
+

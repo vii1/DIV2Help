@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - No se puede acceder a datos PRIVATE externos</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>No se puede acceder a datos PRIVATE externos</h1>
+
+    <p>En la posici&oacute;n indicada del programa se intenta acceder a un dato de tipo <a
+    href="1008.html">PRIVATE</a> de otro proceso; no est&aacute; permitido.</p>
+
+    <p>Si se quiere acceder desde un proceso a un dato de otro proceso, &eacute;ste se debe
+    declarar dentro de la secci&oacute;n <a href="1007.html">LOCAL</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">PRIVATE</span> n<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mi_proceso<span class="syntax3">();</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">()</span>
+<span class="syntax1">PRIVATE</span> n<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    father<span class="syntax3">.</span>n<span class="syntax3">=</span><span
+class="syntax2">0</span><span class="syntax3">;</span> <span
+class="syntax5">// No se puede acceder a datos PRIVATE externos.</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Es imposible acceder a datos <a href="1008.html">PRIVATE</a> incluso cuando el proceso
+    accedido es del mismo tipo que el proceso que est&aacute; intentando acceder al dato.</p>
+
+    <p>La forma correcta en la que se debe declarar la variable <strong>n</strong> en el ejemplo
+    anterior es como se muestra a continuaci&oacute;n:</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">LOCAL</span> n<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mi_proceso<span class="syntax3">();</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">()</span>
+<span class="syntax1">BEGIN</span>
+    father<span class="syntax3">.</span>n<span class="syntax3">=</span><span
+class="syntax2">0</span><span class="syntax3">;</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Se recuerda que los datos declarados dentro de la secci&oacute;n <a
+    href="1007.html">LOCAL</a> los tendr&aacute;n todos los procesos del programa (todos los
+    procesos del ejemplo anterior tendr&aacute;n una variable propia de nombre
+    <strong>n</strong>).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1008.html">Declaraci&oacute;n de datos
+    PRIVATE</a>
+  </body>
+</html>
+

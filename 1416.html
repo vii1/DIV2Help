@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL channel[]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL channel[]</h1>
+
+    <p><strong>channel[31];</strong> // Utilizaci&oacute;n de los canales de sonido</p>
+    <hr />
+
+    <p>La tabla globlal <strong>channel</strong> mantiene informaci&oacute;n sobre la
+    utilizaci&oacute;n de los diferentes canales de sonido (hasta 32) del sistema de audio.</p>
+
+    <p>Cada vez que se toca un sonido con la funci&oacute;n <a href="159.html">sound()</a>, se
+    env&iacute;a el mismo a uno de estos canales. Y cuando se inicia la reproducci&oacute;n de un
+    m&oacute;dulo musical con la funci&oacute;n <a href="216.html">song()</a>, se reservan un
+    determinado n&uacute;mero de canales para el mismo (hasta 24).</p>
+
+    <p>En esta tabla, cada posici&oacute;n representa a uno de estos canales de sonido, y el
+    sistema pondr&aacute; a <strong>1</strong> cada posici&oacute;n cuando se utilice su respectivo
+    canal.</p>
+
+    <p>La funci&oacute;n <a href="256.html">change_channel()</a> permite modificar los
+    par&aacute;metros de cada uno de estos canales.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El sistema nunca pondr&aacute; a <strong>0</strong> las posiciones de
+    la tabla <strong>channel</strong>, debe ser el programa el que borre la tabla, para de esta
+    forma poder determinar cuando se utiliza nuevamente un canal.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="256.html">change_channel()</a>
+  </body>
+</html>
+

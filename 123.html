@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_pixel()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_pixel()</h1>
+
+    <p><strong>get_pixel(</strong>&lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El color del punto (0..255).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Devuelve el color que tiene el punto del <strong>fondo de la pantalla</strong> que
+    est&aacute; en las coordenadas indicadas como par&aacute;metros.</p>
+
+    <p>El n&uacute;mero devuelto es el orden dentro de la paleta de colores activa en el programa,
+    entre 0 y 255, ya que las paletas tienen 256 colores.</p>
+
+    <p>El punto se toma &uacute;nicamente del dibujo de fondo de la pantalla, sin tener en cuenta
+    los gr&aacute;ficos de los procesos, textos, regiones de scroll, etc., es decir, s&oacute;lo se
+    leer&aacute;n los colores puestos por las funciones <a href="146.html">put()</a>, <a
+    href="173.html">xput()</a>, <a href="147.html">put_pixel()</a> y <a
+    href="148.html">put_screen()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_pixel<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    color_punto<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">2</span><span class="syntax3">);</span>
+    mouse<span class="syntax3">.</span>graph<span class="syntax3">=</span><span
+class="syntax2">200</span><span class="syntax3">;</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">190</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Color del punto del fondo de pantalla:"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">256</span><span class="syntax3">,</span> <span
+class="syntax2">190</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> color_punto<span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+
+        <span class="syntax5">// Cogemos el color del punto del fondo de la pantalla</span>
+        color_punto <span class="syntax3">=</span> get_pixel<span
+class="syntax3">(</span>mouse<span class="syntax3">.</span>x<span
+class="syntax3">,</span> mouse<span class="syntax3">.</span><span class="syntax1">y</span><span
+class="syntax3">);</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En el ejemplo, se pone el fondo de pantalla con la funci&oacute;n <a
+    href="148.html">put_screen</a>, como una serie de cuadr&iacute;culas de distintos colores y se
+    asigna una cruz como puntero del rat&oacute;n.</p>
+
+    <p>Despu&eacute;s se mostrar&aacute; en la parte inferior de la pantalla el color que
+    est&aacute; en la posici&oacute;n se&ntilde;alada con el rat&oacute;n, leyendo &eacute;ste con
+    la funci&oacute;n <strong>get_pixel()</strong> en cada iteraci&oacute;n del bucle principal del
+    programa.</p>
+    <hr />
+    Ver: <a href="147.html">put_pixel()</a> - <a href="136.html">map_get_pixel()</a> - <a
+    href="138.html">map_put_pixel()</a> - <a href="124.html">get_point()</a>
+  </body>
+</html>
+

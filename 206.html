@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - strchr()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>strchr()</h1>
+
+    <p><strong>strchr(</strong>&lt;cadena de texto&gt;<strong>,</strong>
+    &lt;car&aacute;cteres&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>&nbsp; <strong>-1</strong> Si no se encontraron los car&aacute;cteres dentro de la
+    cadena.<br />
+    &nbsp; <strong>+n</strong> Si uno de los car&aacute;cteres se encontr&oacute; en la
+    posici&oacute;n <strong>n</strong> de la cadena.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Busca uno o varios <strong>&lt;car&aacute;cteres&gt;</strong> en una <strong>&lt;cadena de
+    texto&gt;</strong>. Se recibe la cadena como primer par&aacute;metro y, como segundo, uno o
+    varios car&aacute;cteres en un literal (entre comillas).</p>
+
+    <p>Esta funci&oacute;n determinar&aacute; si la cadena contiene alguno de dichos
+    car&aacute;cteres y, en caso afirmativo, indicar&aacute; en que posici&oacute;n aparece el
+    car&aacute;cter dentro de la cadena (de 0 en adelante). En caso de aparecer el car&aacute;cter
+    varias veces, la funci&oacute;n siempre retornar&aacute; la posici&oacute;n primera.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_strchr<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    <span class="syntax1">STRING</span> micadena<span class="syntax3">=</span><span
+class="syntax4">"FGHIJK"</span><span class="syntax3">;</span>
+    posici&oacute;n<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span
+class="syntax4">"Primera vocal de &lt;micadena&gt; en la posici&oacute;n:"</span><span
+class="syntax3">);</span>
+
+    posici&oacute;n<span class="syntax3">=</span>strchr<span class="syntax3">(</span>micadena<span
+class="syntax3">,</span><span class="syntax4">"AEIOU"</span><span class="syntax3">);</span>
+
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> posici&oacute;n<span
+class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se utiliza la funci&oacute;n <strong>strchr()</strong> para que determine
+    que la primera vocal de <strong>micadena</strong> se encuentra en la posici&oacute;n
+    <strong>3</strong> de dicha cadena.</p>
+    <hr />
+
+    <p>Siempre se puede acceder a los car&aacute;cteres de un dato de tipo <a
+    href="1406.html">STRING</a> como si este fuera una tabla de car&aacute;cteres. Por ejemplo,
+    para sustituir en el dato <strong>micadena</strong> del ejemplo anterior, el car&aacute;cter
+    "I" por un car&aacute;cter "-" se podr&iacute;a utilizar la siguiente sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>micadena[3]=char("-");</strong></p>
+
+    <p>Para convertir un car&aacute;cter contenido en un literal en su valor ordinal (ASCII) se
+    utiliza la funci&oacute;n <a href="184.html">char()</a>.</p>
+    <hr />
+
+    <p>Para determinar si una cadena esta completamente contenida en otra (si aparece como una
+    subcadena dentro de la misma), se debe utilizar la funci&oacute;n <a
+    href="207.html">strstr()</a>.</p>
+    <hr />
+    Ver: <a href="202.html">strcpy()</a> - <a href="203.html">strcat()</a> - <a
+    href="204.html">strlen()</a> - <a href="205.html">strcmp()</a> 
+
+    <p>- <a href="207.html">strstr()</a> - <a href="208.html">strset()</a> - <a
+    href="209.html">upper()</a> - <a href="210.html">lower()</a> - <a
+    href="211.html">strdel()</a></p>
+  </body>
+</html>
+

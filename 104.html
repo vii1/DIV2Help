@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - collision()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>collision()</h1>
+
+    <p><strong>collision(</strong>&lt;tipo de proceso&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El <a href="1039.html">c&oacute;digo identificador</a> de un proceso o
+    <strong>0</strong>.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>&Eacute;sta es la funci&oacute;n del lenguaje <strong>para detectar choques</strong> entre
+    gr&aacute;ficos.</p>
+
+    <p>Comprueba si el proceso actual (el que ejecut&oacute; esta funci&oacute;n) colisiona con uno
+    del tipo indicado como par&aacute;metro. Es decir, comprueba si los gr&aacute;ficos de ambos
+    procesos est&aacute;n, al menos, parcialmente superpuestos.</p>
+
+    <p>En caso de producirse una colisi&oacute;n devolver&aacute; el <a
+    href="1039.html">c&oacute;digo identificador</a> del proceso con el que est&aacute; chocando el
+    proceso actual. En caso contrario la funci&oacute;n devolver&aacute; siempre
+    <strong>0</strong>.</p>
+
+    <p>Si el proceso actual colisiona con varios procesos del tipo que se ha especificado, la
+    funci&oacute;n <strong>collision()</strong> devolver&aacute; el resto de los identificadores en
+    las sucesivas llamadas que se realicen a la misma.</p>
+
+    <p>Para obtener, de esta forma, todos los <a href="1039.html">c&oacute;digos
+    identificadores</a> de los procesos que colisionan con el actual no se debe utilizar la
+    sentencia <a href="1029.html">FRAME</a> entre dos llamadas consecutivas a la sentencia
+    <strong>collision()</strong>. En el caso de ejecutar un proceso una sentencia <a
+    href="1029.html">FRAME</a>, esta funci&oacute;n volver&aacute; a retornar todos los <a
+    href="1039.html">c&oacute;digos identificadores</a> de procesos colisionantes desde el
+    primero.</p>
+
+    <p>Algo similar sucede si se ejecuta una llamada a la funci&oacute;n especificando un tipo de
+    proceso diferente; si tras esto se vuelven a detectar las colisiones con el tipo anterior, esta
+    funci&oacute;n tambi&eacute;n volver&aacute; a retornar todos los c&oacute;digos desde el
+    primero.</p>
+
+    <p>Cuando se quieren obtener los <a href="1039.html">c&oacute;digos identificadores</a> de los
+    procesos de un tipo determinado aunque no se produzca ninguna colisi&oacute;n con ellos, se
+    debe llamar a la funci&oacute;n <a href="120.html">get_id()</a>.</p>
+
+    <p>Si lo que se pretende es comprobar la cercan&iacute;a entre dos procesos sin que
+    necesariamente colisionen sus gr&aacute;ficos, entonces se deber&aacute; emplear la
+    funci&oacute;n <a href="117.html">get_dist()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_collision<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    id2<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    put_screen<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">1</span><span class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">100</span><span
+class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    proceso_m&oacute;vil<span class="syntax3">(</span><span class="syntax2">80</span><span
+class="syntax3">,</span> <span class="syntax2">50</span><span class="syntax3">,</span> <span
+class="syntax2">101</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        delete_text<span class="syntax3">(</span>all_text<span class="syntax3">);</span>
+        write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">1</span><span
+class="syntax3">,</span> <span
+class="syntax4">"Use los cursores para mover el tri&aacute;ngulo"</span><span
+class="syntax3">);</span>
+
+        id2 <span class="syntax3">=</span> collision<span class="syntax3">(</span><span
+class="syntax1">TYPE</span> proceso_m&oacute;vil<span class="syntax3">);</span> <span
+class="syntax5">// Se detecta la colisi&oacute;n</span>
+
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>id2<span
+class="syntax3">&lt;&gt;</span><span class="syntax2">0</span><span class="syntax3">)</span>
+            write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span class="syntax4">"&iexcl; DETECTADA COLISION !"</span><span
+class="syntax3">);</span>
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> proceso_m&oacute;vil<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">,</span> graph<span
+class="syntax3">);</span>
+
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_right<span class="syntax3">))</span> angle<span
+class="syntax3">-=</span><span class="syntax2">10000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_left<span class="syntax3">))</span> angle<span
+class="syntax3">+=</span><span class="syntax2">10000</span><span class="syntax3">;</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_up<span class="syntax3">))</span> advance<span
+class="syntax3">(</span><span class="syntax2">4</span><span class="syntax3">);</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se visualiza una pelota en el centro de la pantalla como gr&aacute;fico del
+    programa principal. Luego se crea un proceso de nombre <strong>proceso_m&oacute;vil</strong>
+    con el dibujo de un tri&aacute;ngulo controlable con las teclas de los cursores.</p>
+
+    <p>El programa principal llamar&aacute; a la funci&oacute;n <strong>collision()</strong> para
+    comprobar si su gr&aacute;fico (el c&iacute;rculo) colisiona con el gr&aacute;fico del proceso
+    de tipo <strong>proceso_m&oacute;vil</strong> (el tri&aacute;ngulo). El resultado de la
+    funci&oacute;n se guarda en la variable privada <strong>id2</strong> del programa principal;
+    este valor ser&aacute; <strong>0</strong> cuando no se produzca la colisi&oacute;n y el <a
+    href="1039.html">c&oacute;digo identificador</a> de <strong>proceso_m&oacute;vil</strong>
+    cuando s&iacute;.</p>
+
+    <p>Los c&oacute;digos identificadores de los procesos son siempre n&uacute;meros impares, que
+    en el lenguaje se eval&uacute;an como condiciones verdaderas (y los n&uacute;meros pares se
+    corresponden con condiciones que resultan falsas), luego en el programa anterior se
+    podr&iacute;a haber cambiado la sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (id2&lt;&gt;0)</strong> ... <strong>END</strong></p>
+
+    <p>Por la siguiente:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (id2)</strong> ... <strong>END</strong></p>
+
+    <p>Para m&aacute;s informaci&oacute;n al respecto ver: <a href="1037.html">Definici&oacute;n de
+    una condici&oacute;n.</a></p>
+    <hr />
+
+    <p>Cuando en el programa se est&eacute; visualizando el puntero del rat&oacute;n (asignando el
+    c&oacute;digo del gr&aacute;fico correspondiente en la <a href="1100.html">estructura
+    mouse</a>), es posible ver si &eacute;ste choca con el proceso actual utilizando esta
+    funci&oacute;n, por ejemplo, de la siguiente forma:</p>
+
+    <p>&nbsp;&nbsp;<strong>IF (collision(TYPE mouse))</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// El proceso colisiona con el puntero del
+    rat&oacute;n<br />
+    &nbsp;&nbsp;<strong>END</strong><br />
+    </p>
+
+    <p>Al detectarse la colisi&oacute;n con el puntero del rat&oacute;n no se har&aacute; con la
+    totalidad del gr&aacute;fico utilizado como puntero, sino &uacute;nicamente con el <a
+    href="1136.html">punto de control</a> principal (el n&uacute;mero 0) del mismo, denominado
+    usualmente como el "punto caliente" (<strong>hotspot</strong>) del rat&oacute;n.</p>
+    <hr />
+
+    <p>Esta funci&oacute;n sirve para detectar colisiones entre gr&aacute;ficos de pantalla o de
+    una ventana de scroll.</p>
+
+    <p>No es posible utilizar esta funci&oacute;n para detectar colisiones con procesos que no
+    tengan gr&aacute;fico (un c&oacute;digo v&aacute;lido asignado a su variable <a
+    href="1126.html">graph</a>) o entre gr&aacute;ficos de una ventana de modo 7 o modo 8 (con su
+    variable <a href="1122.html">ctype</a> asignada al valor <a href="1169.html">c_m7</a> o <a
+    href="1412.html">c_m8</a>).</p>
+
+    <p>Es, por tanto, <strong>imprescindible</strong> que tanto el proceso actual como el del tipo
+    que se especifica tengan definido un gr&aacute;fico.</p>
+
+    <p>Para detectar colisiones entre gr&aacute;ficos de una ventana de modo 7 o modo 8 se debe
+    utilizar la funci&oacute;n <a href="117.html">get_dist()</a> para detectar de esta forma
+    cu&aacute;ndo la distancia entre los dos procesos es menor a la que se estipule como
+    <strong>distancia de choque</strong>.</p>
+    <hr />
+    Ver: <a href="120.html">get_id()</a> - <a href="117.html">get_dist()</a> - <a
+    href="1042.html">Tipos de procesos</a> - <a href="1038.html">Formas de obtener el c&oacute;digo
+    identificador</a>
+  </body>
+</html>
+

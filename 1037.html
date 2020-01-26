@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Definici&oacute;n de una condici&oacute;n</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Definici&oacute;n de una condici&oacute;n</h1>
+
+    <p>Las condiciones son expresiones que normalmente son como las siguientes:</p>
+
+    <p>&nbsp;&nbsp;<strong>x&lt;320</strong><br />
+    &nbsp;&nbsp;<strong>size==100 AND graph&gt;10</strong><br />
+    &nbsp;&nbsp;<strong>y==0 OR (x&gt;=100 AND x&lt;=200)</strong><br />
+    &nbsp;&nbsp;...</p>
+
+    <p>En general, cualquier expresi&oacute;n es v&aacute;lida como condici&oacute;n. En el
+    lenguaje se interpretan todas las expresiones <strong>IMPARES</strong> como
+    <strong>ciertas</strong> y todas las <strong>PARES</strong> como <strong>falsas</strong>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">IF</span> <span class="syntax3">(</span><span
+class="syntax2">20</span><span class="syntax3">*</span><span class="syntax2">2</span><span
+class="syntax3">+</span><span class="syntax2">1</span><span class="syntax3">)</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo la sentencia <strong>x=x+1;</strong> se ejecutar&aacute; siempre, pues la
+    expresi&oacute;n <strong>20*2+1</strong> vale <strong>41</strong>, que es un n&uacute;mero
+    <strong>impar</strong>. Todos los operadores disponibles son v&aacute;lidos dentro de una
+    condici&oacute;n.</p>
+
+    <p>Todos los <a href="1039.html">c&oacute;digos identificadores</a> de procesos son
+    n&uacute;meros <strong>impares</strong>, es decir, todos son <strong>ciertos</strong>. Es
+    posible, por tanto, implementar condiciones como la siguiente (suponiendo que
+    <strong>id2</strong> se haya declarado como variable, y <strong>disparo</strong> es un tipo de
+    proceso del programa).</p>
+
+    <p>&nbsp;&nbsp;<strong>id2=get_id(type disparo);</strong><br />
+    &nbsp;&nbsp;<strong>WHILE (id2)</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>id2.size=id2.size-1;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>id2=get_id(type disparo);</strong><br />
+    &nbsp;&nbsp;<strong>END</strong></p>
+
+    <p>En la condici&oacute;n <strong>(id2)</strong> se comprueba si la funci&oacute;n
+    <strong>get_id()</strong> ha devuelto un <a href="1039.html">c&oacute;digo identificador</a>,
+    pues &eacute;ste ser&aacute; siempre un n&uacute;mero <strong>impar</strong> y la
+    condici&oacute;n ser&aacute; evaluada como <strong>cierta</strong> (si
+    <strong>get_id()</strong> no encuentra (m&aacute;s) identificadores de procesos "tipo
+    <strong>disparo</strong>", entonces devolver&aacute; <strong>0</strong> (que es un
+    n&uacute;mero <strong>par</strong>) interpret&aacute;ndose la condici&oacute;n como
+    <strong>falsa</strong>, y terminando la sentencia <a href="1022.html">WHILE</a>.</p>
+
+    <p>Las sentencias anteriores decrementar&iacute;an la variable <a href="1128.html">size</a>
+    (tama&ntilde;o) de todos los procesos de tipo <strong>disparo</strong> que hubiera en el
+    programa.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1035.html">Definici&oacute;n de una
+    expresi&oacute;n</a>
+  </body>
+</html>
+

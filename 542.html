@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Esperando [UNTIL]</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Esperando [UNTIL]</h1>
+
+    <p>Un bloque de sentencias que comenz&oacute; con la palabra reservada <a
+    href="1023.html">REPEAT</a> debe acabar necesariamente con la palabra <a
+    href="1097.html">UNTIL</a>; en la posici&oacute;n indicada del programa se ha finalizado el
+    bloque de sentencias con otra palabra diferente, lo m&aacute;s probable es:</p>
+
+    <p>- Que se ha finalizado un <a href="1023.html">REPEAT</a> con un <a href="1091.html">END</a>
+    en cuyo caso, si lo que se prentende es realizar un bucle indefinidamente, se debe utilizar la
+    sentencia <a href="1024.html">LOOP</a> ... <a href="1091.html">END</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">REPEAT</span>
+    <span class="syntax5">//...</span>
+    <span class="syntax1">END</span> <span class="syntax5">// Error: Esperando [UNTIL]</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>- Que dentro del bucle <a href="1023.html">REPEAT</a> ... <a href="1097.html">UNTIL</a>
+    aparezca una palabra como <a href="1091.html">END</a> o <a href="1090.html">ELSE</a> de
+    m&aacute;s y, por lo tanto, sin su correspondiente inicio (<a href="1020.html">IF</a>, <a
+    href="1022.html">WHILE</a>, ...).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>x<span
+class="syntax3">&lt;</span><span class="syntax2">0</span><span class="syntax3">)</span> x<span
+class="syntax3">++;</span> <span class="syntax1">END</span>
+            <span class="syntax1">y</span><span class="syntax3">++;</span>
+        <span class="syntax1">END</span> <span class="syntax5">// Error: Esperando [UNTIL]</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>x<span
+class="syntax3">&gt;=</span><span class="syntax2">0</span><span class="syntax3">);</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>&nbsp;&nbsp;En este caso, se ha puesto el <a href="1091.html">END</a> del <a
+    href="1020.html">IF</a> dos veces, interpretando el compilador que el segundo <a
+    href="1091.html">END</a> pretende cerrar el <a href="1023.html">REPEAT</a>.</p>
+
+    <p>- O, por &uacute;ltimo, que se haya olvidado poner el <a href="1097.html">UNTIL</a> del <a
+    href="1023.html">REPEAT</a>.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1023.html">Sentencia REPEAT</a> - <a
+    href="1020.html">IF</a> - <a href="1022.html">WHILE</a>
+  </body>
+</html>
+

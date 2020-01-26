@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT fileinfo</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT fileinfo</h1>
+
+    <p><strong>STRUCT fileinfo;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>string fullpath[254];</strong> // Nombre completo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>drive;</strong> // Unidad de disco<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>string dir[254];</strong> // Directorio<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>string name[7];</strong> // Nombre<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>string ext[3];</strong> // Extensi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>size;</strong> // Tama&ntilde;o (en bytes)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>day;</strong> // D&iacute;a<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>month;</strong> // Mes<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>year;</strong> // A&ntilde;o<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>hour;</strong> // Hora<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>min;</strong> // Minuto<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>sec;</strong> // Segundo<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>attrib;</strong> // Atributos<br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Esta estructura global predefinida se utiliza como retorno de la funci&oacute;n <a
+    href="232.html">get_fileinfo()</a>, para contener los atributos de un archivo (o
+    subdirectorio).</p>
+
+    <p>Se trata de una estructura de un &uacute;nico registro, que agrupa varias cadenas de texto
+    (datos de tipo <a href="1406.html">STRING</a>) y variables num&eacute;ricas (datos de tipo <a
+    href="1402.html">INT</a>).</p>
+    <hr />
+
+    <p><strong>Se muestra a continuaci&oacute;n una descripci&oacute;n detallada de cada
+    campo</strong></p>
+
+    <p><strong>fullpath</strong> - Nombre completo (incluyendo la ruta). La ruta de acceso al
+    archivo se puede especificar completa (a partir del directorio raiz de la unidad, como
+    "C:\WINDOWS\...") o relativa al directorio actual (a partir de donde se ejecute el juego, como
+    "MAP\MIOS\..."). En cualquier caso, en <strong>fileinfo.fullpath</strong> siempre se
+    devolver&aacute; la ruta completa a partir del directorio raiz, incluyendo la letra de la
+    unidad.</p>
+    <hr />
+
+    <p><strong>drive</strong> - Unidad de disco en la que se encuentra el archivo sobre el que se
+    ha solicitado informaci&oacute;n. La unidad no se devuelve como la letra correspondiente, sino
+    como un n&uacute;mero, estableci&eacute;ndose la siguiente correspondencia: <strong>1</strong>
+    para <strong>A:</strong>, <strong>2</strong> para <strong>B</strong>:, <strong>3</strong> para
+    <strong>C:</strong>, etc.</p>
+    <hr />
+
+    <p><strong>dir</strong> - Directorio donde se encuentra el archivo. En esta cadena no se
+    devuelve &uacute;nicamente el nombre de la carpeta que contiene al archivo, sino que se
+    especifica la ruta completa, a partir del directorio raiz pasando por todos los directorios
+    (por ejemplo "\DIV\MAP\"). Siempre se devolver&aacute; con una barra invertida (\) al inicio y
+    otra al final.</p>
+    <hr />
+
+    <p><strong>name</strong> - Nombre del archivo, este campo (<strong>fileinfo.name</strong>),
+    retorna el nombre del archivo, sin extensi&oacute;n, de un m&aacute;ximo de <strong>8
+    car&aacute;cteres</strong>.</p>
+    <hr />
+
+    <p><strong>ext</strong> - Extensi&oacute;n del archivo. Como &uacute;ltima parte del nombre se
+    retorna en este campo la extensi&oacute;n del archivo, en una cadena que incluye el punto que
+    separa el nombre de la misma.</p>
+    <hr />
+
+    <p><strong>size</strong> - Tama&ntilde;o del archivo, este valor ser&aacute; <strong>0</strong>
+    si se solicita informaci&oacute;n sobre un directorio. El tama&ntilde;o se retorna como el
+    n&uacute;mero de datos simples, es decir, como el n&uacute;mero de datos de tipo <a
+    href="1402.html">INT</a> que caben en el archivo (n&uacute;mero de bytes entre cuatro). Es
+    posible variar esta relaci&oacute;n modificando la variable global <a
+    href="1420.html">unit_size</a>).</p>
+    <hr />
+
+    <p><strong>day</strong> - D&iacute;a del mes de la &uacute;ltima actualizaci&oacute;n del
+    archivo.</p>
+
+    <p><strong>month</strong> - Mes de la &uacute;ltima actualizaci&oacute;n del archivo.</p>
+
+    <p><strong>year</strong> - A&ntilde;o de la &uacute;ltima actualizaci&oacute;n del archivo.</p>
+
+    <p><strong>hour</strong> - Hora de la &uacute;ltima actualizaci&oacute;n (de <strong>0</strong>
+    a <strong>23</strong>).</p>
+
+    <p><strong>min</strong> - Minuto dentro de la hora.</p>
+
+    <p><strong>sec</strong> - Segundo dentro del minuto.</p>
+    <hr />
+
+    <p><strong>attrib</strong> - Atributos del archivo, estos indican las caracter&iacute;sticas
+    del archivo, tales como si es un archivo de sistema, s&oacute;lo de lectura, oculto, etc. Este
+    valor es la suma de las siguientes constantes:</p>
+
+    <p>&nbsp;&nbsp;<strong>0</strong> - Archivo normal.<br />
+    &nbsp;&nbsp;<strong>1</strong> - Archivo de s&oacute;lo lectura.<br />
+    &nbsp;&nbsp;<strong>2</strong> - Archivo oculto.<br />
+    &nbsp;&nbsp;<strong>4</strong> - Archivo de sistema.<br />
+    &nbsp;&nbsp;<strong>8</strong> - Etiqueta de volumen.<br />
+    &nbsp;<strong>16</strong> - Subdirectorio.<br />
+    &nbsp;<strong>32</strong> - Marcha de archivo.<br />
+    </p>
+
+    <p>Por ejemplo, para un archivo de sistema y oculto, el valor de
+    <strong>fileinfo.attrib</strong> ser&iacute;a <strong>6</strong> (2 Oculto + 4 Sistema).</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="232.html">get_fileinfo()</a>
+  </body>
+</html>
+

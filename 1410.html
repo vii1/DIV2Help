@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - GLOBAL STRUCT net</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>GLOBAL STRUCT net</h1>
+
+    <p><strong>STRUCT net;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>device;</strong> // Dispositivo de conexi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>com;</strong> // Puerto de comunicaciones<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>speed;</strong> // Velocidad de conexi&oacute;n<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>number;</strong> // N&uacute;mero de tel&eacute;fono<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>init;</strong> // Cadena de inicio del m&oacute;dem<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>mode;</strong> // Modo (pulsos o tonos)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>server;</strong> // Indica si es servidor<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>max_players;</strong> // Numero m&aacute;ximo de
+    jugadores<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>num_players;</strong> // Numero actual de jugadores<br />
+    <strong>END</strong></p>
+
+    <p>Esta estructura de datos es de nivel muy avanzado y se requiere bastante experiencia en
+    programaci&oacute;n para poder crear un juego orientado a una conexi&oacute;n de red (se puede
+    encontrar m&aacute;s informaci&oacute;n en el <strong>manual de usuario</strong>).</p>
+
+    <p>Contiene los datos sobre el hardware de red, se debe utilizar en conjunto con las funciones
+    <a href="180.html">net_join_game()</a> y <a href="181.html">net_get_games()</a>.</p>
+
+    <p>La estructura <strong>net</strong> tiene un &uacute;nico registro. En los diferentes campos
+    del mismo se se establecen los par&aacute;metros que definen el tipo de conexi&oacute;n.</p>
+    <hr />
+
+    <p><strong>device</strong> - Dispositivo a trav&eacute;s del cual se va a establecer la
+    conexi&oacute;n, este puede contener uno de estos tres valores:</p>
+
+    <p>&nbsp;<strong>1</strong> - Conexi&oacute;n en una <strong>red local</strong>, con protocolo
+    IPX.</p>
+
+    <p>&nbsp;<strong>2</strong> - Conexi&oacute;n a trav&eacute;s de un cable serie (s&oacute;lo
+    dos equipos).</p>
+
+    <p>&nbsp;<strong>3</strong> - Conexi&oacute;n por m&oacute;dem (s&oacute;lo dos equipos).</p>
+
+    <p>En funci&oacute;n del dispositivo se deber&aacute;n inicializar unos u otros campos de la
+    estructura <strong>net</strong>, ya que muchos de estos par&aacute;metros son
+    espec&iacute;ficos para un dispositivo concreto.</p>
+    <hr />
+
+    <p><strong>com</strong> - Puerto de comunicaciones a emplear para la conexi&oacute;n, es decir,
+    el n&uacute;mero de dispositivo COM (de COM1 a COM4), indic&aacute;ndolo como un valor
+    num&eacute;rico entre <strong>1</strong> y <strong>4</strong>.</p>
+
+    <p>Este campo &uacute;nicamente se debe definir para conexiones por cable serie o a
+    trav&eacute;s de un m&oacute;dem.</p>
+    <hr />
+
+    <p><strong>speed</strong> - Velocidad en baudios (n&uacute;mero de bits por segundo), hasta
+    115000. Esta velocidad debe ajustarse a las posibilidades del cable o m&oacute;dem empleado, y
+    del volumen de datos que requiera la comunicaci&oacute;n del programa.</p>
+
+    <p>Este campo &uacute;nicamente se debe definir para conexiones por cable serie o a
+    trav&eacute;s de un m&oacute;dem.</p>
+    <hr />
+
+    <p><strong>number</strong> - N&uacute;mero de tel&eacute;fono, por supuesto este campo es
+    necesario &uacute;nicamente en conexiones a trav&eacute;s de m&oacute;dem.</p>
+
+    <p>Por ejemplo, se debe asignar el n&uacute;mero de tel&eacute;fono a marcar con una sentencia
+    como la siguiente: <strong>net.number="912345678";</strong>.</p>
+    <hr />
+
+    <p><strong>init</strong> - Cadena de inicio, tambi&eacute;n es un campo exclusivo para las
+    conexiones por m&oacute;dem; por ejemplo una sentencia como:
+    <strong>net.init="ATZ";</strong>.</p>
+    <hr />
+
+    <p><strong>mode</strong> - Modo en el que se debe establecer la conexi&oacute;n por
+    m&oacute;dem (tambi&eacute;n s&oacute;lo para este dispositivo), los valores pueden ser los
+    siguientes:</p>
+
+    <p>&nbsp;<strong>0</strong> - Pulsos.</p>
+
+    <p>&nbsp;<strong>1</strong> - Tonos.</p>
+    <hr />
+
+    <p><strong>server</strong> - Indica si un equipo es el servidor. Se trata de un dato
+    informativo (es un campo de s&oacute;lo lectura, no se debe modificar).</p>
+
+    <p>En una conexi&oacute;n, &uacute;nicamente un equipo tendr&aacute; el campo
+    <strong>net.server</strong> a <strong>1</strong>, este equipo ser&aacute; el servidor de la
+    partida, y es el que debe centralizar las acciones m&aacute;s importantes del programa.</p>
+    <hr />
+
+    <p><strong>max_players</strong> - N&uacute;mero m&aacute;ximo de jugadores que se permiten en
+    una partida, de <strong>2</strong> a <strong>16</strong>. Este es un campo &uacute;til
+    &uacute;nicamente en conexiones por red local, ya que en conexiones de cable serie o
+    m&oacute;dem el n&uacute;mero m&aacute;ximo de jugadores siempre ser&aacute;
+    <strong>2</strong>.</p>
+
+    <p>Este n&uacute;mero debe coincidir con el n&uacute;mero m&aacute;ximo de registros que tenga
+    la estructura global utilizada como paquetes de comunicaci&oacute;n entre los diversos
+    equipos.</p>
+    <hr />
+
+    <p><strong>num_players</strong> - N&uacute;mero actual de jugadores conectados a la partida, de
+    <strong>1</strong> a <strong>net.max_players</strong>. Este es un valor din&aacute;mico, que va
+    variando segun se vayan produciendo las conexiones (se pueden ir conectando y desconectando
+    jugadores en cualquier momento).</p>
+
+    <p>La programaci&oacute;n del juego es la que debe determinar si los jugadores pueden entrar y
+    salir din&aacute;micamente de la partida, o bien si deben estar todos conectados antes de que
+    esta de comienzo.</p>
+    <hr />
+    Ver: <a href="1200.html">Datos globales</a> - <a href="180.html">net_join_game()</a> - <a
+    href="181.html">net_get_games()</a>
+  </body>
+</html>
+

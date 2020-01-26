@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - . -&gt;</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>. -&gt;</h1>
+
+    <p>Operador de acceso a estructuras o datos locales ajenos. Los s&iacute;mbolos
+    <strong>.</strong> y <strong>-&gt;</strong> son sin&oacute;nimos, por lo que pueden ser usados
+    indistintamente.</p>
+    <hr />
+
+    <p><strong>Acceso a estructuras</strong></p>
+
+    <p>Para acceder a un campo de una estructura se debe utilizar este operador de la siguiente
+    forma:</p>
+
+    <p>&lt;nombre de la estructura&gt;<strong>[</strong>&lt;n&ordm; registro&gt;<strong>]</strong>
+    <strong>.</strong> &lt;nombre del campo&gt;</p>
+
+    <p>(o bien, utilizando el otro s&iacute;mbolo)</p>
+
+    <p>&lt;nombre de la estructura&gt;<strong>[</strong>&lt;n&ordm; registro&gt;<strong>]</strong>
+    <strong>-&gt;</strong> &lt;nombre del campo&gt;</p>
+
+    <p><strong>Ejemplos:</strong><br />
+    &nbsp;&nbsp;<strong>scroll[0].camera</strong><br />
+    &nbsp;&nbsp;<strong>m7[1]-&gt;z</strong><br />
+    </p>
+
+    <p><strong>Nota:</strong> Se recuerda que el n&uacute;mero de registro entre corchetes se puede
+    omitir cuando se acceda al registro n&uacute;mero 0, por ejemplo
+    <strong>scroll[0].camera</strong> equivaldr&aacute; siempre a
+    <strong>scroll.camera</strong>.</p>
+    <hr />
+
+    <p><strong>Acceso a datos locales ajenos (de otro proceso)</strong></p>
+
+    <p>Para acceder a un dato <a href="1007.html">LOCAL</a> de un proceso desde otro, se debe tener
+    el <a href="1039.html">c&oacute;digo identificador</a> del proceso del cual se quiere leer o
+    modificar su dato, entonces se podr&aacute; acceder al mismo de la siguiente forma:</p>
+
+    <p>&lt;c&oacute;digo identificador&gt; <strong>.</strong> &lt;nombre dato local&gt;</p>
+
+    <p>(o bien, utilizando el otro s&iacute;mbolo)</p>
+
+    <p>&lt;c&oacute;digo identificador&gt; <strong>-&gt;</strong> &lt;nombre dato local&gt;</p>
+
+    <p><strong>Ejemplos:</strong><br />
+    &nbsp;&nbsp;&nbsp;<strong>father.x</strong><br />
+    &nbsp;&nbsp;&nbsp;<strong>son-&gt;graph</strong><br />
+    </p>
+    <hr />
+    Ver: <a href="1012.html">Declaraci&oacute;n de una estructura</a> - <a
+    href="1039.html">C&oacute;digos identificadores</a> - <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

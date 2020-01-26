@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_wall_texture()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_wall_texture()</h1>
+
+    <p><strong>get_wall_texture(</strong>&lt;n&uacute;mero de pared&gt;<strong>,</strong>
+    &lt;OFFSET textura&gt;<strong>,</strong> &lt;OFFSET luminosidad&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La <strong>luminosidad y la textura</strong> de una pared de un modo 8 (en las variables
+    cuyo <a href="1085.html">offset</a> se indica en los par&aacute;metros).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite determinar dentro de un programa cual es la textura y
+    luminosidad de una pared determinada, dentro de un modo 8.</p>
+
+    <p>Para ello se requiere el <strong>&lt;n&uacute;mero de pared&gt;</strong>, y el <a
+    href="1085.html">OFFSET</a> (direcci&oacute;n de memoria) de las variables en las que debe
+    devolver el resultado.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_wall_texture<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    textura<span class="syntax3">;</span>
+    luminosidad<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.FPG"</span><span
+class="syntax3">);</span>
+    load_wld<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.WLD"</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+
+    <span class="syntax5">// Obtiene la luminosidad y textura de una pared</span>
+
+    get_wall_texture<span class="syntax3">(</span><span class="syntax2">255</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> textura<span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> luminosidad<span
+class="syntax3">);</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo muestra como debe llamarse a la funci&oacute;n
+    <strong>get_wall_texture()</strong> para obtener la textura y luminosidad de un sector (en este
+    caso, en las variables <strong>textura</strong> y <strong>luminosidad</strong> se obtiene estos
+    valores para la pared n&uacute;mero <strong>255</strong>).</p>
+    <hr />
+
+    <p>La funci&oacute;n <a href="199.html">set_wall_texture()</a> permite establecer la textura y
+    luminosidad de una pared de modo 8 din&aacute;micamente.</p>
+
+    <p>La funci&oacute;n <a href="198.html">get_sector_texture()</a> permite averiguar cuales son
+    las texturas de suelo y techo de un sector de un modo 8.</p>
+    <hr />
+    Ver: <a href="199.html">set_wall_texture()</a> - <a href="198.html">get_sector_texture()</a>
+  </body>
+</html>
+

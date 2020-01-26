@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_joy_button()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_joy_button()</h1>
+
+    <p><strong>get_joy_button(</strong>&lt;n&uacute;mero de bot&oacute;n&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>Cierto</strong> (1) si el bot&oacute;n est&aacute; pulsado, <strong>Falso</strong>
+    (0) si no lo est&aacute;.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n requiere como par&aacute;metro el n&uacute;mero de bot&oacute;n del
+    joystick (de 0 a 3), y devuelve <strong>cierto</strong> (un valor num&eacute;rico impar) si
+    est&aacute; pulsado en ese momento.</p>
+
+    <p>Si el bot&oacute;n no est&aacute; pulsado, la funci&oacute;n devuelve <strong>falso</strong>
+    (un valor num&eacute;rico par).</p>
+
+    <p>Algunos joystick &uacute;nicamente tienen 2 botones; en este caso ser&aacute;n los botones
+    n&uacute;mero 0 y 1. En ordenadores con dos joystick conectados, el segundo joystick
+    tendr&aacute; los botones n&uacute;mero 2 y 3.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_joy_button<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    contador<span class="syntax3">;</span>
+    botones<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">];</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span><span class="syntax4">" Pulse los botones del joystick."</span><span
+class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Botones (0..3):"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">100</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> botones<span
+class="syntax3">[</span><span class="syntax2">0</span><span class="syntax3">]);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">120</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> botones<span
+class="syntax3">[</span><span class="syntax2">1</span><span class="syntax3">]);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">140</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> botones<span
+class="syntax3">[</span><span class="syntax2">2</span><span class="syntax3">]);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> botones<span
+class="syntax3">[</span><span class="syntax2">3</span><span class="syntax3">]);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">3</span><span
+class="syntax3">;</span>
+
+            <span class="syntax5">// Cogemos el valor del bot&oacute;n del joystick</span>
+            botones<span class="syntax3">[</span>contador<span class="syntax3">]</span> <span
+class="syntax3">=</span> get_joy_button<span class="syntax3">(</span>contador<span
+class="syntax3">);</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Se imprime un mensaje explicativo en la parte inferior y el estado de los cuatro posibles
+    botones en la parte superior; despu&eacute;s, el programa se queda dentro de un bucle
+    actualizando continuamente el estado de los cuatro botones con la funci&oacute;n
+    <strong>get_joy_button()</strong>.</p>
+    <hr />
+
+    <p>Hay otras formas de utilizar el joystick. La m&aacute;s sencilla es utilizar la estructura
+    <a href="1103.html">joy</a>, ya que en &eacute;sta hay cuatro registros que indican
+    continuamente el estado de los botones del joystick.</p>
+    <hr />
+    Ver: <a href="122.html">get_joy_position()</a> - <a href="1103.html">Estructura joy</a>
+  </body>
+</html>
+

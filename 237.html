@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - remove()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>remove()</h1>
+
+    <p><strong>remove(</strong>&lt;nombre de archivo o directorio&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Borra archivos o subdirectorios contenidos dentro del directorio actual en el que se ejecuta
+    el programa.</p>
+
+    <p>Se debe indicar el <strong>&lt;nombre de archivo o directorio&gt;</strong> en un literal (un
+    texto entre comillas), tambi&eacute;n se aceptan los car&aacute;cteres comod&iacute;n "?" y "*"
+    (como por ejemplo "*.bak" para eliminar todos los archivos con extensi&oacute;n BAK).</p>
+
+    <p>Se eliminar&aacute;n siempre los archivos dentro del directorio actual (ver <a
+    href="235.html">chdir()</a> para cambiar de directorio) y de la unidad actual (ver <a
+    href="234.html">setdrive()</a> para cambiar de unidad).</p>
+
+    <p>Con esta funci&oacute;n tambi&eacute;n se pueden eliminar directorios, pero
+    &uacute;nicamente si est&aacute;n vacios (si no contienen archivos u otros subdirectorios
+    dentro).</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Esta funci&oacute;n debe utilizarse con precauci&oacute;n, ya que los
+    archivos borrados no podr&aacute;n recuperarse, y puede perderse informaci&oacute;n o programas
+    contenidos en el disco.</p>
+    <hr />
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_remove<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    mkdir<span class="syntax3">(</span><span class="syntax4">"temporal"</span><span
+class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+
+    remove<span class="syntax3">(</span><span class="syntax4">"temporal"</span><span
+class="syntax3">);</span> <span class="syntax5">// Elimina un directorio</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo crea un directorio con la funci&oacute;n <a
+    href="236.html">mkdir()</a> y despu&eacute;s lo elimina con la funci&oacute;n
+    <strong>remove()</strong>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Se puede obtener la lista de archivos de un directorio con la
+    funci&oacute;n <a href="231.html">get_dirinfo()</a>.</p>
+    <hr />
+    Ver: <a href="235.html">chdir()</a> - <a href="234.html">setdrive()</a> - <a
+    href="231.html">get_dirinfo()</a>
+  </body>
+</html>
+

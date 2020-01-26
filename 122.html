@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_joy_position()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_joy_position()</h1>
+
+    <p><strong>get_joy_position(</strong>&lt;n&uacute;mero de eje&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La posici&oacute;n del eje del joystick.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n devuelve la coordenada en la que se encuentra el eje indicado (con un
+    n&uacute;mero del <strong>0</strong> al <strong>3</strong>) del joystick anal&oacute;gico.</p>
+
+    <p>Eje <strong>0</strong> - Eje <strong>X</strong> principal.<br />
+    Eje <strong>1</strong> - Eje <strong>Y</strong> principal.<br />
+    Eje <strong>2</strong> - Eje <strong>X</strong> secundario.<br />
+    Eje <strong>3</strong> - Eje <strong>Y</strong> secundario.<br />
+    </p>
+
+    <p>La coordenada del joystick puede variar en funci&oacute;n del tipo de joystick y del
+    ordenador en el que se ejecute, a&uacute;n as&iacute; es un n&uacute;mero que suele variar
+    entre <strong>4</strong> y <strong>200</strong>, aproximadamente.</p>
+
+    <p>Los ejes <strong>principal</strong> y <strong>secundario</strong> pueden estar integrados en
+    un s&oacute;lo joystick, en algunos casos (mandos de vuelo con un <strong>hat</strong>,
+    <strong>pedales</strong>, etc.). En ordenadores que tengan dos joystick conectados, el eje
+    principal ser&aacute; el joystick 1 y el secundario el 2.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_joy_position<span class="syntax3">;</span>
+
+<span class="syntax1">PRIVATE</span>
+    eje_joystick<span class="syntax3">[</span><span class="syntax2">3</span><span
+class="syntax3">];</span>
+    contador<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">200</span><span class="syntax3">,</span> <span class="syntax2">7</span><span
+class="syntax3">,</span> <span class="syntax4">"Mueva el joystick"</span><span
+class="syntax3">);</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">0</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Coordenada X principal."</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> eje_joystick<span
+class="syntax3">[</span><span class="syntax2">0</span><span class="syntax3">]);</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">40</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Coordenada Y principal."</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">50</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> eje_joystick<span
+class="syntax3">[</span><span class="syntax2">1</span><span class="syntax3">]);</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">80</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Coordenada X secundaria."</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">90</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> eje_joystick<span
+class="syntax3">[</span><span class="syntax2">2</span><span class="syntax3">]);</span>
+    write <span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">120</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax4">"Coordenada Y secundaria."</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span> <span
+class="syntax2">130</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> eje_joystick<span
+class="syntax3">[</span><span class="syntax2">3</span><span class="syntax3">]);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">FROM</span> contador<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">3</span><span
+class="syntax3">;</span>
+
+            <span class="syntax5">// Cogemos el valor de los ejes del joystick</span>
+            eje_joystick<span class="syntax3">[</span>contador<span class="syntax3">]</span> <span
+class="syntax3">=</span> get_joy_position<span class="syntax3">(</span>contador<span
+class="syntax3">);</span>
+
+        <span class="syntax1">END</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Primero se imprimen los mensajes y, despu&eacute;s, el programa se queda dentro de un bucle
+    actualizando de forma continua el estado de los cuatro ejes con la funci&oacute;n
+    <strong>get_joy_button()</strong> (que, en este caso, se guardan en la tabla privada
+    <strong>eje_joystick</strong>).</p>
+    <hr />
+
+    <p>Hay otras formas de utilizar el joystick. La m&aacute;s sencilla es utilizar la estructura
+    <a href="1103.html">joy</a> cuando no se requiera una lectura anal&oacute;gica del joystick
+    (sus coordenadas), es decir, cuando baste con saber si el joystick est&aacute; en el centro, a
+    la derecha, abajo, etc.</p>
+    <hr />
+    Ver: <a href="121.html">get_joy_button()</a> - <a href="1103.html">Estructura joy</a>
+  </body>
+</html>
+

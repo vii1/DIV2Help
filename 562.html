@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Uso: IMPORT "nombre.dll"</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Uso: IMPORT "nombre.dll"</h1>
+
+    <p>El compilador esperaba que, tras la palabra reservada <a href="1014.html">IMPORT</a>,
+    apareciera entre comillas el nombre del archivo.</p>
+
+    <p>Para declarar el uso de una librer&iacute;a externa se debe poner una declaraci&oacute;n
+    como en el siguiente ejemplo.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">IMPORT</span> <span class="syntax4">"libreria.dll"</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa declara el uso de la librer&iacute;a denominada <strong>libreria.dll</strong>
+    (supuesto nombre de una hipot&eacute;tica librer&iacute;a de funciones externas).</p>
+
+    <p>La declaraci&oacute;n debe hacerse justo <strong>tras la cabecera del programa</strong>, es
+    decir, tras la declaraci&oacute;n <strong>PROGRAM nombre_de_programa;</strong>. Pudiendo
+    hacerse varias declaraciones <a href="1014.html">IMPORT</a> seguidas, para declarar el uso de
+    m&aacute;s de una librer&iacute;a.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1014.html">Declaraci&oacute;n de
+    librer&iacute;as</a>
+  </body>
+</html>
+

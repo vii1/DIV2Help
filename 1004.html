@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Declaraci&oacute;n de constantes</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Declaraci&oacute;n de constantes</h1>
+
+    <p><strong>CONST</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1001.html">&lt;nombre&gt;</a> <strong>=</strong> <a
+    href="1005.html">&lt;constante&gt;</a> <strong>;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...</p>
+
+    <p>Esta secci&oacute;n de los programas es opcional, pues su utilidad consiste en establecer
+    una serie de sin&oacute;nimos para unos valores num&eacute;ricos.</p>
+
+    <p>Por ejemplo, si en un juego se establece en uno o varios puntos del programa el
+    n&uacute;mero 3 como el m&aacute;ximo de vidas del protagonista, cuando se quiera modificar
+    para aumentarlo o disminuirlo habr&aacute; que buscar y sustituir ese n&uacute;mero en el
+    programa. Con el consiguiente riesgo de sustituir otros '3' que aparezcan en el programa con
+    otros fines.</p>
+
+    <p>Una alternativa es declarar una constante denominada, por ejemplo,
+    <strong>m&aacute;ximo_vidas</strong> como un sin&oacute;nimo del valor num&eacute;rico 3 y
+    utilizar en el programa dicha constante en lugar del n&uacute;mero; ahora, cuando se quiera
+    cambiar este valor por otro, simplemente habr&aacute; que hacerlo en la declaraci&oacute;n de
+    la constante <strong>m&aacute;ximo_vidas</strong>.</p>
+
+    <p>Esta secci&oacute;n establece entonces una relaci&oacute;n de nombres que van a representar
+    una serie de constantes num&eacute;ricas.</p>
+
+    <p>Esta secci&oacute;n debe comenzar obligatoriamente con la palabra reservada
+    <strong>CONST</strong> y, a continuaci&oacute;n, por cada constante declarada debe aparecer su
+    nombre seguido del s&iacute;mbolo <a href="1073.html">= (s&iacute;mbolo de
+    asignaci&oacute;n)</a> y una expresi&oacute;n constante (valor num&eacute;rico). Tras la
+    declaraci&oacute;n de cada constante debe venir el s&iacute;mbolo <a href="1068.html">;</a>
+    (punto y coma).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">CONST</span>
+    m&aacute;ximo_vidas<span class="syntax3">=</span><span class="syntax2">3</span><span
+class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Una vez que se ha asignado un valor a una constante, &eacute;ste no podr&aacute; ser
+    modificado en el programa m&aacute;s adelante.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - set_env_color()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>set_env_color()</h1>
+
+    <p><strong>set_env_color(</strong>&lt;% red&gt;<strong>,</strong> &lt;%
+    green&gt;<strong>,</strong> &lt;% blue&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Modifica el color del ambiente o niebla de un modo 8, para ello se requieren las componentes
+    <strong>&lt;red&gt;</strong> (rojo), <strong>&lt;green&gt;</strong> (verde) y
+    <strong>&lt;blue&gt;</strong> (azul) del mismo.</p>
+
+    <p>Las tres componentes se deben especificar como un porcentaje, de <strong>0</strong> a
+    <strong>100</strong>.</p>
+
+    <p>Por defecto la niebla se establece de color negro (0,0,0), pero se puede modificar este
+    color para crear ambientes distintos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_set_env_color<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    luz<span class="syntax3">;</span>
+    &aacute;ngulo1<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+  load_fpg<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.FPG"</span><span
+class="syntax3">);</span>
+  load_wld<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.WLD"</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>
+  start_mode8<span class="syntax3">(</span><span class="syntax1">id</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">);</span>
+  ctype<span class="syntax3">=</span>c_m8<span class="syntax3">;</span>
+  go_to_flag<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">);</span>
+  <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+  set_fog<span class="syntax3">(</span><span class="syntax2">30</span><span
+class="syntax3">,</span><span class="syntax2">90</span><span class="syntax3">);</span>
+  <span class="syntax1">z</span><span class="syntax3">+=</span><span
+class="syntax2">128</span><span class="syntax3">;</span>
+  <span class="syntax1">LOOP</span>
+      luz<span class="syntax3">=</span><span class="syntax2">50</span><span
+class="syntax3">+</span>get_distx<span class="syntax3">(</span>&aacute;ngulo1<span
+class="syntax3">,</span><span class="syntax2">50</span><span class="syntax3">);</span>
+      &aacute;ngulo1<span class="syntax3">+=</span><span class="syntax2">5000</span><span
+class="syntax3">;</span>
+
+      set_env_color<span class="syntax3">(</span>luz<span class="syntax3">,</span>luz<span
+class="syntax3">,</span>luz<span class="syntax3">);</span> <span
+class="syntax5">// Establece el color ambiente</span>
+
+      <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+  <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo muestra como debe llamarse a la funci&oacute;n
+    <strong>set_env_color()</strong> para modificar el color de la niebla de una regi&oacute;n de
+    modo 8.</p>
+
+    <p>La variable <strong>luz</strong> se va variando entre <strong>0</strong> y
+    <strong>100</strong> (utilizando la funci&oacute;n <a href="118.html">get_distx()</a>), y se
+    fija este mismo porcentaje para las tres componentes del color, de forma que este
+    aparecer&aacute; entre <strong>negro</strong> y <strong>blanco</strong>, pasando por toda la
+    escala de grises.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La funci&oacute;n <a href="196.html">set_fog()</a> permite fijar la
+    densidad de la niebla o ambiente de una regi&oacute;n de modo 8.</p>
+    <hr />
+    Ver: <a href="196.html">set_fog()</a> - <a href="190.html">start_mode8()</a> - <a
+    href="1411.html">STRUCT m8</a>
+  </body>
+</html>
+

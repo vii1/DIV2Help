@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - get_sector_height()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>get_sector_height()</h1>
+
+    <p><strong>get_sector_height(</strong>&lt;n&uacute;mero de sector&gt;<strong>,</strong>
+    &lt;OFFSET suelo&gt;<strong>,</strong> &lt;OFFSET techo&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>La <strong>altura de suelo y techo</strong> de un sector de un modo 8 (en las variables cuyo
+    <a href="1085.html">offset</a> se indica como los dos &uacute;ltimos par&aacute;metros).</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite determinar dentro de un programa la altura del suelo y techo de
+    un sector determinado, dentro de un modo 8.</p>
+
+    <p>Para ello se requiere el <strong>&lt;n&uacute;mero de sector&gt;</strong>, y el <a
+    href="1085.html">OFFSET</a> (direcci&oacute;n de memoria) de las dos variables en las que debe
+    devolver el resultado.</p>
+
+    <p>Esta informaci&oacute;n tambi&eacute;n puede obtenerse dentro del editor de mapas
+    tridimensionales, cuyo manejo se aborda en el manual de usuario del programa.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_get_sector_height<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    altura_techo<span class="syntax3">;</span>
+    altura_suelo<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.FPG"</span><span
+class="syntax3">);</span>
+    load_wld<span class="syntax3">(</span><span class="syntax4">"HELP\WLD_VIEW.WLD"</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">);</span>
+    <span class="syntax5">// ...</span>
+
+    <span class="syntax5">// Obtiene las alturas de un sector</span>
+
+    get_sector_height<span class="syntax3">(</span><span class="syntax2">255</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> altura_suelo<span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> altura_techo<span
+class="syntax3">);</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este peque&ntilde;o ejemplo muestra como debe llamarse a la funci&oacute;n
+    <strong>get_sector_height()</strong> para obtener las alturas de un sector (en este caso, en
+    las variables <strong>altura_techo</strong> y <strong>altura_suelo</strong> se obtiene estos
+    valores para el sector n&uacute;mero <strong>255</strong>).</p>
+    <hr />
+
+    <p>Para establecer din&aacute;micamente las alturas de un sector se debe utilizar la
+    funci&oacute;n <a href="192.html">set_sector_height()</a>.</p>
+    <hr />
+    Ver: <a href="192.html">set_sector_height()</a> - <a href="190.html">start_mode8()</a> - <a
+    href="1411.html">STRUCT m8</a>
+  </body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - screen_copy()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>screen_copy()</h1>
+
+    <p><strong>screen_copy(</strong>&lt;regi&oacute;n&gt;<strong>,</strong>
+    &lt;fichero&gt;<strong>,</strong> &lt;gr&aacute;fico&gt;<strong>,</strong>
+    &lt;x&gt;<strong>,</strong> &lt;y&gt;<strong>,</strong> &lt;ancho&gt;<strong>,</strong>
+    &lt;alto&gt;<strong>)</strong></p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Copia una region de pantalla a una regi&oacute;n de cualquier gr&aacute;fico.</p>
+
+    <p>Se trata de una potente funci&oacute;n que puede resultar muy vers&aacute;til, al
+    proporcionar "feedback" de la pantalla del ordenador, es decir, que puede enviar una imagen de
+    la pantalla a un gr&aacute;fico (operaci&oacute;n contraria a lo normal).</p>
+
+    <p>Se debe primero definir el n&uacute;mero de <strong>&lt;regi&oacute;n&gt;</strong>
+    rectangular que se va a copiar de la pantalla (de la imagen anterior del programa), estas
+    regiones se definen con la funci&oacute;n <a href="106.html">define_region()</a>. La
+    <strong>regi&oacute;n n&uacute;mero 0</strong> siempre se refiere a la pantalla completa.</p>
+
+    <p>Despu&eacute;s se deber&aacute; indicar el gr&aacute;fico al que se debe transferir la
+    imagen, con los par&aacute;metros <strong>&lt;fichero&gt;</strong> y
+    <strong>&lt;gr&aacute;fico&gt;</strong> (el fichero ser&aacute; el n&uacute;mero 0, si el
+    gr&aacute;fico pertenece al primer FPG cargado, o bien si se ha cargado de forma separada).</p>
+
+    <p>Por &uacute;ltimo se indicar&aacute; <strong>la zona dentro del gr&aacute;fico</strong> a la
+    cual debe transferirse la imagen. Esta se definir&aacute; como <strong>&lt;x&gt;</strong>,
+    <strong>&lt;y&gt;</strong>, <strong>&lt;ancho&gt;</strong> y <strong>&lt;alto&gt;</strong>,
+    referidos a las coordenadas dentro del gr&aacute;fico (siendo las coordenadas [0,0] su esquina
+    superior izquierda).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_screen_copy<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    &aacute;ngulo<span class="syntax3">;</span>
+    &aacute;ngulo2<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_fpg<span class="syntax3">(</span><span class="syntax4">"help\help.fpg"</span><span
+class="syntax3">);</span>
+    graph<span class="syntax3">=</span><span class="syntax2">2</span><span class="syntax3">;</span>
+    x<span class="syntax3">=</span><span class="syntax2">160</span><span class="syntax3">;</span>
+    <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax2">100</span><span class="syntax3">;</span>
+    put<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span>graph<span class="syntax3">,</span>x<span class="syntax3">,</span><span
+class="syntax1">y</span><span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+
+        <span class="syntax5">// Copia la pantalla (regi&oacute;n 0) al gr&aacute;fico 2</span>
+
+        screen_copy<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">2</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">320</span><span class="syntax3">,</span><span class="syntax2">200</span><span
+class="syntax3">);</span>
+
+        &aacute;ngulo<span class="syntax3">+=</span><span class="syntax2">1000</span><span
+class="syntax3">;</span>
+        &aacute;ngulo2<span class="syntax3">+=</span><span class="syntax2">1971</span><span
+class="syntax3">;</span>
+        angle<span class="syntax3">=</span>get_distx<span
+class="syntax3">(</span>&aacute;ngulo<span class="syntax3">,</span><span
+class="syntax2">25000</span><span class="syntax3">);</span>
+        size<span class="syntax3">=</span><span class="syntax2">95</span><span
+class="syntax3">+</span>get_disty<span class="syntax3">(</span>&aacute;ngulo2<span
+class="syntax3">,</span><span class="syntax2">30</span><span class="syntax3">);</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo carga el fichero de gr&aacute;ficos, en el que el <strong>gr&aacute;fico
+    n&uacute;mero 2</strong> es una cuadr&iacute;cula de diferentes colores, para ponerlo en
+    pantalla y definirlo como gr&aacute;fico del proceso principal, que ir&aacute; rot&aacute;ndo y
+    cambiando de tama&ntilde;o (en funci&oacute;n de <strong>&aacute;ngulo</strong> y
+    <strong>&aacute;ngulo2</strong>, respectivamente).</p>
+
+    <p>Es entonces cuando se utiliza la funci&oacute;n <strong>screen_copy()</strong> para reenviar
+    la imagen de pantalla a este gr&aacute;fico, con lo que se produce dicho efecto.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> El <strong>tama&ntilde;o</strong> de la regi&oacute;n de pantalla (la
+    zona transferida) y el de la regi&oacute;n del gr&aacute;fico (donde se transfiere) <strong>no
+    tiene que coincidir</strong>. La funci&oacute;n <strong>screen_copy()</strong> realizar&aacute;
+    una <strong>reducci&oacute;n</strong> o <strong>ampliaci&oacute;n</strong> cuando sea
+    necesario, para ajustar el tama&ntilde;o de la zona transferida.</p>
+    <hr />
+    Ver: <a href="106.html">define_region()</a> - <a href="103.html">clear_screen()</a> - <a
+    href="1126.html">graph</a>
+  </body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Los bloques PROCESS</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Los bloques PROCESS</h1>
+
+    <p>Existen dos tipos de bloques de c&oacute;digo (adem&aacute;s del <a
+    href="1015.html">c&oacute;digo principal</a>): los bloques <strong>PROCESS</strong> (que se
+    detallan a continuaci&oacute;n), y los bloques <a href="1408.html">FUNCTION</a>.</p>
+
+    <p><strong>PROCESS</strong> <a href="1001.html">&lt;nombre&gt;</a> <strong>(</strong> <a
+    href="1018.html">&lt;par&aacute;metros&gt;</a> <strong>)</strong><br />
+    <a href="1008.html">&lt;Declaraci&oacute;n de datos privados&gt;</a><br />
+    <a href="1086.html">BEGIN</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <strong>;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>Un proceso debe comenzar con la palabra reservada <strong>PROCESS</strong> seguida de su
+    nombre y sus <a href="1018.html">par&aacute;metros</a> de llamada entre par&eacute;ntesis. Los
+    par&aacute;metros son una lista de datos en los que el proceso va a recibir diferentes valores.
+    Los par&eacute;ntesis son obligatorios incluso cuando el proceso no tenga
+    par&aacute;metros.</p>
+
+    <p>Tras esta cabecera puede venir, de forma opcional, una secci&oacute;n <a
+    href="1008.html">PRIVATE</a> donde se declaren datos que va a utilizar exclusivamente el
+    proceso.</p>
+
+    <p>Y, por &uacute;ltimo, se especificar&aacute; el c&oacute;digo para el proceso, que es una
+    secuencia de sentencias entre las palabras reservadas <a href="1086.html">BEGIN</a> y <a
+    href="1091.html">END</a>.</p>
+
+    <p>Un proceso se corresponde, normalmente, con un tipo de objeto del juego, como puede ser una
+    nave, una explosion, un disparo, etc., y dentro del c&oacute;digo del proceso se suele
+    implementar un bucle dentro del cual se fijar&aacute;n todos los valores necesarios de
+    visualizaci&oacute;n de dicho objeto (gr&aacute;fico, coordenadas, etc.) y despu&eacute;s,
+    mediante la sentencia <a href="1029.html">FRAME</a>, se dar&aacute; la orden para visualizar el
+    objeto con los atributos establecidos.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">PRIVATE</span>
+    id2<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    id2<span class="syntax3">=</span>mi_proceso<span class="syntax3">(</span><span
+class="syntax2">160</span><span class="syntax3">,</span> <span class="syntax2">100</span><span
+class="syntax3">)</span>
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+
+<span class="syntax1">PROCESS</span> mi_proceso<span class="syntax3">(</span>x<span
+class="syntax3">,</span> <span class="syntax1">y</span><span class="syntax3">)</span>
+<span class="syntax1">PRIVATE</span>
+    n<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    graph<span class="syntax3">=</span><span class="syntax2">1</span><span class="syntax3">;</span>
+    <span class="syntax1">FROM</span> n<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">to</span> <span class="syntax2">99</span><span
+class="syntax3">;</span>
+        x<span class="syntax3">=</span>x<span class="syntax3">+</span><span
+class="syntax2">2</span><span class="syntax3">;</span>
+        <span class="syntax1">y</span><span class="syntax3">=</span><span
+class="syntax1">y</span><span class="syntax3">+</span><span class="syntax2">1</span><span
+class="syntax3">;</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Como se puede observar en este ejemplo, cuando se llama a un proceso &eacute;ste devuelve su
+    <a href="1039.html">c&oacute;digo identificador</a> (que en el ejemplo se guarda en la variable
+    <a href="1008.html">PRIVATE</a> del programa principal <strong>id2</strong>); si se quiere
+    implementar un proceso al estilo de las funciones de otros lenguajes, que devuelva un resultado
+    num&eacute;rico, entonces se debe utilizar la sentencia <a
+    href="1028.html">RETURN(</a>valor<strong>)</strong> y no utilizar la sentencia <a
+    href="1029.html">FRAME</a> dentro del proceso, pues &eacute;sta retorna al proceso padre
+    (llamante), devolviendo el <a href="1039.html">c&oacute;digo identificador</a> del proceso como
+    valor de retorno.</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1408.html">Los bloques FUNCTION</a>
+  </body>
+</html>
+

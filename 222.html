@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - is_playing_song()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>is_playing_song()</h1>
+
+    <p><strong>is_playing_song(</strong><strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p><strong>0</strong> - No est&aacute; sonando ning&uacute;n m&oacute;dulo.<br />
+    <strong>1</strong> - Si est&aacute; sonando un m&oacute;dulo musical.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite determinar si se est&aacute; reproduciendo un m&oacute;dulo de
+    m&uacute;sica digital de un archivo MOD, S3M o XM.</p>
+
+    <p>Estos m&oacute;dulos se deben cargar con la funci&oacute;n <a
+    href="214.html">load_song()</a> y su reproducci&oacute;n se inicia con una llamada a <a
+    href="216.html">song()</a>.</p>
+
+    <p>Unicamente puede reproducirse un m&oacute;dulo a la vez, por lo que esta funci&oacute;n no
+    requiere ning&uacute;n par&aacute;metro, simplemente devuelve <strong>1</strong> si hay
+    alg&uacute;n m&oacute;dulo reproduci&eacute;ndose.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_is_playing_song<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    id_canci&oacute;n<span class="syntax3">;</span>
+    sonando<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    load_song<span class="syntax3">(</span><span class="syntax4">"help\help.xm"</span><span
+class="syntax3">,</span><span class="syntax2">1</span><span class="syntax3">);</span>
+    song<span class="syntax3">(</span>id_canci&oacute;n<span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span
+class="syntax4">"ENTER iniciar el m&oacute;dulo / SPACE para detenerlo"</span><span
+class="syntax3">);</span>
+    write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">10</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax1">OFFSET</span> sonando<span class="syntax3">);</span>
+    <span class="syntax1">LOOP</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_enter<span class="syntax3">))</span> song<span
+class="syntax3">(</span>id_canci&oacute;n<span class="syntax3">);</span> <span
+class="syntax1">END</span>
+        <span class="syntax1">IF</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_space<span class="syntax3">))</span> stop_song<span
+class="syntax3">();</span> <span class="syntax1">END</span>
+
+        sonando <span class="syntax3">=</span> is_playing_song<span
+class="syntax3">();</span> <span class="syntax5">// Determina si est&aacute; sonando</span>
+
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">END</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este ejemplo carga el m&oacute;dulo musical contenido en el archivo <strong>help.xm</strong>
+    y permite, dentro de un bucle, iniciarlo con la tecla <strong>ENTER</strong> y detenerlo con la
+    barra espaciadora.</p>
+
+    <p>Dentro de este mismo bucle se utiliza la funci&oacute;n <strong>is_playing_song()</strong>
+    para determinar si este est&aacute; sonando en cada momento.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> Para finalizar la reproducci&oacute;n de un m&oacute;dulo musical se
+    debe emplear la funci&oacute;n <a href="217.html">stop_song()</a>.</p>
+    <hr />
+    Ver: <a href="214.html">load_song()</a> - <a href="216.html">song()</a> - <a
+    href="221.html">is_playing_sound()</a>
+  </body>
+</html>
+

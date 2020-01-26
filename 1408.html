@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Los bloques FUNCTION</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Los bloques FUNCTION</h1>
+
+    <p>Los nuevos bloques <strong>FUNCTION</strong> se comportan de forma an&aacute;loga a las
+    funciones de otros lenguajes de programaci&oacute;n, se ejecutan de forma secuencial (y no en
+    paralelo como los bloques <a href="1016.html">PROCESS</a>), no retornando hasta que no han
+    terminado.</p>
+
+    <p><strong>FUNCTION</strong> <a href="1001.html">&lt;nombre&gt;</a> <strong>(</strong> <a
+    href="1018.html">&lt;par&aacute;metros&gt;</a> <strong>)</strong><br />
+    <a href="1008.html">&lt;Declaraci&oacute;n de datos privados&gt;</a><br />
+    <a href="1086.html">BEGIN</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="1017.html">&lt;sentencia&gt;</a> <strong>;</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+    <a href="1091.html">END</a></p>
+
+    <p>Estos bloques seguir&aacute;n funcionando de forma muy similar a los procesos normales, pero
+    con una importante diferencia: detendr&aacute;n al proceso llamador hasta finalizar, es decir,
+    que estas funciones dormir&aacute;n al proceso que las ha llamado, hasta que estas funciones
+    retornen o su proceso finalice.</p>
+
+    <p>Si la funci&oacute;n no utiliza sentencias <a href="1029.html">FRAME</a>, se
+    comportar&aacute; igual que un proceso normal, pero si una funci&oacute;n ejecuta la sentencia
+    <a href="1029.html">FRAME</a>, no volver&aacute; al bloque que la llam&oacute; (como lo
+    har&iacute;a un proceso normal).</p>
+
+    <p>Por lo tanto, una funci&oacute;n siempre puede devolver un valor con <a
+    href="1028.html">RETURN</a><strong>(</strong>&lt;expresi&oacute;n&gt;<strong>)</strong>,
+    incluso despu&eacute;s de haber dado uno o varios <a href="1029.html">FRAME</a>.</p>
+    <hr />
+
+    <p><strong>Programaci&oacute;n secuencial.</strong></p>
+
+    <p>No se recomienda programar s&oacute;lo con funciones y de forma secuencial, pero el conocer
+    c&oacute;mo se puede hacer facilitar&aacute; el entendimiento de la programaci&oacute;n DIV a
+    programadores de otros lenguajes.</p>
+
+    <p>Es posible hacer un programa al estilo de la programaci&oacute;n tradicional utilizando
+    exclusivamente los bloques <strong>FUNCTION</strong>, de esta forma &uacute;nicamente
+    habr&aacute; un proceso en ejecuci&oacute;n en cada momento.</p>
+
+    <p>Al programar de esta forma, la sentencia <a href="1029.html">FRAME</a> se convierte en la
+    orden expl&iacute;cita de <strong>volcado a v&iacute;deo</strong>. Logicamente, si s&oacute;lo
+    hay un proceso ejecut&aacute;ndose, cuando este ejecute esta orden el sistema mostrar&aacute;
+    la siguiente imagen del programa.</p>
+
+    <p>Pero, programando asi, &iquest;se podr&iacute;an mostrar varios gr&aacute;ficos en
+    pantalla?.</p>
+
+    <p>La respuesta es s&iacute;, ya que se podr&iacute;an crear una especie de mini-procesos que
+    funcionaran como una instrucci&oacute;n del estilo "pinta un gr&aacute;fico para la siguiente
+    imagen" (a diferencia de las funciones como <a href="146.html">put()</a>, que pintan un
+    gr&aacute;fico para siempre).</p>
+
+    <p>Para mostrar un gr&aacute;fico en la siguiente imagen se debe construir un proceso que
+    reciba los par&aacute;metros visuales necesarios y simplemente ejecute una &uacute;nica
+    sentencia <a href="1029.html">FRAME</a>, por ejemplo:</p>
+
+    <p><strong>PROCESS pinta_gr&aacute;fico(x,y,graph)</strong><br />
+    <strong>BEGIN</strong><br />
+     <strong>FRAME;</strong><br />
+    <strong>END</strong><br />
+    </p>
+
+    <p>Al llamar a este proceso <strong>se crear&iacute;a un proceso temporal que se
+    pintar&iacute;a en la siguiente imagen</strong> y entonces desaparecer&iacute;a. Podr&iacute;an
+    contemplarse otros par&aacute;metros (adem&aacute;s de <a href="1123.html">x</a>, <a
+    href="1124.html">y</a>, <a href="1125.html">z</a>), como <a href="1131.html">file</a>, <a
+    href="1128.html">size</a>, <a href="1129.html">angle</a>, <a href="1125.html">z</a>, ... (ver
+    los <a href="1201.html">datos locales predefinidos</a>).</p>
+
+    <p>Claro que, al programar de esta forma, se deber&iacute;a crear (normalmente en una <a
+    href="1012.html">estructura</a> global) una tabla de sprites de forma que el programa pudiera
+    gestionar todos los gr&aacute;ficos. Esto, que puede parecer complicado, es la forma natural de
+    programar los juegos en cualquier otro lenguaje que no sea DIV.</p>
+    <hr />
+
+    <p><strong>Aplicaciones en el programa principal.</strong></p>
+
+    <p>Las sentencias que aparecen entre las palabras <a href="1086.html">BEGIN</a> y <a
+    href="1091.html">END</a> del programa principal (tras las declaraciones de datos), controlan el
+    <a href="1015.html">proceso principal del programa</a>. Este es el encargado de inicializar el
+    programa, realizar las presentaciones, controlar los bucles de men&uacute;, los bucles de juego
+    (creando los procesos necesarios), y finalizar el programa.</p>
+
+    <p>En el programa principal, puede ser muy &uacute;til llamar a bloques
+    <strong>FUNCTION</strong>. Ya que de esta forma ser&aacute; detenido el programa principal
+    mientras se ejecuta la parte que controla dicha funci&oacute;n.</p>
+
+    <p>Por ejemplo, la secuencia de presentaci&oacute;n podr&iacute;a hacerse en una
+    funci&oacute;n, el men&uacute; de opciones en otra, etc. Adem&aacute;s, se recuerda que las
+    funciones pueden al finalizar, devolver siempre un valor con <a
+    href="1028.html">RETURN</a><strong>(</strong>&lt;expresi&oacute;n&gt;<strong>)</strong>, lo
+    cual puede ser tambi&eacute;n &uacute;til para que, por ejemplo el men&uacute;, devuelva el
+    n&uacute;mero de opci&oacute;n que ha sido seleccionada.</p>
+
+    <p><strong>Nota:</strong> Que finalice la ejecuci&oacute;n del c&oacute;digo principal no
+    implica que finalice la ejecuci&oacute;n del programa, pues &eacute;sta continuar&aacute; si
+    quedan procesos vivos; si se quiere forzar la terminaci&oacute;n del programa cuando finalice
+    este c&oacute;digo, se puede utilizar, por ejemplo, la funci&oacute;n <a
+    href="129.html">let_me_alone()</a> justo antes del <a href="1091.html">END</a> del <a
+    href="1015.html">c&oacute;digo principal</a>, o bien la funci&oacute;n <a
+    href="109.html">exit()</a> (en cualquier punto del programa).</p>
+    <hr />
+    Ver: <a href="1016.html">Los bloques PROCESS</a> - <a href="1000.html">Sintaxis</a>
+  </body>
+</html>
+

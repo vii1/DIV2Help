@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - complete_dump</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>complete_dump</h1>
+
+    <p>Constante: <strong>complete_dump</strong></p>
+    <hr />
+
+    <p>Esta constante se utiliza para asignarla a la variable global predefinida <a
+    href="1114.html">dump_type</a> que sirve para definir el tipo de volcado que se har&aacute; a
+    pantalla. Su valor es <strong>1</strong>.</p>
+
+    <p>&Eacute;ste es el <strong>valor por defecto</strong> de la variable <a
+    href="1114.html">dump_type</a>. Para establecer este valor se debe utilizar la siguiente
+    sentencia:</p>
+
+    <p>&nbsp;&nbsp;<strong>dump_type=complete_dump;</strong></p>
+
+    <p>Con esta sentencia se indica al gestor de procesos de DIV Games Studio que los siguientes
+    volcados deben ser <strong>completos</strong>.</p>
+
+    <p>Se denomina <strong>volcado</strong> al proceso de enviar las im&aacute;genes del juego al
+    monitor (a la memoria de v&iacute;deo de la tarjeta gr&aacute;fica).</p>
+
+    <p>Hay dos tipos de volcados:</p>
+
+    <p><strong>Parcial</strong>: S&oacute;lo se volcar&aacute;n en pantalla los gr&aacute;ficos que
+    se actualicen, que hayan variado respecto a la imagen anterior. Este volcado conviene activarlo
+    <strong>para ganar velocidad</strong> cuando se programe un juego (o una secci&oacute;n del
+    mismo) sin una ventana de scroll o modo 7 que ocupe toda la pantalla, es decir, cuando el juego
+    muestre movimientos de gr&aacute;ficos sobre un fondo fijo, o bien cuando las ventanas activas
+    de scroll o modo 7 sean m&aacute;s peque&ntilde;as que la pantalla.</p>
+
+    <p><strong>Completo</strong>: Se volcar&aacute; toda la pantalla, sin importar si los
+    gr&aacute;ficos han cambiado o no. &Eacute;ste es el volcado por defecto y <strong>es
+    m&aacute;s lento que el volcado parcial</strong>, sin embargo, es el que se debe utilizar
+    cuando el juego tenga una ventana de scroll o modo 7 que ocupe toda la pantalla.</p>
+    <hr />
+
+    <p>La otra constante que se utiliza para designar el tipo de volcado es <a
+    href="1170.html">partial_dump</a> que, al contrario de &eacute;sta, define un volcado
+    <strong>parcial</strong>.</p>
+    <hr />
+    Ver: <a href="1202.html">Constantes</a> - <a href="1114.html">dump_type</a> - <a
+    href="1170.html">partial_dump</a>
+  </body>
+</html>
+

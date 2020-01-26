@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - asin()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>asin()</h1>
+
+    <p><strong>asin(</strong>&lt;seno&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El arcoseno de un seno dado.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Calcula el arcoseno del seno pasado como par&aacute;metro en mil&eacute;simas, es decir, se
+    obtiene el &aacute;ngulo correspondiente a un seno (operaci&oacute;n inversa al seno, que se
+    puede obtener con la funci&oacute;n <a href="242.html">sin()</a>).</p>
+
+    <p>Los &aacute;ngulos se manipulan siempre en mil&eacute;simas de grado (ver el <a
+    href="1044.html">uso de &aacute;ngulos en el lenguaje</a>), por ello el arcoseno se devuelve
+    tambi&eacute;n en mil&eacute;simas.</p>
+
+    <p>El <strong>&lt;seno&gt;</strong> se requiere como un valor de <strong>-1000</strong> a
+    <strong>1000</strong> (de -1.0 a +1.0), y el resultado se devuelve como un &aacute;ngulo entre
+    <strong>-90000</strong> y <strong>90000</strong> (de -90 a +90 grados).</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_asin<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    seno<span class="syntax3">[</span><span class="syntax2">15</span><span
+class="syntax3">];</span>
+    &aacute;ngulo<span class="syntax3">[</span><span class="syntax2">15</span><span
+class="syntax3">];</span>
+    n<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Seno"</span><span class="syntax3">);</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">160</span><span class="syntax3">,</span><span
+class="syntax2">0</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Arcoseno(&aacute;ngulo)"</span><span
+class="syntax3">);</span>
+    <span class="syntax1">FROM</span> n<span class="syntax3">=</span><span
+class="syntax2">0</span> <span class="syntax1">TO</span> <span class="syntax2">15</span><span
+class="syntax3">;</span>
+        seno<span class="syntax3">[</span>n<span class="syntax3">]</span> <span
+class="syntax3">=</span> rand<span class="syntax3">(-</span><span class="syntax2">1000</span><span
+class="syntax3">,</span> <span class="syntax2">1000</span><span class="syntax3">);</span>
+
+        &aacute;ngulo<span class="syntax3">[</span>n<span class="syntax3">]</span> <span
+class="syntax3">=</span> asin<span class="syntax3">(</span>seno<span class="syntax3">[</span>n<span
+class="syntax3">]);</span> <span class="syntax5">// Se calcula el arcoseno de un seno</span>
+
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">0</span><span class="syntax3">,</span>   <span
+class="syntax2">20</span><span class="syntax3">+</span>n<span class="syntax3">*</span><span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> seno<span
+class="syntax3">[</span>n<span class="syntax3">]);</span>
+        write_int<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax2">160</span><span class="syntax3">,</span> <span
+class="syntax2">20</span><span class="syntax3">+</span>n<span class="syntax3">*</span><span
+class="syntax2">10</span><span class="syntax3">,</span> <span class="syntax2">0</span><span
+class="syntax3">,</span> <span class="syntax1">offset</span> &aacute;ngulo<span
+class="syntax3">[</span>n<span class="syntax3">]);</span>
+    <span class="syntax1">END</span>
+    write<span class="syntax3">(</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax2">0</span><span class="syntax3">,</span><span
+class="syntax2">192</span><span class="syntax3">,</span><span class="syntax2">0</span><span
+class="syntax3">,</span><span class="syntax4">"Pulse ESC para terminar ..."</span><span
+class="syntax3">);</span>
+    <span class="syntax1">REPEAT</span>
+        <span class="syntax1">FRAME</span><span class="syntax3">;</span>
+    <span class="syntax1">UNTIL</span> <span class="syntax3">(</span>key<span
+class="syntax3">(</span>_esc<span class="syntax3">));</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa imprimir&aacute; en pantalla una lista de senos, aleatoriamente escogidos
+    entre -1000 y 1000 (se representan en mil&eacute;simas), y utilizar&aacute; la funci&oacute;n
+    <strong>asin()</strong> para calcular el arcoseno de los mismos.</p>
+    <hr />
+    Ver: <a href="1035.html">Expresi&oacute;n</a> - Ver: <a href="1044.html">Uso de &aacute;ngulos
+    en el lenguaje</a>
+  </body>
+</html>
+

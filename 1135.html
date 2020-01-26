@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - LOCAL resolution</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>LOCAL resolution</h1>
+
+    <p><strong>resolution=0;</strong> // Resoluci&oacute;n de las coordenadas del proceso</p>
+    <hr />
+
+    <p>Esta variable predefinida es <a href="1007.html">LOCAL</a>, lo que significa que cada
+    proceso tendr&aacute; su propio valor en su variable <strong>resolution</strong>.</p>
+
+    <p>Normalmente, las coordenadas de un proceso (indicadas en las variables locales <a
+    href="1123.html">x</a> e <a href="1124.html">y</a>) se definen en puntos (de pantalla).</p>
+
+    <p>La variable local <strong>resolution</strong> se debe utilizar cuando se quieran definir las
+    coordenadas en <strong>unidades m&aacute;s peque&ntilde;as</strong> que el punto.</p>
+
+    <p>Es decir, que esta variable indica la precisi&oacute;n de las coordenadas del proceso.</p>
+
+    <p>Por defecto la variable valdr&aacute; <strong>0</strong> y las coordenadas se
+    especificar&aacute;n en puntos.</p>
+
+    <p>Cuanto mayor sea el valor de <a href="1135.html">resolution</a>, m&aacute;s peque&ntilde;a
+    (y precisa) ser&aacute; la unidad en la que se interpretan las coordenadas; a
+    continuaci&oacute;n se muestran algunos ejemplos:</p>
+
+    <p><strong>resolution=1;</strong> - Las coordenadas se especifican en puntos (al igual que con
+    <strong>resolution=0</strong>, que es el valor por defecto).</p>
+
+    <p><strong>resolution=10;</strong> - Se especifican en d&eacute;cimas de puntos.</p>
+
+    <p><strong>resolution=100;</strong> - Se especifican en cent&eacute;simas de puntos.</p>
+
+    <p><strong>resolution=2;</strong> - Se especifican en mitades de punto.</p>
+
+    <p>...</p>
+
+    <p>Por ejemplo, un proceso situado en <strong>160</strong>, <strong>100</strong> con
+    <strong>resolution</strong> igual a <strong>0</strong> (o <strong>1</strong>), estar&aacute; en
+    la misma posici&oacute;n que un proceso situado en <strong>1600</strong>, <strong>1000</strong>
+    y con <strong>resolution</strong> igual a <strong>10</strong>.</p>
+
+    <p>El valor de <strong>resolution</strong> se define normalmente como un <strong>n&uacute;mero
+    entero positivo m&uacute;ltiplo de 10</strong> (10, 100, 1000, ...).</p>
+    <hr />
+
+    <p>En resumen, cuando se defina el valor de <strong>resolution</strong>, el gestor de procesos
+    de DIV Games Studio <strong>dividir&aacute;</strong> las coordenadas de los procesos entre
+    <strong>resolution</strong> a la hora de pintar los gr&aacute;ficos de los mismos en
+    pantalla.</p>
+    <hr />
+
+    <p><strong>Importante:</strong> Se deben extremar las precauciones cuando en un programa
+    existan varios procesos con diferentes resoluciones de coordenadas, ya que algunas funciones,
+    como <a href="117.html">get_dist()</a> (para obtener la distancia entre dos procesos),
+    devolver&aacute;n <strong>resultados incorrectos</strong> cuando se est&eacute; accediendo a
+    dos procesos que utilicen diferente resoluci&oacute;n de coordenadas.</p>
+
+    <p>Suele ser conveniente que todos los procesos activos en el juego, al menos todos los que
+    interact&uacute;en entre ellos (se detecten, modifiquen o puedan colisionar) utilicen la misma
+    resoluci&oacute;n.</p>
+    <hr />
+    Ver: <a href="1201.html">Datos locales</a>
+  </body>
+</html>
+

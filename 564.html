@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - Expresi&oacute;n sin sentido</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>Expresi&oacute;n sin sentido</h1>
+
+    <p>En la posici&oacute;n se&ntilde;alada en el programa el compilador ha supuesto que comenzaba
+    una sentencia de uno de estos tipos:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Asignaciones, ej.:<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dato&gt; <strong>=</strong> &lt;expresi&oacute;n&gt;
+    <strong>;</strong></p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Incrementos o decrementos, ej.:<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dato&gt; <strong>++ ;</strong></p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Llamada a un proceso o funci&oacute;n, ej.:<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;nombre_proceso&gt; <strong>(</strong> ... <strong>) ;</strong></p>
+
+    <p>Pero, en su lugar, se ha encontrado con una expresi&oacute;n que parece carecer de sentido,
+    ya que una vez efectuadas sus operaciones no se utiliza el resultado de la misma con
+    ning&uacute;n prop&oacute;sito.</p>
+
+    <p>Es probable que se trate de alg&uacute;n operador suelto que se ha dejado fuera de una
+    sentencia, por ejemplo, por haberse perdido un operador.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> mi_juego<span class="syntax3">;</span>
+<span class="syntax1">BEGIN</span>
+    x<span class="syntax3">+</span><span class="syntax2">1</span><span
+class="syntax3">;</span> <span class="syntax5">// Error: Expresi&oacute;n sin sentido.</span>
+    <span class="syntax5">//...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>En este ejemplo se advierte de este error, pues la sentencia <strong>x+1;</strong> carece de
+    utilidad, suma la variable <strong>x</strong> y la constante <strong>1</strong>, pero,
+    desp&uacute;es, no se utiliza este resultado para ning&uacute;n fin. Si lo que se quiere es
+    sumarle <strong>1</strong> a la variable <strong>x</strong> se debe hacer con la siguiente
+    sentencia:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>x=x+1;</strong></p>
+
+    <p>Aqu&iacute; se suma la variable <strong>x</strong> y la constante <strong>1</strong> y
+    despu&eacute;s se utiliza este resultado para asign&aacute;rselo a la variable
+    <strong>x</strong>; esto tamb&iacute;en se podr&iacute;a haber hecho con la sentencia
+    <strong>x++;</strong> (incrementar x).</p>
+    <hr />
+    Ver: <a href="1000.html">Sintaxis</a> - <a href="1019.html">Sentencia de asignaci&oacute;n</a>
+  </body>
+</html>
+

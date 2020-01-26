@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+
+    <title>Ayuda de DIV 2 - disk_free()</title>
+    <meta name="keywords" content="div, div2" />
+    <meta name="description" content="Ayuda en pantalla de DIV Games Studio 2" />
+    <meta http-equiv="Content-Language" content="ES" />
+    <meta name="author" content="Hammer Technologies" />
+    <meta name="copyright" content="&copy; Copyright 1998,99 Hammer Technologies" />
+    <meta name="generator" content="divhelp v0.1 &copy; 2007 Er_Makina" />
+    <meta name="robots" content="all,follow,index" />
+    <meta name="distribution" content="global" />
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="botonera">
+      <ul>
+        <li><a class="botonindice" href="indice.html">&Iacute;ndice</a></li>
+
+        <li><a class="botoninicio" href="3.html">Inicio</a></li>
+
+        <li><a class="botonglosario" href="4.html">Glosario</a></li>
+
+        <li><a class="botonfunciones" href="1032.html">Funciones</a></li>
+      </ul>
+    </div>
+
+    <h1>disk_free()</h1>
+
+    <p><strong>disk_free(</strong>&lt;unidad&gt;<strong>)</strong></p>
+
+    <p><strong>Retorna:</strong></p>
+
+    <p>El espacio libre de la unidad de disco.</p>
+
+    <p><strong>Descripci&oacute;n:</strong></p>
+
+    <p>Esta funci&oacute;n permite determinar el espacio libre de cualquier unidad de disco.</p>
+
+    <p>Se requiere el n&uacute;mero de <strong>&lt;unidad&gt;</strong> como &uacute;nico
+    par&aacute;metro, correspondi&eacute;ndose el <strong>1</strong> con la unidad
+    <strong>A:</strong>, el <strong>2</strong> con <strong>B:</strong>, <strong>3</strong> con
+    <strong>C:</strong>, etc.</p>
+
+    <p>El espacio disponible en la unidad se retorna en <strong>Kbs</strong> (en kilobytes, siendo
+    cada uno un total de 1024 bytes).</p>
+
+    <p>Se puede averiguar cual es la unidad de disco actual (en la que se est&eacute; ejecutando el
+    programo) gracias a la funci&oacute;n <a href="233.html">getdrive()</a>.</p>
+
+    <div class="ejemplo">
+      <div class="ejtitulo">
+        Programa ejemplo:
+      </div>
+<pre class="ejprograma">
+<span class="syntax1">PROGRAM</span> ejemplo_disk_free<span class="syntax3">;</span>
+
+<span class="syntax1">GLOBAL</span>
+    unidad<span class="syntax3">;</span>
+    espacio_libre<span class="syntax3">;</span>
+
+<span class="syntax1">BEGIN</span>
+    <span class="syntax5">// ...</span>
+
+    unidad<span class="syntax3">=</span>getdrive<span class="syntax3">();</span>
+    espacio_libre<span class="syntax3">=</span>disk_free<span class="syntax3">(</span>unidad<span
+class="syntax3">);</span>
+
+    <span class="syntax5">// ...</span>
+<span class="syntax1">END</span>
+</pre>
+    </div>
+    <br />
+    <br />
+
+    <p>Este programa utiliza primeramente la funci&oacute;n <a href="233.html">getdrive()</a> para
+    determinar en que unidad de disco se est&aacute; ejecutando el programa (que se almacena en la
+    variable <strong>unidad</strong>), y entonces determina el espacio libre disponible en la misma
+    con <strong>disk_free()</strong>.</p>
+    <hr />
+
+    <p>Para obtener el tama&ntilde;o de los archivos del disco se deben utilizar conjuntamente las
+    funciones <a href="231.html">get_dirinfo()</a> y <a href="232.html">get_fileinfo()</a>.</p>
+    <hr />
+
+    <p><strong>Nota:</strong> La funci&oacute;n <a href="239.html">memory_free()</a> permite
+    determinar la memoria libre, es decir, la cantidad de memoria que queda disponible para el
+    programa.</p>
+    <hr />
+    Ver: <a href="233.html">getdrive()</a> - <a href="239.html">memory_free()</a>
+  </body>
+</html>
+
